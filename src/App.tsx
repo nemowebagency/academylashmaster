@@ -1,5 +1,3 @@
-import React from 'react'
-
 function App() {
   const handleLogin = () => {
     alert('Funzionalità di accesso in arrivo!')
