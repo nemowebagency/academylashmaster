@@ -173,215 +173,211 @@ function App() {
            {/* Hero Title */}
            <div className="text-center mb-24">
              <div className="inline-block relative">
-               <h2 className="text-8xl md:text-9xl font-bold text-white mb-6 relative">
-                 <span className="bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent">
-                   Chi
-                 </span>
-                 <span className="ml-8 bg-gradient-to-r from-white via-white to-white bg-clip-text text-transparent">
-                   Sono
-                 </span>
-               </h2>
+              <h2 className="text-6xl md:text-7xl font-bold text-white mb-6 relative">
+                <span className="bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent">
+                  Chi
+                </span>
+                <span className="ml-8 bg-gradient-to-r from-white via-white to-white bg-clip-text text-transparent">
+                  Sono
+                </span>
+              </h2>
                <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 w-40 h-1 bg-gradient-to-r from-white to-white rounded-full"></div>
              </div>
-             <p className="text-2xl text-gray-300 mt-12 max-w-3xl mx-auto leading-relaxed">
-               La mia storia, la mia passione, la mia missione di trasformare sogni in realtà
+             <p className="text-2xl text-gray-300 mt-12 max-w-3xl mx-auto leading-relaxed elegant-quote">
+               Da una passione può nascere una professione, da un sogno può nascere la libertà.
              </p>
            </div>
 
-           {/* Main Content - Ana Maria's Story */}
-           <div className="grid lg:grid-cols-2 gap-24 items-start">
-             {/* Left - Image */}
-             <div className="relative group">
-               <div className="relative overflow-hidden rounded-3xl shadow-2xl">
-                 <img 
-                   src="/soggetto/person1.png"
-                   alt="Ana Maria - Founder Academy Lash Master"
-                   className="w-full h-[600px] object-contain transform transition-all duration-1000 group-hover:scale-105"
-                 />
-                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          {/* Main Content - Ana Maria's Story */}
+          <div className="space-y-24">
+            {/* Row 1: Person1 a sinistra - Riquadro Imparare a destra */}
+            <div className="grid lg:grid-cols-2 gap-24 items-center">
+              {/* Left - Immagine Person1 */}
+              <div className="relative group">
+                <div className="relative overflow-hidden rounded-3xl shadow-2xl">
+                  <img 
+                    src="/soggetto/person1.png"
+                    alt="Ana Maria - Founder Academy Lash Master"
+                    className="w-full h-[500px] object-contain transform transition-all duration-1000 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  {/* Sfocatura bordi */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-black/20"></div>
+                  <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/20"></div>
+                </div>
+                 
+                 {/* Elegant Decorative Elements */}
+                 <div className="absolute -top-8 -left-8 w-16 h-16 bg-gradient-to-br from-white to-white rounded-full animate-bounce delay-300"></div>
+                 <div className="absolute -bottom-8 -right-8 w-12 h-12 bg-gradient-to-br from-white to-white rounded-full animate-bounce delay-700"></div>
+                 <div className="absolute top-1/2 -left-12 w-8 h-8 bg-white/30 rounded-full animate-pulse delay-1000"></div>
                </div>
-               
-               {/* Elegant Decorative Elements */}
-               <div className="absolute -top-8 -left-8 w-16 h-16 bg-gradient-to-br from-white to-white rounded-full animate-bounce delay-300"></div>
-               <div className="absolute -bottom-8 -right-8 w-12 h-12 bg-gradient-to-br from-white to-white rounded-full animate-bounce delay-700"></div>
-               <div className="absolute top-1/2 -left-12 w-8 h-8 bg-white/30 rounded-full animate-pulse delay-1000"></div>
-             </div>
 
-             {/* Right - Ana Maria's Story */}
-             <div className="space-y-12">
-               {/* Introduction */}
+               {/* Right - Riquadro Imparare, crescere, trasformarsi */}
                <div className="bg-gradient-to-br from-gray-900 to-gray-800 p-10 rounded-3xl border border-gray-700 hover:border-white/30 transition-all duration-500 group">
                  <div className="flex items-center mb-8">
                    <div className="w-16 h-16 bg-gradient-to-br from-white to-white rounded-full flex items-center justify-center mr-6">
                      <span className="text-black text-2xl">👋</span>
                    </div>
                    <h3 className="text-3xl font-bold text-white group-hover:text-white transition-colors duration-300">
-                     Ciao, sono Ana Maria
+                     Imparare, crescere, trasformarsi
                    </h3>
                  </div>
                  <p className="text-gray-300 leading-relaxed text-xl">
-                   Sono una Lash Artist professionista con oltre 5 anni di esperienza nel settore beauty. 
-                   La mia passione per le extension ciglia è nata da un sogno: aiutare le donne a sentirsi 
-                   più belle e sicure di sé attraverso un tocco di eleganza naturale.
+                   La mia storia nasce da un desiderio profondo: trasformare una passione in una vera professione e offrire ad altre donne gli strumenti per fare lo stesso. Ho viaggiato, studiato e investito tempo ed energie per raccogliere le migliori conoscenze, arricchendo il mio percorso con esperienze internazionali che mi hanno permesso di crescere e portare innovazione nel mondo delle extension ciglia.
                  </p>
                </div>
+            </div>
 
+            {/* Row 2: Riquadro Oltre le parole a sinistra - Immagine Corsi a destra */}
+            <div className="grid lg:grid-cols-2 gap-24 items-center">
+              {/* Left - Riquadro Oltre le parole */}
+              <div className="bg-gradient-to-br from-gray-900 to-gray-800 p-10 rounded-3xl border border-gray-700 hover:border-white/30 transition-all duration-500 group">
+                <div className="flex items-center mb-8">
+                  <div className="w-16 h-16 bg-gradient-to-br from-white to-white rounded-full flex items-center justify-center mr-6">
+                    <span className="text-black text-2xl">🎓</span>
+                  </div>
+                  <h3 className="text-3xl font-bold text-white group-hover:text-white transition-colors duration-300">
+                    Oltre le parole: nascono i corsi
+                  </h3>
+                </div>
+                <p className="text-gray-300 leading-relaxed text-xl">
+                  I miei corsi non sono semplici lezioni tecniche, ma percorsi di crescita personale e professionale. Ogni allieva viene accompagnata passo dopo passo: dalle basi fondamentali alle competenze avanzate, dalla precisione della tecnica alla gestione del business, fino alla pratica su modella reale. A supporto del percorso formativo, metto a disposizione manuali esclusivi, materiali professionali di alta qualità e correzioni personalizzate, perché imparare non significa solo acquisire una tecnica, ma costruire fiducia, sicurezza e indipendenza.
+                </p>
+              </div>
+
+              {/* Right - Immagine Corsi */}
+              <div className="relative group">
+                <div className="relative overflow-hidden rounded-3xl shadow-2xl">
+                  <img 
+                    src="/soggetto/corsi.jpg"
+                    alt="Corsi Academy Lash Master"
+                    className="w-full h-[500px] object-cover transform transition-all duration-1000 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  {/* Sfocatura bordi */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-black/20"></div>
+                  <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/20"></div>
+                </div>
+                
+                {/* Elegant Decorative Elements per corsi */}
+                <div className="absolute -top-4 -left-4 w-12 h-12 bg-gradient-to-br from-white to-white rounded-full animate-bounce delay-200"></div>
+                <div className="absolute -bottom-4 -right-4 w-8 h-8 bg-gradient-to-br from-white to-white rounded-full animate-bounce delay-500"></div>
+                <div className="absolute top-1/2 -left-8 w-6 h-6 bg-white/30 rounded-full animate-pulse delay-800"></div>
+              </div>
+            </div>
+
+            {/* Row 3: Immagine Corso2 a sinistra - Riquadro Conoscenza a destra */}
+            <div className="grid lg:grid-cols-2 gap-24 items-center">
+              {/* Left - Immagine Corso2 */}
+              <div className="relative group">
+                <div className="relative overflow-hidden rounded-3xl shadow-2xl">
+                  <img 
+                    src="/soggetto/corso2.jpg"
+                    alt="Corso2 Academy Lash Master"
+                    className="w-full h-[500px] object-cover transform transition-all duration-1000 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  {/* Sfocatura bordi */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-black/20"></div>
+                  <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/20"></div>
+                </div>
+                
+                {/* Elegant Decorative Elements per corso2 */}
+                <div className="absolute -top-4 -left-4 w-12 h-12 bg-gradient-to-br from-white to-white rounded-full animate-bounce delay-300"></div>
+                <div className="absolute -bottom-4 -right-4 w-8 h-8 bg-gradient-to-br from-white to-white rounded-full animate-bounce delay-600"></div>
+                <div className="absolute top-1/2 -left-8 w-6 h-6 bg-white/30 rounded-full animate-pulse delay-900"></div>
+              </div>
+
+              {/* Right - Riquadro Conoscenza è potere */}
+              <div className="bg-gradient-to-br from-gray-900 to-gray-800 p-10 rounded-3xl border border-gray-700 hover:border-white/30 transition-all duration-500 group">
+                <div className="flex items-center mb-8">
+                  <div className="w-16 h-16 bg-gradient-to-br from-white to-white rounded-full flex items-center justify-center mr-6">
+                    <span className="text-black text-2xl">💡</span>
+                  </div>
+                  <h3 className="text-3xl font-bold text-white group-hover:text-white transition-colors duration-300">
+                    Conoscenza è potere
+                  </h3>
+                </div>
+                <p className="text-gray-300 leading-relaxed text-xl">
+                  Molte persone negli anni mi hanno chiesto: "Dove hai fatto i tuoi corsi?" La risposta è spesso stata all'estero, dove i programmi erano più lunghi, completi e sempre aggiornati. Non si trattava di talento, ma di opportunità. Quelle esperienze mi hanno dato accesso a tecniche innovative, strumenti concreti e materiali d'avanguardia, che oggi condivido con le mie allieve per garantire una formazione moderna e di livello internazionale.
+                </p>
+              </div>
+            </div>
+          </div>
+
+           {/* Timeline Orizzontale Progressiva */}
+           <div className="mt-24">
+             <div className="text-center mb-16">
+               <h3 className="text-4xl font-bold text-white mb-4">Il Mio Percorso</h3>
+               <p className="text-xl text-gray-300">Dalla passione alla professione, passo dopo passo</p>
+             </div>
+
+             <div className="relative">
+               {/* Linea Timeline Orizzontale */}
+               <div className="absolute top-16 left-0 right-0 h-1 bg-gradient-to-r from-white via-white to-white rounded-full"></div>
+               
+               {/* Timeline Items Orizzontali */}
+               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+                 {/* Step 1 */}
+                 <div className="text-center group">
+                   <div className="relative mb-8">
+                     <div className="w-32 h-32 bg-gradient-to-br from-white to-white rounded-full flex items-center justify-center relative z-10 group-hover:scale-110 transition-transform duration-300 mx-auto">
+                       <span className="text-black font-bold text-3xl">1</span>
+                     </div>
+                     {/* Linea di connessione */}
+                     <div className="absolute top-16 left-1/2 transform -translate-x-1/2 w-1 h-8 bg-gradient-to-b from-white to-transparent"></div>
+                   </div>
+                   <h4 className="text-xl font-semibold text-white mb-4">Gli Inizi</h4>
+                   <p className="text-gray-400 leading-relaxed">
+                     Ho iniziato come estetista tradizionale, ma quando ho scoperto il mondo delle extension ciglia, 
+                     ho capito che era la mia vera vocazione.
+                   </p>
+                 </div>
+
+                 {/* Step 2 */}
+                 <div className="text-center group">
+                   <div className="relative mb-8">
+                     <div className="w-32 h-32 bg-gradient-to-br from-white to-white rounded-full flex items-center justify-center relative z-10 group-hover:scale-110 transition-transform duration-300 mx-auto">
+                       <span className="text-black font-bold text-3xl">2</span>
+                     </div>
+                     {/* Linea di connessione */}
+                     <div className="absolute top-16 left-1/2 transform -translate-x-1/2 w-1 h-8 bg-gradient-to-b from-white to-transparent"></div>
+                   </div>
+                   <h4 className="text-xl font-semibold text-white mb-4">La Formazione</h4>
+                   <p className="text-gray-400 leading-relaxed">
+                     Ho investito anni nella formazione, studiando nelle migliori accademie internazionali. 
+                     Ho imparato tecniche innovative e materiali all'avanguardia.
+                   </p>
+                 </div>
+
+                 {/* Step 3 */}
+                 <div className="text-center group">
+                   <div className="relative mb-8">
+                     <div className="w-32 h-32 bg-gradient-to-br from-white to-white rounded-full flex items-center justify-center relative z-10 group-hover:scale-110 transition-transform duration-300 mx-auto">
+                       <span className="text-black font-bold text-3xl">3</span>
+                     </div>
+                     {/* Linea di connessione */}
+                     <div className="absolute top-16 left-1/2 transform -translate-x-1/2 w-1 h-8 bg-gradient-to-b from-white to-transparent"></div>
+                   </div>
+                   <h4 className="text-xl font-semibold text-white mb-4">Academy Lash Master</h4>
+                   <p className="text-gray-400 leading-relaxed">
+                     Oggi condivido la mia passione insegnando ad altre donne come trasformare la loro 
+                     passione in una professione di successo.
+                   </p>
+                 </div>
+               </div>
+             </div>
+
+             {/* CTA Button */}
+             <div className="text-center mt-16">
+               <button className="bg-gradient-to-r from-white to-white hover:from-white hover:to-white text-black font-bold py-5 px-12 rounded-2xl text-xl transition-all duration-300 transform hover:scale-105 shadow-2xl">
+                 Scopri i miei corsi
+               </button>
              </div>
            </div>
          </div>
        </section>
 
-       {/* About Section - Elegant & Spacious */}
-       <section className="py-32 bg-black relative overflow-hidden">
-        {/* Elegant Background */}
-        <div className="absolute inset-0">
-          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-gray-900 via-black to-gray-800"></div>
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-white/3 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-white/8 rounded-full blur-3xl animate-pulse delay-1000"></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-white/6 rounded-full blur-2xl animate-pulse delay-500"></div>
-        </div>
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          {/* Hero Title */}
-          <div className="text-center mb-24">
-            <div className="inline-block relative">
-              <h2 className="text-8xl md:text-9xl font-bold text-white mb-6 relative">
-                <span className="bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent">
-                  About
-                </span>
-                <span className="ml-8 bg-gradient-to-r from-white via-white to-white bg-clip-text text-transparent">
-                  Me
-                </span>
-              </h2>
-              <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 w-40 h-1 bg-gradient-to-r from-white to-white rounded-full"></div>
-            </div>
-            <p className="text-2xl text-gray-300 mt-12 max-w-3xl mx-auto leading-relaxed">
-              La mia storia, la mia passione, la mia missione di trasformare sogni in realtà
-            </p>
-          </div>
-
-          {/* Main Content - Better Spaced */}
-          <div className="grid lg:grid-cols-2 gap-24 items-start">
-            {/* Left - Image & Quote */}
-            <div className="space-y-16">
-              {/* Image Container */}
-              <div className="relative group">
-                <div className="relative overflow-hidden rounded-3xl shadow-2xl">
-                  <img 
-                    src="/soggetto/person1.png"
-                    alt="Professional portrait"
-                    className="w-full h-[600px] object-contain transform transition-all duration-1000 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                </div>
-                
-                {/* Elegant Decorative Elements */}
-                <div className="absolute -top-8 -left-8 w-16 h-16 bg-gradient-to-br from-white to-white rounded-full animate-bounce delay-300"></div>
-                <div className="absolute -bottom-8 -right-8 w-12 h-12 bg-gradient-to-br from-white to-white rounded-full animate-bounce delay-700"></div>
-                <div className="absolute top-1/2 -left-12 w-8 h-8 bg-white/30 rounded-full animate-pulse delay-1000"></div>
-              </div>
-
-              {/* Quote Section */}
-              <div className="relative">
-                <div className="bg-gradient-to-r from-gray-900 to-gray-800 p-10 rounded-3xl border border-gray-700 relative overflow-hidden">
-                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-white to-white"></div>
-                  <div className="text-7xl text-white absolute top-6 left-8">"</div>
-                  <p className="text-2xl text-white italic leading-relaxed pl-12 pr-6 pt-6">
-                    Da una passione può nascere una professione, da un sogno può nascere la libertà.
-                  </p>
-                  <div className="text-7xl text-white absolute bottom-6 right-8">"</div>
-                </div>
-              </div>
-            </div>
-
-            {/* Right - Content with Better Spacing */}
-            <div className="space-y-12">
-              {/* Mission Statement */}
-              <div className="bg-gradient-to-br from-gray-900 to-gray-800 p-10 rounded-3xl border border-gray-700 hover:border-white/30 transition-all duration-500 group">
-                <div className="flex items-center mb-8">
-                  <div className="w-16 h-16 bg-gradient-to-br from-white to-white rounded-full flex items-center justify-center mr-6">
-                    <span className="text-black text-2xl">✨</span>
-                  </div>
-                  <h3 className="text-3xl font-bold text-white group-hover:text-white transition-colors duration-300">
-                    La Mia Missione
-                  </h3>
-                </div>
-                <p className="text-gray-300 leading-relaxed text-xl">
-                  Trasformo la passione in professione. Accompagno le donne in un percorso di crescita 
-                  per diventare Lash Artists indipendenti e di successo, creando opportunità di libertà 
-                  economica e realizzazione personale.
-                </p>
-              </div>
-
-              {/* Journey Timeline */}
-              <div className="space-y-8">
-                <h4 className="text-2xl font-semibold text-white mb-8">Il Mio Percorso</h4>
-                
-                <div className="relative">
-                  {/* Timeline Line */}
-                  <div className="absolute left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-white to-white rounded-full"></div>
-                  
-                  {/* Timeline Items */}
-                  <div className="space-y-12">
-                    <div className="flex items-start group">
-                      <div className="w-16 h-16 bg-gradient-to-br from-white to-white rounded-full flex items-center justify-center relative z-10 group-hover:scale-110 transition-transform duration-300">
-                        <span className="text-black font-bold text-lg">1</span>
-                      </div>
-                      <div className="ml-8 flex-1">
-                        <h5 className="text-xl font-semibold text-white mb-3">Studi Internazionali</h5>
-                        <p className="text-gray-400 text-lg leading-relaxed">Formazione avanzata nelle migliori accademie del mondo, specializzandomi in tecniche innovative e materiali all'avanguardia</p>
-                      </div>
-                    </div>
-
-                    <div className="flex items-start group">
-                      <div className="w-16 h-16 bg-gradient-to-br from-white to-white rounded-full flex items-center justify-center relative z-10 group-hover:scale-110 transition-transform duration-300">
-                        <span className="text-black font-bold text-lg">2</span>
-                      </div>
-                      <div className="ml-8 flex-1">
-                        <h5 className="text-xl font-semibold text-white mb-3">Innovazione Tecnica</h5>
-                        <p className="text-gray-400 text-lg leading-relaxed">Sviluppo di tecniche innovative e materiali all'avanguardia, sempre al passo con le ultime tendenze del settore beauty</p>
-                      </div>
-                    </div>
-
-                    <div className="flex items-start group">
-                      <div className="w-16 h-16 bg-gradient-to-br from-white to-white rounded-full flex items-center justify-center relative z-10 group-hover:scale-110 transition-transform duration-300">
-                        <span className="text-black font-bold text-lg">3</span>
-                      </div>
-                      <div className="ml-8 flex-1">
-                        <h5 className="text-xl font-semibold text-white mb-3">Academy Lash Master</h5>
-                        <p className="text-gray-400 text-lg leading-relaxed">Creazione di un percorso formativo completo e personalizzato, dedicato alla crescita professionale e personale</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Stats - Better Spaced */}
-              <div className="grid grid-cols-3 gap-8">
-                <div className="text-center bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-white/30 transition-all duration-300 group">
-                  <div className="text-4xl font-bold text-white mb-3 group-hover:text-white transition-colors duration-300">500+</div>
-                  <div className="text-gray-400 text-base">Studentesse Formate</div>
-                </div>
-                <div className="text-center bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-white/30 transition-all duration-300 group">
-                  <div className="text-4xl font-bold text-white mb-3 group-hover:text-white transition-colors duration-300">5</div>
-                  <div className="text-gray-400 text-base">Anni di Esperienza</div>
-                </div>
-                <div className="text-center bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-white/30 transition-all duration-300 group">
-                  <div className="text-4xl font-bold text-white mb-3 group-hover:text-white transition-colors duration-300">100%</div>
-                  <div className="text-gray-400 text-base">Soddisfazione</div>
-                </div>
-              </div>
-
-              {/* CTA */}
-              <div className="pt-8">
-                <button className="w-full bg-gradient-to-r from-white to-white hover:from-white hover:to-white text-black font-bold py-5 px-10 rounded-2xl text-xl transition-all duration-300 transform hover:scale-105 shadow-2xl">
-                  Scopri i Miei Corsi
-          </button>
-        </div>
-      </div>
-          </div>
-        </div>
-      </section>
 
       {/* Contact Section */}
       <section id="contatti" className="py-20 bg-gradient-to-br from-gray-900 to-black">

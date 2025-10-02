@@ -30,6 +30,14 @@ h1, h2, h3, h4, h5, h6, p, span, div, a, button, input, textarea, label {
   letter-spacing: 0.5px !important;
 }
 
+/* Elegant Italic Font for Quote */
+.elegant-quote {
+  font-family: 'Playfair Display', serif !important;
+  font-style: italic !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.3px !important;
+}
+
 /* Custom Animations */
 @keyframes fadeIn {
   from {
