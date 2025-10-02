@@ -1,4 +1,14 @@
+import { useState } from 'react'
+
 function App() {
+  const [showContactForm, setShowContactForm] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    message: ''
+  });
+
   const handleEnroll = () => {
     alert('Iscriviti al corso! Contattaci per maggiori informazioni.')
   }
@@ -6,6 +16,22 @@ function App() {
   const handleContact = () => {
     alert('Contattaci per informazioni sui corsi!')
   }
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    // Qui puoi aggiungere la logica per inviare l'email
+    console.log('Form submitted:', formData);
+    alert('Grazie per il tuo interesse! Ti contatteremo presto.');
+    setShowContactForm(false);
+    setFormData({ name: '', email: '', phone: '', message: '' });
+  };
+
+  const handleInputChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
 
   return (
     <div className="min-h-screen bg-black">
@@ -22,6 +48,14 @@ function App() {
               <a href="#about" className="text-gray-300 hover:text-white transition duration-300 font-medium">Chi sono</a>
               <a href="#contatti" className="text-gray-300 hover:text-white transition duration-300 font-medium">Contatti</a>
             </nav>
+            <div className="flex items-center space-x-4">
+              <button 
+                onClick={() => setShowContactForm(true)}
+                className="bg-gradient-to-r from-gray-700 to-gray-600 text-white px-6 py-3 rounded-full font-bold hover:from-gray-600 hover:to-gray-500 transition-all duration-300 transform hover:scale-105"
+              >
+                Richiedi informazioni
+              </button>
+            </div>
           </div>
         </div>
       </header>
@@ -388,39 +422,117 @@ function App() {
       {/* Contact Section */}
       <section id="contatti" className="py-20 bg-gradient-to-br from-gray-900 to-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h3 className="text-4xl font-bold text-white mb-6">Contattaci</h3>
-          <p className="text-xl text-gray-300 mb-12 elegant-quote">Hai domande? Siamo qui per aiutarti!</p>
+          <h3 className="text-4xl font-bold text-white mb-6">Contatti</h3>
+          <p className="text-xl text-gray-300 mb-12">Hai domande? Sono qui per aiutarti!</p>
           
           <div className="grid md:grid-cols-3 gap-8 mb-12">
             <div className="text-center bg-gray-800 p-6 rounded-2xl border border-gray-700 hover:border-gray-500 transition duration-300">
-              <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-black text-2xl">📞</span>
+              <div className="w-16 h-16 bg-gradient-to-br from-gray-600 to-gray-700 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                </svg>
               </div>
               <h4 className="text-xl font-semibold text-white mb-2">Telefono</h4>
-              <p className="text-gray-300">+39 123 456 7890</p>
+              <p className="text-gray-300">+39 3533165390</p>
             </div>
             <div className="text-center bg-gray-800 p-6 rounded-2xl border border-gray-700 hover:border-gray-500 transition duration-300">
-              <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-black text-2xl">✉️</span>
+              <div className="w-16 h-16 bg-gradient-to-br from-gray-600 to-gray-700 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                </svg>
               </div>
               <h4 className="text-xl font-semibold text-white mb-2">Email</h4>
               <p className="text-gray-300">info@academylashmaster.com</p>
             </div>
             <div className="text-center bg-gray-800 p-6 rounded-2xl border border-gray-700 hover:border-gray-500 transition duration-300">
-              <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-black text-2xl">📍</span>
+              <div className="w-16 h-16 bg-gradient-to-br from-gray-600 to-gray-700 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                </svg>
               </div>
               <h4 className="text-xl font-semibold text-white mb-2">Indirizzo</h4>
               <p className="text-gray-300">Via Roma 123, Milano</p>
             </div>
           </div>
 
-          <button
-            onClick={handleContact}
-            className="bg-white hover:bg-gray-100 text-black font-bold py-4 px-8 rounded-lg text-lg transition duration-300 ease-in-out transform hover:scale-105 shadow-2xl"
-          >
-            Richiedi Informazioni
+          {/* Contact Form */}
+          <div className="mt-16">
+            <div className="text-center mb-8">
+              <h3 className="text-3xl font-bold text-white mb-4">Richiedi Informazioni</h3>
+              <p className="text-lg text-gray-300">Compila il form per ricevere tutte le informazioni sui miei corsi</p>
+            </div>
+            
+            <div className="bg-gray-900 rounded-3xl p-8 max-w-2xl mx-auto">
+              <div className="text-center mb-8">
+                <h4 className="text-2xl font-bold text-white mb-2">Invia un Messaggio</h4>
+                <p className="text-gray-300">Compila il form per richiedere informazioni sui nostri corsi</p>
+              </div>
+              
+              <form onSubmit={handleFormSubmit} className="space-y-6">
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <label className="block text-white text-sm font-medium mb-2">Nome *</label>
+                    <input
+                      type="text"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-white transition-colors"
+                      placeholder="Il tuo nome"
+                    />
+                  </div>
+                  
+                  <div>
+                    <label className="block text-white text-sm font-medium mb-2">Email *</label>
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-white transition-colors"
+                      placeholder="la.tua@email.com"
+                    />
+                  </div>
+                </div>
+                
+                <div>
+                  <label className="block text-white text-sm font-medium mb-2">Telefono</label>
+                  <input
+                    type="tel"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-white transition-colors"
+                    placeholder="+39 123 456 7890"
+                  />
+                </div>
+                
+                <div>
+                  <label className="block text-white text-sm font-medium mb-2">Messaggio *</label>
+                  <textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    required
+                    rows={4}
+                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-white transition-colors resize-none"
+                    placeholder="Dimmi di più sui corsi che ti interessano..."
+                  />
+                </div>
+                
+                <div className="text-center">
+                  <button
+                    type="submit"
+                    className="bg-white text-black px-8 py-4 rounded-xl font-bold hover:bg-gray-200 transition-colors transform hover:scale-105"
+                  >
+                    Invia Messaggio
           </button>
+                </div>
+              </form>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -448,6 +560,92 @@ function App() {
           <p className="text-gray-500 text-sm">&copy; 2024 Academy Lash Master. Tutti i diritti riservati.</p>
       </div>
       </footer>
+
+      {/* Contact Form Modal */}
+      {showContactForm && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+          <div className="bg-gray-900 rounded-3xl p-8 max-w-md w-full max-h-[90vh] overflow-y-auto">
+            <div className="flex justify-between items-center mb-6">
+              <h3 className="text-2xl font-bold text-white elegant-quote">Richiedi Informazioni</h3>
+              <button 
+                onClick={() => setShowContactForm(false)}
+                className="text-gray-400 hover:text-white text-2xl"
+              >
+                ×
+              </button>
+            </div>
+            
+            <form onSubmit={handleFormSubmit} className="space-y-6">
+              <div>
+                <label className="block text-white text-sm font-medium mb-2">Nome *</label>
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
+                  required
+                  className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-white transition-colors"
+                  placeholder="Il tuo nome"
+                />
+              </div>
+              
+              <div>
+                <label className="block text-white text-sm font-medium mb-2">Email *</label>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  required
+                  className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-white transition-colors"
+                  placeholder="la.tua@email.com"
+                />
+              </div>
+              
+              <div>
+                <label className="block text-white text-sm font-medium mb-2">Telefono</label>
+                <input
+                  type="tel"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleInputChange}
+                  className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-white transition-colors"
+                  placeholder="+39 123 456 7890"
+                />
+              </div>
+              
+              <div>
+                <label className="block text-white text-sm font-medium mb-2">Messaggio *</label>
+                <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleInputChange}
+                  required
+                  rows={4}
+                  className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-white transition-colors resize-none"
+                  placeholder="Dimmi di più sui corsi che ti interessano..."
+                />
+              </div>
+              
+              <div className="flex space-x-4">
+                <button
+                  type="button"
+                  onClick={() => setShowContactForm(false)}
+                  className="flex-1 px-6 py-3 bg-gray-700 text-white rounded-xl font-medium hover:bg-gray-600 transition-colors"
+                >
+                  Annulla
+                </button>
+                <button
+                  type="submit"
+                  className="flex-1 px-6 py-3 bg-white text-black rounded-xl font-bold hover:bg-gray-200 transition-colors"
+                >
+                  Invia Richiesta
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
