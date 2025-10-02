@@ -2,13 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Global Font */
+/* Global Font - Force Inter everywhere */
 * {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', sans-serif !important;
 }
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', sans-serif !important;
+}
+
+/* Override any serif fonts */
+.font-serif {
+  font-family: 'Inter', sans-serif !important;
+}
+
+/* Ensure all text elements use Inter */
+h1, h2, h3, h4, h5, h6, p, span, div, a, button, input, textarea, label {
+  font-family: 'Inter', sans-serif !important;
+}
+
+/* Custom Simple Font for Signature */
+.playwrite-signature {
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 300 !important;
+  font-style: italic !important;
+  font-size: 0.9rem !important;
+  letter-spacing: 0.5px !important;
 }
 
 /* Custom Animations */
