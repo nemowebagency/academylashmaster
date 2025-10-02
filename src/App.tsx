@@ -34,27 +34,45 @@ function App() {
         </div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center">
-            <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">
-              Diventa un <span className="text-white bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">Master</span> delle Extension Ciglia
-            </h2>
-            <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
-              Impara le tecniche professionali per l'applicazione delle extension ciglia. 
-              Corsi certificati per diventare un tecnico esperto nel settore beauty.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button
-                onClick={handleEnroll}
-                className="bg-white hover:bg-gray-100 text-black font-bold py-4 px-8 rounded-lg text-lg transition duration-300 ease-in-out transform hover:scale-105 shadow-2xl"
-              >
-                Iscriviti Ora
-              </button>
-              <button
-                onClick={handleContact}
-                className="bg-transparent hover:bg-white hover:text-black text-white font-bold py-4 px-8 rounded-lg text-lg border-2 border-white transition duration-300 ease-in-out transform hover:scale-105 shadow-lg"
-              >
-                Scopri di Più
-              </button>
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            {/* Left side - Text content */}
+            <div className="text-center md:text-left">
+              <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">
+                Diventa un <span className="text-white bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">Master</span> delle Extension Ciglia
+              </h2>
+              <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto md:mx-0">
+                Impara le tecniche professionali per l'applicazione delle extension ciglia. 
+                Corsi certificati per diventare un tecnico esperto nel settore beauty.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                <button
+                  onClick={handleEnroll}
+                  className="bg-white hover:bg-gray-100 text-black font-bold py-4 px-8 rounded-lg text-lg transition duration-300 ease-in-out transform hover:scale-105 shadow-2xl"
+                >
+                  Iscriviti Ora
+                </button>
+                <button
+                  onClick={handleContact}
+                  className="bg-transparent hover:bg-white hover:text-black text-white font-bold py-4 px-8 rounded-lg text-lg border-2 border-white transition duration-300 ease-in-out transform hover:scale-105 shadow-lg"
+                >
+                  Scopri di Più
+                </button>
+              </div>
+            </div>
+            
+            {/* Right side - Image */}
+            <div className="flex justify-center md:justify-end">
+              <div className="relative group">
+                <img 
+                  src="/background/girl1.png" 
+                  alt="Academy Lash Master" 
+                  className="w-80 h-96 md:w-96 md:h-[28rem] object-cover rounded-2xl shadow-2xl transform transition-all duration-700 hover:scale-105 hover:shadow-3xl"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                {/* Floating decorative elements */}
+                <div className="absolute -top-4 -right-4 w-8 h-8 bg-white rounded-full animate-bounce delay-300"></div>
+                <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-gray-300 rounded-full animate-bounce delay-700"></div>
+              </div>
             </div>
           </div>
         </div>
