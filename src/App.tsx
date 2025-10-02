@@ -55,7 +55,7 @@ function App() {
               <h2 className="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
                 Diventa un <span className="text-white bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">Master</span> delle Extension Ciglia
               </h2>
-              <p className="text-xl text-gray-200 mb-8 leading-relaxed">
+              <p className="text-xl text-gray-200 mb-8 leading-relaxed elegant-quote">
                 Impara le tecniche professionali per l'applicazione delle extension ciglia. 
                 Corsi certificati per diventare un tecnico esperto nel settore beauty.
               </p>
@@ -86,7 +86,7 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h3 className="text-4xl font-bold text-white mb-4">I Nostri Corsi</h3>
-            <p className="text-xl text-gray-300">Formazione professionale per ogni livello</p>
+            <p className="text-xl text-gray-300 elegant-quote">Formazione professionale per ogni livello</p>
           </div>
           
           <div className="grid md:grid-cols-3 gap-8">
@@ -215,9 +215,11 @@ function App() {
                {/* Right - Riquadro Imparare, crescere, trasformarsi */}
                <div className="bg-gradient-to-br from-gray-900 to-gray-800 p-10 rounded-3xl border border-gray-700 hover:border-white/30 transition-all duration-500 group">
                  <div className="flex items-center mb-8">
-                   <div className="w-16 h-16 bg-gradient-to-br from-white to-white rounded-full flex items-center justify-center mr-6">
-                     <span className="text-black text-2xl">👋</span>
-                   </div>
+                     <div className="w-16 h-16 bg-gradient-to-br from-gray-600 to-gray-700 rounded-full flex items-center justify-center mr-6">
+                       <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                         <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
+                       </svg>
+                     </div>
                    <h3 className="text-3xl font-bold text-white group-hover:text-white transition-colors duration-300">
                      Imparare, crescere, trasformarsi
                    </h3>
@@ -233,9 +235,11 @@ function App() {
               {/* Left - Riquadro Oltre le parole */}
               <div className="bg-gradient-to-br from-gray-900 to-gray-800 p-10 rounded-3xl border border-gray-700 hover:border-white/30 transition-all duration-500 group">
                 <div className="flex items-center mb-8">
-                  <div className="w-16 h-16 bg-gradient-to-br from-white to-white rounded-full flex items-center justify-center mr-6">
-                    <span className="text-black text-2xl">🎓</span>
-                  </div>
+                   <div className="w-16 h-16 bg-gradient-to-br from-gray-600 to-gray-700 rounded-full flex items-center justify-center mr-6">
+                     <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                       <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 75.75 75.75 0 01-.44-.01C3.119 13.547 3 12.75 3 12c0-.75.119-1.547.95-2.603zM6.02 15.33a8.987 8.987 0 004.5-1.508 8.987 8.987 0 004.5 1.508 8.987 8.987 0 01-4.5 1.508 8.987 8.987 0 01-4.5-1.508z" />
+                     </svg>
+                   </div>
                   <h3 className="text-3xl font-bold text-white group-hover:text-white transition-colors duration-300">
                     Oltre le parole: nascono i corsi
                   </h3>
@@ -291,9 +295,11 @@ function App() {
               {/* Right - Riquadro Conoscenza è potere */}
               <div className="bg-gradient-to-br from-gray-900 to-gray-800 p-10 rounded-3xl border border-gray-700 hover:border-white/30 transition-all duration-500 group">
                 <div className="flex items-center mb-8">
-                  <div className="w-16 h-16 bg-gradient-to-br from-white to-white rounded-full flex items-center justify-center mr-6">
-                    <span className="text-black text-2xl">💡</span>
-                  </div>
+                   <div className="w-16 h-16 bg-gradient-to-br from-gray-600 to-gray-700 rounded-full flex items-center justify-center mr-6">
+                     <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                       <path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clipRule="evenodd" />
+                     </svg>
+                   </div>
                   <h3 className="text-3xl font-bold text-white group-hover:text-white transition-colors duration-300">
                     Conoscenza è potere
                   </h3>
@@ -309,7 +315,7 @@ function App() {
            <div className="mt-24">
              <div className="text-center mb-16">
                <h3 className="text-4xl font-bold text-white mb-4">Il Mio Percorso</h3>
-               <p className="text-xl text-gray-300">Dalla passione alla professione, passo dopo passo</p>
+               <p className="text-xl text-gray-300 elegant-quote">Dalla passione alla professione, passo dopo passo</p>
              </div>
 
              <div className="relative">
@@ -383,7 +389,7 @@ function App() {
       <section id="contatti" className="py-20 bg-gradient-to-br from-gray-900 to-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h3 className="text-4xl font-bold text-white mb-6">Contattaci</h3>
-          <p className="text-xl text-gray-300 mb-12">Hai domande? Siamo qui per aiutarti!</p>
+          <p className="text-xl text-gray-300 mb-12 elegant-quote">Hai domande? Siamo qui per aiutarti!</p>
           
           <div className="grid md:grid-cols-3 gap-8 mb-12">
             <div className="text-center bg-gray-800 p-6 rounded-2xl border border-gray-700 hover:border-gray-500 transition duration-300">
