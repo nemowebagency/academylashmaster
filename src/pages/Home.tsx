@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import ScrollToTop from '../components/ScrollToTop'
+import WhatsAppButton from '../components/WhatsAppButton'
 
 const Home = () => {
   const [showContactForm, setShowContactForm] = useState(false);
@@ -11,10 +12,6 @@ const Home = () => {
     phone: '',
     message: ''
   });
-
-  const handleEnroll = () => {
-    alert('Iscriviti al corso! Contattaci per maggiori informazioni.')
-  }
 
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -45,7 +42,7 @@ const Home = () => {
             
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex space-x-8">
-              <a href="#corsi" className="text-gray-300 hover:text-white transition duration-300 font-medium">Corsi</a>
+              <Link to="/corsi" className="text-gray-300 hover:text-white transition duration-300 font-medium">Corsi</Link>
               <a href="#about" className="text-gray-300 hover:text-white transition duration-300 font-medium">Chi sono</a>
               <Link to="/contatti" className="text-gray-300 hover:text-white transition duration-300 font-medium">Contatti</Link>
             </nav>
@@ -80,13 +77,13 @@ const Home = () => {
           {isMobileMenuOpen && (
             <div className="lg:hidden border-t border-gray-800 py-4">
               <nav className="flex flex-col space-y-4">
-                <a 
-                  href="#corsi" 
+                <Link 
+                  to="/corsi" 
                   className="text-gray-300 hover:text-white transition duration-300 font-medium py-2"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Corsi
-                </a>
+                </Link>
                 <a 
                   href="#about" 
                   className="text-gray-300 hover:text-white transition duration-300 font-medium py-2"
@@ -150,12 +147,12 @@ const Home = () => {
                 Corsi certificati per diventare un tecnico esperto nel settore beauty.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
-                <button
-                  onClick={handleEnroll}
-                  className="bg-white hover:bg-gray-100 text-black font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-lg text-base sm:text-lg transition duration-300 ease-in-out transform hover:scale-105 shadow-2xl"
+                <Link
+                  to="/corsi"
+                  className="bg-white hover:bg-gray-100 text-black font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-lg text-base sm:text-lg transition duration-300 ease-in-out transform hover:scale-105 shadow-2xl inline-block text-center"
                 >
-                  Iscriviti Ora
-                </button>
+                  Scopri di più
+                </Link>
                 <a
                   href="#about"
                   className="bg-transparent hover:bg-white hover:text-black text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-lg text-base sm:text-lg border-2 border-white transition duration-300 ease-in-out transform hover:scale-105 shadow-lg inline-block text-center"
@@ -230,7 +227,7 @@ const Home = () => {
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-gray-900 to-black p-6 sm:p-8 rounded-2xl shadow-2xl hover:shadow-white/10 border border-gray-700 hover:border-gray-500 transition duration-300">
+            <div className="bg-gradient-to-br from-gray-900 to-gray-800 p-6 sm:p-8 rounded-2xl shadow-2xl hover:shadow-white/10 border border-gray-700 hover:border-gray-500 transition duration-300">
               <div className="text-center">
                 <div className="w-12 h-12 sm:w-16 sm:h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
                   <span className="text-black text-xl sm:text-2xl">👑</span>
@@ -727,6 +724,7 @@ const Home = () => {
           </div>
         </div>
       )}
+      <WhatsAppButton />
       <ScrollToTop />
     </div>
   );

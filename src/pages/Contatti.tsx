@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import ScrollToTop from '../components/ScrollToTop';
+import WhatsAppButton from '../components/WhatsAppButton';
 
 const Contatti = () => {
   const [formData, setFormData] = useState({
@@ -381,6 +382,7 @@ const Contatti = () => {
           <p className="text-gray-500 text-xs sm:text-sm">&copy; 2024 Academy Lash Master. Tutti i diritti riservati.</p>
         </div>
       </footer>
+      <WhatsAppButton />
       <ScrollToTop />
     </div>
   );
