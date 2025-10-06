@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import ScrollToTop from '../components/ScrollToTop'
 import WhatsAppButton from '../components/WhatsAppButton'
@@ -28,6 +28,19 @@ const Home = () => {
       [e.target.name]: e.target.value
     });
   };
+
+  // Gestisce lo scroll automatico quando si arriva con l'hash
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash) {
+      const element = document.getElementById(hash.substring(1));
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      }
+    }
+  }, []);
 
   return (
     <div className="min-h-screen bg-black">

@@ -11,11 +11,38 @@ const Contatti = () => {
     messaggio: ''
   });
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [showContactForm, setShowContactForm] = useState(false);
+  const [modalFormData, setModalFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    message: ''
+  });
+
+  const handleNavigateToAbout = () => {
+    window.location.href = '/#about';
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     alert('Messaggio inviato! Ti contatteremo presto.');
     setFormData({ nome: '', email: '', telefono: '', messaggio: '' });
+  };
+
+  const handleModalFormSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log('Modal form submitted:', modalFormData);
+    alert('Grazie per il tuo interesse! Ti contatteremo presto.');
+    setShowContactForm(false);
+    setModalFormData({ name: '', email: '', phone: '', message: '' });
+  };
+
+  const handleModalInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setModalFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -41,14 +68,14 @@ const Contatti = () => {
             <nav className="hidden lg:flex space-x-8">
               <Link to="/" className="text-gray-300 hover:text-white transition duration-300 font-medium">Home</Link>
               <Link to="/corsi" className="text-gray-300 hover:text-white transition duration-300 font-medium">Corsi</Link>
-              <a href="/#about" className="text-gray-300 hover:text-white transition duration-300 font-medium">Chi sono</a>
+              <button onClick={handleNavigateToAbout} className="text-gray-300 hover:text-white transition duration-300 font-medium bg-transparent border-none cursor-pointer">Chi sono</button>
               <Link to="/contatti" className="text-white font-medium">Contatti</Link>
             </nav>
             
             {/* Desktop CTA Button */}
             <div className="hidden lg:flex items-center space-x-4">
-              <button 
-                onClick={() => window.scrollTo({ top: document.getElementById('contact-form')?.offsetTop || 0, behavior: 'smooth' })}
+              <button
+                onClick={() => setShowContactForm(true)}
                 className="bg-gradient-to-r from-gray-700 to-gray-600 text-white px-4 lg:px-6 py-2 lg:py-3 rounded-full font-bold hover:from-gray-600 hover:to-gray-500 transition-all duration-300 transform hover:scale-105 text-sm lg:text-base"
               >
                 Richiedi informazioni
@@ -89,13 +116,15 @@ const Contatti = () => {
                 >
                   Corsi
                 </Link>
-                <a 
-                  href="/#about" 
-                  className="text-gray-300 hover:text-white transition duration-300 font-medium py-2"
-                  onClick={() => setIsMobileMenuOpen(false)}
+                <button 
+                  onClick={() => {
+                    handleNavigateToAbout();
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className="text-gray-300 hover:text-white transition duration-300 font-medium py-2 bg-transparent border-none cursor-pointer text-left"
                 >
                   Chi sono
-                </a>
+                </button>
                 <Link 
                   to="/contatti" 
                   className="text-white font-medium py-2"
@@ -103,9 +132,9 @@ const Contatti = () => {
                 >
                   Contatti
                 </Link>
-                <button 
+                <button
                   onClick={() => {
-                    window.scrollTo({ top: document.getElementById('contact-form')?.offsetTop || 0, behavior: 'smooth' });
+                    setShowContactForm(true);
                     setIsMobileMenuOpen(false);
                   }}
                   className="bg-gradient-to-r from-gray-700 to-gray-600 text-white px-6 py-3 rounded-full font-bold hover:from-gray-600 hover:to-gray-500 transition-all duration-300 transform hover:scale-105 text-center mt-4"
@@ -382,6 +411,105 @@ const Contatti = () => {
           <p className="text-gray-500 text-xs sm:text-sm">&copy; 2024 Academy Lash Master. Tutti i diritti riservati.</p>
         </div>
       </footer>
+
+      {/* Contact Form Modal */}
+      {showContactForm && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+          <div className="bg-gray-900 rounded-2xl sm:rounded-3xl p-6 sm:p-8 max-w-md w-full max-h-[90vh] overflow-y-auto">
+            <div className="flex justify-between items-center mb-6">
+              <h3 className="text-xl sm:text-2xl font-bold text-white elegant-quote">Richiedi Informazioni</h3>
+              <button 
+                onClick={() => setShowContactForm(false)}
+                className="text-gray-400 hover:text-white text-xl sm:text-2xl"
+              >
+                ×
+              </button>
+            </div>
+            
+            <form onSubmit={handleModalFormSubmit} className="space-y-4 sm:space-y-6">
+              <div>
+                <label htmlFor="modal-name" className="block text-sm font-medium text-gray-300 mb-2">
+                  Nome Completo *
+                </label>
+                <input
+                  type="text"
+                  id="modal-name"
+                  name="name"
+                  value={modalFormData.name}
+                  onChange={handleModalInputChange}
+                  required
+                  className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-gray-800 border border-gray-600 rounded-lg sm:rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-sm sm:text-base"
+                  placeholder="Il tuo nome completo"
+                />
+              </div>
+              
+              <div>
+                <label htmlFor="modal-email" className="block text-sm font-medium text-gray-300 mb-2">
+                  Email *
+                </label>
+                <input
+                  type="email"
+                  id="modal-email"
+                  name="email"
+                  value={modalFormData.email}
+                  onChange={handleModalInputChange}
+                  required
+                  className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-gray-800 border border-gray-600 rounded-lg sm:rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-sm sm:text-base"
+                  placeholder="la.tua@email.com"
+                />
+              </div>
+              
+              <div>
+                <label htmlFor="modal-phone" className="block text-sm font-medium text-gray-300 mb-2">
+                  Telefono
+                </label>
+                <input
+                  type="tel"
+                  id="modal-phone"
+                  name="phone"
+                  value={modalFormData.phone}
+                  onChange={handleModalInputChange}
+                  className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-gray-800 border border-gray-600 rounded-lg sm:rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-sm sm:text-base"
+                  placeholder="+39 123 456 7890"
+                />
+              </div>
+              
+              <div>
+                <label htmlFor="modal-message" className="block text-sm font-medium text-gray-300 mb-2">
+                  Messaggio *
+                </label>
+                <textarea
+                  id="modal-message"
+                  name="message"
+                  value={modalFormData.message}
+                  onChange={handleModalInputChange}
+                  required
+                  rows={4}
+                  className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-gray-800 border border-gray-600 rounded-lg sm:rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-sm sm:text-base resize-none"
+                  placeholder="Dimmi di più sui corsi che ti interessano..."
+                />
+              </div>
+              
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2">
+                <button
+                  type="submit"
+                  className="flex-1 px-4 sm:px-6 py-2 sm:py-3 bg-white text-black rounded-lg sm:rounded-xl font-bold hover:bg-gray-200 transition-colors text-sm sm:text-base"
+                >
+                  Invia Richiesta
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setShowContactForm(false)}
+                  className="flex-1 px-4 sm:px-6 py-2 sm:py-3 bg-gray-700 text-white rounded-lg sm:rounded-xl font-medium hover:bg-gray-600 transition-colors text-sm sm:text-base"
+                >
+                  Annulla
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+
       <WhatsAppButton />
       <ScrollToTop />
     </div>
