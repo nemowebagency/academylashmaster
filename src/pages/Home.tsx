@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import ScrollToTop from '../components/ScrollToTop'
 
 const Home = () => {
   const [showContactForm, setShowContactForm] = useState(false);
@@ -195,7 +196,10 @@ const Home = () => {
                   <li>• Materiali e strumenti</li>
                   <li>• Certificazione inclusa</li>
                 </ul>
-                <button className="w-full bg-white hover:bg-gray-100 text-black font-semibold py-2 sm:py-3 px-4 sm:px-6 rounded-lg transition duration-300 text-sm sm:text-base">
+                <button 
+                  onClick={() => document.getElementById('corsi')?.scrollIntoView({ behavior: 'smooth' })}
+                  className="w-full bg-white hover:bg-gray-100 text-black font-semibold py-2 sm:py-3 px-4 sm:px-6 rounded-lg transition duration-300 text-sm sm:text-base"
+                >
                   Scopri di Più
                 </button>
               </div>
@@ -217,7 +221,10 @@ const Home = () => {
                   <li>• Gestione clientela</li>
                   <li>• Business nel beauty</li>
                 </ul>
-                <button className="w-full bg-white hover:bg-gray-100 text-black font-semibold py-2 sm:py-3 px-4 sm:px-6 rounded-lg transition duration-300 text-sm sm:text-base">
+                <button 
+                  onClick={() => document.getElementById('corsi')?.scrollIntoView({ behavior: 'smooth' })}
+                  className="w-full bg-white hover:bg-gray-100 text-black font-semibold py-2 sm:py-3 px-4 sm:px-6 rounded-lg transition duration-300 text-sm sm:text-base"
+                >
                   Scopri di Più
                 </button>
               </div>
@@ -239,7 +246,10 @@ const Home = () => {
                   <li>• Marketing beauty</li>
                   <li>• Supporto continuo</li>
                 </ul>
-                <button className="w-full bg-white hover:bg-gray-100 text-black font-semibold py-2 sm:py-3 px-4 sm:px-6 rounded-lg transition duration-300 text-sm sm:text-base">
+                <button 
+                  onClick={() => document.getElementById('corsi')?.scrollIntoView({ behavior: 'smooth' })}
+                  className="w-full bg-white hover:bg-gray-100 text-black font-semibold py-2 sm:py-3 px-4 sm:px-6 rounded-lg transition duration-300 text-sm sm:text-base"
+                >
                   Scopri di Più
                 </button>
               </div>
@@ -465,7 +475,10 @@ const Home = () => {
 
              {/* CTA Button */}
              <div className="text-center mt-12 sm:mt-16">
-               <button className="bg-gradient-to-r from-white to-white hover:from-white hover:to-white text-black font-bold py-3 sm:py-4 lg:py-5 px-8 sm:px-10 lg:px-12 rounded-2xl text-lg sm:text-xl transition-all duration-300 transform hover:scale-105 shadow-2xl">
+               <button 
+                 onClick={() => document.getElementById('corsi')?.scrollIntoView({ behavior: 'smooth' })}
+                 className="bg-gradient-to-r from-white to-white hover:from-white hover:to-white text-black font-bold py-3 sm:py-4 lg:py-5 px-8 sm:px-10 lg:px-12 rounded-2xl text-lg sm:text-xl transition-all duration-300 transform hover:scale-105 shadow-2xl"
+               >
                  Scopri i miei corsi
                </button>
              </div>
@@ -714,6 +727,7 @@ const Home = () => {
           </div>
         </div>
       )}
+      <ScrollToTop />
     </div>
   );
 };

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import ScrollToTop from '../components/ScrollToTop';
 
 const Contatti = () => {
   const [formData, setFormData] = useState({
@@ -39,7 +40,7 @@ const Contatti = () => {
             <nav className="hidden lg:flex space-x-8">
               <Link to="/" className="text-gray-300 hover:text-white transition duration-300 font-medium">Home</Link>
               <Link to="/corsi" className="text-gray-300 hover:text-white transition duration-300 font-medium">Corsi</Link>
-              <a href="/about" className="text-gray-300 hover:text-white transition duration-300 font-medium">Chi Siamo</a>
+              <a href="/#about" className="text-gray-300 hover:text-white transition duration-300 font-medium">Chi sono</a>
               <Link to="/contatti" className="text-white font-medium">Contatti</Link>
             </nav>
             
@@ -88,11 +89,11 @@ const Contatti = () => {
                   Corsi
                 </Link>
                 <a 
-                  href="/about" 
+                  href="/#about" 
                   className="text-gray-300 hover:text-white transition duration-300 font-medium py-2"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  Chi Siamo
+                  Chi sono
                 </a>
                 <Link 
                   to="/contatti" 
@@ -380,6 +381,7 @@ const Contatti = () => {
           <p className="text-gray-500 text-xs sm:text-sm">&copy; 2024 Academy Lash Master. Tutti i diritti riservati.</p>
         </div>
       </footer>
+      <ScrollToTop />
     </div>
   );
 };

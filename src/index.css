@@ -17,7 +17,17 @@ body {
 }
 
 /* Ensure all text elements use Inter */
-h1, h2, h3, h4, h5, h6, p, span, div, a, button, input, textarea, label {
+h1, h2, h3, h4, h5, h6, p, span, div, a, button, input, textarea, label, li, ul, ol, strong, em, small, code, pre, blockquote {
+  font-family: 'Inter', sans-serif !important;
+}
+
+/* Override any Tailwind font classes */
+.font-sans, .font-serif, .font-mono {
+  font-family: 'Inter', sans-serif !important;
+}
+
+/* Ensure all components use Inter */
+[class*="text-"], [class*="font-"] {
   font-family: 'Inter', sans-serif !important;
 }
 
@@ -30,9 +40,9 @@ h1, h2, h3, h4, h5, h6, p, span, div, a, button, input, textarea, label {
   letter-spacing: 0.5px !important;
 }
 
-/* Elegant Italic Font for Quote */
+/* Elegant Italic Font for Quote - Now using Inter */
 .elegant-quote {
-  font-family: 'Playfair Display', serif !important;
+  font-family: 'Inter', sans-serif !important;
   font-style: italic !important;
   font-weight: 400 !important;
   letter-spacing: 0.3px !important;
