@@ -10,6 +10,7 @@ const Home = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [trail, setTrail] = useState<Array<{ x: number; y: number; id: number }>>([]);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
   const location = useLocation();
   const [formData, setFormData] = useState({
     name: '',
@@ -52,6 +53,7 @@ const Home = () => {
     const handleScroll = () => {
       const scrollTop = window.scrollY;
       setIsScrolled(scrollTop > 50);
+      setScrollY(scrollTop);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -413,6 +415,23 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Quote Section */}
+                <section className="py-16 sm:py-20 lg:py-24 bg-black relative overflow-hidden">
+                  <div className="w-[90%] mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="text-center">
+                      <p 
+                        className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal text-white leading-tight transform transition-transform duration-75 ease-out"
+                        style={{
+                          transform: `translateY(${scrollY * -0.1 + 120}px)`,
+                          opacity: Math.max(0, 1 - (scrollY - 1400) / 600),
+                        }}
+                      >
+                        "Da una passione può nascere una <span className="font-bold">professione</span>, da un sogno può nascere la <span className="font-bold">libertà"</span>.
+                      </p>
+                    </div>
+                  </div>
+                </section>
+
       {/* Chi Sono Section - Ana Maria's Story */}
       <section id="about" className="py-16 sm:py-24 lg:py-32 bg-black relative overflow-hidden">
         {/* Elegant Background */}
@@ -423,24 +442,16 @@ const Home = () => {
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-36 sm:w-56 lg:w-72 h-36 sm:h-56 lg:h-72 bg-white/6 rounded-full blur-2xl animate-pulse delay-500"></div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="w-[90%] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Hero Title */}
-          <div className="text-center mb-16 sm:mb-20 lg:mb-24">
-            <div className="inline-block relative">
-              <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 sm:mb-6 relative">
-                <span className="bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent">
-                  Chi
-                </span>
-                <span className="ml-4 sm:ml-6 lg:ml-8 bg-gradient-to-r from-white via-white to-white bg-clip-text text-transparent">
-                  Sono
-                </span>
-              </h2>
-               <div className="absolute -bottom-3 sm:-bottom-4 lg:-bottom-6 left-1/2 transform -translate-x-1/2 w-24 sm:w-32 lg:w-40 h-1 bg-gradient-to-r from-white to-white rounded-full"></div>
-             </div>
-             <p className="text-lg sm:text-xl lg:text-2xl text-gray-300 mt-8 sm:mt-10 lg:mt-12 max-w-3xl mx-auto leading-relaxed elegant-quote">
-               Da una passione può nascere una professione, da un sogno può nascere la libertà.
-             </p>
-           </div>
+          <div className="text-right mb-16 sm:mb-20 lg:mb-24">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-light text-white mb-4">
+              <span className="font-light">Chi</span> <span className="font-bold">sono</span>
+            </h2>
+            <p className="text-lg sm:text-xl text-white font-light">
+              Da una passione può nascere una professione, da un sogno può nascere la libertà.
+            </p>
+          </div>
 
           {/* Main Content - Ana Maria's Story */}
           <div className="space-y-16 sm:space-y-20 lg:space-y-24">
