@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import ScrollToTop from '../components/ScrollToTop'
@@ -84,7 +84,25 @@ const Home = () => {
   // }, []);
 
   return (
-    <div className="min-h-screen bg-black relative overflow-hidden">
+    <>
+      {/* Promo Banner */}
+      <div className="bg-white text-black py-2 overflow-hidden fixed top-0 left-0 right-0 z-50">
+        <div className="flex animate-scroll-infinite">
+          <div className="flex items-center space-x-8 whitespace-nowrap">
+            {[...Array(10)].map((_, i) => (
+              <React.Fragment key={i}>
+                <span className="text-sm font-medium">
+                  PROMO: Per i primi clienti è disponibile un 10% di sconto!
+                </span>
+                <span className="text-sm font-medium">•</span>
+              </React.Fragment>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div className="min-h-screen bg-black relative overflow-hidden">
+
       {/* Scia Magica del Cursore - TEMPORANEAMENTE DISABILITATA */}
       {/* {trail.map((point, index) => {
         const opacity = (index + 1) / trail.length;
@@ -111,7 +129,7 @@ const Home = () => {
       })} */}
       
       {/* Header */}
-      <header className={`fixed top-0 left-0 right-0 z-50 bg-black border-b border-gray-800 shadow-2xl transition-all duration-300 ${isScrolled ? 'bg-opacity-50 backdrop-blur-sm' : 'bg-opacity-100'}`}>
+      <header className={`fixed top-10 left-0 right-0 z-40 bg-black border-b border-gray-800 shadow-2xl transition-all duration-300 ${isScrolled ? 'bg-opacity-50 backdrop-blur-sm' : 'bg-opacity-100'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-1 sm:py-1.5">
             <div className="flex items-center">
@@ -883,7 +901,8 @@ const Home = () => {
       )}
       <WhatsAppButton />
       <ScrollToTop />
-    </div>
+      </div>
+    </>
   );
 };
 
