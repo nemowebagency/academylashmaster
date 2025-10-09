@@ -432,11 +432,11 @@ const Home = () => {
       </section>
 
       {/* Quote Section */}
-                <section className="py-16 sm:py-20 lg:py-24 bg-black relative overflow-hidden">
+                <section className="py-16 sm:py-20 lg:py-24 bg-white relative overflow-hidden">
                   <div className="w-[90%] mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center">
                       <p 
-                        className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal text-white leading-tight transform transition-transform duration-75 ease-out"
+                        className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal text-black leading-tight transform transition-transform duration-75 ease-out"
                         style={{
                           transform: `translateY(${scrollY * -0.1 + 120}px)`,
                           opacity: Math.max(0, 1 - (scrollY - 1400) / 600),
@@ -449,58 +449,44 @@ const Home = () => {
                 </section>
 
       {/* Chi Sono Section - Ana Maria's Story */}
+      <section id="about" className="bg-black relative min-h-[80vh]">
+        {/* Immagine attaccata al bottom */}
+        <div className="absolute bottom-0 left-0 w-1/2 -mt-24 sm:-mt-32 lg:-mt-56 xl:-mt-64">
+          {/* Palla bianca dietro l'immagine */}
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-white rounded-full opacity-20"></div>
+          <img 
+            src="/soggetto/person1.png"
+            alt="Ana Maria - Founder Academy Lash Master"
+            className="w-full h-[500px] sm:h-[600px] lg:h-[700px] xl:h-[800px] object-contain relative z-10"
+          />
+        </div>
+        
+        {/* Testo centrato verticalmente */}
+        <div className="absolute inset-0 flex items-center justify-end">
+          <div className="w-1/2 pr-16 lg:pr-24 xl:pr-32 flex flex-col justify-center">
+            <p className="text-sm uppercase text-white font-medium mb-4 tracking-wider">
+              CHI SONO
+            </p>
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6">
+              Imparare, crescere, trasformarsi
+            </h2>
+            <p className="text-lg sm:text-xl text-white font-light leading-relaxed text-justify" style={{textAlignLast: 'left'}}>
+              La mia storia nasce da un desiderio profondo: trasformare una passione in una vera professione e offrire ad altre donne gli strumenti per fare lo stesso. Ho viaggiato, studiato e investito tempo ed energie per raccogliere le migliori conoscenze, arricchendo il mio percorso con esperienze internazionali che mi hanno permesso di crescere e portare innovazione nel mondo delle extension ciglia.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Sezione vuota bianca */}
+      <section className="py-16 sm:py-20 lg:py-24 bg-white">
+      </section>
+
+      {/* Chi Sono Section - Ana Maria's Story */}
       <section id="about" className="py-16 sm:py-24 lg:py-32 bg-black relative overflow-hidden">
 
         <div className="w-[90%] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          {/* Hero Title */}
-          <div className="text-right mb-16 sm:mb-20 lg:mb-24">
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4">
-              Chi sono
-            </h2>
-          </div>
-
           {/* Main Content - Ana Maria's Story */}
           <div className="space-y-16 sm:space-y-20 lg:space-y-24">
-            {/* Row 1: Person1 a sinistra - Riquadro Imparare a destra */}
-            <div className="grid lg:grid-cols-2 gap-12 sm:gap-16 lg:gap-24 items-center">
-              {/* Left - Immagine Person1 */}
-              <div className="relative group order-2 lg:order-1">
-                <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl shadow-2xl">
-                  <img 
-                    src="/soggetto/person1.png"
-                    alt="Ana Maria - Founder Academy Lash Master"
-                    className="w-full h-[300px] sm:h-[400px] lg:h-[500px] object-contain transform transition-all duration-1000 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  {/* Sfocatura bordi */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-black/20"></div>
-                  <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/20"></div>
-                </div>
-                 
-                 {/* Elegant Decorative Elements */}
-                 <div className="absolute -top-4 sm:-top-6 lg:-top-8 -left-4 sm:-left-6 lg:-left-8 w-8 sm:w-12 lg:w-16 h-8 sm:h-12 lg:h-16 bg-gradient-to-br from-white to-white rounded-full animate-bounce delay-300"></div>
-                 <div className="absolute -bottom-4 sm:-bottom-6 lg:-bottom-8 -right-4 sm:-right-6 lg:-right-8 w-6 sm:w-10 lg:w-12 h-6 sm:h-10 lg:h-12 bg-gradient-to-br from-white to-white rounded-full animate-bounce delay-700"></div>
-                 <div className="absolute top-1/2 -left-6 sm:-left-8 lg:-left-12 w-4 sm:w-6 lg:w-8 h-4 sm:h-6 lg:h-8 bg-white/30 rounded-full animate-pulse delay-1000"></div>
-               </div>
-
-               {/* Right - Riquadro Imparare, crescere, trasformarsi */}
-               <div className="bg-gradient-to-br from-gray-900 to-gray-800 p-6 sm:p-8 lg:p-10 rounded-2xl sm:rounded-3xl border border-gray-700 hover:border-white/30 transition-all duration-500 group order-1 lg:order-2">
-                 <div className="flex items-center mb-6 sm:mb-8">
-                     <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-gray-600 to-gray-700 rounded-full flex items-center justify-center mr-4 sm:mr-6">
-                       <svg className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
-                         <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
-                       </svg>
-                     </div>
-                   <h3 className="text-2xl sm:text-3xl font-bold text-white group-hover:text-white transition-colors duration-300">
-                     Imparare, crescere, trasformarsi
-                   </h3>
-                 </div>
-                 <p className="text-gray-300 leading-relaxed text-base sm:text-lg lg:text-xl">
-                   La mia storia nasce da un desiderio profondo: trasformare una passione in una vera professione e offrire ad altre donne gli strumenti per fare lo stesso. Ho viaggiato, studiato e investito tempo ed energie per raccogliere le migliori conoscenze, arricchendo il mio percorso con esperienze internazionali che mi hanno permesso di crescere e portare innovazione nel mondo delle extension ciglia.
-                 </p>
-               </div>
-            </div>
-
             {/* Row 2: Riquadro Oltre le parole a sinistra - Immagine Corsi a destra */}
             <div className="grid lg:grid-cols-2 gap-12 sm:gap-16 lg:gap-24 items-center">
               {/* Left - Riquadro Oltre le parole */}
