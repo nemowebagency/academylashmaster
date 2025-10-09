@@ -1,0 +1,69 @@
+.neon-cursor-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.cursor-main {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(2px);
+  box-shadow: 
+    0 0 10px rgba(255, 255, 255, 0.5),
+    0 0 20px rgba(255, 255, 255, 0.3),
+    0 0 30px rgba(255, 255, 255, 0.1);
+}
+
+.cursor-trail {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(1px);
+  box-shadow: 
+    0 0 15px rgba(255, 255, 255, 0.4),
+    0 0 25px rgba(255, 255, 255, 0.2);
+}
+
+.cursor-glow {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.05) 50%,
+    transparent 100%
+  );
+  box-shadow: 
+    0 0 20px rgba(255, 255, 255, 0.3),
+    0 0 40px rgba(255, 255, 255, 0.1);
+}
+
+/* Nascondi il cursore di default */
+* {
+  cursor: none !important;
+}
+
+/* Mostra il cursore neon solo su desktop */
+@media (max-width: 768px) {
+  .neon-cursor-container {
+    display: none;
+  }
+  
+  * {
+    cursor: auto !important;
+  }
+}
