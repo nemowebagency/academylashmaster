@@ -1,5 +1,3 @@
-import { useNavigate } from 'react-router-dom';
-
 export const navigateToSection = (path: string, sectionId?: string) => {
   if (path === '/' && sectionId) {
     // Se siamo già nella Home, scorri alla sezione

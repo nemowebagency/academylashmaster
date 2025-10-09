@@ -7,8 +7,6 @@ import WhatsAppButton from '../components/WhatsAppButton'
 const Home = () => {
   const [showContactForm, setShowContactForm] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [trail, setTrail] = useState<Array<{ x: number; y: number; id: number }>>([]);
   const [isScrolled, setIsScrolled] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const location = useLocation();

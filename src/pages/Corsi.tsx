@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import ScrollToTop from '../components/ScrollToTop';
 import WhatsAppButton from '../components/WhatsAppButton';
 
