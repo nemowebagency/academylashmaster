@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import ScrollToTop from '../components/ScrollToTop'
 import WhatsAppButton from '../components/WhatsAppButton'
@@ -10,6 +10,7 @@ const Home = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [trail, setTrail] = useState<Array<{ x: number; y: number; id: number }>>([]);
   const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -123,9 +124,22 @@ const Home = () => {
             
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex space-x-8">
-              <Link to="/corsi" className="text-white hover:text-yellow-400 transition-all duration-500 ease-out font-medium text-sm">Corsi</Link>
-              <a href="#about" className="text-white hover:text-yellow-400 transition-all duration-500 ease-out font-medium text-sm">Chi sono</a>
-              <Link to="/contatti" className="text-white hover:text-yellow-400 transition-all duration-500 ease-out font-medium text-sm">Contatti</Link>
+              <Link to="/" className="text-white hover:text-yellow-400 transition-all duration-500 ease-out font-medium text-sm relative group">
+                Home
+                <span className={`absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-1 h-1 rounded-full transition-opacity duration-300 ${location.pathname === '/' ? 'bg-white opacity-100' : 'bg-yellow-400 opacity-0 group-hover:opacity-100'}`}></span>
+              </Link>
+              <Link to="/corsi" className="text-white hover:text-yellow-400 transition-all duration-500 ease-out font-medium text-sm relative group">
+                Corsi
+                <span className={`absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-1 h-1 rounded-full transition-opacity duration-300 ${location.pathname === '/corsi' ? 'bg-white opacity-100' : 'bg-yellow-400 opacity-0 group-hover:opacity-100'}`}></span>
+              </Link>
+              <a href="#about" className="text-white hover:text-yellow-400 transition-all duration-500 ease-out font-medium text-sm relative group">
+                Chi sono
+                <span className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-yellow-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+              </a>
+              <Link to="/contatti" className="text-white hover:text-yellow-400 transition-all duration-500 ease-out font-medium text-sm relative group">
+                Contatti
+                <span className={`absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-1 h-1 rounded-full transition-opacity duration-300 ${location.pathname === '/contatti' ? 'bg-white opacity-100' : 'bg-yellow-400 opacity-0 group-hover:opacity-100'}`}></span>
+              </Link>
             </nav>
             
             {/* Desktop CTA Button */}
@@ -161,25 +175,36 @@ const Home = () => {
             <div className="lg:hidden border-t border-gray-800 py-4">
               <nav className="flex flex-col space-y-4">
                 <Link 
+                  to="/" 
+                  className="text-white hover:text-yellow-400 transition-all duration-500 ease-out font-medium py-2 text-sm relative group"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Home
+                  <span className={`absolute -bottom-1 left-0 w-1 h-1 rounded-full transition-opacity duration-300 ${location.pathname === '/' ? 'bg-white opacity-100' : 'bg-yellow-400 opacity-0 group-hover:opacity-100'}`}></span>
+                </Link>
+                <Link 
                   to="/corsi" 
-                  className="text-white hover:text-yellow-400 transition-all duration-500 ease-out font-medium py-2 text-sm"
+                  className="text-white hover:text-yellow-400 transition-all duration-500 ease-out font-medium py-2 text-sm relative group"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Corsi
+                  <span className={`absolute -bottom-1 left-0 w-1 h-1 rounded-full transition-opacity duration-300 ${location.pathname === '/corsi' ? 'bg-white opacity-100' : 'bg-yellow-400 opacity-0 group-hover:opacity-100'}`}></span>
                 </Link>
                 <a 
                   href="#about" 
-                  className="text-white hover:text-yellow-400 transition-all duration-500 ease-out font-medium py-2 text-sm"
+                  className="text-white hover:text-yellow-400 transition-all duration-500 ease-out font-medium py-2 text-sm relative group"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Chi sono
+                  <span className="absolute -bottom-1 left-0 w-1 h-1 bg-yellow-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
                 </a>
                 <Link 
                   to="/contatti" 
-                  className="text-white hover:text-yellow-400 transition-all duration-500 ease-out font-medium py-2 text-sm"
+                  className="text-white hover:text-yellow-400 transition-all duration-500 ease-out font-medium py-2 text-sm relative group"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Contatti
+                  <span className={`absolute -bottom-1 left-0 w-1 h-1 rounded-full transition-opacity duration-300 ${location.pathname === '/contatti' ? 'bg-white opacity-100' : 'bg-yellow-400 opacity-0 group-hover:opacity-100'}`}></span>
                 </Link>
                 <button 
                   onClick={() => {
@@ -212,7 +237,7 @@ const Home = () => {
         <div className="absolute inset-0 bg-black bg-opacity-40"></div>
         
         {/* Gradient Overlay for better text readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/40 to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-black/85 via-black/40 to-transparent"></div>
         
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -234,7 +259,7 @@ const Home = () => {
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center">
               <Link
                 to="/corsi"
-                className="bg-white text-black px-3 lg:px-4 py-1.5 lg:py-2 rounded-full font-medium text-sm flex items-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110"
+                className="bg-white text-black px-8 py-4 rounded-full font-medium text-base flex items-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110"
               >
                 <span className="relative z-10">Scopri di più</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-500 ease-out relative z-10" />
@@ -242,7 +267,7 @@ const Home = () => {
               </Link>
               <a
                 href="#about"
-                className="bg-transparent text-white px-3 lg:px-4 py-1.5 lg:py-2 rounded-full text-sm border border-white flex items-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110 hover:border-transparent"
+                className="bg-transparent text-white px-8 py-4 rounded-full text-base border border-white flex items-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110 hover:border-transparent"
               >
                 <span className="relative z-10">Chi sono</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-500 ease-out relative z-10" />
@@ -254,86 +279,134 @@ const Home = () => {
       </section>
 
       {/* Features Section */}
-      <section id="corsi" className="py-12 sm:py-16 lg:py-20 bg-black">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 sm:mb-16">
-            <h3 className="text-3xl sm:text-4xl font-bold text-white mb-4">I Nostri Corsi</h3>
-            <p className="text-lg sm:text-xl text-gray-300 elegant-quote">Formazione professionale per ogni livello</p>
+      <section id="corsi" className="py-12 sm:py-16 lg:py-20" style={{ backgroundColor: '#F3F3F3' }}>
+        <div className="w-[90%] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-left mb-12 sm:mb-16">
+            <h3 className="text-4xl sm:text-5xl md:text-6xl font-light text-black mb-4">I nostri corsi <span className="font-bold text-black">professionali</span></h3>
+            <p className="text-lg sm:text-xl text-black font-light">Formazione professionale per ogni livello</p>
           </div>
           
           <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            <div className="bg-gradient-to-br from-gray-900 to-gray-800 p-6 sm:p-8 rounded-2xl shadow-2xl hover:shadow-white/10 border border-gray-700 hover:border-gray-500 transition duration-300">
-              <div className="text-center">
-                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
-                  <span className="text-black text-xl sm:text-2xl">👁️</span>
-                </div>
-                <h4 className="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4">Corso Base</h4>
-                <p className="text-gray-300 mb-4 sm:mb-6 text-sm sm:text-base">
+            <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-lg hover:shadow-xl border border-gray-200 hover:border-gray-300 transition-all duration-300 ease-out hover:scale-105">
+              <div>
+                <h4 className="text-3xl sm:text-4xl font-bold text-black mb-3 sm:mb-4 text-left">Corso Base</h4>
+                <p className="text-black font-light mb-4 sm:mb-6 text-sm sm:text-base">
                   Impara le tecniche fondamentali per l'applicazione delle extension ciglia. 
                   Perfetto per principianti.
                 </p>
-                <ul className="text-left text-gray-300 space-y-1 sm:space-y-2 mb-4 sm:mb-6 text-sm sm:text-base">
-                  <li>• Teoria delle extension</li>
-                  <li>• Tecniche di applicazione</li>
-                  <li>• Materiali e strumenti</li>
-                  <li>• Certificazione inclusa</li>
+                <ul className="text-left text-gray-600 space-y-1 sm:space-y-2 mb-4 sm:mb-6 text-sm sm:text-base">
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-black rounded-full flex-shrink-0"></span>
+                    <span>Teoria delle extension</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-black rounded-full flex-shrink-0"></span>
+                    <span>Tecniche di applicazione</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-black rounded-full flex-shrink-0"></span>
+                    <span>Materiali e strumenti</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-black rounded-full flex-shrink-0"></span>
+                    <span>Certificazione inclusa</span>
+                  </li>
                 </ul>
-                <button 
-                  onClick={() => document.getElementById('corsi')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="w-full bg-white hover:bg-gray-100 text-black font-semibold py-2 sm:py-3 px-4 sm:px-6 rounded-lg transition duration-300 text-sm sm:text-base"
+                <div 
+                  className="mt-4 w-full h-80 rounded-lg relative bg-cover bg-center bg-no-repeat flex items-end justify-start p-4"
+                  style={{ backgroundImage: 'url(/soggetto/c1.jpg)' }}
                 >
-                  Scopri di Più
-                </button>
+                  <button 
+                    onClick={() => document.getElementById('corsi')?.scrollIntoView({ behavior: 'smooth' })}
+                    className="bg-black text-white px-8 py-4 rounded-full font-medium text-base flex items-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110"
+                  >
+                    <span className="relative z-10">Scopri di più</span>
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-500 ease-out relative z-10" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
+                  </button>
+                </div>
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-6 sm:p-8 rounded-2xl shadow-2xl hover:shadow-white/10 border border-gray-700 hover:border-gray-500 transition duration-300">
-              <div className="text-center">
-                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
-                  <span className="text-black text-xl sm:text-2xl">✨</span>
-                </div>
-                <h4 className="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4">Corso Avanzato</h4>
-                <p className="text-gray-300 mb-4 sm:mb-6 text-sm sm:text-base">
+            <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-lg hover:shadow-xl border border-gray-200 hover:border-gray-300 transition-all duration-300 ease-out hover:scale-105">
+              <div>
+                <h4 className="text-3xl sm:text-4xl font-bold text-black mb-3 sm:mb-4 text-left">Corso Avanzato</h4>
+                <p className="text-black font-light mb-4 sm:mb-6 text-sm sm:text-base">
                   Tecniche avanzate e specializzazioni per diventare un vero professionista 
                   del settore.
                 </p>
-                <ul className="text-left text-gray-300 space-y-1 sm:space-y-2 mb-4 sm:mb-6 text-sm sm:text-base">
-                  <li>• Volume e Mega Volume</li>
-                  <li>• Tecniche creative</li>
-                  <li>• Gestione clientela</li>
-                  <li>• Business nel beauty</li>
+                <ul className="text-left text-gray-600 space-y-1 sm:space-y-2 mb-4 sm:mb-6 text-sm sm:text-base">
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-black rounded-full flex-shrink-0"></span>
+                    <span>Volume e Mega Volume</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-black rounded-full flex-shrink-0"></span>
+                    <span>Tecniche creative</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-black rounded-full flex-shrink-0"></span>
+                    <span>Gestione clientela</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-black rounded-full flex-shrink-0"></span>
+                    <span>Business nel beauty</span>
+                  </li>
                 </ul>
-                <button 
-                  onClick={() => document.getElementById('corsi')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="w-full bg-white hover:bg-gray-100 text-black font-semibold py-2 sm:py-3 px-4 sm:px-6 rounded-lg transition duration-300 text-sm sm:text-base"
+                <div 
+                  className="mt-4 w-full h-80 rounded-lg relative bg-cover bg-center bg-no-repeat flex items-end justify-start p-4"
+                  style={{ backgroundImage: 'url(/soggetto/c2.jpg)' }}
                 >
-                  Scopri di Più
-                </button>
+                  <button 
+                    onClick={() => document.getElementById('corsi')?.scrollIntoView({ behavior: 'smooth' })}
+                    className="bg-black text-white px-8 py-4 rounded-full font-medium text-base flex items-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110"
+                  >
+                    <span className="relative z-10">Scopri di più</span>
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-500 ease-out relative z-10" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
+                  </button>
+                </div>
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-gray-900 to-gray-800 p-6 sm:p-8 rounded-2xl shadow-2xl hover:shadow-white/10 border border-gray-700 hover:border-gray-500 transition duration-300">
-              <div className="text-center">
-                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
-                  <span className="text-black text-xl sm:text-2xl">👑</span>
-                </div>
-                <h4 className="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4">Master Class</h4>
-                <p className="text-gray-300 mb-4 sm:mb-6 text-sm sm:text-base">
+            <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-lg hover:shadow-xl border border-gray-200 hover:border-gray-300 transition-all duration-300 ease-out hover:scale-105">
+              <div>
+                <h4 className="text-3xl sm:text-4xl font-bold text-black mb-3 sm:mb-4 text-left">Master Class</h4>
+                <p className="text-black font-light mb-4 sm:mb-6 text-sm sm:text-base">
                   Il corso più completo per diventare un vero Master delle extension ciglia 
                   e aprire la propria attività.
                 </p>
-                <ul className="text-left text-gray-300 space-y-1 sm:space-y-2 mb-4 sm:mb-6 text-sm sm:text-base">
-                  <li>• Tutte le tecniche</li>
-                  <li>• Gestione business</li>
-                  <li>• Marketing beauty</li>
-                  <li>• Supporto continuo</li>
+                <ul className="text-left text-gray-600 space-y-1 sm:space-y-2 mb-4 sm:mb-6 text-sm sm:text-base">
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-black rounded-full flex-shrink-0"></span>
+                    <span>Tutte le tecniche</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-black rounded-full flex-shrink-0"></span>
+                    <span>Gestione business</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-black rounded-full flex-shrink-0"></span>
+                    <span>Marketing beauty</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-black rounded-full flex-shrink-0"></span>
+                    <span>Supporto continuo</span>
+                  </li>
                 </ul>
-                <button 
-                  onClick={() => document.getElementById('corsi')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="w-full bg-white hover:bg-gray-100 text-black font-semibold py-2 sm:py-3 px-4 sm:px-6 rounded-lg transition duration-300 text-sm sm:text-base"
+                <div 
+                  className="mt-4 w-full h-80 rounded-lg relative bg-cover bg-center bg-no-repeat flex items-end justify-start p-4"
+                  style={{ backgroundImage: 'url(/soggetto/c3.jpg)' }}
                 >
-                  Scopri di Più
-                </button>
+                  <button 
+                    onClick={() => document.getElementById('corsi')?.scrollIntoView({ behavior: 'smooth' })}
+                    className="bg-black text-white px-8 py-4 rounded-full font-medium text-base flex items-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110"
+                  >
+                    <span className="relative z-10">Scopri di più</span>
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-500 ease-out relative z-10" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -633,7 +706,7 @@ const Home = () => {
               
               <form onSubmit={handleFormSubmit} className="space-y-4 sm:space-y-6">
                 <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-                  <div>
+                  <div className="relative z-10">
                     <label className="block text-white text-sm font-medium mb-2">Nome *</label>
                     <input
                       type="text"
@@ -646,7 +719,7 @@ const Home = () => {
                     />
                   </div>
                   
-                  <div>
+                  <div className="relative z-10">
                     <label className="block text-white text-sm font-medium mb-2">Email *</label>
                     <input
                       type="email"
@@ -660,7 +733,7 @@ const Home = () => {
                   </div>
                 </div>
                 
-                <div>
+                <div className="relative z-10">
                   <label className="block text-white text-sm font-medium mb-2">Telefono</label>
                   <input
                     type="tel"
@@ -672,7 +745,7 @@ const Home = () => {
                   />
                 </div>
                 
-                <div>
+                <div className="relative z-10">
                   <label className="block text-white text-sm font-medium mb-2">Messaggio *</label>
                   <textarea
                     name="message"
@@ -739,7 +812,7 @@ const Home = () => {
             </div>
             
             <form onSubmit={handleFormSubmit} className="space-y-4 sm:space-y-6">
-              <div>
+              <div className="relative z-10">
                 <label className="block text-white text-sm font-medium mb-2">Nome *</label>
                 <input
                   type="text"
@@ -752,7 +825,7 @@ const Home = () => {
                 />
               </div>
               
-              <div>
+              <div className="relative z-10">
                 <label className="block text-white text-sm font-medium mb-2">Email *</label>
                 <input
                   type="email"
@@ -765,7 +838,7 @@ const Home = () => {
                 />
               </div>
               
-              <div>
+              <div className="relative z-10">
                 <label className="block text-white text-sm font-medium mb-2">Telefono</label>
                 <input
                   type="tel"
@@ -777,7 +850,7 @@ const Home = () => {
                 />
               </div>
               
-              <div>
+              <div className="relative z-10">
                 <label className="block text-white text-sm font-medium mb-2">Messaggio *</label>
                 <textarea
                   name="message"
