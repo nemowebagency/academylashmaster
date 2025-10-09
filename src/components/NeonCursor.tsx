@@ -105,21 +105,6 @@ const NeonCursor = () => {
         }}
         initial={false}
       />
-
-      <motion.div
-        className="cursor-glow"
-        animate={{
-          x: position.x - 30,
-          y: position.y - 30,
-        }}
-        transition={{
-          type: 'spring',
-          damping: 40,
-          stiffness: 150,
-          mass: 1,
-        }}
-        initial={false}
-      />
     </div>
   );
 };

@@ -164,3 +164,14 @@ h1, h2, h3, h4, h5, h6, p, span, div, a, button, input, textarea, label, li, ul,
 .group-hover\:rotate-y-180:hover {
   transform: rotateY(180deg);
 }
+
+/* Colore di selezione del testo - stesso colore dell'hover navbar */
+::selection {
+  background-color: #fbbf24; /* yellow-400 - stesso colore dell'hover navbar */
+  color: #000000; /* testo nero per contrasto */
+}
+
+::-moz-selection {
+  background-color: #fbbf24; /* yellow-400 - stesso colore dell'hover navbar */
+  color: #000000; /* testo nero per contrasto */
+}

@@ -219,7 +219,9 @@ const Home = () => {
         </div>
       </header>
 
-      {/* Hero Section */}
+      {/* ===========================================
+          HERO SECTION - Sezione principale con immagine di sfondo
+          =========================================== */}
       <section className="relative overflow-hidden h-screen flex items-center" style={{marginTop: '32px'}}>
         {/* Background Image */}
         <div 
@@ -274,7 +276,9 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Features Section */}
+      {/* ===========================================
+          CORSI SECTION - Sezione con i corsi professionali
+          =========================================== */}
       <section id="corsi" className="py-12 sm:py-16 lg:py-20" style={{ backgroundColor: '#F3F3F3' }}>
         <div className="w-[90%] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-left mb-12 sm:mb-16">
@@ -409,7 +413,9 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Quote Section */}
+      {/* ===========================================
+          QUOTE SECTION - Sezione con frase motivazionale e effetto parallax
+          =========================================== */}
                 <section className="py-16 sm:py-20 lg:py-24 bg-white relative overflow-hidden">
                   <div className="w-[90%] mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center">
@@ -426,7 +432,9 @@ const Home = () => {
                   </div>
                 </section>
 
-      {/* Chi Sono Section - Ana Maria's Story */}
+      {/* ===========================================
+          CHI SONO SECTION - Sezione con immagine e testo di Ana Maria
+          =========================================== */}
       <section id="about" className="bg-black relative min-h-[80vh]">
         {/* Immagine attaccata al bottom */}
         <div className="absolute bottom-0 left-0 w-1/2 -mt-24 sm:-mt-32 lg:-mt-56 xl:-mt-64">
@@ -455,11 +463,91 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Sezione vuota bianca */}
-      <section className="py-16 sm:py-20 lg:py-24 bg-white">
+      {/* ===========================================
+          IL MIO PERCORSO SECTION - Timeline del percorso di Ana Maria
+          =========================================== */}
+      <section className="py-16 sm:py-20 lg:py-24 bg-white relative overflow-hidden">
+        <div className="w-[90%] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12 sm:mb-16">
+            <p className="text-sm uppercase text-black font-medium mb-4 tracking-wider">
+              IL MIO PERCORSO
+            </p>
+            <h3 className="text-4xl sm:text-5xl md:text-6xl font-bold text-black mb-4">Dalla passione alla professione, passo dopo passo</h3>
+          </div>
+
+          <div className="relative">
+            {/* Linea Timeline Orizzontale - Hidden on mobile */}
+            <div className="hidden md:block absolute top-16 left-0 right-0 h-1 bg-gradient-to-r from-black via-black to-black rounded-full"></div>
+            
+            {/* Timeline Items Orizzontali */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12 relative">
+              {/* Step 1 */}
+              <div className="text-center group">
+                <div className="relative mb-6 sm:mb-8">
+                  <div className="w-20 h-20 sm:w-24 sm:h-24 lg:w-32 lg:h-32 bg-gradient-to-br from-black to-black rounded-full flex items-center justify-center relative z-10 group-hover:scale-110 transition-transform duration-300 mx-auto">
+                    <span className="text-white font-bold text-xl sm:text-2xl lg:text-3xl">1</span>
+                  </div>
+                  {/* Linea di connessione - Hidden on mobile */}
+                  <div className="hidden md:block absolute top-16 left-1/2 transform -translate-x-1/2 w-1 h-8 bg-gradient-to-b from-black to-transparent"></div>
+                </div>
+                <h4 className="text-lg sm:text-xl font-semibold text-black mb-3 sm:mb-4">Gli Inizi</h4>
+                <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
+                  Ho iniziato come estetista tradizionale, ma quando ho scoperto il mondo delle extension ciglia, 
+                  ho capito che era la mia vera vocazione.
+                </p>
+              </div>
+
+              {/* Step 2 */}
+              <div className="text-center group">
+                <div className="relative mb-6 sm:mb-8">
+                  <div className="w-20 h-20 sm:w-24 sm:h-24 lg:w-32 lg:h-32 bg-gradient-to-br from-black to-black rounded-full flex items-center justify-center relative z-10 group-hover:scale-110 transition-transform duration-300 mx-auto">
+                    <span className="text-white font-bold text-xl sm:text-2xl lg:text-3xl">2</span>
+                  </div>
+                  {/* Linea di connessione - Hidden on mobile */}
+                  <div className="hidden md:block absolute top-16 left-1/2 transform -translate-x-1/2 w-1 h-8 bg-gradient-to-b from-black to-transparent"></div>
+                </div>
+                <h4 className="text-lg sm:text-xl font-semibold text-black mb-3 sm:mb-4">La Formazione</h4>
+                <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
+                  Ho investito anni nella formazione, studiando nelle migliori accademie internazionali. 
+                  Ho imparato tecniche innovative e materiali all'avanguardia.
+                </p>
+              </div>
+
+              {/* Step 3 */}
+              <div className="text-center group">
+                <div className="relative mb-6 sm:mb-8">
+                  <div className="w-20 h-20 sm:w-24 sm:h-24 lg:w-32 lg:h-32 bg-gradient-to-br from-black to-black rounded-full flex items-center justify-center relative z-10 group-hover:scale-110 transition-transform duration-300 mx-auto">
+                    <span className="text-white font-bold text-xl sm:text-2xl lg:text-3xl">3</span>
+                  </div>
+                  {/* Linea di connessione - Hidden on mobile */}
+                  <div className="hidden md:block absolute top-16 left-1/2 transform -translate-x-1/2 w-1 h-8 bg-gradient-to-b from-black to-transparent"></div>
+                </div>
+                <h4 className="text-lg sm:text-xl font-semibold text-black mb-3 sm:mb-4">Academy Lash Master</h4>
+                <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
+                  Oggi condivido la mia passione insegnando ad altre donne come trasformare la loro 
+                  passione in una professione di successo.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* CTA Button */}
+          <div className="text-center mt-12 sm:mt-16">
+            <button 
+              onClick={() => document.getElementById('corsi')?.scrollIntoView({ behavior: 'smooth' })}
+              className="bg-black text-white px-8 py-4 rounded-full font-medium text-base flex items-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110 mx-auto"
+            >
+              <span className="relative z-10">Scopri i miei corsi</span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-500 ease-out relative z-10" />
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
+            </button>
+          </div>
+        </div>
       </section>
 
-      {/* Chi Sono Section - Ana Maria's Story */}
+      
+
+      {/* altri Section - Ana Maria's Story */}
       <section id="about" className="py-16 sm:py-24 lg:py-32 bg-black relative overflow-hidden">
 
         <div className="w-[90%] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -549,81 +637,6 @@ const Home = () => {
          </div>
        </section>
 
-      {/* Il Mio Percorso Section */}
-      <section className="py-16 sm:py-20 lg:py-24 bg-black relative overflow-hidden">
-        <div className="w-[90%] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 sm:mb-16">
-            <h3 className="text-3xl sm:text-4xl font-bold text-white mb-4">Il Mio Percorso</h3>
-            <p className="text-lg sm:text-xl text-gray-300 elegant-quote">Dalla passione alla professione, passo dopo passo</p>
-          </div>
-
-          <div className="relative">
-            {/* Linea Timeline Orizzontale - Hidden on mobile */}
-            <div className="hidden md:block absolute top-16 left-0 right-0 h-1 bg-gradient-to-r from-white via-white to-white rounded-full"></div>
-            
-            {/* Timeline Items Orizzontali */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12 relative">
-              {/* Step 1 */}
-              <div className="text-center group">
-                <div className="relative mb-6 sm:mb-8">
-                  <div className="w-20 h-20 sm:w-24 sm:h-24 lg:w-32 lg:h-32 bg-gradient-to-br from-white to-white rounded-full flex items-center justify-center relative z-10 group-hover:scale-110 transition-transform duration-300 mx-auto">
-                    <span className="text-black font-bold text-xl sm:text-2xl lg:text-3xl">1</span>
-                  </div>
-                  {/* Linea di connessione - Hidden on mobile */}
-                  <div className="hidden md:block absolute top-16 left-1/2 transform -translate-x-1/2 w-1 h-8 bg-gradient-to-b from-white to-transparent"></div>
-                </div>
-                <h4 className="text-lg sm:text-xl font-semibold text-white mb-3 sm:mb-4">Gli Inizi</h4>
-                <p className="text-gray-400 leading-relaxed text-sm sm:text-base">
-                  Ho iniziato come estetista tradizionale, ma quando ho scoperto il mondo delle extension ciglia, 
-                  ho capito che era la mia vera vocazione.
-                </p>
-              </div>
-
-              {/* Step 2 */}
-              <div className="text-center group">
-                <div className="relative mb-6 sm:mb-8">
-                  <div className="w-20 h-20 sm:w-24 sm:h-24 lg:w-32 lg:h-32 bg-gradient-to-br from-white to-white rounded-full flex items-center justify-center relative z-10 group-hover:scale-110 transition-transform duration-300 mx-auto">
-                    <span className="text-black font-bold text-xl sm:text-2xl lg:text-3xl">2</span>
-                  </div>
-                  {/* Linea di connessione - Hidden on mobile */}
-                  <div className="hidden md:block absolute top-16 left-1/2 transform -translate-x-1/2 w-1 h-8 bg-gradient-to-b from-white to-transparent"></div>
-                </div>
-                <h4 className="text-lg sm:text-xl font-semibold text-white mb-3 sm:mb-4">La Formazione</h4>
-                <p className="text-gray-400 leading-relaxed text-sm sm:text-base">
-                  Ho investito anni nella formazione, studiando nelle migliori accademie internazionali. 
-                  Ho imparato tecniche innovative e materiali all'avanguardia.
-                </p>
-              </div>
-
-              {/* Step 3 */}
-              <div className="text-center group">
-                <div className="relative mb-6 sm:mb-8">
-                  <div className="w-20 h-20 sm:w-24 sm:h-24 lg:w-32 lg:h-32 bg-gradient-to-br from-white to-white rounded-full flex items-center justify-center relative z-10 group-hover:scale-110 transition-transform duration-300 mx-auto">
-                    <span className="text-black font-bold text-xl sm:text-2xl lg:text-3xl">3</span>
-                  </div>
-                  {/* Linea di connessione - Hidden on mobile */}
-                  <div className="hidden md:block absolute top-16 left-1/2 transform -translate-x-1/2 w-1 h-8 bg-gradient-to-b from-white to-transparent"></div>
-                </div>
-                <h4 className="text-lg sm:text-xl font-semibold text-white mb-3 sm:mb-4">Academy Lash Master</h4>
-                <p className="text-gray-400 leading-relaxed text-sm sm:text-base">
-                  Oggi condivido la mia passione insegnando ad altre donne come trasformare la loro 
-                  passione in una professione di successo.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* CTA Button */}
-          <div className="text-center mt-12 sm:mt-16">
-            <button 
-              onClick={() => document.getElementById('corsi')?.scrollIntoView({ behavior: 'smooth' })}
-              className="bg-gradient-to-r from-white to-white hover:from-white hover:to-white text-black font-bold py-3 sm:py-4 lg:py-5 px-8 sm:px-10 lg:px-12 rounded-2xl text-lg sm:text-xl transition-all duration-300 transform hover:scale-105 shadow-2xl"
-            >
-              Scopri i miei corsi
-            </button>
-          </div>
-        </div>
-      </section>
 
       {/* Contact Section */}
       <section id="contatti" className="py-12 sm:py-16 lg:py-20 bg-black relative overflow-hidden">
