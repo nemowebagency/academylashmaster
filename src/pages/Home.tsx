@@ -434,23 +434,13 @@ const Home = () => {
 
       {/* Chi Sono Section - Ana Maria's Story */}
       <section id="about" className="py-16 sm:py-24 lg:py-32 bg-black relative overflow-hidden">
-        {/* Elegant Background */}
-        <div className="absolute inset-0">
-          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-gray-900 via-black to-gray-800"></div>
-          <div className="absolute top-1/4 left-1/4 w-48 sm:w-64 lg:w-96 h-48 sm:h-64 lg:h-96 bg-white/3 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-40 sm:w-60 lg:w-80 h-40 sm:h-60 lg:h-80 bg-white/8 rounded-full blur-3xl animate-pulse delay-1000"></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-36 sm:w-56 lg:w-72 h-36 sm:h-56 lg:h-72 bg-white/6 rounded-full blur-2xl animate-pulse delay-500"></div>
-        </div>
 
         <div className="w-[90%] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Hero Title */}
           <div className="text-right mb-16 sm:mb-20 lg:mb-24">
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-light text-white mb-4">
-              <span className="font-light">Chi</span> <span className="font-bold">sono</span>
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4">
+              Chi sono
             </h2>
-            <p className="text-lg sm:text-xl text-white font-light">
-              Da una passione può nascere una professione, da un sogno può nascere la libertà.
-            </p>
           </div>
 
           {/* Main Content - Ana Maria's Story */}
