@@ -6,6 +6,8 @@ import WhatsAppButton from '../components/WhatsAppButton'
 const Home = () => {
   const [showContactForm, setShowContactForm] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [trail, setTrail] = useState<Array<{ x: number; y: number; id: number }>>([]);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -42,15 +44,65 @@ const Home = () => {
     }
   }, []);
 
+  // Effetto cursore magico con scia
+  useEffect(() => {
+    let trailId = 0;
+    let lastTime = 0;
+    
+    const handleMouseMove = (e: MouseEvent) => {
+      const now = Date.now();
+      const newPosition = { x: e.clientX, y: e.clientY };
+      setMousePosition(newPosition);
+      
+      // Aggiungi più palline per scia più fitta (ogni 10ms)
+      if (now - lastTime > 10) {
+        setTrail(prev => {
+          const newTrail = [...prev, { ...newPosition, id: trailId++ }];
+          // Mantieni solo gli ultimi 20 elementi per la scia più fitta
+          return newTrail.slice(-20);
+        });
+        lastTime = now;
+      }
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-black relative overflow-hidden">
+      {/* Scia Magica del Cursore */}
+      {trail.map((point, index) => {
+        const opacity = (index + 1) / trail.length;
+        const size = 8 + (index * 0.8);
+        const blur = index * 0.3;
+        
+        return (
+          <div
+            key={point.id}
+            className="fixed pointer-events-none z-50"
+            style={{
+              left: point.x - size / 2,
+              top: point.y - size / 2,
+              width: `${size}px`,
+              height: `${size}px`,
+              background: `radial-gradient(circle, rgba(255,255,255,${opacity * 0.8}) 0%, rgba(255,255,255,${opacity * 0.4}) 50%, transparent 70%)`,
+              borderRadius: '50%',
+              filter: `blur(${blur}px)`,
+              transition: 'all 0.1s ease-out',
+              boxShadow: `0 0 ${10 + index * 2}px rgba(255,255,255,${opacity * 0.5})`,
+            }}
+          />
+        );
+      })}
+      
       {/* Header */}
       <header className="bg-black border-b border-gray-800 shadow-2xl">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4 sm:py-6">
             <div className="flex items-center">
               <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white">Academy Lash Master</h1>
-              <span className="ml-2 sm:ml-3 text-xs sm:text-sm text-white italic playwrite-signature hidden sm:block">by Ana Maria</span>
+              <span className="ml-2 sm:ml-3 text-white hidden sm:block" style={{ fontFamily: 'Inter, sans-serif', fontSize: '14px', fontWeight: '400' }}>by Ana Maria</span>
             </div>
             
             {/* Desktop Navigation */}
@@ -64,7 +116,7 @@ const Home = () => {
             <div className="hidden lg:flex items-center space-x-4">
               <button 
                 onClick={() => setShowContactForm(true)}
-                className="bg-gradient-to-r from-gray-700 to-gray-600 text-white px-4 lg:px-6 py-2 lg:py-3 rounded-full font-bold hover:from-gray-600 hover:to-gray-500 transition-all duration-300 transform hover:scale-105 text-sm lg:text-base"
+                className="bg-gradient-to-r from-gray-700 to-gray-600 text-white px-3 lg:px-4 py-1.5 lg:py-2 rounded-full font-bold hover:from-gray-600 hover:to-gray-500 transition-all duration-300 transform hover:scale-105 text-sm lg:text-base"
               >
                 Richiedi informazioni
               </button>
@@ -137,16 +189,11 @@ const Home = () => {
         ></div>
         
         {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-black bg-opacity-60"></div>
+        <div className="absolute inset-0 bg-black bg-opacity-40"></div>
         
         {/* Gradient Overlay for better text readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/40 to-transparent"></div>
         
-        {/* Background Elements */}
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-1/4 left-1/4 w-48 sm:w-64 lg:w-96 h-48 sm:h-64 lg:h-96 bg-white rounded-full mix-blend-multiply filter blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-48 sm:w-64 lg:w-96 h-48 sm:h-64 lg:h-96 bg-gray-400 rounded-full mix-blend-multiply filter blur-3xl animate-pulse delay-1000"></div>
-        </div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
@@ -155,20 +202,22 @@ const Home = () => {
               <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6 leading-tight">
                 Diventa un <span className="text-white bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">Master</span> delle Extension Ciglia
               </h2>
-              <p className="text-lg sm:text-xl text-gray-200 mb-6 sm:mb-8 leading-relaxed elegant-quote">
+              <p className="text-base sm:text-lg text-gray-200 mb-6 sm:mb-8 leading-relaxed">
                 Impara le tecniche professionali per l'applicazione delle extension ciglia. 
                 Corsi certificati per diventare un tecnico esperto nel settore beauty.
               </p>
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start items-center">
                 <Link
                   to="/corsi"
-                  className="bg-white hover:bg-gray-100 text-black font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-lg text-base sm:text-lg transition duration-300 ease-in-out transform hover:scale-105 shadow-2xl inline-block text-center"
+                  className="bg-white hover:bg-gray-100 text-black font-normal py-2 sm:py-3 px-4 sm:px-6 rounded-lg text-base transition duration-300 ease-in-out transform hover:scale-105 shadow-2xl text-center"
+                  style={{ fontFamily: 'Inter, sans-serif', fontSize: '16px' }}
                 >
                   Scopri di più
                 </Link>
                 <a
                   href="#about"
-                  className="bg-transparent hover:bg-white hover:text-black text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-lg text-base sm:text-lg border-2 border-white transition duration-300 ease-in-out transform hover:scale-105 shadow-lg inline-block text-center"
+                  className="bg-transparent hover:bg-white hover:text-black text-white font-normal py-2 sm:py-3 px-4 sm:px-6 rounded-lg text-base border-2 border-white transition duration-300 ease-in-out transform hover:scale-105 shadow-lg text-center"
+                  style={{ fontFamily: 'Inter, sans-serif', fontSize: '16px' }}
                 >
                   Chi sono
                 </a>
