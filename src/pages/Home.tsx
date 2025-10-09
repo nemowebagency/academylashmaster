@@ -86,7 +86,7 @@ const Home = () => {
   return (
     <>
       {/* Promo Banner */}
-      <div className="bg-white text-black py-2 overflow-hidden fixed top-0 left-0 right-0 z-50">
+      <div className="bg-white text-black py-1 px-0 overflow-hidden fixed top-0 left-0 right-0 z-50" style={{height: '32px', paddingTop: '4px', paddingBottom: '4px'}}>
         <div className="flex animate-scroll-infinite">
           <div className="flex items-center space-x-8 whitespace-nowrap">
             {[...Array(10)].map((_, i) => (
@@ -129,7 +129,7 @@ const Home = () => {
       })} */}
       
       {/* Header */}
-      <header className={`fixed top-10 left-0 right-0 z-40 bg-black border-b border-gray-800 shadow-2xl transition-all duration-300 ${isScrolled ? 'bg-opacity-50 backdrop-blur-sm' : 'bg-opacity-100'}`}>
+      <header className={`fixed left-0 right-0 z-40 bg-black border-b border-gray-800 shadow-2xl transition-all duration-300 ${isScrolled ? 'bg-opacity-50 backdrop-blur-sm' : 'bg-opacity-100'}`} style={{top: '32px'}}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-1 sm:py-1.5">
             <div className="flex items-center">
@@ -242,7 +242,7 @@ const Home = () => {
       </header>
 
       {/* Hero Section */}
-      <section className="pt-20 relative overflow-hidden h-screen flex items-center">
+      <section className="relative overflow-hidden h-screen flex items-center" style={{marginTop: '32px'}}>
         {/* Background Image */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
