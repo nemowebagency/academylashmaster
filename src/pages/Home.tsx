@@ -199,7 +199,7 @@ const Home = () => {
       </header>
 
       {/* Hero Section */}
-      <section className="pt-20 py-12 sm:py-16 lg:py-20 relative overflow-hidden min-h-screen flex items-center">
+      <section className="pt-20 relative overflow-hidden h-screen flex items-center">
         {/* Background Image */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -216,36 +216,39 @@ const Home = () => {
         
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            {/* Left Content */}
-            <div className="text-center lg:text-left">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6 leading-tight">
-                Diventa un <span className="text-white bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">Master</span> delle Extension Ciglia
-              </h2>
-              <p className="text-base sm:text-lg text-gray-200 mb-6 sm:mb-8 leading-relaxed">
-                Impara le tecniche professionali per l'applicazione delle extension ciglia. 
-                Corsi certificati per diventare un tecnico esperto nel settore beauty.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start items-center">
-                <Link
-                  to="/corsi"
-                  className="bg-white hover:bg-gray-100 text-black font-normal py-2 sm:py-3 px-4 sm:px-6 rounded-lg text-base transition duration-300 ease-in-out transform hover:scale-105 shadow-2xl text-center"
-                  style={{ fontFamily: 'Inter, sans-serif', fontSize: '16px' }}
-                >
-                  Scopri di più
-                </Link>
-                <a
-                  href="#about"
-                  className="bg-transparent hover:bg-white hover:text-black text-white font-normal py-2 sm:py-3 px-4 sm:px-6 rounded-lg text-base border-2 border-white transition duration-300 ease-in-out transform hover:scale-105 shadow-lg text-center"
-                  style={{ fontFamily: 'Inter, sans-serif', fontSize: '16px' }}
-                >
-                  Chi sono
-                </a>
-              </div>
+          <div className="flex flex-col items-center justify-center text-center h-full">
+            <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-light text-white mb-4 sm:mb-6 leading-tight">
+              Diventa un <span className="text-white bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">master</span> delle <span className="font-bold">extension ciglia</span>
+            </h2>
+            <div className="flex items-center gap-4 mb-4 sm:mb-6">
+              <span className="text-white font-light text-lg sm:text-xl">corsi</span>
+              <span className="text-white/60">•</span>
+              <span className="text-white font-light text-lg sm:text-xl">professionali</span>
+              <span className="text-white/60">•</span>
+              <span className="text-white font-light text-lg sm:text-xl">certificati</span>
             </div>
-            
-            {/* Right Side - Empty for now, image is background */}
-            <div className="hidden lg:block"></div>
+            <p className="text-lg sm:text-xl lg:text-2xl text-gray-200 mb-6 sm:mb-8 leading-relaxed max-w-4xl font-light">
+              Impara le tecniche <span className="font-bold">professionali</span> per l'applicazione delle <span className="font-bold">extension ciglia</span>. 
+              Corsi <span className="font-bold">certificati</span> per diventare un <span className="font-bold">tecnico esperto</span> nel settore beauty.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center">
+              <Link
+                to="/corsi"
+                className="bg-white text-black px-3 lg:px-4 py-1.5 lg:py-2 rounded-full font-medium text-sm flex items-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110"
+              >
+                <span className="relative z-10">Scopri di più</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-500 ease-out relative z-10" />
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
+              </Link>
+              <a
+                href="#about"
+                className="bg-transparent text-white px-3 lg:px-4 py-1.5 lg:py-2 rounded-full text-sm border border-white flex items-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110 hover:border-transparent"
+              >
+                <span className="relative z-10">Chi sono</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-500 ease-out relative z-10" />
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
+              </a>
+            </div>
           </div>
         </div>
       </section>
