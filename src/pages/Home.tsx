@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { ArrowRight } from 'lucide-react'
 import ScrollToTop from '../components/ScrollToTop'
 import WhatsAppButton from '../components/WhatsAppButton'
 
@@ -8,6 +9,7 @@ const Home = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [trail, setTrail] = useState<Array<{ x: number; y: number; id: number }>>([]);
+  const [isScrolled, setIsScrolled] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -44,35 +46,46 @@ const Home = () => {
     }
   }, []);
 
-  // Effetto cursore magico con scia
+  // Gestisce la trasparenza della barra di navigazione durante lo scroll
   useEffect(() => {
-    let trailId = 0;
-    let lastTime = 0;
-    
-    const handleMouseMove = (e: MouseEvent) => {
-      const now = Date.now();
-      const newPosition = { x: e.clientX, y: e.clientY };
-      setMousePosition(newPosition);
-      
-      // Aggiungi più palline per scia più fitta (ogni 10ms)
-      if (now - lastTime > 10) {
-        setTrail(prev => {
-          const newTrail = [...prev, { ...newPosition, id: trailId++ }];
-          // Mantieni solo gli ultimi 20 elementi per la scia più fitta
-          return newTrail.slice(-20);
-        });
-        lastTime = now;
-      }
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      setIsScrolled(scrollTop > 50);
     };
 
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Effetto cursore magico con scia - TEMPORANEAMENTE DISABILITATO
+  // useEffect(() => {
+  //   let trailId = 0;
+  //   let lastTime = 0;
+  //   
+  //   const handleMouseMove = (e: MouseEvent) => {
+  //     const now = Date.now();
+  //     const newPosition = { x: e.clientX, y: e.clientY };
+  //     setMousePosition(newPosition);
+  //     
+  //     // Aggiungi più palline per scia più fitta (ogni 10ms)
+  //     if (now - lastTime > 10) {
+  //       setTrail(prev => {
+  //         const newTrail = [...prev, { ...newPosition, id: trailId++ }];
+  //         // Mantieni solo gli ultimi 20 elementi per la scia più fitta
+  //         return newTrail.slice(-20);
+  //       });
+  //       lastTime = now;
+  //     }
+  //   };
+
+  //   window.addEventListener('mousemove', handleMouseMove);
+  //   return () => window.removeEventListener('mousemove', handleMouseMove);
+  // }, []);
 
   return (
     <div className="min-h-screen bg-black relative overflow-hidden">
-      {/* Scia Magica del Cursore */}
-      {trail.map((point, index) => {
+      {/* Scia Magica del Cursore - TEMPORANEAMENTE DISABILITATA */}
+      {/* {trail.map((point, index) => {
         const opacity = (index + 1) / trail.length;
         const size = 8 + (index * 0.8);
         const blur = index * 0.3;
@@ -94,31 +107,36 @@ const Home = () => {
             }}
           />
         );
-      })}
+      })} */}
       
       {/* Header */}
-      <header className="bg-black border-b border-gray-800 shadow-2xl">
+      <header className={`fixed top-0 left-0 right-0 z-50 bg-black border-b border-gray-800 shadow-2xl transition-all duration-300 ${isScrolled ? 'bg-opacity-50 backdrop-blur-sm' : 'bg-opacity-100'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-4 sm:py-6">
+          <div className="flex justify-between items-center py-1 sm:py-1.5">
             <div className="flex items-center">
-              <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white">Academy Lash Master</h1>
-              <span className="ml-2 sm:ml-3 text-white hidden sm:block" style={{ fontFamily: 'Inter, sans-serif', fontSize: '14px', fontWeight: '400' }}>by Ana Maria</span>
+              <img 
+                src="/logo/LogoBianco.png" 
+                alt="Academy Lash Master" 
+                className="h-8 sm:h-10 lg:h-12 w-auto"
+              />
             </div>
             
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex space-x-8">
-              <Link to="/corsi" className="text-gray-300 hover:text-white transition duration-300 font-medium">Corsi</Link>
-              <a href="#about" className="text-gray-300 hover:text-white transition duration-300 font-medium">Chi sono</a>
-              <Link to="/contatti" className="text-gray-300 hover:text-white transition duration-300 font-medium">Contatti</Link>
+              <Link to="/corsi" className="text-white hover:text-yellow-400 transition-all duration-500 ease-out font-medium text-sm">Corsi</Link>
+              <a href="#about" className="text-white hover:text-yellow-400 transition-all duration-500 ease-out font-medium text-sm">Chi sono</a>
+              <Link to="/contatti" className="text-white hover:text-yellow-400 transition-all duration-500 ease-out font-medium text-sm">Contatti</Link>
             </nav>
             
             {/* Desktop CTA Button */}
             <div className="hidden lg:flex items-center space-x-4">
               <button 
                 onClick={() => setShowContactForm(true)}
-                className="bg-gradient-to-r from-gray-700 to-gray-600 text-white px-3 lg:px-4 py-1.5 lg:py-2 rounded-full font-bold hover:from-gray-600 hover:to-gray-500 transition-all duration-300 transform hover:scale-105 text-sm lg:text-base"
+                className="bg-white text-black px-3 lg:px-4 py-1.5 lg:py-2 rounded-full font-medium text-sm flex items-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110"
               >
-                Richiedi informazioni
+                <span className="relative z-10">Richiedi informazioni</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-500 ease-out relative z-10" />
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
               </button>
             </div>
 
@@ -144,21 +162,21 @@ const Home = () => {
               <nav className="flex flex-col space-y-4">
                 <Link 
                   to="/corsi" 
-                  className="text-gray-300 hover:text-white transition duration-300 font-medium py-2"
+                  className="text-white hover:text-yellow-400 transition-all duration-500 ease-out font-medium py-2 text-sm"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Corsi
                 </Link>
                 <a 
                   href="#about" 
-                  className="text-gray-300 hover:text-white transition duration-300 font-medium py-2"
+                  className="text-white hover:text-yellow-400 transition-all duration-500 ease-out font-medium py-2 text-sm"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Chi sono
                 </a>
                 <Link 
                   to="/contatti" 
-                  className="text-gray-300 hover:text-white transition duration-300 font-medium py-2"
+                  className="text-white hover:text-yellow-400 transition-all duration-500 ease-out font-medium py-2 text-sm"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Contatti
@@ -168,9 +186,11 @@ const Home = () => {
                     setShowContactForm(true);
                     setIsMobileMenuOpen(false);
                   }}
-                  className="bg-gradient-to-r from-gray-700 to-gray-600 text-white px-6 py-3 rounded-full font-bold hover:from-gray-600 hover:to-gray-500 transition-all duration-300 transform hover:scale-105 text-center mt-4"
+                  className="bg-white text-black px-6 py-3 rounded-full font-medium text-center mt-4 text-sm flex items-center justify-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110"
                 >
-                  Richiedi informazioni
+                  <span className="relative z-10">Richiedi informazioni</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-500 ease-out relative z-10" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
                 </button>
               </nav>
             </div>
@@ -179,7 +199,7 @@ const Home = () => {
       </header>
 
       {/* Hero Section */}
-      <section className="py-12 sm:py-16 lg:py-20 relative overflow-hidden min-h-screen flex items-center">
+      <section className="pt-20 py-12 sm:py-16 lg:py-20 relative overflow-hidden min-h-screen flex items-center">
         {/* Background Image */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
