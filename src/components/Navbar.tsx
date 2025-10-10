@@ -48,7 +48,7 @@ const Navbar = ({ setShowContactForm }: NavbarProps) => {
               </Link>
               <Link to="/chi-sono" className="text-white hover:text-yellow-400 transition-all duration-500 ease-out font-medium text-sm relative group">
                 Chi sono
-                <span className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-yellow-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                <span className={`absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-1 h-1 rounded-full transition-opacity duration-300 ${location.pathname === '/chi-sono' ? 'bg-white opacity-100' : 'bg-yellow-400 opacity-0 group-hover:opacity-100'}`}></span>
               </Link>
               <Link to="/contatti" className="text-white hover:text-yellow-400 transition-all duration-500 ease-out font-medium text-sm relative group">
                 Contatti
@@ -110,7 +110,7 @@ const Navbar = ({ setShowContactForm }: NavbarProps) => {
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Chi sono
-                  <span className="absolute -bottom-1 left-0 w-1 h-1 bg-yellow-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                  <span className={`absolute -bottom-1 left-0 w-1 h-1 rounded-full transition-opacity duration-300 ${location.pathname === '/chi-sono' ? 'bg-white opacity-100' : 'bg-yellow-400 opacity-0 group-hover:opacity-100'}`}></span>
                 </Link>
                 <Link 
                   to="/contatti" 
