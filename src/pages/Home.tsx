@@ -547,7 +547,9 @@ const Home = () => {
 
       
 
-      {/* Info Section */}
+      {/* ===========================================
+          INFO SECTION - Sezione con storia e filosofia di Ana Maria
+          =========================================== */}
       <section className="py-16 sm:py-20 lg:py-24 bg-black relative overflow-hidden">
         <div className="w-[90%] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Main Content - Ana Maria's Story */}
@@ -627,7 +629,9 @@ const Home = () => {
        </section>
 
 
-      {/* Contact Section */}
+      {/* ===========================================
+          CONTATTI SECTION - Sezione contatti con form e informazioni
+          =========================================== */}
       <section id="contatti" className="py-16 sm:py-20 lg:py-24 bg-white relative overflow-hidden">
         <div className="w-[90%] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Main Content - Grid Layout */}
@@ -757,7 +761,9 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Footer */}
+      {/* ===========================================
+          FOOTER SECTION - Footer con informazioni aziendali e social
+          =========================================== */}
       <footer className="bg-black text-white pt-12 sm:pt-16 lg:pt-20 pb-6 sm:pb-8">
         <div className="w-[90%] mx-auto px-4 sm:px-6 lg:px-8">
           {/* Main Footer Content - Three Columns */}
