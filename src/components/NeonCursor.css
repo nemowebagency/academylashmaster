@@ -54,18 +54,18 @@
     0 0 40px rgba(255, 255, 255, 0.1);
 }
 
-/* Nascondi il cursore di default */
-* {
+/* Nascondi il cursore di default - DISABILITATO per ripristinare cursore originale */
+/* * {
   cursor: none !important;
-}
+} */
 
-/* Mostra il cursore neon solo su desktop */
+/* Mostra il cursore neon solo su desktop - DISABILITATO per ripristinare cursore originale */
 @media (max-width: 768px) {
   .neon-cursor-container {
     display: none;
   }
   
-  * {
+  /* * {
     cursor: auto !important;
-  }
+  } */
 }

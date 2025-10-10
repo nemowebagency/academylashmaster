@@ -76,7 +76,8 @@ const NeonCursor = () => {
 
   return (
     <div className="neon-cursor-container">
-      <motion.div
+      {/* Cursore principale - DISABILITATO per ripristinare cursore originale */}
+      {/* <motion.div
         className="cursor-main"
         animate={{
           x: position.x - 10,
@@ -89,9 +90,10 @@ const NeonCursor = () => {
           stiffness: 400,
           mass: 0.5,
         }}
-      />
+      /> */}
 
-      <motion.div
+      {/* Trail del cursore - DISABILITATO per ripristinare cursore originale */}
+      {/* <motion.div
         className="cursor-trail"
         animate={{
           x: position.x - 20,
@@ -104,7 +106,7 @@ const NeonCursor = () => {
           mass: 0.8,
         }}
         initial={false}
-      />
+      /> */}
     </div>
   );
 };
