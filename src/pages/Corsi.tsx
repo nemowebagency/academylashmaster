@@ -12,18 +12,14 @@ import HeroCorsi from '../components/HeroCorsi';
 
 
 const Corsi = () => {
-  const [selectedCourse, setSelectedCourse] = useState<string | null>(null);
   const [showContactForm, setShowContactForm] = useState(false);
+  const [currentImage, setCurrentImage] = useState(0);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
     message: ''
   });
-
-  const handleNavigateToAbout = () => {
-    window.location.href = '/chi-sono';
-  };
 
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -41,83 +37,13 @@ const Corsi = () => {
     }));
   };
 
-  const courses = [
-    {
-      id: 'base',
-      title: 'Corso Base',
-      subtitle: 'Per Principianti',
-      duration: '2 Giorni',
-      price: '€299',
-      icon: '👁️',
-      description: 'Impara le tecniche fondamentali per l\'applicazione delle extension ciglia. Perfetto per chi inizia da zero.',
-      features: [
-        'Teoria delle extension ciglia',
-        'Tecniche di applicazione base',
-        'Materiali e strumenti professionali',
-        'Sicurezza e igiene',
-        'Applicazione pratica su modelle',
-        'Certificazione inclusa',
-        'Manuale didattico esclusivo',
-        'Kit materiali di base'
-      ],
-      schedule: 'Sabato e Domenica 9:00-17:00',
-      maxStudents: 8
-    },
-    {
-      id: 'avanzato',
-      title: 'Corso Avanzato',
-      subtitle: 'Per Professionisti',
-      duration: '3 Giorni',
-      price: '€599',
-      icon: '✨',
-      description: 'Tecniche avanzate e specializzazioni per diventare un vero professionista del settore.',
-      features: [
-        'Volume e Mega Volume',
-        'Tecniche creative e artistiche',
-        'Gestione clientela e consulenza',
-        'Business nel settore beauty',
-        'Marketing e social media',
-        'Pricing e fatturazione',
-        'Applicazione su modelle reali',
-        'Certificazione avanzata'
-      ],
-      schedule: 'Venerdì, Sabato e Domenica 9:00-17:00',
-      maxStudents: 6
-    },
-    {
-      id: 'master',
-      title: 'Master Class',
-      subtitle: 'Il Corso Completo',
-      duration: '5 Giorni',
-      price: '€999',
-      icon: '👑',
-      description: 'Il corso più completo per diventare un vero Master delle extension ciglia e aprire la propria attività.',
-      features: [
-        'Tutte le tecniche (Base + Avanzato)',
-        'Gestione completa del business',
-        'Marketing beauty e social media',
-        'Apertura centro estetico',
-        'Gestione team e collaboratori',
-        'Supporto post-corso di 6 mesi',
-        'Kit completo professionale',
-        'Certificazione Master Trainer'
-      ],
-      schedule: 'Lunedì-Venerdì 9:00-17:00',
-      maxStudents: 4
-    }
-  ];
-
-  const handleEnroll = (courseId: string) => {
-    alert(`Iscrizione al ${courses.find(c => c.id === courseId)?.title} richiesta! Ti contatteremo presto.`);
-  };
-
   return (
     <>
       <NeonCursor />
       <PromoScroll />
       <Navbar setShowContactForm={setShowContactForm} />
       <HeroCorsi />
-      <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-black">
         
       
       {/* ===========================================
@@ -129,7 +55,7 @@ const Corsi = () => {
             <h3 className="text-4xl sm:text-5xl md:text-6xl font-bold text-black mb-4">Le nostre proposte</h3>
             <p className="text-lg sm:text-xl text-black font-light">Scegli tra i corsi proposti e utilizza il pulsante corrispondente per iscriverti.</p>
           </div>
-          
+
           <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-lg hover:shadow-xl border border-gray-200 hover:border-gray-300 transition-all duration-300 ease-out hover:scale-105">
               <div>
@@ -168,9 +94,9 @@ const Corsi = () => {
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-500 ease-out relative z-10" />
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
                   </button>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
 
             <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-lg hover:shadow-xl border border-gray-200 hover:border-gray-300 transition-all duration-300 ease-out hover:scale-105">
               <div>
@@ -195,13 +121,13 @@ const Corsi = () => {
                   <li className="flex items-center gap-2">
                     <span className="w-1.5 h-1.5 bg-black rounded-full flex-shrink-0"></span>
                     <span>Business nel beauty</span>
-                  </li>
-                </ul>
+                      </li>
+                  </ul>
                 <div 
                   className="mt-4 w-full h-80 rounded-lg relative bg-cover bg-center bg-no-repeat flex items-end justify-start p-4"
                   style={{ backgroundImage: 'url(/soggetto/c2.jpg)' }}
                 >
-                  <button 
+                  <button
                     onClick={() => document.getElementById('corsi')?.scrollIntoView({ behavior: 'smooth' })}
                     className="bg-black text-white px-8 py-4 rounded-full font-medium text-base flex items-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110 hover:text-black"
                   >
@@ -211,10 +137,10 @@ const Corsi = () => {
                   </button>
                 </div>
               </div>
-            </div>
+                  </div>
 
             <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-lg hover:shadow-xl border border-gray-200 hover:border-gray-300 transition-all duration-300 ease-out hover:scale-105">
-              <div>
+                    <div>
                 <h4 className="text-3xl sm:text-4xl font-bold text-black mb-3 sm:mb-4 text-left">Master Class</h4>
                 <p className="text-black font-light mb-4 sm:mb-6 text-sm sm:text-base">
                   Il corso più completo per diventare un vero Master delle extension ciglia 
@@ -236,18 +162,110 @@ const Corsi = () => {
                   <li className="flex items-center gap-2">
                     <span className="w-1.5 h-1.5 bg-black rounded-full flex-shrink-0"></span>
                     <span>Supporto continuo</span>
-                  </li>
-                </ul>
+                          </li>
+                      </ul>
                 <div 
                   className="mt-4 w-full h-80 rounded-lg relative bg-cover bg-center bg-no-repeat flex items-end justify-start p-4"
                   style={{ backgroundImage: 'url(/soggetto/c3.jpg)' }}
                 >
-                  <button 
+                      <button
                     onClick={() => document.getElementById('corsi')?.scrollIntoView({ behavior: 'smooth' })}
                     className="bg-black text-white px-8 py-4 rounded-full font-medium text-base flex items-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110 hover:text-black"
-                  >
+                      >
                     <span className="relative z-10">Iscriviti</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-500 ease-out relative z-10" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
+                      </button>
+                    </div>
+                  </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      {/* Manuale Section */}
+      <section className="py-16 sm:py-20 lg:py-24 bg-black">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4">
+              Manuale Completo
+            </h2>
+            <p className="text-lg sm:text-xl text-gray-200 font-light max-w-lg mx-auto">
+              Ogni corso include un manuale dettagliato e professionale per accompagnarti nel tuo percorso di apprendimento
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
+            {/* Content */}
+            <div className="space-y-6 sm:space-y-8">
+              <div className="space-y-4 sm:space-y-6">
+                <h3 className="text-2xl sm:text-3xl font-bold text-white">
+                  Cosa include
+                </h3>
+                <ul className="space-y-3 sm:space-y-4">
+                  <li className="flex items-start space-x-3">
+                    <div className="w-2 h-2 bg-white rounded-full mt-2 flex-shrink-0"></div>
+                    <span className="text-gray-200 text-base sm:text-lg">
+                      <strong className="text-white">Teoria completa</strong> - Tutti i concetti fondamentali spiegati in modo chiaro
+                    </span>
+                  </li>
+                  <li className="flex items-start space-x-3">
+                    <div className="w-2 h-2 bg-white rounded-full mt-2 flex-shrink-0"></div>
+                    <span className="text-gray-200 text-base sm:text-lg">
+                      <strong className="text-white">Tecniche step-by-step</strong> - Procedure dettagliate con foto illustrative
+                    </span>
+                  </li>
+                  <li className="flex items-start space-x-3">
+                    <div className="w-2 h-2 bg-white rounded-full mt-2 flex-shrink-0"></div>
+                    <span className="text-gray-200 text-base sm:text-lg">
+                      <strong className="text-white">Troubleshooting</strong> - Soluzioni ai problemi più comuni
+                    </span>
+                  </li>
+                  <li className="flex items-start space-x-3">
+                    <div className="w-2 h-2 bg-white rounded-full mt-2 flex-shrink-0"></div>
+                    <span className="text-gray-200 text-base sm:text-lg">
+                      <strong className="text-white">Materiali e strumenti</strong> - Lista completa e consigli per l'acquisto
+                    </span>
+                  </li>
+                  <li className="flex items-start space-x-3">
+                    <div className="w-2 h-2 bg-white rounded-full mt-2 flex-shrink-0"></div>
+                    <span className="text-gray-200 text-base sm:text-lg">
+                      <strong className="text-white">Certificato digitale</strong> - Attestato di partecipazione incluso
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Visual Element - Simple Document Style */}
+            <div className="relative">
+              <div 
+                className="bg-cover bg-center bg-no-repeat rounded-lg p-8 text-center relative"
+                style={{
+                  backgroundImage: "url('/soggetto/manual.jpg')"
+                }}
+              >
+                {/* Overlay for better text readability */}
+                <div className="absolute inset-0 bg-black bg-opacity-50 rounded-lg"></div>
+                
+                {/* Content with relative positioning */}
+                <div className="relative z-10">
+                  {/* Quote moved here */}
+                  <div className="mb-8 bg-white bg-opacity-10 backdrop-blur-sm rounded-2xl p-6 border border-white border-opacity-20">
+                    <p className="text-gray-200 text-base italic">
+                      "Il manuale è il tuo compagno di viaggio perfetto. Potrai consultarlo sempre, anche dopo aver completato il corso, per rivedere le tecniche e migliorare costantemente."
+                    </p>
+                    <p className="text-white font-semibold mt-4 text-sm">- Ana Maria, Academy Lash Master</p>
+            </div>
+
+                  <h4 className="text-3xl font-bold text-white mb-2 text-left">Scarica il Manuale</h4>
+                  <p className="text-gray-300 mb-6 text-left">Clicca il pulsante qui sotto per scaricare il PDF completo</p>
+                  <button className="bg-white text-black px-8 py-4 rounded-full font-medium text-base flex items-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110 hover:text-black">
+                    <span className="relative z-10">Scarica adesso</span>
+                    <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-500 ease-out relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
                   </button>
                 </div>
@@ -258,269 +276,176 @@ const Corsi = () => {
       </section>
       
 
-      {/* Why Choose Us */}
-      <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-gray-900 to-black">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 sm:mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">Perché Scegliere Academy Lash Master?</h2>
-            <p className="text-lg sm:text-xl text-gray-300">Eccellenza nella formazione e supporto continuo</p>
-          </div>
-
-          <div className="grid sm:grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-            <div className="text-center">
-              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
-                <span className="text-black text-xl sm:text-2xl">👩‍🏫</span>
-              </div>
-              <h3 className="text-lg sm:text-xl font-semibold text-white mb-3 sm:mb-4">Insegnanti Esperti</h3>
-              <p className="text-gray-300 text-sm sm:text-base">
-                I nostri istruttori sono professionisti certificati con anni di esperienza 
-                nel settore e formazione internazionale.
-              </p>
-            </div>
-
-            <div className="text-center">
-              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
-                <span className="text-black text-xl sm:text-2xl">🛠️</span>
-              </div>
-              <h3 className="text-lg sm:text-xl font-semibold text-white mb-3 sm:mb-4">Materiali Professionali</h3>
-              <p className="text-gray-300 text-sm sm:text-base">
-                Utilizziamo solo materiali di alta qualità e strumenti professionali 
-                per garantire la migliore esperienza formativa.
-              </p>
-            </div>
-
-            <div className="text-center">
-              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
-                <span className="text-black text-xl sm:text-2xl">📜</span>
-              </div>
-              <h3 className="text-lg sm:text-xl font-semibold text-white mb-3 sm:mb-4">Certificazione Riconosciuta</h3>
-              <p className="text-gray-300 text-sm sm:text-base">
-                Al termine del corso riceverai una certificazione riconosciuta 
-                nel settore beauty che valorizzerà il tuo curriculum.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* CTA Section */}
-      <section className="py-12 sm:py-16 lg:py-20 bg-black">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="py-12 sm:py-16 lg:py-20 relative overflow-hidden">
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: "url('/soggetto/cta.jpg')"
+          }}
+        />
+        
+        {/* Dark Overlay */}
+        <div className="absolute inset-0 bg-black bg-opacity-80" />
+        
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4 sm:mb-6">Pronto a Iniziare il Tuo Percorso?</h2>
-          <p className="text-lg sm:text-xl text-gray-300 mb-6 sm:mb-8">
+          <p className="text-lg sm:text-xl text-gray-200 mb-6 sm:mb-8">
             Scegli il corso più adatto a te e trasforma la tua passione in professione.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
             <a
               href="/contatti"
-              className="bg-white hover:bg-gray-100 text-black font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-lg text-base sm:text-lg transition duration-300 ease-in-out transform hover:scale-105 shadow-2xl"
+              className="bg-white text-black px-8 py-4 rounded-full font-medium text-base flex items-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110 hover:text-black"
             >
-              Richiedi Informazioni
+              <span className="relative z-10">Richiedi Informazioni</span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-500 ease-out relative z-10" />
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
             </a>
             <a
               href="tel:+393533165390"
-              className="bg-transparent hover:bg-white hover:text-black text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-lg text-base sm:text-lg border-2 border-white transition duration-300 ease-in-out transform hover:scale-105 shadow-lg"
+              className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-medium text-base flex items-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110 hover:text-black hover:border-transparent"
             >
-              Chiamaci Ora
+              <span className="relative z-10">Chiama Ora</span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-500 ease-out relative z-10" />
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
             </a>
-          </div>
-        </div>
-      </section>
-
-      {/* Manuale Section */}
-      <section className="py-16 sm:py-20 lg:py-24 relative overflow-hidden">
-        {/* Neon Background */}
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: 'url(/soggetto/neon.jpeg)',
-            filter: 'brightness(0.3)'
-          }}
-        />
-        
-        {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-black bg-opacity-60" />
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-12 sm:mb-16">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6">
-              Manuale Completo
-            </h2>
-            <p className="text-lg sm:text-xl text-gray-200 max-w-3xl mx-auto">
-              Ogni corso include un manuale dettagliato e professionale per accompagnarti nel tuo percorso di apprendimento
-            </p>
-          </div>
-
-          <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
-            {/* Content */}
-            <div className="space-y-6 sm:space-y-8">
-              <div className="space-y-4 sm:space-y-6">
-                <h3 className="text-2xl sm:text-3xl font-bold text-white">
-                  Cosa Include il Manuale
-                </h3>
-                <ul className="space-y-3 sm:space-y-4">
-                  <li className="flex items-start space-x-3">
-                    <div className="w-2 h-2 bg-purple-500 rounded-full mt-2 flex-shrink-0"></div>
-                    <span className="text-gray-200 text-base sm:text-lg">
-                      <strong className="text-white">Teoria completa</strong> - Tutti i concetti fondamentali spiegati in modo chiaro
-                    </span>
-                  </li>
-                  <li className="flex items-start space-x-3">
-                    <div className="w-2 h-2 bg-purple-500 rounded-full mt-2 flex-shrink-0"></div>
-                    <span className="text-gray-200 text-base sm:text-lg">
-                      <strong className="text-white">Tecniche step-by-step</strong> - Procedure dettagliate con foto illustrative
-                    </span>
-                  </li>
-                  <li className="flex items-start space-x-3">
-                    <div className="w-2 h-2 bg-purple-500 rounded-full mt-2 flex-shrink-0"></div>
-                    <span className="text-gray-200 text-base sm:text-lg">
-                      <strong className="text-white">Troubleshooting</strong> - Soluzioni ai problemi più comuni
-                    </span>
-                  </li>
-                  <li className="flex items-start space-x-3">
-                    <div className="w-2 h-2 bg-purple-500 rounded-full mt-2 flex-shrink-0"></div>
-                    <span className="text-gray-200 text-base sm:text-lg">
-                      <strong className="text-white">Materiali e strumenti</strong> - Lista completa e consigli per l'acquisto
-                    </span>
-                  </li>
-                  <li className="flex items-start space-x-3">
-                    <div className="w-2 h-2 bg-purple-500 rounded-full mt-2 flex-shrink-0"></div>
-                    <span className="text-gray-200 text-base sm:text-lg">
-                      <strong className="text-white">Certificato digitale</strong> - Attestato di partecipazione incluso
-                    </span>
-                  </li>
-                </ul>
-              </div>
-              
-              <div className="bg-white bg-opacity-10 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-white border-opacity-20">
-                <p className="text-gray-200 text-base sm:text-lg italic">
-                  "Il manuale è il tuo compagno di viaggio perfetto. Potrai consultarlo sempre, anche dopo aver completato il corso, per rivedere le tecniche e migliorare costantemente."
-                </p>
-                <p className="text-white font-semibold mt-4 text-sm sm:text-base">- Ana Maria, Academy Lash Master</p>
-              </div>
-            </div>
-
-            {/* Visual Element */}
-            <div className="relative">
-              <div className="bg-gradient-to-br from-purple-600 to-pink-600 rounded-3xl p-8 sm:p-12 text-center transform rotate-3 hover:rotate-0 transition-transform duration-500">
-                <div className="bg-white rounded-2xl p-6 sm:p-8">
-                  <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
-                    <svg className="w-8 h-8 sm:w-10 sm:h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z" />
-                    </svg>
-                  </div>
-                  <h4 className="text-xl sm:text-2xl font-bold text-gray-800 mb-2 sm:mb-4">Manuale Digitale</h4>
-                  <p className="text-gray-600 text-sm sm:text-base">PDF scaricabile e stampabile</p>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
 
       {/* Procreate Section */}
-      <section className="py-16 sm:py-20 lg:py-24 bg-gray-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 sm:mb-16">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6">
+      <section className="py-16 sm:py-20 lg:py-24 bg-white">
+        <div className="w-[90%] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-left mb-12 sm:mb-16">
+            <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 lg:gap-8">
+              <div className="flex-1">
+                <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-black mb-4">
               Strumenti Digitali
             </h2>
-            <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto">
+                <p className="text-lg sm:text-xl text-black font-light">
               Scopri gli strumenti digitali che le nostre alunne utilizzano per creare progetti straordinari
             </p>
+              </div>
+              <div className="flex-shrink-0">
+                <a
+                  href="https://apps.apple.com/it/app/procreate/id425073498"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-black text-white px-8 py-4 rounded-full font-medium text-base flex items-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110 hover:text-black"
+                >
+                  <span className="relative z-10">Scarica l'App</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-500 ease-out relative z-10" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
+                </a>
+              </div>
+            </div>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-start">
             {/* Procreate App */}
             <div className="space-y-6 sm:space-y-8">
               <div className="flex items-center space-x-4 mb-6 sm:mb-8">
-                <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center">
-                  <svg className="w-8 h-8 sm:w-10 sm:h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12,6A6,6 0 0,0 6,12A6,6 0 0,0 12,18A6,6 0 0,0 18,12A6,6 0 0,0 12,6M12,8A4,4 0 0,1 16,12A4,4 0 0,1 12,16A4,4 0 0,1 8,12A4,4 0 0,1 12,8Z" />
-                  </svg>
+                <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden">
+                  <img
+                    src="/soggetto/Procreate_icon.png"
+                    alt="Procreate Icon"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <div>
-                  <h3 className="text-2xl sm:text-3xl font-bold text-white">Procreate</h3>
-                  <p className="text-gray-300 text-base sm:text-lg">App per iPad</p>
+                  <h3 className="text-2xl sm:text-3xl font-bold text-black">Procreate</h3>
+                  <p className="text-black text-base sm:text-lg">App per iPad</p>
                 </div>
               </div>
 
               <div className="space-y-4 sm:space-y-6">
-                <p className="text-gray-300 text-base sm:text-lg">
-                  <strong className="text-white">Procreate</strong> è l'app di disegno digitale più utilizzata dalle professioniste del settore beauty. 
+                <p className="text-black text-base sm:text-lg">
+                  <strong className="text-black">Procreate</strong> è l'app di disegno digitale più utilizzata dalle professioniste del settore beauty.
                   Perfetta per creare moodboard, sketch di design e presentazioni professionali.
                 </p>
                 
-                <div className="bg-white bg-opacity-10 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-white border-opacity-20">
-                  <h4 className="text-white font-bold text-lg sm:text-xl mb-3 sm:mb-4">Perché Procreate?</h4>
-                  <ul className="space-y-2 sm:space-y-3">
-                    <li className="flex items-center space-x-3">
-                      <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
-                      <span className="text-gray-200 text-sm sm:text-base">Interfaccia intuitiva e professionale</span>
+                <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-lg">
+                  <h4 className="text-black font-bold text-lg sm:text-xl mb-3 sm:mb-4">Come Ottenere il Plugin</h4>
+                  <ol className="space-y-2 sm:space-y-3">
+                    <li className="flex items-start space-x-3">
+                      <span className="bg-black text-white rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold flex-shrink-0">1</span>
+                      <span className="text-black text-sm sm:text-base">Iscriviti a uno dei nostri corsi</span>
                     </li>
-                    <li className="flex items-center space-x-3">
-                      <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
-                      <span className="text-gray-200 text-sm sm:text-base">Migliaia di pennelli personalizzabili</span>
+                    <li className="flex items-start space-x-3">
+                      <span className="bg-black text-white rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold flex-shrink-0">2</span>
+                      <span className="text-black text-sm sm:text-base">Ricevi il codice sconto via email</span>
                     </li>
-                    <li className="flex items-center space-x-3">
-                      <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
-                      <span className="text-gray-200 text-sm sm:text-base">Esportazione in alta risoluzione</span>
+                    <li className="flex items-start space-x-3">
+                      <span className="bg-black text-white rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold flex-shrink-0">3</span>
+                      <span className="text-black text-sm sm:text-base">Scarica il plugin dal nostro store</span>
                     </li>
-                    <li className="flex items-center space-x-3">
-                      <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
-                      <span className="text-gray-200 text-sm sm:text-base">Perfetto per portfolio digitali</span>
+                    <li className="flex items-start space-x-3">
+                      <span className="bg-black text-white rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold flex-shrink-0">4</span>
+                      <span className="text-black text-sm sm:text-base">Inizia a creare progetti straordinari!</span>
                     </li>
-                  </ul>
+                  </ol>
                 </div>
               </div>
             </div>
 
             {/* Plugin Section */}
             <div className="space-y-6 sm:space-y-8">
-              <div className="bg-gradient-to-br from-purple-600 to-pink-600 rounded-3xl p-6 sm:p-8 text-center">
-                <div className="w-16 h-16 sm:w-20 sm:h-20 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
-                  <svg className="w-8 h-8 sm:w-10 sm:h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12,6A6,6 0 0,0 6,12A6,6 0 0,0 12,18A6,6 0 0,0 18,12A6,6 0 0,0 12,6M12,8A4,4 0 0,1 16,12A4,4 0 0,1 12,16A4,4 0 0,1 8,12A4,4 0 0,1 12,8Z" />
-                  </svg>
+              <div className="relative">
+                <div className="relative overflow-hidden rounded-2xl shadow-lg h-[430px]">
+                  <div className="flex transition-transform duration-500 ease-in-out h-full" style={{ transform: `translateX(-${currentImage * 100}%)` }}>
+                    <div className="w-full flex-shrink-0 h-full">
+                      <img
+                        src="/soggetto/procreate.avif"
+                        alt="Procreate App Interface"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="w-full flex-shrink-0 h-full">
+                      <img
+                        src="/soggetto/procreate2.avif"
+                        alt="Procreate App Interface 2"
+                        className="w-full h-full object-cover"
+                      />
                 </div>
-                <h4 className="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4">Plugin Esclusivo</h4>
-                <p className="text-white text-opacity-90 text-sm sm:text-base mb-4 sm:mb-6">
-                  Plugin personalizzato per Procreate con pennelli e strumenti specifici per il design delle extension ciglia
-                </p>
-                
-                <div className="bg-white bg-opacity-20 rounded-2xl p-4 sm:p-6 mb-4 sm:mb-6">
-                  <p className="text-white font-bold text-lg sm:text-xl mb-2">Codice Sconto</p>
-                  <div className="bg-white rounded-lg p-3 sm:p-4">
-                    <code className="text-purple-600 font-mono text-lg sm:text-xl font-bold">ACADEMY20</code>
                   </div>
-                  <p className="text-white text-opacity-90 text-xs sm:text-sm mt-2">20% di sconto per le nostre alunne</p>
+                  
+                  {/* Navigation Dots */}
+                  <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                    <button
+                      onClick={() => setCurrentImage(0)}
+                      className={`w-3 h-3 rounded-full transition-colors duration-300 ${
+                        currentImage === 0 ? 'bg-white' : 'bg-white/50'
+                      }`}
+                    />
+                    <button
+                      onClick={() => setCurrentImage(1)}
+                      className={`w-3 h-3 rounded-full transition-colors duration-300 ${
+                        currentImage === 1 ? 'bg-white' : 'bg-white/50'
+                      }`}
+                    />
                 </div>
 
-                <button className="bg-white text-purple-600 font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-xl hover:bg-gray-100 transition duration-300 transform hover:scale-105 shadow-lg text-sm sm:text-base">
-                  Scarica Plugin
+                  {/* Navigation Arrows */}
+                  <button
+                    onClick={() => setCurrentImage(currentImage === 0 ? 1 : 0)}
+                    className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-colors duration-300"
+                  >
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                    </svg>
+                  </button>
+                  
+                  <button
+                    onClick={() => setCurrentImage(currentImage === 0 ? 1 : 0)}
+                    className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-colors duration-300"
+                  >
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
                 </button>
               </div>
-
-              <div className="bg-gray-800 rounded-2xl p-6 sm:p-8">
-                <h5 className="text-white font-bold text-lg sm:text-xl mb-3 sm:mb-4">Come Ottenere il Plugin</h5>
-                <ol className="space-y-2 sm:space-y-3 text-gray-300 text-sm sm:text-base">
-                  <li className="flex items-start space-x-3">
-                    <span className="bg-purple-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold flex-shrink-0">1</span>
-                    <span>Iscriviti a uno dei nostri corsi</span>
-                  </li>
-                  <li className="flex items-start space-x-3">
-                    <span className="bg-purple-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold flex-shrink-0">2</span>
-                    <span>Ricevi il codice sconto via email</span>
-                  </li>
-                  <li className="flex items-start space-x-3">
-                    <span className="bg-purple-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold flex-shrink-0">3</span>
-                    <span>Scarica il plugin dal nostro store</span>
-                  </li>
-                  <li className="flex items-start space-x-3">
-                    <span className="bg-purple-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold flex-shrink-0">4</span>
-                    <span>Inizia a creare progetti straordinari!</span>
-                  </li>
-                </ol>
               </div>
             </div>
           </div>
@@ -625,11 +550,62 @@ const Corsi = () => {
         </div>
       )}
 
+      {/* Why Choose Us */}
+      <section className="py-16 sm:py-20 lg:py-24 bg-black">
+        <div className="w-[90%] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4">Perché scegliere Academy Lash Master?</h2>
+            <p className="text-lg sm:text-xl text-white font-light">Eccellenza nella formazione e supporto continuo</p>
+          </div>
+
+          <div className="grid sm:grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+            <div className="text-center">
+              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
+                <svg className="w-6 h-6 sm:w-8 sm:h-8 text-black" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                </svg>
+              </div>
+              <h3 className="text-lg sm:text-xl font-bold text-white mb-3 sm:mb-4">Insegnanti Esperti</h3>
+              <p className="text-white font-light text-sm sm:text-base">
+                I nostri istruttori sono professionisti certificati con anni di esperienza 
+                nel settore e formazione internazionale.
+              </p>
+            </div>
+
+            <div className="text-center">
+              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
+                <svg className="w-6 h-6 sm:w-8 sm:h-8 text-black" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/>
+                </svg>
+              </div>
+              <h3 className="text-lg sm:text-xl font-bold text-white mb-3 sm:mb-4">Materiali Professionali</h3>
+              <p className="text-white font-light text-sm sm:text-base">
+                Utilizziamo solo materiali di alta qualità e strumenti professionali 
+                per garantire la migliore esperienza formativa.
+            </p>
+          </div>
+          
+            <div className="text-center">
+              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
+                <svg className="w-6 h-6 sm:w-8 sm:h-8 text-black" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                </svg>
+              </div>
+              <h3 className="text-lg sm:text-xl font-bold text-white mb-3 sm:mb-4">Certificazione Riconosciuta</h3>
+              <p className="text-white font-light text-sm sm:text-base">
+                Al termine del corso riceverai una certificazione riconosciuta 
+                nel settore beauty che valorizzerà il tuo curriculum.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Footer */}
       <Footer />
       <WhatsAppButton />
       <ScrollToTop />
-      </div>
+    </div>
     </>
   );
 };
