@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import ScrollToTop from '../components/ScrollToTop';
 import WhatsAppButton from '../components/WhatsAppButton';
 import NeonCursor from '../components/NeonCursor';
+import Footer from '../components/Footer';
 
 const ChiSono = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -158,28 +159,7 @@ const ChiSono = () => {
         </section>
 
         {/* Footer */}
-        <footer className="bg-black text-white py-8 sm:py-12 border-t border-gray-800">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h4 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Academy Lash Master</h4>
-            <p className="text-gray-300 mb-4 sm:mb-6 text-sm sm:text-base">La tua scuola di formazione per extension ciglia</p>
-            
-            <div className="mb-4 sm:mb-6">
-              <p className="text-gray-300 mb-2 text-sm sm:text-base">
-                <span className="text-white font-semibold">Telefono:</span> +39 3533165390
-              </p>
-              <p className="text-gray-300 text-sm sm:text-base">
-                <span className="text-white font-semibold">P.IVA:</span> 03338640802
-              </p>
-            </div>
-            
-            <div className="flex justify-center space-x-4 sm:space-x-6 mb-4 sm:mb-6">
-              <a href="#" className="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Facebook</a>
-              <a href="#" className="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Instagram</a>
-              <a href="#" className="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">TikTok</a>
-            </div>
-            <p className="text-gray-500 text-xs sm:text-sm">&copy; 2024 Academy Lash Master. Tutti i diritti riservati.</p>
-          </div>
-        </footer>
+        <Footer />
 
         {/* Contact Form Modal */}
         {showContactForm && (

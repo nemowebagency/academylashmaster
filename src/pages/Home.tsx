@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react'
-import { Link, useLocation } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import ScrollToTop from '../components/ScrollToTop'
 import WhatsAppButton from '../components/WhatsAppButton'
 import NeonCursor from '../components/NeonCursor'
+import Footer from '../components/Footer'
+import HeroSection from '../components/HeroSection'
+import PromoScroll from '../components/PromoScroll'
+import Navbar from '../components/Navbar'
 
 const Home = () => {
   const [showContactForm, setShowContactForm] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
   const [scrollY, setScrollY] = useState(0);
-  const location = useLocation();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -47,11 +47,10 @@ const Home = () => {
     }
   }, []);
 
-  // Gestisce la trasparenza della barra di navigazione durante lo scroll
+  // Gestisce l'effetto parallax per la sezione quote
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.scrollY;
-      setIsScrolled(scrollTop > 50);
       setScrollY(scrollTop);
     };
 
@@ -63,21 +62,7 @@ const Home = () => {
   return (
     <>
       <NeonCursor />
-      {/* Promo Banner */}
-      <div className="bg-white text-black py-1 px-0 overflow-hidden fixed top-0 left-0 right-0 z-50" style={{height: '32px', paddingTop: '4px', paddingBottom: '4px'}}>
-        <div className="flex animate-scroll-infinite">
-          <div className="flex items-center space-x-8 whitespace-nowrap">
-            {[...Array(10)].map((_, i) => (
-              <React.Fragment key={i}>
-                <span className="text-sm font-medium">
-                  PROMO: Per i primi clienti è disponibile un 10% di sconto!
-                </span>
-                <span className="text-sm font-medium">•</span>
-              </React.Fragment>
-            ))}
-          </div>
-        </div>
-      </div>
+      <PromoScroll />
 
       <div className="min-h-screen bg-black relative overflow-hidden">
 
@@ -106,175 +91,9 @@ const Home = () => {
         );
       })} */}
       
-      {/* Header */}
-      <header className={`fixed left-0 right-0 z-40 bg-black border-b border-gray-800 shadow-2xl transition-all duration-300 ${isScrolled ? 'bg-opacity-50 backdrop-blur-sm' : 'bg-opacity-100'}`} style={{top: '32px'}}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-1 sm:py-1.5">
-            <div className="flex items-center">
-              <img 
-                src="/logo/LogoBianco.png" 
-                alt="Academy Lash Master" 
-                className="h-8 sm:h-10 lg:h-12 w-auto"
-              />
-            </div>
-            
-            {/* Desktop Navigation */}
-            <nav className="hidden lg:flex space-x-8">
-              <Link to="/" className="text-white hover:text-yellow-400 transition-all duration-500 ease-out font-medium text-sm relative group">
-                Home
-                <span className={`absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-1 h-1 rounded-full transition-opacity duration-300 ${location.pathname === '/' ? 'bg-white opacity-100' : 'bg-yellow-400 opacity-0 group-hover:opacity-100'}`}></span>
-              </Link>
-              <Link to="/corsi" className="text-white hover:text-yellow-400 transition-all duration-500 ease-out font-medium text-sm relative group">
-                Corsi
-                <span className={`absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-1 h-1 rounded-full transition-opacity duration-300 ${location.pathname === '/corsi' ? 'bg-white opacity-100' : 'bg-yellow-400 opacity-0 group-hover:opacity-100'}`}></span>
-              </Link>
-              <Link to="/chi-sono" className="text-white hover:text-yellow-400 transition-all duration-500 ease-out font-medium text-sm relative group">
-                Chi sono
-                <span className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-yellow-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-              </Link>
-              <Link to="/contatti" className="text-white hover:text-yellow-400 transition-all duration-500 ease-out font-medium text-sm relative group">
-                Contatti
-                <span className={`absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-1 h-1 rounded-full transition-opacity duration-300 ${location.pathname === '/contatti' ? 'bg-white opacity-100' : 'bg-yellow-400 opacity-0 group-hover:opacity-100'}`}></span>
-              </Link>
-            </nav>
-            
-            {/* Desktop CTA Button */}
-            <div className="hidden lg:flex items-center space-x-4">
-              <button 
-                onClick={() => setShowContactForm(true)}
-                className="bg-white text-black px-3 lg:px-4 py-1.5 lg:py-2 rounded-full font-medium text-sm flex items-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110"
-              >
-                <span className="relative z-10">Richiedi informazioni</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-500 ease-out relative z-10" />
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
-              </button>
-            </div>
+      <Navbar setShowContactForm={setShowContactForm} />
 
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden text-white p-2"
-              aria-label="Toggle mobile menu"
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                {isMobileMenuOpen ? (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                ) : (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                )}
-              </svg>
-            </button>
-          </div>
-
-          {/* Mobile Navigation */}
-          {isMobileMenuOpen && (
-            <div className="lg:hidden border-t border-gray-800 py-4">
-              <nav className="flex flex-col space-y-4">
-                <Link 
-                  to="/" 
-                  className="text-white hover:text-yellow-400 transition-all duration-500 ease-out font-medium py-2 text-sm relative group"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Home
-                  <span className={`absolute -bottom-1 left-0 w-1 h-1 rounded-full transition-opacity duration-300 ${location.pathname === '/' ? 'bg-white opacity-100' : 'bg-yellow-400 opacity-0 group-hover:opacity-100'}`}></span>
-                </Link>
-                <Link 
-                  to="/corsi" 
-                  className="text-white hover:text-yellow-400 transition-all duration-500 ease-out font-medium py-2 text-sm relative group"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Corsi
-                  <span className={`absolute -bottom-1 left-0 w-1 h-1 rounded-full transition-opacity duration-300 ${location.pathname === '/corsi' ? 'bg-white opacity-100' : 'bg-yellow-400 opacity-0 group-hover:opacity-100'}`}></span>
-                </Link>
-                <Link 
-                  to="/chi-sono" 
-                  className="text-white hover:text-yellow-400 transition-all duration-500 ease-out font-medium py-2 text-sm relative group"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Chi sono
-                  <span className="absolute -bottom-1 left-0 w-1 h-1 bg-yellow-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-                </Link>
-                <Link 
-                  to="/contatti" 
-                  className="text-white hover:text-yellow-400 transition-all duration-500 ease-out font-medium py-2 text-sm relative group"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Contatti
-                  <span className={`absolute -bottom-1 left-0 w-1 h-1 rounded-full transition-opacity duration-300 ${location.pathname === '/contatti' ? 'bg-white opacity-100' : 'bg-yellow-400 opacity-0 group-hover:opacity-100'}`}></span>
-                </Link>
-                <button 
-                  onClick={() => {
-                    setShowContactForm(true);
-                    setIsMobileMenuOpen(false);
-                  }}
-                  className="bg-white text-black px-6 py-3 rounded-full font-medium text-center mt-4 text-sm flex items-center justify-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110"
-                >
-                  <span className="relative z-10">Richiedi informazioni</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-500 ease-out relative z-10" />
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
-                </button>
-              </nav>
-            </div>
-          )}
-        </div>
-      </header>
-
-      {/* ===========================================
-          HERO SECTION - Sezione principale con immagine di sfondo
-          =========================================== */}
-      <section className="relative overflow-hidden h-screen flex items-center" style={{marginTop: '32px'}}>
-        {/* Background Image */}
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: "url('/background/girl1.png')"
-          }}
-        ></div>
-        
-        {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-black bg-opacity-40"></div>
-        
-        {/* Gradient Overlay for better text readability */}
-        <div className="absolute inset-0 bg-gradient-to-br from-black/85 via-black/40 to-transparent"></div>
-        
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="flex flex-col items-center justify-center text-center h-full">
-            <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-light text-white mb-4 sm:mb-6 leading-tight">
-              Diventa un <span className="text-white bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">master</span> delle <span className="font-bold">extension ciglia</span>
-            </h2>
-            <div className="flex items-center gap-4 mb-4 sm:mb-6">
-              <span className="text-white font-light text-lg sm:text-xl">corsi</span>
-              <span className="text-white/60">•</span>
-              <span className="text-white font-light text-lg sm:text-xl">professionali</span>
-              <span className="text-white/60">•</span>
-              <span className="text-white font-light text-lg sm:text-xl">certificati</span>
-            </div>
-            <p className="text-lg sm:text-xl lg:text-2xl text-gray-200 mb-6 sm:mb-8 leading-relaxed max-w-4xl font-light">
-              Impara le tecniche <span className="font-bold">professionali</span> per l'applicazione delle <span className="font-bold">extension ciglia</span>. 
-              Corsi <span className="font-bold">certificati</span> per diventare un <span className="font-bold">tecnico esperto</span> nel settore beauty.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center">
-              <Link
-                to="/corsi"
-                className="bg-white text-black px-8 py-4 rounded-full font-medium text-base flex items-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110"
-              >
-                <span className="relative z-10">Scopri di più</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-500 ease-out relative z-10" />
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
-              </Link>
-              <Link
-                to="/chi-sono"
-                className="bg-transparent text-white px-8 py-4 rounded-full text-base border border-white flex items-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110 hover:border-transparent hover:text-black"
-              >
-                <span className="relative z-10">Chi sono</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-500 ease-out relative z-10" />
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <HeroSection />
 
       {/* ===========================================
           CORSI SECTION - Sezione con i corsi professionali
@@ -764,106 +583,7 @@ const Home = () => {
       {/* ===========================================
           FOOTER SECTION - Footer con informazioni aziendali e social
           =========================================== */}
-      <footer className="bg-black text-white pt-12 sm:pt-16 lg:pt-20 pb-6 sm:pb-8">
-        <div className="w-[90%] mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Main Footer Content - Three Columns */}
-          <div className="grid md:grid-cols-3 gap-8 sm:gap-12 lg:gap-16 mb-8 sm:mb-12">
-            
-            {/* Column 1 - Logo and Social */}
-            <div className="text-center md:text-left">
-              <img 
-                src="/logo/LogoBianco.png" 
-                alt="Academy Lash Master" 
-                className="h-12 sm:h-16 lg:h-20 w-auto mx-auto md:mx-0 mb-4 sm:mb-6"
-              />
-              <p className="text-white font-light text-sm sm:text-base mb-6 sm:mb-8">
-                La tua scuola di formazione per extension ciglia
-              </p>
-              
-              {/* Social Icons */}
-              <div className="flex justify-center md:justify-start space-x-4 sm:space-x-6">
-                <a href="#" className="text-gray-400 hover:text-white transition duration-300">
-                  <svg className="w-6 h-6 sm:w-8 sm:h-8" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                  </svg>
-                </a>
-                <a href="#" className="text-gray-400 hover:text-white transition duration-300">
-                  <svg className="w-6 h-6 sm:w-8 sm:h-8" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                  </svg>
-                </a>
-                <a href="#" className="text-gray-400 hover:text-white transition duration-300">
-                  <svg className="w-6 h-6 sm:w-8 sm:h-8" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.78-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
-                  </svg>
-                </a>
-              </div>
-            </div>
-
-            {/* Column 2 - Useful Links */}
-            <div className="text-center md:text-left">
-              <h4 className="text-lg sm:text-xl font-bold text-white mb-4 sm:mb-6">Menu di Navigazione</h4>
-              <div className="space-y-2 sm:space-y-3">
-                <Link to="/" className="block text-gray-300 hover:text-yellow-400 transition duration-300 text-sm sm:text-base">
-                  Home
-                </Link>
-                <Link to="/corsi" className="block text-gray-300 hover:text-yellow-400 transition duration-300 text-sm sm:text-base">
-                  Corsi
-                </Link>
-                <Link to="/chi-sono" className="block text-gray-300 hover:text-yellow-400 transition duration-300 text-sm sm:text-base">
-                  Chi sono
-                </Link>
-                <Link to="/contatti" className="block text-gray-300 hover:text-yellow-400 transition duration-300 text-sm sm:text-base">
-                  Contatti
-                </Link>
-              </div>
-            </div>
-
-            {/* Column 3 - Contact Info */}
-            <div className="text-center md:text-left">
-              <h4 className="text-lg sm:text-xl font-bold text-white mb-4 sm:mb-6">Contatti</h4>
-              <div className="space-y-2 sm:space-y-3">
-                <p className="text-gray-300 text-sm sm:text-base">
-                  <span className="text-white font-semibold">Telefono:</span> +39 3533165390
-                </p>
-                <p className="text-gray-300 text-sm sm:text-base">
-                  <span className="text-white font-semibold">Email:</span> info@academylashmaster.com
-                </p>
-                <p className="text-gray-300 text-sm sm:text-base">
-                  <span className="text-white font-semibold">Indirizzo:</span> Via Roma 123, Milano
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Divider */}
-          <div className="border-t border-gray-800 pt-6 sm:pt-8">
-            <div className="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
-              {/* Left - Copyright */}
-              <div className="text-center sm:text-left">
-                <p className="text-gray-500 text-xs sm:text-sm">
-                  © 2025 Academy Lash Master di Ana Maria. Tutti i diritti riservati.
-                </p>
-              </div>
-              
-              {/* Right - P.IVA and Policies */}
-              <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-4">
-                <p className="text-gray-500 text-xs sm:text-sm">
-                  P.IVA: 03338640802
-                </p>
-                <div className="flex space-x-4">
-                  <a href="#" className="text-gray-500 hover:text-white transition duration-300 text-xs sm:text-sm">
-                    Privacy Policy
-                  </a>
-                  <a href="#" className="text-gray-500 hover:text-white transition duration-300 text-xs sm:text-sm">
-                    Cookie Policy
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
 
       {/* Contact Form Modal */}
       {showContactForm && (
