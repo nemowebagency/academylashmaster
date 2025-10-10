@@ -12,6 +12,10 @@ const Home = () => {
   const [showContactForm, setShowContactForm] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const [coursesVisible, setCoursesVisible] = useState(false);
+  const [aboutVisible, setAboutVisible] = useState(false);
+  const [timelineVisible, setTimelineVisible] = useState(false);
+  const [infoVisible, setInfoVisible] = useState(false);
+  const [contactsVisible, setContactsVisible] = useState(false);
 
   const handleFormSubmit = (formData: any) => {
     // Qui puoi aggiungere la logica per inviare l'email
@@ -67,6 +71,118 @@ const Home = () => {
     return () => {
       if (coursesSection) {
         observer.unobserve(coursesSection);
+      }
+    };
+  }, []);
+
+  // Intersection Observer per l'animazione della sezione Chi Sono
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setAboutVisible(true);
+          }
+        });
+      },
+      {
+        threshold: 0.3, // Trigger quando il 30% della sezione è visibile
+        rootMargin: '0px 0px -50px 0px' // Trigger 50px prima che la sezione sia completamente visibile
+      }
+    );
+
+    const aboutSection = document.getElementById('about');
+    if (aboutSection) {
+      observer.observe(aboutSection);
+    }
+
+    return () => {
+      if (aboutSection) {
+        observer.unobserve(aboutSection);
+      }
+    };
+  }, []);
+
+  // Intersection Observer per l'animazione della sezione Il Mio Percorso
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setTimelineVisible(true);
+          }
+        });
+      },
+      {
+        threshold: 0.2, // Trigger quando il 20% della sezione è visibile
+        rootMargin: '0px 0px -100px 0px' // Trigger 100px prima che la sezione sia completamente visibile
+      }
+    );
+
+    const timelineSection = document.getElementById('timeline');
+    if (timelineSection) {
+      observer.observe(timelineSection);
+    }
+
+    return () => {
+      if (timelineSection) {
+        observer.unobserve(timelineSection);
+      }
+    };
+  }, []);
+
+  // Intersection Observer per l'animazione della sezione INFO
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setInfoVisible(true);
+          }
+        });
+      },
+      {
+        threshold: 0.2, // Trigger quando il 20% della sezione è visibile
+        rootMargin: '0px 0px -100px 0px' // Trigger 100px prima che la sezione sia completamente visibile
+      }
+    );
+
+    const infoSection = document.getElementById('info');
+    if (infoSection) {
+      observer.observe(infoSection);
+    }
+
+    return () => {
+      if (infoSection) {
+        observer.unobserve(infoSection);
+      }
+    };
+  }, []);
+
+  // Intersection Observer per l'animazione della sezione CONTATTI
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setContactsVisible(true);
+          }
+        });
+      },
+      {
+        threshold: 0.2, // Trigger quando il 20% della sezione è visibile
+        rootMargin: '0px 0px -100px 0px' // Trigger 100px prima che la sezione sia completamente visibile
+      }
+    );
+
+    const contactsSection = document.getElementById('contatti');
+    if (contactsSection) {
+      observer.observe(contactsSection);
+    }
+
+    return () => {
+      if (contactsSection) {
+        observer.unobserve(contactsSection);
       }
     };
   }, []);
@@ -282,13 +398,13 @@ const Home = () => {
         {/* Testo centrato verticalmente */}
         <div className="absolute inset-0 flex items-center justify-end">
           <div className="w-1/2 pr-16 lg:pr-24 xl:pr-32 flex flex-col justify-center">
-            <p className="text-sm uppercase text-white font-medium mb-4 tracking-wider">
+            <p className={`text-sm uppercase text-white font-medium mb-4 tracking-wider transition-all duration-1000 ease-out ${aboutVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'}`}>
               CHI SONO
             </p>
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6">
+            <h2 className={`text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 transition-all duration-1000 ease-out ${aboutVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'}`} style={{transitionDelay: aboutVisible ? '0.2s' : '0s'}}>
               Imparare, crescere, trasformarsi
             </h2>
-            <p className="text-lg sm:text-xl text-white font-light leading-relaxed text-justify" style={{textAlignLast: 'left'}}>
+            <p className={`text-lg sm:text-xl text-white font-light leading-relaxed text-justify transition-all duration-1000 ease-out ${aboutVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'}`} style={{textAlignLast: 'left', transitionDelay: aboutVisible ? '0.4s' : '0s'}}>
               La mia storia nasce da un desiderio profondo: trasformare una passione in una vera professione e offrire ad altre donne gli strumenti per fare lo stesso. Ho viaggiato, studiato e investito tempo ed energie per raccogliere le migliori conoscenze, arricchendo il mio percorso con esperienze internazionali che mi hanno permesso di crescere e portare innovazione nel mondo delle extension ciglia.
             </p>
           </div>
@@ -298,13 +414,13 @@ const Home = () => {
       {/* ===========================================
           IL MIO PERCORSO SECTION - Timeline del percorso di Ana Maria
           =========================================== */}
-      <section className="py-16 sm:py-20 lg:py-24 bg-white relative overflow-hidden">
+      <section id="timeline" className="py-16 sm:py-20 lg:py-24 bg-white relative overflow-hidden">
         <div className="w-[90%] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16">
-            <p className="text-sm uppercase text-black font-medium mb-4 tracking-wider">
+            <p className={`text-sm uppercase text-black font-medium mb-4 tracking-wider transition-all duration-1000 ease-out ${timelineVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
               IL MIO PERCORSO
             </p>
-            <h3 className="text-4xl sm:text-5xl md:text-6xl font-bold text-black mb-4">Dalla passione alla professione, passo dopo passo</h3>
+            <h3 className={`text-4xl sm:text-5xl md:text-6xl font-bold text-black mb-4 transition-all duration-1000 ease-out ${timelineVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{transitionDelay: timelineVisible ? '0.2s' : '0s'}}>Dalla passione alla professione, passo dopo passo</h3>
           </div>
 
           <div className="relative">
@@ -316,14 +432,14 @@ const Home = () => {
               {/* Step 1 */}
               <div className="text-center group">
                 <div className="relative mb-6 sm:mb-8">
-                  <div className="w-20 h-20 sm:w-24 sm:h-24 lg:w-32 lg:h-32 bg-gradient-to-br from-black to-black rounded-full flex items-center justify-center relative z-10 group-hover:scale-110 transition-transform duration-300 mx-auto">
+                  <div className={`w-20 h-20 sm:w-24 sm:h-24 lg:w-32 lg:h-32 bg-gradient-to-br from-black to-black rounded-full flex items-center justify-center relative z-10 group-hover:scale-110 transition-all duration-500 ease-out mx-auto ${timelineVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-50'}`} style={{transitionDelay: timelineVisible ? '0.2s' : '0s'}}>
                     <span className="text-white font-bold text-xl sm:text-2xl lg:text-3xl">1</span>
                   </div>
                   {/* Linea di connessione - Hidden on mobile */}
                   <div className="hidden md:block absolute top-16 left-1/2 transform -translate-x-1/2 w-1 h-8 bg-gradient-to-b from-black to-transparent"></div>
                 </div>
-                <h4 className="text-lg sm:text-xl font-semibold text-black mb-3 sm:mb-4">Gli Inizi</h4>
-                <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
+                <h4 className={`text-lg sm:text-xl font-semibold text-black mb-3 sm:mb-4 transition-all duration-500 ease-out ${timelineVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{transitionDelay: timelineVisible ? '0.4s' : '0s'}}>Gli Inizi</h4>
+                <p className={`text-gray-600 leading-relaxed text-sm sm:text-base transition-all duration-500 ease-out ${timelineVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{transitionDelay: timelineVisible ? '0.6s' : '0s'}}>
                   Ho iniziato come estetista tradizionale, ma quando ho scoperto il mondo delle extension ciglia, 
                   ho capito che era la mia vera vocazione.
                 </p>
@@ -332,14 +448,14 @@ const Home = () => {
               {/* Step 2 */}
               <div className="text-center group">
                 <div className="relative mb-6 sm:mb-8">
-                  <div className="w-20 h-20 sm:w-24 sm:h-24 lg:w-32 lg:h-32 bg-gradient-to-br from-black to-black rounded-full flex items-center justify-center relative z-10 group-hover:scale-110 transition-transform duration-300 mx-auto">
+                  <div className={`w-20 h-20 sm:w-24 sm:h-24 lg:w-32 lg:h-32 bg-gradient-to-br from-black to-black rounded-full flex items-center justify-center relative z-10 group-hover:scale-110 transition-all duration-500 ease-out mx-auto ${timelineVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-50'}`} style={{transitionDelay: timelineVisible ? '0.8s' : '0s'}}>
                     <span className="text-white font-bold text-xl sm:text-2xl lg:text-3xl">2</span>
                   </div>
                   {/* Linea di connessione - Hidden on mobile */}
                   <div className="hidden md:block absolute top-16 left-1/2 transform -translate-x-1/2 w-1 h-8 bg-gradient-to-b from-black to-transparent"></div>
                 </div>
-                <h4 className="text-lg sm:text-xl font-semibold text-black mb-3 sm:mb-4">La Formazione</h4>
-                <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
+                <h4 className={`text-lg sm:text-xl font-semibold text-black mb-3 sm:mb-4 transition-all duration-500 ease-out ${timelineVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{transitionDelay: timelineVisible ? '1.0s' : '0s'}}>La Formazione</h4>
+                <p className={`text-gray-600 leading-relaxed text-sm sm:text-base transition-all duration-500 ease-out ${timelineVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{transitionDelay: timelineVisible ? '1.2s' : '0s'}}>
                   Ho investito anni nella formazione, studiando nelle migliori accademie internazionali. 
                   Ho imparato tecniche innovative e materiali all'avanguardia.
                 </p>
@@ -348,14 +464,14 @@ const Home = () => {
               {/* Step 3 */}
               <div className="text-center group">
                 <div className="relative mb-6 sm:mb-8">
-                  <div className="w-20 h-20 sm:w-24 sm:h-24 lg:w-32 lg:h-32 bg-gradient-to-br from-black to-black rounded-full flex items-center justify-center relative z-10 group-hover:scale-110 transition-transform duration-300 mx-auto">
+                  <div className={`w-20 h-20 sm:w-24 sm:h-24 lg:w-32 lg:h-32 bg-gradient-to-br from-black to-black rounded-full flex items-center justify-center relative z-10 group-hover:scale-110 transition-all duration-500 ease-out mx-auto ${timelineVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-50'}`} style={{transitionDelay: timelineVisible ? '1.4s' : '0s'}}>
                     <span className="text-white font-bold text-xl sm:text-2xl lg:text-3xl">3</span>
                   </div>
                   {/* Linea di connessione - Hidden on mobile */}
                   <div className="hidden md:block absolute top-16 left-1/2 transform -translate-x-1/2 w-1 h-8 bg-gradient-to-b from-black to-transparent"></div>
                 </div>
-                <h4 className="text-lg sm:text-xl font-semibold text-black mb-3 sm:mb-4">Academy Lash Master</h4>
-                <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
+                <h4 className={`text-lg sm:text-xl font-semibold text-black mb-3 sm:mb-4 transition-all duration-500 ease-out ${timelineVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{transitionDelay: timelineVisible ? '1.6s' : '0s'}}>Academy Lash Master</h4>
+                <p className={`text-gray-600 leading-relaxed text-sm sm:text-base transition-all duration-500 ease-out ${timelineVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{transitionDelay: timelineVisible ? '1.8s' : '0s'}}>
                   Oggi condivido la mia passione insegnando ad altre donne come trasformare la loro 
                   passione in una professione di successo.
                 </p>
@@ -364,7 +480,7 @@ const Home = () => {
           </div>
 
           {/* CTA Button */}
-          <div className="text-center mt-12 sm:mt-16">
+          <div className={`text-center mt-12 sm:mt-16 transition-all duration-1000 ease-out ${timelineVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{transitionDelay: timelineVisible ? '2.0s' : '0s'}}>
             <Link 
               to="/corsi"
               className="inline-flex bg-black text-white px-8 py-4 rounded-full font-medium text-base items-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110 hover:text-black"
@@ -382,7 +498,7 @@ const Home = () => {
       {/* ===========================================
           INFO SECTION - Sezione con storia e filosofia di Ana Maria
           =========================================== */}
-      <section className="py-16 sm:py-20 lg:py-24 bg-black relative overflow-hidden">
+      <section id="info" className="py-16 sm:py-20 lg:py-24 bg-black relative overflow-hidden">
         <div className="w-[90%] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Main Content - Ana Maria's Story */}
           <div className="space-y-16 sm:space-y-20 lg:space-y-24">
@@ -391,17 +507,17 @@ const Home = () => {
               {/* Left - Testo Oltre le parole */}
               <div className="order-2 lg:order-1">
                 <div className="mb-6 sm:mb-8">
-                  <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white">
+                  <h2 className={`text-4xl sm:text-5xl md:text-6xl font-bold text-white transition-all duration-1000 ease-out ${infoVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`}>
                     Oltre le parole: nascono i corsi
                   </h2>
                 </div>
-                <p className="text-lg sm:text-xl text-white font-light leading-relaxed text-justify" style={{textAlignLast: 'left'}}>
+                <p className={`text-lg sm:text-xl text-white font-light leading-relaxed text-justify transition-all duration-1000 ease-out ${infoVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`} style={{textAlignLast: 'left', transitionDelay: infoVisible ? '0.2s' : '0s'}}>
                   I miei corsi non sono semplici lezioni tecniche, ma percorsi di crescita personale e professionale. Ogni allieva viene accompagnata passo dopo passo: dalle basi fondamentali alle competenze avanzate, dalla precisione della tecnica alla gestione del business, fino alla pratica su modella reale. A supporto del percorso formativo, metto a disposizione manuali esclusivi, materiali professionali di alta qualità e correzioni personalizzate, perché imparare non significa solo acquisire una tecnica, ma costruire fiducia, sicurezza e indipendenza.
                 </p>
               </div>
 
               {/* Right - Immagine Corsi */}
-              <div className="relative group order-1 lg:order-2">
+              <div className={`relative group order-1 lg:order-2 transition-all duration-1000 ease-out ${infoVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{transitionDelay: infoVisible ? '0.4s' : '0s'}}>
                 <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl shadow-2xl">
                   <img 
                     src="/soggetto/corsi.jpg"
@@ -424,7 +540,7 @@ const Home = () => {
             {/* Row 2: Immagine Corso2 a sinistra - Testo Conoscenza a destra */}
             <div className="grid lg:grid-cols-2 gap-12 sm:gap-16 lg:gap-24 items-center">
               {/* Left - Immagine Corso2 */}
-              <div className="relative group order-2 lg:order-1">
+              <div className={`relative group order-2 lg:order-1 transition-all duration-1000 ease-out ${infoVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{transitionDelay: infoVisible ? '0.6s' : '0s'}}>
                 <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl shadow-2xl">
                   <img 
                     src="/soggetto/corso2.jpg"
@@ -446,11 +562,11 @@ const Home = () => {
               {/* Right - Testo Conoscenza è potere */}
               <div className="order-1 lg:order-2">
                 <div className="mb-6 sm:mb-8">
-                  <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white">
+                  <h2 className={`text-4xl sm:text-5xl md:text-6xl font-bold text-white transition-all duration-1000 ease-out ${infoVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'}`} style={{transitionDelay: infoVisible ? '0.8s' : '0s'}}>
                     Conoscenza è potere
                   </h2>
                 </div>
-                <p className="text-lg sm:text-xl text-white font-light leading-relaxed text-justify" style={{textAlignLast: 'left'}}>
+                <p className={`text-lg sm:text-xl text-white font-light leading-relaxed text-justify transition-all duration-1000 ease-out ${infoVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'}`} style={{textAlignLast: 'left', transitionDelay: infoVisible ? '1.0s' : '0s'}}>
                   Molte persone negli anni mi hanno chiesto: "Dove hai fatto i tuoi corsi?" La risposta è spesso stata all'estero, dove i programmi erano più lunghi, completi e sempre aggiornati. Non si trattava di talento, ma di opportunità. Quelle esperienze mi hanno dato accesso a tecniche innovative, strumenti concreti e materiali d'avanguardia, che oggi condivido con le mie allieve per garantire una formazione moderna e di livello internazionale.
                 </p>
               </div>
@@ -472,13 +588,13 @@ const Home = () => {
             <div>
               {/* Section Header */}
               <div className="mb-8 sm:mb-12">
-                <h3 className="text-4xl sm:text-5xl md:text-6xl font-bold text-black mb-4 sm:mb-6">Rimani in contatto con me</h3>
-                <p className="text-lg sm:text-xl text-gray-600 font-light leading-relaxed text-justify" style={{textAlignLast: 'left'}}>Sono qui per rispondere alle tue domande e aiutarti a iniziare il tuo percorso nel mondo delle extension ciglia.</p>
+                <h3 className={`text-4xl sm:text-5xl md:text-6xl font-bold text-black mb-4 sm:mb-6 transition-all duration-1000 ease-out ${contactsVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`}>Rimani in contatto con me</h3>
+                <p className={`text-lg sm:text-xl text-gray-600 font-light leading-relaxed text-justify transition-all duration-1000 ease-out ${contactsVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`} style={{textAlignLast: 'left', transitionDelay: contactsVisible ? '0.2s' : '0s'}}>Sono qui per rispondere alle tue domande e aiutarti a iniziare il tuo percorso nel mondo delle extension ciglia.</p>
               </div>
               
               {/* Contact Info */}
               <div className="space-y-4 sm:space-y-6">
-              <div className="flex items-center">
+              <div className={`flex items-center transition-all duration-1000 ease-out ${contactsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{transitionDelay: contactsVisible ? '0.4s' : '0s'}}>
                 <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-black to-black rounded-full flex items-center justify-center mr-4 sm:mr-6">
                   <svg className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
@@ -490,7 +606,7 @@ const Home = () => {
                 </div>
               </div>
 
-              <div className="flex items-center">
+              <div className={`flex items-center transition-all duration-1000 ease-out ${contactsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{transitionDelay: contactsVisible ? '0.6s' : '0s'}}>
                 <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-black to-black rounded-full flex items-center justify-center mr-4 sm:mr-6">
                   <svg className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
@@ -502,7 +618,7 @@ const Home = () => {
                 </div>
               </div>
 
-              <div className="flex items-center">
+              <div className={`flex items-center transition-all duration-1000 ease-out ${contactsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{transitionDelay: contactsVisible ? '0.8s' : '0s'}}>
                 <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-black to-black rounded-full flex items-center justify-center mr-4 sm:mr-6">
                   <svg className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
@@ -517,7 +633,9 @@ const Home = () => {
             </div>
 
             {/* Right - Contact Form */}
-            <ContactForm variant="default" onSubmit={handleFormSubmit} />
+            <div className={`transition-all duration-1000 ease-out ${contactsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{transitionDelay: contactsVisible ? '1.0s' : '0s'}}>
+              <ContactForm variant="default" onSubmit={handleFormSubmit} />
+            </div>
           </div>
         </div>
       </section>
