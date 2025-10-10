@@ -547,27 +547,21 @@ const Home = () => {
 
       
 
-      {/* altri Section - Ana Maria's Story */}
-      <section id="about" className="py-16 sm:py-24 lg:py-32 bg-black relative overflow-hidden">
-
+      {/* Info Section */}
+      <section className="py-16 sm:py-20 lg:py-24 bg-black relative overflow-hidden">
         <div className="w-[90%] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Main Content - Ana Maria's Story */}
           <div className="space-y-16 sm:space-y-20 lg:space-y-24">
-            {/* Row 2: Riquadro Oltre le parole a sinistra - Immagine Corsi a destra */}
+            {/* Row 1: Testo Oltre le parole a sinistra - Immagine Corsi a destra */}
             <div className="grid lg:grid-cols-2 gap-12 sm:gap-16 lg:gap-24 items-center">
-              {/* Left - Riquadro Oltre le parole */}
-              <div className="bg-gradient-to-br from-gray-900 to-gray-800 p-6 sm:p-8 lg:p-10 rounded-2xl sm:rounded-3xl border border-gray-700 hover:border-white/30 transition-all duration-500 group order-2 lg:order-1">
-                <div className="flex items-center mb-6 sm:mb-8">
-                   <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-gray-600 to-gray-700 rounded-full flex items-center justify-center mr-4 sm:mr-6">
-                     <svg className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
-                       <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 75.75 75.75 0 01-.44-.01C3.119 13.547 3 12.75 3 12c0-.75.119-1.547.95-2.603zM6.02 15.33a8.987 8.987 0 004.5-1.508 8.987 8.987 0 004.5 1.508 8.987 8.987 0 01-4.5 1.508 8.987 8.987 0 01-4.5-1.508z" />
-                     </svg>
-                   </div>
-                  <h3 className="text-2xl sm:text-3xl font-bold text-white group-hover:text-white transition-colors duration-300">
+              {/* Left - Testo Oltre le parole */}
+              <div className="order-2 lg:order-1">
+                <div className="mb-6 sm:mb-8">
+                  <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white">
                     Oltre le parole: nascono i corsi
-                  </h3>
+                  </h2>
                 </div>
-                <p className="text-gray-300 leading-relaxed text-base sm:text-lg lg:text-xl">
+                <p className="text-lg sm:text-xl text-white font-light leading-relaxed text-justify" style={{textAlignLast: 'left'}}>
                   I miei corsi non sono semplici lezioni tecniche, ma percorsi di crescita personale e professionale. Ogni allieva viene accompagnata passo dopo passo: dalle basi fondamentali alle competenze avanzate, dalla precisione della tecnica alla gestione del business, fino alla pratica su modella reale. A supporto del percorso formativo, metto a disposizione manuali esclusivi, materiali professionali di alta qualità e correzioni personalizzate, perché imparare non significa solo acquisire una tecnica, ma costruire fiducia, sicurezza e indipendenza.
                 </p>
               </div>
@@ -587,13 +581,13 @@ const Home = () => {
                 </div>
                 
                 {/* Elegant Decorative Elements per corsi */}
-                <div className="absolute -top-2 sm:-top-3 lg:-top-4 -left-2 sm:-left-3 lg:-left-4 w-6 sm:w-10 lg:w-12 h-6 sm:h-10 lg:h-12 bg-gradient-to-br from-white to-white rounded-full animate-bounce delay-200"></div>
-                <div className="absolute -bottom-2 sm:-bottom-3 lg:-bottom-4 -right-2 sm:-right-3 lg:-right-4 w-4 sm:w-6 lg:w-8 h-4 sm:h-6 lg:h-8 bg-gradient-to-br from-white to-white rounded-full animate-bounce delay-500"></div>
-                <div className="absolute top-1/2 -left-4 sm:-left-6 lg:-left-8 w-3 sm:w-5 lg:w-6 h-3 sm:h-5 lg:h-6 bg-white/30 rounded-full animate-pulse delay-800"></div>
+                <div className="absolute -top-2 sm:-top-3 lg:-top-4 -left-2 sm:-left-3 lg:-left-4 w-6 sm:w-10 lg:w-12 h-6 sm:h-10 lg:h-12 bg-gradient-to-br from-white to-white rounded-full"></div>
+                <div className="absolute -bottom-2 sm:-bottom-3 lg:-bottom-4 -right-2 sm:-right-3 lg:-right-4 w-4 sm:w-6 lg:w-8 h-4 sm:h-6 lg:h-8 bg-gradient-to-br from-white to-white rounded-full"></div>
+                <div className="absolute top-1/2 -left-4 sm:-left-6 lg:-left-8 w-3 sm:w-5 lg:w-6 h-3 sm:h-5 lg:h-6 bg-white/30 rounded-full"></div>
               </div>
             </div>
 
-            {/* Row 3: Immagine Corso2 a sinistra - Riquadro Conoscenza a destra */}
+            {/* Row 2: Immagine Corso2 a sinistra - Testo Conoscenza a destra */}
             <div className="grid lg:grid-cols-2 gap-12 sm:gap-16 lg:gap-24 items-center">
               {/* Left - Immagine Corso2 */}
               <div className="relative group order-2 lg:order-1">
@@ -610,24 +604,19 @@ const Home = () => {
                 </div>
                 
                 {/* Elegant Decorative Elements per corso2 */}
-                <div className="absolute -top-2 sm:-top-3 lg:-top-4 -left-2 sm:-left-3 lg:-left-4 w-6 sm:w-10 lg:w-12 h-6 sm:h-10 lg:h-12 bg-gradient-to-br from-white to-white rounded-full animate-bounce delay-300"></div>
-                <div className="absolute -bottom-2 sm:-bottom-3 lg:-bottom-4 -right-2 sm:-right-3 lg:-right-4 w-4 sm:w-6 lg:w-8 h-4 sm:h-6 lg:h-8 bg-gradient-to-br from-white to-white rounded-full animate-bounce delay-600"></div>
-                <div className="absolute top-1/2 -left-4 sm:-left-6 lg:-left-8 w-3 sm:w-5 lg:w-6 h-3 sm:h-5 lg:h-6 bg-white/30 rounded-full animate-pulse delay-900"></div>
+                <div className="absolute -top-2 sm:-top-3 lg:-top-4 -left-2 sm:-left-3 lg:-left-4 w-6 sm:w-10 lg:w-12 h-6 sm:h-10 lg:h-12 bg-gradient-to-br from-white to-white rounded-full"></div>
+                <div className="absolute -bottom-2 sm:-bottom-3 lg:-bottom-4 -right-2 sm:-right-3 lg:-right-4 w-4 sm:w-6 lg:w-8 h-4 sm:h-6 lg:h-8 bg-gradient-to-br from-white to-white rounded-full"></div>
+                <div className="absolute top-1/2 -left-4 sm:-left-6 lg:-left-8 w-3 sm:w-5 lg:w-6 h-3 sm:h-5 lg:h-6 bg-white/30 rounded-full"></div>
               </div>
 
-              {/* Right - Riquadro Conoscenza è potere */}
-              <div className="bg-gradient-to-br from-gray-900 to-gray-800 p-6 sm:p-8 lg:p-10 rounded-2xl sm:rounded-3xl border border-gray-700 hover:border-white/30 transition-all duration-500 group order-1 lg:order-2">
-                <div className="flex items-center mb-6 sm:mb-8">
-                   <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-gray-600 to-gray-700 rounded-full flex items-center justify-center mr-4 sm:mr-6">
-                     <svg className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
-                       <path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clipRule="evenodd" />
-                     </svg>
-                   </div>
-                  <h3 className="text-2xl sm:text-3xl font-bold text-white group-hover:text-white transition-colors duration-300">
+              {/* Right - Testo Conoscenza è potere */}
+              <div className="order-1 lg:order-2">
+                <div className="mb-6 sm:mb-8">
+                  <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white">
                     Conoscenza è potere
-                  </h3>
+                  </h2>
                 </div>
-                <p className="text-gray-300 leading-relaxed text-base sm:text-lg lg:text-xl">
+                <p className="text-lg sm:text-xl text-white font-light leading-relaxed text-justify" style={{textAlignLast: 'left'}}>
                   Molte persone negli anni mi hanno chiesto: "Dove hai fatto i tuoi corsi?" La risposta è spesso stata all'estero, dove i programmi erano più lunghi, completi e sempre aggiornati. Non si trattava di talento, ma di opportunità. Quelle esperienze mi hanno dato accesso a tecniche innovative, strumenti concreti e materiali d'avanguardia, che oggi condivido con le mie allieve per garantire una formazione moderna e di livello internazionale.
                 </p>
               </div>
