@@ -4,6 +4,7 @@ import NeonCursor from '../components/NeonCursor';
 import Footer from '../components/Footer';
 import PromoScroll from '../components/PromoScroll';
 import Navbar from '../components/Navbar';
+import HeroChiSono from '../components/HeroChiSono';
 
 const ChiSono = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -37,25 +38,9 @@ const ChiSono = () => {
       
       <div className="min-h-screen bg-black">
         <Navbar setShowContactForm={setShowContactForm} />
+        <HeroChiSono />
 
-        {/* Hero Section */}
-        <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-gray-900 to-black relative overflow-hidden">
-          <div className="absolute inset-0 opacity-20">
-            <div className="absolute top-1/4 left-1/4 w-48 sm:w-64 lg:w-96 h-48 sm:h-64 lg:h-96 bg-white rounded-full mix-blend-multiply filter blur-3xl animate-pulse"></div>
-            <div className="absolute bottom-1/4 right-1/4 w-48 sm:w-64 lg:w-96 h-48 sm:h-64 lg:h-96 bg-gray-400 rounded-full mix-blend-multiply filter blur-3xl animate-pulse delay-1000"></div>
-          </div>
-          
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div className="text-center">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6">
-                Chi Sono
-              </h1>
-              <p className="text-lg sm:text-xl text-gray-300 mb-6 sm:mb-8 max-w-3xl mx-auto">
-                Scopri la mia storia e la passione che mi ha portato a creare Academy Lash Master
-              </p>
-            </div>
-          </div>
-        </section>
+        
 
         {/* Main Content - Empty for now */}
         <section className="py-12 sm:py-16 lg:py-20 bg-black">
