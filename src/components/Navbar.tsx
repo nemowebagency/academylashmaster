@@ -11,6 +11,18 @@ const Navbar = ({ setShowContactForm }: NavbarProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
 
+  // Funzione per gestire il click del pulsante "Richiedi informazioni"
+  const handleRequestInfoClick = () => {
+    if (location.pathname === '/contatti') {
+      // Se siamo già nella pagina contatti, scrolla direttamente al form
+      const formElement = document.getElementById('form');
+      if (formElement) {
+        formElement.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+    // Se non siamo nella pagina contatti, il Link si occuperà della navigazione
+  };
+
   // Gestisce la trasparenza della barra di navigazione durante lo scroll
   useEffect(() => {
     const handleScroll = () => {
@@ -60,6 +72,7 @@ const Navbar = ({ setShowContactForm }: NavbarProps) => {
             <div className="hidden lg:flex items-center space-x-4">
               <Link 
                 to="/contatti#form"
+                onClick={handleRequestInfoClick}
                 className="bg-white text-black px-3 lg:px-4 py-1.5 lg:py-2 rounded-full font-medium text-sm flex items-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110"
               >
                 <span className="relative z-10">Richiedi informazioni</span>
@@ -122,8 +135,11 @@ const Navbar = ({ setShowContactForm }: NavbarProps) => {
                 </Link>
                 <Link 
                   to="/contatti#form"
+                  onClick={() => {
+                    handleRequestInfoClick();
+                    setIsMobileMenuOpen(false);
+                  }}
                   className="bg-white text-black px-6 py-3 rounded-full font-medium text-center mt-4 text-sm flex items-center justify-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110"
-                  onClick={() => setIsMobileMenuOpen(false)}
                 >
                   <span className="relative z-10">Richiedi informazioni</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-500 ease-out relative z-10" />
