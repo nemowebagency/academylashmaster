@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import NeonCursor from '../components/NeonCursor';
@@ -19,6 +19,10 @@ const Corsi = () => {
     phone: '',
     message: ''
   });
+  const [coursesVisible, setCoursesVisible] = useState(false);
+  const [manualVisible, setManualVisible] = useState(false);
+  const [procreateVisible, setProcreateVisible] = useState(false);
+  const [whyChooseVisible, setWhyChooseVisible] = useState(false);
 
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -36,6 +40,47 @@ const Corsi = () => {
     }));
   };
 
+  // Intersection Observer per le animazioni
+  useEffect(() => {
+    const observers = [
+      { id: 'corsi', setter: setCoursesVisible },
+      { id: 'manual', setter: setManualVisible },
+      { id: 'procreate', setter: setProcreateVisible },
+      { id: 'why-choose', setter: setWhyChooseVisible }
+    ];
+
+    const observerInstances = observers.map(({ id, setter }) => {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              setter(true);
+            }
+          });
+        },
+        {
+          threshold: 0.2,
+          rootMargin: '0px 0px -100px 0px'
+        }
+      );
+
+      const element = document.getElementById(id);
+      if (element) {
+        observer.observe(element);
+      }
+
+      return { observer, element };
+    });
+
+    return () => {
+      observerInstances.forEach(({ observer, element }) => {
+        if (element) {
+          observer.unobserve(element);
+        }
+      });
+    };
+  }, []);
+
   return (
     <>
       <NeonCursor />
@@ -51,8 +96,8 @@ const Corsi = () => {
       <section id="corsi" className="py-12 sm:py-16 lg:py-20" style={{ backgroundColor: '#F3F3F3' }}>
         <div className="w-[90%] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-left mb-12 sm:mb-16">
-            <h3 className="text-4xl sm:text-5xl md:text-6xl font-bold text-black mb-4">Le nostre proposte</h3>
-            <p className="text-lg sm:text-xl text-black font-light">Scegli tra i corsi proposti e utilizza il pulsante corrispondente per iscriverti.</p>
+            <h3 className={`text-4xl sm:text-5xl md:text-6xl font-bold text-black mb-4 transition-all duration-1000 ease-out ${coursesVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`}>Le nostre proposte</h3>
+            <p className={`text-lg sm:text-xl text-black font-light transition-all duration-1000 ease-out ${coursesVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`} style={{transitionDelay: coursesVisible ? '0.2s' : '0s'}}>Scegli tra i corsi proposti e utilizza il pulsante corrispondente per iscriverti.</p>
           </div>
 
           <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
@@ -184,20 +229,20 @@ const Corsi = () => {
 
 
       {/* Manuale Section */}
-      <section className="py-16 sm:py-20 lg:py-24 bg-black">
+      <section id="manual" className="py-16 sm:py-20 lg:py-24 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16">
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4">
+            <h2 className={`text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4 transition-all duration-1000 ease-out ${manualVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
               Manuale Completo
             </h2>
-            <p className="text-lg sm:text-xl text-gray-200 font-light max-w-lg mx-auto">
+            <p className={`text-lg sm:text-xl text-gray-200 font-light max-w-lg mx-auto transition-all duration-1000 ease-out ${manualVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{transitionDelay: manualVisible ? '0.2s' : '0s'}}>
               Ogni corso include un manuale dettagliato e professionale per accompagnarti nel tuo percorso di apprendimento
             </p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
             {/* Content */}
-            <div className="space-y-6 sm:space-y-8">
+            <div className={`space-y-6 sm:space-y-8 transition-all duration-1000 ease-out ${manualVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`} style={{transitionDelay: manualVisible ? '0.4s' : '0s'}}>
               <div className="space-y-4 sm:space-y-6">
                 <h3 className="text-2xl sm:text-3xl font-bold text-white">
                   Cosa include
@@ -238,7 +283,7 @@ const Corsi = () => {
             </div>
 
             {/* Visual Element - Simple Document Style */}
-            <div className="relative">
+            <div className={`relative transition-all duration-1000 ease-out ${manualVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'}`} style={{transitionDelay: manualVisible ? '0.6s' : '0s'}}>
               <div 
                 className="bg-cover bg-center bg-no-repeat rounded-lg p-8 text-center relative"
                 style={{
@@ -315,19 +360,19 @@ const Corsi = () => {
       </section>
 
       {/* Procreate Section */}
-      <section className="py-16 sm:py-20 lg:py-24 bg-white">
+      <section id="procreate" className="py-16 sm:py-20 lg:py-24 bg-white">
         <div className="w-[90%] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-left mb-12 sm:mb-16">
             <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 lg:gap-8">
               <div className="flex-1">
-                <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-black mb-4">
+                <h2 className={`text-4xl sm:text-5xl md:text-6xl font-bold text-black mb-4 transition-all duration-1000 ease-out ${procreateVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`}>
               Strumenti Digitali
             </h2>
-                <p className="text-lg sm:text-xl text-black font-light">
+                <p className={`text-lg sm:text-xl text-black font-light transition-all duration-1000 ease-out ${procreateVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`} style={{transitionDelay: procreateVisible ? '0.2s' : '0s'}}>
               Scopri gli strumenti digitali che le nostre alunne utilizzano per creare progetti straordinari
             </p>
               </div>
-              <div className="flex-shrink-0">
+              <div className={`flex-shrink-0 transition-all duration-1000 ease-out ${procreateVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'}`} style={{transitionDelay: procreateVisible ? '0.4s' : '0s'}}>
                 <a
                   href="https://apps.apple.com/it/app/procreate/id425073498"
                   target="_blank"
@@ -344,7 +389,7 @@ const Corsi = () => {
 
           <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-start">
             {/* Procreate App */}
-            <div className="space-y-6 sm:space-y-8">
+            <div className={`space-y-6 sm:space-y-8 transition-all duration-1000 ease-out ${procreateVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`} style={{transitionDelay: procreateVisible ? '0.6s' : '0s'}}>
               <div className="flex items-center space-x-4 mb-6 sm:mb-8">
                 <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden">
                   <img
@@ -390,7 +435,7 @@ const Corsi = () => {
             </div>
 
             {/* Plugin Section */}
-            <div className="space-y-6 sm:space-y-8">
+            <div className={`space-y-6 sm:space-y-8 transition-all duration-1000 ease-out ${procreateVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'}`} style={{transitionDelay: procreateVisible ? '0.8s' : '0s'}}>
               <div className="relative">
                 <div className="relative overflow-hidden rounded-2xl shadow-lg h-[430px]">
                   <div className="flex transition-transform duration-500 ease-in-out h-full" style={{ transform: `translateX(-${currentImage * 100}%)` }}>
@@ -550,15 +595,15 @@ const Corsi = () => {
       )}
 
       {/* Why Choose Us */}
-      <section className="py-16 sm:py-20 lg:py-24 bg-black">
+      <section id="why-choose" className="py-16 sm:py-20 lg:py-24 bg-black">
         <div className="w-[90%] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16">
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4">Perché scegliere Academy Lash Master?</h2>
-            <p className="text-lg sm:text-xl text-white font-light">Eccellenza nella formazione e supporto continuo</p>
+            <h2 className={`text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4 transition-all duration-1000 ease-out ${whyChooseVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>Perché scegliere Academy Lash Master?</h2>
+            <p className={`text-lg sm:text-xl text-white font-light transition-all duration-1000 ease-out ${whyChooseVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{transitionDelay: whyChooseVisible ? '0.2s' : '0s'}}>Eccellenza nella formazione e supporto continuo</p>
           </div>
 
           <div className="grid sm:grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-            <div className="text-center">
+            <div className={`text-center transition-all duration-1000 ease-out ${whyChooseVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{transitionDelay: whyChooseVisible ? '0.4s' : '0s'}}>
               <div className="w-12 h-12 sm:w-16 sm:h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
                 <svg className="w-6 h-6 sm:w-8 sm:h-8 text-black" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
@@ -571,7 +616,7 @@ const Corsi = () => {
               </p>
             </div>
 
-            <div className="text-center">
+            <div className={`text-center transition-all duration-1000 ease-out ${whyChooseVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{transitionDelay: whyChooseVisible ? '0.6s' : '0s'}}>
               <div className="w-12 h-12 sm:w-16 sm:h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
                 <svg className="w-6 h-6 sm:w-8 sm:h-8 text-black" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/>
@@ -584,7 +629,7 @@ const Corsi = () => {
             </p>
           </div>
           
-            <div className="text-center">
+            <div className={`text-center transition-all duration-1000 ease-out ${whyChooseVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{transitionDelay: whyChooseVisible ? '0.8s' : '0s'}}>
               <div className="w-12 h-12 sm:w-16 sm:h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
                 <svg className="w-6 h-6 sm:w-8 sm:h-8 text-black" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
