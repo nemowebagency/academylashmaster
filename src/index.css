@@ -52,11 +52,22 @@ h1, h2, h3, h4, h5, h6, p, span, div, a, button, input, textarea, label, li, ul,
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(30px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes fadeInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 
@@ -105,7 +116,20 @@ h1, h2, h3, h4, h5, h6, p, span, div, a, button, input, textarea, label, li, ul,
 }
 
 .animate-fade-in {
-  animation: fadeIn 1s ease-out;
+  animation: fadeIn 1.2s ease-out 0.3s both;
+}
+
+.animate-fade-in-left {
+  animation: fadeInFromLeft 1s ease-out 0.5s both;
+}
+
+/* Support for custom animation delays */
+.animate-fade-in[style*="animationDelay"] {
+  animation-fill-mode: both;
+}
+
+.animate-fade-in-left[style*="animationDelay"] {
+  animation-fill-mode: both;
 }
 
 .animate-float {

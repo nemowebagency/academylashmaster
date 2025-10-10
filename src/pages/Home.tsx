@@ -11,6 +11,7 @@ import ContactForm from '../components/ContactForm'
 const Home = () => {
   const [showContactForm, setShowContactForm] = useState(false);
   const [scrollY, setScrollY] = useState(0);
+  const [coursesVisible, setCoursesVisible] = useState(false);
 
   const handleFormSubmit = (formData: any) => {
     // Qui puoi aggiungere la logica per inviare l'email
@@ -40,6 +41,34 @@ const Home = () => {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Intersection Observer per l'animazione della sezione corsi
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setCoursesVisible(true);
+          }
+        });
+      },
+      {
+        threshold: 0.2, // Trigger quando il 20% della sezione è visibile
+        rootMargin: '0px 0px -100px 0px' // Trigger 100px prima che la sezione sia completamente visibile
+      }
+    );
+
+    const coursesSection = document.getElementById('corsi');
+    if (coursesSection) {
+      observer.observe(coursesSection);
+    }
+
+    return () => {
+      if (coursesSection) {
+        observer.unobserve(coursesSection);
+      }
+    };
   }, []);
 
 
@@ -85,8 +114,8 @@ const Home = () => {
       <section id="corsi" className="py-12 sm:py-16 lg:py-20" style={{ backgroundColor: '#F3F3F3' }}>
         <div className="w-[90%] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-left mb-12 sm:mb-16">
-            <h3 className="text-4xl sm:text-5xl md:text-6xl font-light text-black mb-4">I nostri corsi <span className="font-bold text-black">professionali</span></h3>
-            <p className="text-lg sm:text-xl text-black font-light">Formazione professionale per ogni livello</p>
+            <h3 className={`text-4xl sm:text-5xl md:text-6xl font-light text-black mb-4 transition-all duration-1000 ease-out ${coursesVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`}>I nostri corsi <span className="font-bold text-black">professionali</span></h3>
+            <p className={`text-lg sm:text-xl text-black font-light transition-all duration-1000 ease-out ${coursesVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`} style={{transitionDelay: coursesVisible ? '0.3s' : '0s'}}>Formazione professionale per ogni livello</p>
           </div>
           
           <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
