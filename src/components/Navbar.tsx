@@ -58,14 +58,14 @@ const Navbar = ({ setShowContactForm }: NavbarProps) => {
             
             {/* Desktop CTA Button */}
             <div className="hidden lg:flex items-center space-x-4">
-              <button 
-                onClick={() => setShowContactForm(true)}
+              <Link 
+                to="/contatti#form"
                 className="bg-white text-black px-3 lg:px-4 py-1.5 lg:py-2 rounded-full font-medium text-sm flex items-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110"
               >
                 <span className="relative z-10">Richiedi informazioni</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-500 ease-out relative z-10" />
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
-              </button>
+              </Link>
             </div>
 
             {/* Mobile Menu Button */}
@@ -120,17 +120,15 @@ const Navbar = ({ setShowContactForm }: NavbarProps) => {
                   Contatti
                   <span className={`absolute -bottom-1 left-0 w-1 h-1 rounded-full transition-opacity duration-300 ${location.pathname === '/contatti' ? 'bg-white opacity-100' : 'bg-yellow-400 opacity-0 group-hover:opacity-100'}`}></span>
                 </Link>
-                <button 
-                  onClick={() => {
-                    setShowContactForm(true);
-                    setIsMobileMenuOpen(false);
-                  }}
+                <Link 
+                  to="/contatti#form"
                   className="bg-white text-black px-6 py-3 rounded-full font-medium text-center mt-4 text-sm flex items-center justify-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110"
+                  onClick={() => setIsMobileMenuOpen(false)}
                 >
                   <span className="relative z-10">Richiedi informazioni</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-500 ease-out relative z-10" />
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
-                </button>
+                </Link>
               </nav>
             </div>
           )}

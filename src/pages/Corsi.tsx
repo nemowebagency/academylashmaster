@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import NeonCursor from '../components/NeonCursor';
 import Footer from '../components/Footer';
@@ -84,15 +85,15 @@ const Corsi = () => {
                   className="mt-4 w-full h-80 rounded-lg relative bg-cover bg-center bg-no-repeat flex items-end justify-start p-4"
                   style={{ backgroundImage: 'url(/soggetto/c1.jpg)' }}
                 >
-                  <button 
-                    onClick={() => document.getElementById('corsi')?.scrollIntoView({ behavior: 'smooth' })}
+                  <Link 
+                    to="/contatti#form"
                     className="bg-black text-white px-8 py-4 rounded-full font-medium text-base flex items-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110 hover:text-black"
                   >
                     <span className="relative z-10">Iscriviti</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-500 ease-out relative z-10" />
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
-                  </button>
-                    </div>
+                  </Link>
+                </div>
                   </div>
                 </div>
 
@@ -125,14 +126,14 @@ const Corsi = () => {
                   className="mt-4 w-full h-80 rounded-lg relative bg-cover bg-center bg-no-repeat flex items-end justify-start p-4"
                   style={{ backgroundImage: 'url(/soggetto/c2.jpg)' }}
                 >
-                  <button
-                    onClick={() => document.getElementById('corsi')?.scrollIntoView({ behavior: 'smooth' })}
+                  <Link
+                    to="/contatti#form"
                     className="bg-black text-white px-8 py-4 rounded-full font-medium text-base flex items-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110 hover:text-black"
                   >
                     <span className="relative z-10">Iscriviti</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-500 ease-out relative z-10" />
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
-                  </button>
+                  </Link>
                 </div>
               </div>
                   </div>
@@ -166,15 +167,15 @@ const Corsi = () => {
                   className="mt-4 w-full h-80 rounded-lg relative bg-cover bg-center bg-no-repeat flex items-end justify-start p-4"
                   style={{ backgroundImage: 'url(/soggetto/c3.jpg)' }}
                 >
-                      <button
-                    onClick={() => document.getElementById('corsi')?.scrollIntoView({ behavior: 'smooth' })}
+                  <Link
+                    to="/contatti#form"
                     className="bg-black text-white px-8 py-4 rounded-full font-medium text-base flex items-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110 hover:text-black"
-                      >
+                  >
                     <span className="relative z-10">Iscriviti</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-500 ease-out relative z-10" />
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
-                      </button>
-                    </div>
+                  </Link>
+                </div>
                   </div>
             </div>
           </div>
@@ -288,19 +289,19 @@ const Corsi = () => {
         <div className="absolute inset-0 bg-black bg-opacity-80" />
         
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4 sm:mb-6">Pronto a Iniziare il Tuo Percorso?</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4 sm:mb-6">Pronto a iniziare il tuo percorso?</h2>
           <p className="text-lg sm:text-xl text-gray-200 mb-6 sm:mb-8">
             Scegli il corso più adatto a te e trasforma la tua passione in professione.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
-            <a
-              href="/contatti"
+            <Link
+              to="/contatti#form"
               className="bg-white text-black px-8 py-4 rounded-full font-medium text-base flex items-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110 hover:text-black"
             >
               <span className="relative z-10">Richiedi Informazioni</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-500 ease-out relative z-10" />
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
-            </a>
+            </Link>
             <a
               href="tel:+393533165390"
               className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-medium text-base flex items-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110 hover:text-black hover:border-transparent"

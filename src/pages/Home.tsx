@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import NeonCursor from '../components/NeonCursor'
 import Footer from '../components/Footer'
@@ -118,14 +119,14 @@ const Home = () => {
                   className="mt-4 w-full h-80 rounded-lg relative bg-cover bg-center bg-no-repeat flex items-end justify-start p-4"
                   style={{ backgroundImage: 'url(/soggetto/c1.jpg)' }}
                 >
-                  <button 
-                    onClick={() => document.getElementById('corsi')?.scrollIntoView({ behavior: 'smooth' })}
+                  <Link 
+                    to="/contatti#form"
                     className="bg-black text-white px-8 py-4 rounded-full font-medium text-base flex items-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110 hover:text-black"
                   >
                     <span className="relative z-10">Scopri di più</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-500 ease-out relative z-10" />
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -159,14 +160,14 @@ const Home = () => {
                   className="mt-4 w-full h-80 rounded-lg relative bg-cover bg-center bg-no-repeat flex items-end justify-start p-4"
                   style={{ backgroundImage: 'url(/soggetto/c2.jpg)' }}
                 >
-                  <button 
-                    onClick={() => document.getElementById('corsi')?.scrollIntoView({ behavior: 'smooth' })}
+                  <Link 
+                    to="/contatti#form"
                     className="bg-black text-white px-8 py-4 rounded-full font-medium text-base flex items-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110 hover:text-black"
                   >
                     <span className="relative z-10">Scopri di più</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-500 ease-out relative z-10" />
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -200,14 +201,14 @@ const Home = () => {
                   className="mt-4 w-full h-80 rounded-lg relative bg-cover bg-center bg-no-repeat flex items-end justify-start p-4"
                   style={{ backgroundImage: 'url(/soggetto/c3.jpg)' }}
                 >
-                  <button 
-                    onClick={() => document.getElementById('corsi')?.scrollIntoView({ behavior: 'smooth' })}
+                  <Link 
+                    to="/contatti#form"
                     className="bg-black text-white px-8 py-4 rounded-full font-medium text-base flex items-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110 hover:text-black"
                   >
                     <span className="relative z-10">Scopri di più</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-500 ease-out relative z-10" />
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -335,14 +336,14 @@ const Home = () => {
 
           {/* CTA Button */}
           <div className="text-center mt-12 sm:mt-16">
-            <button 
-              onClick={() => document.getElementById('corsi')?.scrollIntoView({ behavior: 'smooth' })}
-              className="bg-black text-white px-8 py-4 rounded-full font-medium text-base flex items-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110 hover:text-black mx-auto"
+            <Link 
+              to="/corsi"
+              className="inline-flex bg-black text-white px-8 py-4 rounded-full font-medium text-base items-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110 hover:text-black"
             >
               <span className="relative z-10">Scopri i miei corsi</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-500 ease-out relative z-10" />
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
-            </button>
+            </Link>
           </div>
         </div>
       </section>

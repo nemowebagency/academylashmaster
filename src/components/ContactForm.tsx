@@ -3,6 +3,7 @@ import { ArrowRight } from 'lucide-react'
 
 interface ContactFormProps {
   variant?: 'default' | 'modal'
+  theme?: 'light' | 'dark'
   onClose?: () => void
   onSubmit?: (formData: FormData) => void
 }
@@ -16,6 +17,7 @@ interface FormData {
 
 const ContactForm: React.FC<ContactFormProps> = ({ 
   variant = 'default', 
+  theme = 'light',
   onClose,
   onSubmit 
 }) => {
@@ -55,63 +57,64 @@ const ContactForm: React.FC<ContactFormProps> = ({
 
   // Default form styling
   if (variant === 'default') {
+    const isDark = theme === 'dark';
     return (
-      <div className="bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-lg border border-gray-200">
+      <div className={`${isDark ? 'bg-gray-900' : 'bg-white'} rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-lg border ${isDark ? 'border-gray-700' : 'border-gray-200'}`}>
         <div className="mb-6 sm:mb-8">
-          <h3 className="text-2xl sm:text-3xl font-bold text-black mb-3 sm:mb-4">Richiedi Informazioni</h3>
-          <p className="text-base sm:text-lg text-black font-light">Compila il form per ricevere tutte le informazioni sui miei corsi</p>
+          <h3 className={`text-2xl sm:text-3xl font-bold ${isDark ? 'text-white' : 'text-black'} mb-3 sm:mb-4`}>Richiedi Informazioni</h3>
+          <p className={`text-base sm:text-lg ${isDark ? 'text-gray-300' : 'text-black'} font-light`}>Compila il form per ricevere tutte le informazioni sui miei corsi</p>
         </div>
         
         <form onSubmit={handleFormSubmit} className="space-y-4 sm:space-y-6">
           <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
             <div className="relative z-10">
-              <label className="block text-black text-sm font-medium mb-2">Nome *</label>
+              <label className={`block ${isDark ? 'text-white' : 'text-black'} text-sm font-medium mb-2`}>Nome *</label>
               <input
                 type="text"
                 name="name"
                 value={formData.name}
                 onChange={handleInputChange}
                 required
-                className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-white border border-gray-300 rounded-lg sm:rounded-xl text-black placeholder-gray-500 focus:outline-none focus:border-black transition-colors text-sm sm:text-base"
+                className={`w-full px-3 sm:px-4 py-2 sm:py-3 ${isDark ? 'bg-gray-800 border-gray-700 text-white placeholder-gray-400 focus:border-white' : 'bg-white border-gray-300 text-black placeholder-gray-500 focus:border-black'} border rounded-lg sm:rounded-xl focus:outline-none transition-colors text-sm sm:text-base`}
                 placeholder="Il tuo nome"
               />
             </div>
             
             <div className="relative z-10">
-              <label className="block text-black text-sm font-medium mb-2">Email *</label>
+              <label className={`block ${isDark ? 'text-white' : 'text-black'} text-sm font-medium mb-2`}>Email *</label>
               <input
                 type="email"
                 name="email"
                 value={formData.email}
                 onChange={handleInputChange}
                 required
-                className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-white border border-gray-300 rounded-lg sm:rounded-xl text-black placeholder-gray-500 focus:outline-none focus:border-black transition-colors text-sm sm:text-base"
+                className={`w-full px-3 sm:px-4 py-2 sm:py-3 ${isDark ? 'bg-gray-800 border-gray-700 text-white placeholder-gray-400 focus:border-white' : 'bg-white border-gray-300 text-black placeholder-gray-500 focus:border-black'} border rounded-lg sm:rounded-xl focus:outline-none transition-colors text-sm sm:text-base`}
                 placeholder="la.tua@email.com"
               />
             </div>
           </div>
           
           <div className="relative z-10">
-            <label className="block text-black text-sm font-medium mb-2">Telefono</label>
+            <label className={`block ${isDark ? 'text-white' : 'text-black'} text-sm font-medium mb-2`}>Telefono</label>
             <input
               type="tel"
               name="phone"
               value={formData.phone}
               onChange={handleInputChange}
-              className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-white border border-gray-300 rounded-lg sm:rounded-xl text-black placeholder-gray-500 focus:outline-none focus:border-black transition-colors text-sm sm:text-base"
+              className={`w-full px-3 sm:px-4 py-2 sm:py-3 ${isDark ? 'bg-gray-800 border-gray-700 text-white placeholder-gray-400 focus:border-white' : 'bg-white border-gray-300 text-black placeholder-gray-500 focus:border-black'} border rounded-lg sm:rounded-xl focus:outline-none transition-colors text-sm sm:text-base`}
               placeholder="+39 123 456 7890"
             />
           </div>
           
           <div className="relative z-10">
-            <label className="block text-black text-sm font-medium mb-2">Messaggio *</label>
+            <label className={`block ${isDark ? 'text-white' : 'text-black'} text-sm font-medium mb-2`}>Messaggio *</label>
             <textarea
               name="message"
               value={formData.message}
               onChange={handleInputChange}
               required
               rows={4}
-              className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-white border border-gray-300 rounded-lg sm:rounded-xl text-black placeholder-gray-500 focus:outline-none focus:border-black transition-colors resize-none text-sm sm:text-base"
+              className={`w-full px-3 sm:px-4 py-2 sm:py-3 ${isDark ? 'bg-gray-800 border-gray-700 text-white placeholder-gray-400 focus:border-white' : 'bg-white border-gray-300 text-black placeholder-gray-500 focus:border-black'} border rounded-lg sm:rounded-xl focus:outline-none transition-colors resize-none text-sm sm:text-base`}
               placeholder="Dimmi di più sui corsi che ti interessano..."
             />
           </div>
