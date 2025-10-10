@@ -8,7 +8,7 @@ const HeroSection = () => {
       {/* ===========================================
           HERO SECTION - Sezione principale con immagine di sfondo
           =========================================== */}
-      <section className="relative overflow-hidden h-screen flex items-center" style={{marginTop: '32px'}}>
+      <section className="relative overflow-hidden flex items-center" style={{marginTop: '92px', height: 'calc(100vh - 92px)'}}>
         {/* Background Image */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
