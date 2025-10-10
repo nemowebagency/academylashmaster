@@ -128,10 +128,10 @@ const Home = () => {
                 Corsi
                 <span className={`absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-1 h-1 rounded-full transition-opacity duration-300 ${location.pathname === '/corsi' ? 'bg-white opacity-100' : 'bg-yellow-400 opacity-0 group-hover:opacity-100'}`}></span>
               </Link>
-              <a href="#about" className="text-white hover:text-yellow-400 transition-all duration-500 ease-out font-medium text-sm relative group">
+              <Link to="/chi-sono" className="text-white hover:text-yellow-400 transition-all duration-500 ease-out font-medium text-sm relative group">
                 Chi sono
                 <span className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-yellow-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-              </a>
+              </Link>
               <Link to="/contatti" className="text-white hover:text-yellow-400 transition-all duration-500 ease-out font-medium text-sm relative group">
                 Contatti
                 <span className={`absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-1 h-1 rounded-full transition-opacity duration-300 ${location.pathname === '/contatti' ? 'bg-white opacity-100' : 'bg-yellow-400 opacity-0 group-hover:opacity-100'}`}></span>
@@ -186,14 +186,14 @@ const Home = () => {
                   Corsi
                   <span className={`absolute -bottom-1 left-0 w-1 h-1 rounded-full transition-opacity duration-300 ${location.pathname === '/corsi' ? 'bg-white opacity-100' : 'bg-yellow-400 opacity-0 group-hover:opacity-100'}`}></span>
                 </Link>
-                <a 
-                  href="#about" 
+                <Link 
+                  to="/chi-sono" 
                   className="text-white hover:text-yellow-400 transition-all duration-500 ease-out font-medium py-2 text-sm relative group"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Chi sono
                   <span className="absolute -bottom-1 left-0 w-1 h-1 bg-yellow-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-                </a>
+                </Link>
                 <Link 
                   to="/contatti" 
                   className="text-white hover:text-yellow-400 transition-all duration-500 ease-out font-medium py-2 text-sm relative group"
@@ -263,14 +263,14 @@ const Home = () => {
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-500 ease-out relative z-10" />
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
               </Link>
-              <a
-                href="#about"
+              <Link
+                to="/chi-sono"
                 className="bg-transparent text-white px-8 py-4 rounded-full text-base border border-white flex items-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110 hover:border-transparent hover:text-black"
               >
                 <span className="relative z-10">Chi sono</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-500 ease-out relative z-10" />
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -810,9 +810,9 @@ const Home = () => {
                 <Link to="/corsi" className="block text-gray-300 hover:text-yellow-400 transition duration-300 text-sm sm:text-base">
                   Corsi
                 </Link>
-                <a href="#about" className="block text-gray-300 hover:text-yellow-400 transition duration-300 text-sm sm:text-base">
+                <Link to="/chi-sono" className="block text-gray-300 hover:text-yellow-400 transition duration-300 text-sm sm:text-base">
                   Chi sono
-                </a>
+                </Link>
                 <Link to="/contatti" className="block text-gray-300 hover:text-yellow-400 transition duration-300 text-sm sm:text-base">
                   Contatti
                 </Link>

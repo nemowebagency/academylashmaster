@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import ScrollToTop from '../components/ScrollToTop';
 import WhatsAppButton from '../components/WhatsAppButton';
+import NeonCursor from '../components/NeonCursor';
 
 const Corsi = () => {
   const [selectedCourse, setSelectedCourse] = useState<string | null>(null);
@@ -15,7 +16,7 @@ const Corsi = () => {
   });
 
   const handleNavigateToAbout = () => {
-    window.location.href = '/#about';
+    window.location.href = '/chi-sono';
   };
 
   const handleFormSubmit = (e: React.FormEvent) => {
@@ -105,7 +106,9 @@ const Corsi = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black">
+    <>
+      <NeonCursor />
+      <div className="min-h-screen bg-black">
       {/* Header */}
       <header className="bg-black border-b border-gray-800 shadow-2xl">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -761,7 +764,8 @@ const Corsi = () => {
       </footer>
       <WhatsAppButton />
       <ScrollToTop />
-    </div>
+      </div>
+    </>
   );
 };
 
