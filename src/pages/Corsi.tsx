@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { ArrowRight } from 'lucide-react';
 import ScrollToTop from '../components/ScrollToTop';
 import WhatsAppButton from '../components/WhatsAppButton';
 import NeonCursor from '../components/NeonCursor';
@@ -7,6 +7,9 @@ import Footer from '../components/Footer';
 import PromoScroll from '../components/PromoScroll';
 import Navbar from '../components/Navbar';
 import HeroCorsi from '../components/HeroCorsi';
+
+
+
 
 const Corsi = () => {
   const [selectedCourse, setSelectedCourse] = useState<string | null>(null);
@@ -115,82 +118,145 @@ const Corsi = () => {
       <Navbar setShowContactForm={setShowContactForm} />
       <HeroCorsi />
       <div className="min-h-screen bg-black">
-        {/* Courses Grid */}
-      <section className="py-12 sm:py-16 lg:py-20 bg-black">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+      
+      {/* ===========================================
+          CORSI SECTION - Sezione con i corsi professionali
+          =========================================== */}
+      <section id="corsi" className="py-12 sm:py-16 lg:py-20" style={{ backgroundColor: '#F3F3F3' }}>
+        <div className="w-[90%] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-left mb-12 sm:mb-16">
+            <h3 className="text-4xl sm:text-5xl md:text-6xl font-bold text-black mb-4">Le nostre proposte</h3>
+            <p className="text-lg sm:text-xl text-black font-light">Scegli tra i corsi proposti e utilizza il pulsante corrispondente per iscriverti.</p>
+          </div>
+          
           <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {courses.map((course) => (
-              <div 
-                key={course.id}
-                className={`bg-gradient-to-br from-gray-900 to-gray-800 p-6 sm:p-8 rounded-2xl shadow-2xl border transition-all duration-300 hover:shadow-white/10 ${
-                  selectedCourse === course.id 
-                    ? 'border-white scale-105' 
-                    : 'border-gray-700 hover:border-gray-500'
-                }`}
-              >
-                <div className="text-center mb-4 sm:mb-6">
-                  <div className="w-16 h-16 sm:w-20 sm:h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
-                    <span className="text-black text-2xl sm:text-3xl">{course.icon}</span>
-                  </div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">{course.title}</h3>
-                  <p className="text-gray-400 text-base sm:text-lg">{course.subtitle}</p>
-                  <div className="mt-3 sm:mt-4">
-                    <span className="text-2xl sm:text-3xl font-bold text-white">{course.price}</span>
-                    <span className="text-gray-400 ml-2 text-sm sm:text-base">/corso</span>
-                  </div>
-                </div>
-
-                <div className="mb-4 sm:mb-6">
-                  <p className="text-gray-300 text-center mb-3 sm:mb-4 text-sm sm:text-base">{course.description}</p>
-                  
-                  <div className="space-y-1 sm:space-y-2 text-xs sm:text-sm text-gray-400">
-                    <div className="flex justify-between">
-                      <span>Durata:</span>
-                      <span className="text-white">{course.duration}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>Orario:</span>
-                      <span className="text-white text-xs sm:text-sm">{course.schedule}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>Max partecipanti:</span>
-                      <span className="text-white">{course.maxStudents}</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="mb-4 sm:mb-6">
-                  <h4 className="text-base sm:text-lg font-semibold text-white mb-2 sm:mb-3">Cosa imparerai:</h4>
-                  <ul className="space-y-1 sm:space-y-2">
-                    {course.features.map((feature, index) => (
-                      <li key={index} className="flex items-start text-xs sm:text-sm text-gray-300">
-                        <span className="text-white mr-2">✓</span>
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="space-y-2 sm:space-y-3">
-                  <button
-                    onClick={() => setSelectedCourse(selectedCourse === course.id ? null : course.id)}
-                    className="w-full bg-gray-700 hover:bg-gray-600 text-white font-semibold py-2 sm:py-3 px-4 sm:px-6 rounded-lg transition duration-300 text-sm sm:text-base"
+            <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-lg hover:shadow-xl border border-gray-200 hover:border-gray-300 transition-all duration-300 ease-out hover:scale-105">
+              <div>
+                <h4 className="text-3xl sm:text-4xl font-bold text-black mb-3 sm:mb-4 text-left">Corso Base</h4>
+                <p className="text-black font-light mb-4 sm:mb-6 text-sm sm:text-base">
+                  Impara le tecniche fondamentali per l'applicazione delle extension ciglia. 
+                  Perfetto per principianti.
+                </p>
+                <ul className="text-left text-gray-600 space-y-1 sm:space-y-2 mb-4 sm:mb-6 text-sm sm:text-base">
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-black rounded-full flex-shrink-0"></span>
+                    <span>Teoria delle extension</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-black rounded-full flex-shrink-0"></span>
+                    <span>Tecniche di applicazione</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-black rounded-full flex-shrink-0"></span>
+                    <span>Materiali e strumenti</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-black rounded-full flex-shrink-0"></span>
+                    <span>Certificazione inclusa</span>
+                  </li>
+                </ul>
+                <div 
+                  className="mt-4 w-full h-80 rounded-lg relative bg-cover bg-center bg-no-repeat flex items-end justify-start p-4"
+                  style={{ backgroundImage: 'url(/soggetto/c1.jpg)' }}
+                >
+                  <button 
+                    onClick={() => document.getElementById('corsi')?.scrollIntoView({ behavior: 'smooth' })}
+                    className="bg-black text-white px-8 py-4 rounded-full font-medium text-base flex items-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110 hover:text-black"
                   >
-                    {selectedCourse === course.id ? 'Nascondi Dettagli' : 'Mostra Dettagli'}
-                  </button>
-                  
-                  <button
-                    onClick={() => handleEnroll(course.id)}
-                    className="w-full bg-white hover:bg-gray-100 text-black font-bold py-2 sm:py-3 px-4 sm:px-6 rounded-lg transition duration-300 text-sm sm:text-base"
-                  >
-                    Iscriviti Ora
+                    <span className="relative z-10">Iscriviti</span>
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-500 ease-out relative z-10" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
                   </button>
                 </div>
               </div>
-            ))}
+            </div>
+
+            <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-lg hover:shadow-xl border border-gray-200 hover:border-gray-300 transition-all duration-300 ease-out hover:scale-105">
+              <div>
+                <h4 className="text-3xl sm:text-4xl font-bold text-black mb-3 sm:mb-4 text-left">Corso Avanzato</h4>
+                <p className="text-black font-light mb-4 sm:mb-6 text-sm sm:text-base">
+                  Tecniche avanzate e specializzazioni per diventare un vero professionista 
+                  del settore.
+                </p>
+                <ul className="text-left text-gray-600 space-y-1 sm:space-y-2 mb-4 sm:mb-6 text-sm sm:text-base">
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-black rounded-full flex-shrink-0"></span>
+                    <span>Volume e Mega Volume</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-black rounded-full flex-shrink-0"></span>
+                    <span>Tecniche creative</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-black rounded-full flex-shrink-0"></span>
+                    <span>Gestione clientela</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-black rounded-full flex-shrink-0"></span>
+                    <span>Business nel beauty</span>
+                  </li>
+                </ul>
+                <div 
+                  className="mt-4 w-full h-80 rounded-lg relative bg-cover bg-center bg-no-repeat flex items-end justify-start p-4"
+                  style={{ backgroundImage: 'url(/soggetto/c2.jpg)' }}
+                >
+                  <button 
+                    onClick={() => document.getElementById('corsi')?.scrollIntoView({ behavior: 'smooth' })}
+                    className="bg-black text-white px-8 py-4 rounded-full font-medium text-base flex items-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110 hover:text-black"
+                  >
+                    <span className="relative z-10">Iscriviti</span>
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-500 ease-out relative z-10" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-lg hover:shadow-xl border border-gray-200 hover:border-gray-300 transition-all duration-300 ease-out hover:scale-105">
+              <div>
+                <h4 className="text-3xl sm:text-4xl font-bold text-black mb-3 sm:mb-4 text-left">Master Class</h4>
+                <p className="text-black font-light mb-4 sm:mb-6 text-sm sm:text-base">
+                  Il corso più completo per diventare un vero Master delle extension ciglia 
+                  e aprire la propria attività.
+                </p>
+                <ul className="text-left text-gray-600 space-y-1 sm:space-y-2 mb-4 sm:mb-6 text-sm sm:text-base">
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-black rounded-full flex-shrink-0"></span>
+                    <span>Tutte le tecniche</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-black rounded-full flex-shrink-0"></span>
+                    <span>Gestione business</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-black rounded-full flex-shrink-0"></span>
+                    <span>Marketing beauty</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-black rounded-full flex-shrink-0"></span>
+                    <span>Supporto continuo</span>
+                  </li>
+                </ul>
+                <div 
+                  className="mt-4 w-full h-80 rounded-lg relative bg-cover bg-center bg-no-repeat flex items-end justify-start p-4"
+                  style={{ backgroundImage: 'url(/soggetto/c3.jpg)' }}
+                >
+                  <button 
+                    onClick={() => document.getElementById('corsi')?.scrollIntoView({ behavior: 'smooth' })}
+                    className="bg-black text-white px-8 py-4 rounded-full font-medium text-base flex items-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110 hover:text-black"
+                  >
+                    <span className="relative z-10">Iscriviti</span>
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-500 ease-out relative z-10" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
+      
 
       {/* Course Details Modal */}
       {selectedCourse && (
