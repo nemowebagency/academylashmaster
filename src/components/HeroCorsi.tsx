@@ -6,12 +6,12 @@ const HeroCorsi = () => {
       {/* ===========================================
           HERO CORSI SECTION - Sezione hero per la pagina corsi con immagine di sfondo
           =========================================== */}
-      <section className="relative overflow-hidden h-screen flex items-center" style={{marginTop: '32px'}}>
+      <section className="relative overflow-hidden h-[60vh] flex items-center" style={{marginTop: '32px'}}>
         {/* Background Image */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: "url('/background/girl1.png')"
+            backgroundImage: "url('/background/herocorsi.jpg')"
           }}
         ></div>
         
