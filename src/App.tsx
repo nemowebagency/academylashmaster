@@ -4,6 +4,8 @@ import Corsi from './pages/Corsi'
 import Contatti from './pages/Contatti'
 import ChiSono from './pages/ChiSono'
 import ScrollToTopOnRouteChange from './components/ScrollToTopOnRouteChange'
+import WhatsAppButton from './components/WhatsAppButton'
+import ScrollToTop from './components/ScrollToTop'
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
         <Route path="/chi-sono" element={<ChiSono />} />
         <Route path="/contatti" element={<Contatti />} />
       </Routes>
+      <WhatsAppButton />
+      <ScrollToTop />
     </>
   );
 }

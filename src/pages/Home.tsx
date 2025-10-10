@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { ArrowRight } from 'lucide-react'
-import ScrollToTop from '../components/ScrollToTop'
-import WhatsAppButton from '../components/WhatsAppButton'
 import NeonCursor from '../components/NeonCursor'
 import Footer from '../components/Footer'
 import HeroSection from '../components/HeroSection'
@@ -670,8 +668,6 @@ const Home = () => {
           </div>
         </div>
       )}
-      <WhatsAppButton />
-      <ScrollToTop />
       </div>
     </>
   );

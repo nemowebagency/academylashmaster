@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import { ArrowRight } from 'lucide-react';
-import ScrollToTop from '../components/ScrollToTop';
-import WhatsAppButton from '../components/WhatsAppButton';
 import NeonCursor from '../components/NeonCursor';
 import Footer from '../components/Footer';
 import PromoScroll from '../components/PromoScroll';
@@ -603,8 +601,6 @@ const Corsi = () => {
 
       {/* Footer */}
       <Footer />
-      <WhatsAppButton />
-      <ScrollToTop />
     </div>
     </>
   );

@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import ScrollToTop from '../components/ScrollToTop';
-import WhatsAppButton from '../components/WhatsAppButton';
 import NeonCursor from '../components/NeonCursor';
 import Footer from '../components/Footer';
 
@@ -493,8 +491,6 @@ const Contatti = () => {
         </div>
       )}
 
-      <WhatsAppButton />
-      <ScrollToTop />
       </div>
     </>
   );
