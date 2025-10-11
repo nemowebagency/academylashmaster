@@ -163,10 +163,10 @@ const ChiSono = () => {
                     Da estetista a <span className="text-black">esperta</span> in extension ciglia
                   </h2>
                 </div>
-                <p className={`text-lg sm:text-xl text-gray-600 font-light leading-relaxed text-justify transition-all duration-1000 ease-out ${storyVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`} style={{textAlignLast: 'left', transitionDelay: storyVisible ? '0.4s' : '0s'}}>
+                <p className={`text-lg sm:text-xl text-gray-700 font-light leading-relaxed text-justify transition-all duration-1000 ease-out ${storyVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`} style={{textAlignLast: 'left', transitionDelay: storyVisible ? '0.4s' : '0s'}}>
                   La mia passione per il mondo della bellezza è nata molti anni fa, quando ho iniziato come estetista tradizionale. Ma è stato quando ho scoperto l'arte delle extension ciglia che ho capito di aver trovato la mia vera vocazione. Ho dedicato anni alla formazione, studiando nelle migliori accademie internazionali, perfezionando tecniche innovative e acquisendo competenze che oggi mi permettono di offrire un servizio di altissima qualità.
                 </p>
-                <p className={`text-lg sm:text-xl text-gray-600 font-light leading-relaxed text-justify mt-6 transition-all duration-1000 ease-out ${storyVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`} style={{textAlignLast: 'left', transitionDelay: storyVisible ? '0.6s' : '0s'}}>
+                <p className={`text-lg sm:text-xl text-gray-700 font-light leading-relaxed text-justify mt-6 transition-all duration-1000 ease-out ${storyVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`} style={{textAlignLast: 'left', transitionDelay: storyVisible ? '0.6s' : '0s'}}>
                   Ogni giorno che passa, la mia dedizione per questo mestiere cresce sempre di più. Non si tratta solo di applicare delle ciglia, ma di regalare alle mie clienti un'esperienza unica, di farle sentire belle e sicure di sé. È questa la magia che mi spinge a continuare a migliorarmi e a condividere la mia conoscenza con altre donne che vogliono intraprendere questo meraviglioso percorso professionale.
                 </p>
               </div>
@@ -195,7 +195,7 @@ const ChiSono = () => {
                   <BookOpen className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-black" />
                 </div>
                 <h3 className="text-xl sm:text-2xl font-bold text-white mb-4">Formazione di Qualità</h3>
-                <p className="text-gray-300 leading-relaxed">
+                <p className="text-gray-200 leading-relaxed">
                   Offro corsi professionali che combinano teoria e pratica, garantendo alle mie allieve una preparazione completa e aggiornata con le ultime tecniche del settore.
                 </p>
               </div>
@@ -206,7 +206,7 @@ const ChiSono = () => {
                   <Users className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-black" />
                 </div>
                 <h3 className="text-xl sm:text-2xl font-bold text-white mb-4">Supporto Continuo</h3>
-                <p className="text-gray-300 leading-relaxed">
+                <p className="text-gray-200 leading-relaxed">
                   Il mio impegno non finisce con il corso. Offro supporto continuo, correzioni personalizzate e consigli per aiutare le mie allieve a crescere professionalmente.
                 </p>
               </div>
@@ -217,7 +217,7 @@ const ChiSono = () => {
                   <Star className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-black" />
                 </div>
                 <h3 className="text-xl sm:text-2xl font-bold text-white mb-4">Eccellenza</h3>
-                <p className="text-gray-300 leading-relaxed">
+                <p className="text-gray-200 leading-relaxed">
                   Mi impegno ogni giorno per mantenere alti standard qualitativi, utilizzando solo materiali professionali e tecniche all'avanguardia per garantire risultati eccellenti.
                 </p>
               </div>
@@ -237,7 +237,7 @@ const ChiSono = () => {
               <h2 className={`text-4xl sm:text-5xl md:text-6xl font-bold text-black transition-all duration-1000 ease-out ${socialVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{transitionDelay: socialVisible ? '0.2s' : '0s'}}>
                 Resta aggiornato sui <span className="text-black">miei lavori</span>
               </h2>
-              <p className={`text-lg sm:text-xl text-gray-600 font-light leading-relaxed max-w-3xl mx-auto mt-6 transition-all duration-1000 ease-out ${socialVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{transitionDelay: socialVisible ? '0.4s' : '0s'}}>
+              <p className={`text-lg sm:text-xl text-gray-700 font-light leading-relaxed max-w-3xl mx-auto mt-6 transition-all duration-1000 ease-out ${socialVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{transitionDelay: socialVisible ? '0.4s' : '0s'}}>
                 Seguimi sui social per vedere i miei lavori, i tutorial, i consigli e rimanere sempre aggiornato sulle ultime novità del mondo delle extension ciglia.
               </p>
             </div>
@@ -248,7 +248,7 @@ const ChiSono = () => {
                 <div className="bg-black p-8 sm:p-10 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 ease-out hover:scale-105">
                   <Facebook className="w-12 h-12 sm:w-16 sm:h-16 text-white mx-auto mb-4" fill="currentColor" stroke="none" />
                   <h3 className="text-xl sm:text-2xl font-bold text-white mb-3">Facebook</h3>
-                  <p className="text-gray-300 mb-6 leading-relaxed">
+                  <p className="text-gray-200 mb-6 leading-relaxed">
                     Condivido tutorial, consigli e aggiornamenti sulla mia attività professionale.
                   </p>
                   <a 
@@ -268,7 +268,7 @@ const ChiSono = () => {
                 <div className="bg-black p-8 sm:p-10 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 ease-out hover:scale-105">
                   <Instagram className="w-12 h-12 sm:w-16 sm:h-16 text-white mx-auto mb-4" />
                   <h3 className="text-xl sm:text-2xl font-bold text-white mb-3">Instagram</h3>
-                  <p className="text-gray-300 mb-6 leading-relaxed">
+                  <p className="text-gray-200 mb-6 leading-relaxed">
                     Scopri i miei lavori più belli e i risultati delle mie allieve in tempo reale.
                   </p>
                   <a 
@@ -290,7 +290,7 @@ const ChiSono = () => {
                     <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
                   </svg>
                   <h3 className="text-xl sm:text-2xl font-bold text-white mb-3">TikTok</h3>
-                  <p className="text-gray-300 mb-6 leading-relaxed">
+                  <p className="text-gray-200 mb-6 leading-relaxed">
                     Video tutorial rapidi e consigli pratici per imparare le tecniche più efficaci.
                   </p>
                   <a 
@@ -328,7 +328,7 @@ const ChiSono = () => {
               
               <form onSubmit={handleFormSubmit} className="space-y-4 sm:space-y-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-200 mb-2">
                     Nome Completo *
                   </label>
                   <input
@@ -344,7 +344,7 @@ const ChiSono = () => {
                 </div>
                 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-200 mb-2">
                     Email *
                   </label>
                   <input
@@ -360,7 +360,7 @@ const ChiSono = () => {
                 </div>
                 
                 <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-gray-300 mb-2">
+                  <label htmlFor="phone" className="block text-sm font-medium text-gray-200 mb-2">
                     Telefono
                   </label>
                   <input
@@ -375,7 +375,7 @@ const ChiSono = () => {
                 </div>
                 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
+                  <label htmlFor="message" className="block text-sm font-medium text-gray-200 mb-2">
                     Messaggio *
                   </label>
                   <textarea

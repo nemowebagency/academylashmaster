@@ -50,19 +50,19 @@ const Navbar = ({ setShowContactForm }: NavbarProps) => {
             
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex space-x-8">
-              <Link to="/" className="text-white hover:text-yellow-400 transition-all duration-500 ease-out font-medium text-sm relative group">
+              <Link to="/" className="text-white hover:text-yellow-400 transition-all duration-500 ease-out font-medium text-sm relative group" aria-label="Vai alla pagina Home - Academy Lash Master">
                 Home
                 <span className={`absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-1 h-1 rounded-full transition-opacity duration-300 ${location.pathname === '/' ? 'bg-white opacity-100' : 'bg-yellow-400 opacity-0 group-hover:opacity-100'}`}></span>
               </Link>
-              <Link to="/corsi" className="text-white hover:text-yellow-400 transition-all duration-500 ease-out font-medium text-sm relative group">
+              <Link to="/corsi" className="text-white hover:text-yellow-400 transition-all duration-500 ease-out font-medium text-sm relative group" aria-label="Scopri i corsi di extension ciglia Academy Lash Master">
                 Corsi
                 <span className={`absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-1 h-1 rounded-full transition-opacity duration-300 ${location.pathname === '/corsi' ? 'bg-white opacity-100' : 'bg-yellow-400 opacity-0 group-hover:opacity-100'}`}></span>
               </Link>
-              <Link to="/chi-sono" className="text-white hover:text-yellow-400 transition-all duration-500 ease-out font-medium text-sm relative group">
+              <Link to="/chi-sono" className="text-white hover:text-yellow-400 transition-all duration-500 ease-out font-medium text-sm relative group" aria-label="Conosci Ana Maria fondatrice Academy Lash Master">
                 Chi sono
                 <span className={`absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-1 h-1 rounded-full transition-opacity duration-300 ${location.pathname === '/chi-sono' ? 'bg-white opacity-100' : 'bg-yellow-400 opacity-0 group-hover:opacity-100'}`}></span>
               </Link>
-              <Link to="/contatti" className="text-white hover:text-yellow-400 transition-all duration-500 ease-out font-medium text-sm relative group">
+              <Link to="/contatti" className="text-white hover:text-yellow-400 transition-all duration-500 ease-out font-medium text-sm relative group" aria-label="Contatta Academy Lash Master per informazioni">
                 Contatti
                 <span className={`absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-1 h-1 rounded-full transition-opacity duration-300 ${location.pathname === '/contatti' ? 'bg-white opacity-100' : 'bg-yellow-400 opacity-0 group-hover:opacity-100'}`}></span>
               </Link>

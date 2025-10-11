@@ -331,7 +331,7 @@ const Home = () => {
                   Impara le tecniche fondamentali per l'applicazione delle extension ciglia. 
                   Perfetto per principianti.
                 </p>
-                <ul className="text-left text-gray-600 space-y-1 sm:space-y-2 mb-4 sm:mb-6 text-sm sm:text-base">
+                <ul className="text-left text-gray-700 space-y-1 sm:space-y-2 mb-4 sm:mb-6 text-sm sm:text-base">
                   <li className="flex items-center gap-2">
                     <span className="w-1.5 h-1.5 bg-black rounded-full flex-shrink-0"></span>
                     <span>Teoria delle extension</span>
@@ -372,7 +372,7 @@ const Home = () => {
                   Tecniche avanzate e specializzazioni per diventare un vero professionista 
                   del settore.
                 </p>
-                <ul className="text-left text-gray-600 space-y-1 sm:space-y-2 mb-4 sm:mb-6 text-sm sm:text-base">
+                <ul className="text-left text-gray-700 space-y-1 sm:space-y-2 mb-4 sm:mb-6 text-sm sm:text-base">
                   <li className="flex items-center gap-2">
                     <span className="w-1.5 h-1.5 bg-black rounded-full flex-shrink-0"></span>
                     <span>Volume e Mega Volume</span>
@@ -413,7 +413,7 @@ const Home = () => {
                   Il corso più completo per diventare un vero Master delle extension ciglia 
                   e aprire la propria attività.
                 </p>
-                <ul className="text-left text-gray-600 space-y-1 sm:space-y-2 mb-4 sm:mb-6 text-sm sm:text-base">
+                <ul className="text-left text-gray-700 space-y-1 sm:space-y-2 mb-4 sm:mb-6 text-sm sm:text-base">
                   <li className="flex items-center gap-2">
                     <span className="w-1.5 h-1.5 bg-black rounded-full flex-shrink-0"></span>
                     <span>Tutte le tecniche</span>
@@ -558,7 +558,7 @@ const Home = () => {
                   <div className="hidden md:block absolute top-16 left-1/2 transform -translate-x-1/2 w-1 h-8 bg-gradient-to-b from-black to-transparent"></div>
                 </div>
                 <h4 className={`text-lg sm:text-xl font-semibold text-black mb-3 sm:mb-4 transition-all duration-500 ease-out ${timelineVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{transitionDelay: timelineVisible ? '0.4s' : '0s'}}>Gli Inizi</h4>
-                <p className={`text-gray-600 leading-relaxed text-sm sm:text-base transition-all duration-500 ease-out ${timelineVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{transitionDelay: timelineVisible ? '0.6s' : '0s'}}>
+                <p className={`text-gray-700 leading-relaxed text-sm sm:text-base transition-all duration-500 ease-out ${timelineVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{transitionDelay: timelineVisible ? '0.6s' : '0s'}}>
                   Ho iniziato come estetista tradizionale, ma quando ho scoperto il mondo delle extension ciglia, 
                   ho capito che era la mia vera vocazione.
                 </p>
@@ -574,7 +574,7 @@ const Home = () => {
                   <div className="hidden md:block absolute top-16 left-1/2 transform -translate-x-1/2 w-1 h-8 bg-gradient-to-b from-black to-transparent"></div>
                 </div>
                 <h4 className={`text-lg sm:text-xl font-semibold text-black mb-3 sm:mb-4 transition-all duration-500 ease-out ${timelineVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{transitionDelay: timelineVisible ? '1.0s' : '0s'}}>La Formazione</h4>
-                <p className={`text-gray-600 leading-relaxed text-sm sm:text-base transition-all duration-500 ease-out ${timelineVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{transitionDelay: timelineVisible ? '1.2s' : '0s'}}>
+                <p className={`text-gray-700 leading-relaxed text-sm sm:text-base transition-all duration-500 ease-out ${timelineVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{transitionDelay: timelineVisible ? '1.2s' : '0s'}}>
                   Ho investito anni nella formazione, studiando nelle migliori accademie internazionali. 
                   Ho imparato tecniche innovative e materiali all'avanguardia.
                 </p>
@@ -590,7 +590,7 @@ const Home = () => {
                   <div className="hidden md:block absolute top-16 left-1/2 transform -translate-x-1/2 w-1 h-8 bg-gradient-to-b from-black to-transparent"></div>
                 </div>
                 <h4 className={`text-lg sm:text-xl font-semibold text-black mb-3 sm:mb-4 transition-all duration-500 ease-out ${timelineVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{transitionDelay: timelineVisible ? '1.6s' : '0s'}}>Academy Lash Master</h4>
-                <p className={`text-gray-600 leading-relaxed text-sm sm:text-base transition-all duration-500 ease-out ${timelineVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{transitionDelay: timelineVisible ? '1.8s' : '0s'}}>
+                <p className={`text-gray-700 leading-relaxed text-sm sm:text-base transition-all duration-500 ease-out ${timelineVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{transitionDelay: timelineVisible ? '1.8s' : '0s'}}>
                   Oggi condivido la mia passione insegnando ad altre donne come trasformare la loro 
                   passione in una professione di successo.
                 </p>
@@ -708,7 +708,7 @@ const Home = () => {
               {/* Section Header */}
               <div className="mb-8 sm:mb-12">
                 <h3 className={`text-4xl sm:text-5xl md:text-6xl font-bold text-black mb-4 sm:mb-6 transition-all duration-1000 ease-out ${contactsVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`}>Rimani in contatto con me</h3>
-                <p className={`text-lg sm:text-xl text-gray-600 font-light leading-relaxed text-justify transition-all duration-1000 ease-out ${contactsVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`} style={{textAlignLast: 'left', transitionDelay: contactsVisible ? '0.2s' : '0s'}}>Sono qui per rispondere alle tue domande e aiutarti a iniziare il tuo percorso nel mondo delle extension ciglia.</p>
+                <p className={`text-lg sm:text-xl text-gray-700 font-light leading-relaxed text-justify transition-all duration-1000 ease-out ${contactsVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`} style={{textAlignLast: 'left', transitionDelay: contactsVisible ? '0.2s' : '0s'}}>Sono qui per rispondere alle tue domande e aiutarti a iniziare il tuo percorso nel mondo delle extension ciglia.</p>
               </div>
               
               {/* Contact Info */}
@@ -721,7 +721,7 @@ const Home = () => {
                 </div>
                 <div>
                   <h4 className="text-lg sm:text-xl font-semibold text-black mb-1">Telefono</h4>
-                  <p className="text-gray-600 text-sm sm:text-base">+39 3533165390</p>
+                  <p className="text-gray-700 text-sm sm:text-base">+39 3533165390</p>
                 </div>
               </div>
 
@@ -733,7 +733,7 @@ const Home = () => {
                 </div>
                 <div>
                   <h4 className="text-lg sm:text-xl font-semibold text-black mb-1">Email</h4>
-                  <p className="text-gray-600 text-sm sm:text-base">info@academylashmaster.com</p>
+                  <p className="text-gray-700 text-sm sm:text-base">info@academylashmaster.com</p>
                 </div>
               </div>
 
@@ -745,7 +745,7 @@ const Home = () => {
                 </div>
                 <div>
                   <h4 className="text-lg sm:text-xl font-semibold text-black mb-1">Indirizzo</h4>
-                  <p className="text-gray-600 text-sm sm:text-base">Via Roma 123, Milano</p>
+                  <p className="text-gray-700 text-sm sm:text-base">Via Roma 123, Milano</p>
                 </div>
               </div>
               </div>

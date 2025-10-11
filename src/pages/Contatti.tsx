@@ -149,7 +149,7 @@ const Contatti = () => {
           <div className="w-[90%] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12 sm:mb-16">
               <h2 className={`text-4xl sm:text-5xl md:text-6xl font-bold text-black mb-4 sm:mb-6 transition-all duration-1000 ease-out ${contactCardsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>Rimani in contatto</h2>
-              <p className={`text-lg sm:text-xl text-gray-600 font-light transition-all duration-1000 ease-out ${contactCardsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{transitionDelay: contactCardsVisible ? '0.2s' : '0s'}}>Scegli il modo che preferisci per metterti in contatto con me</p>
+              <p className={`text-lg sm:text-xl text-gray-700 font-light transition-all duration-1000 ease-out ${contactCardsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{transitionDelay: contactCardsVisible ? '0.2s' : '0s'}}>Scegli il modo che preferisci per metterti in contatto con me</p>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
@@ -161,10 +161,10 @@ const Contatti = () => {
                   </svg>
                 </div>
                 <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-black mb-3 sm:mb-4">Telefono</h3>
-                <p className="text-gray-600 text-sm sm:text-base mb-4 sm:mb-6">Chiamaci per informazioni immediate sui nostri corsi</p>
+                <p className="text-gray-700 text-sm sm:text-base mb-4 sm:mb-6">Chiamaci per informazioni immediate sui nostri corsi</p>
                 <a 
                   href="tel:+393533165390" 
-                  className="text-black font-medium text-sm sm:text-base hover:text-gray-600 transition-colors duration-300"
+                  className="text-black font-medium text-sm sm:text-base hover:text-gray-700 transition-colors duration-300"
                 >
                   +39 3533165390
                 </a>
@@ -178,10 +178,10 @@ const Contatti = () => {
                   </svg>
                 </div>
                 <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-black mb-3 sm:mb-4">Email</h3>
-                <p className="text-gray-600 text-sm sm:text-base mb-4 sm:mb-6">Scrivici per ricevere informazioni dettagliate</p>
+                <p className="text-gray-700 text-sm sm:text-base mb-4 sm:mb-6">Scrivici per ricevere informazioni dettagliate</p>
                 <a 
                   href="mailto:info@academylashmaster.com" 
-                  className="text-black font-medium text-sm sm:text-base hover:text-gray-600 transition-colors duration-300"
+                  className="text-black font-medium text-sm sm:text-base hover:text-gray-700 transition-colors duration-300"
                 >
                   info@academylashmaster.com
                 </a>
@@ -195,7 +195,7 @@ const Contatti = () => {
                   </svg>
                 </div>
                 <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-black mb-3 sm:mb-4">Indirizzo</h3>
-                <p className="text-gray-600 text-sm sm:text-base mb-4 sm:mb-6">Vieni a trovarci nella nostra sede</p>
+                <p className="text-gray-700 text-sm sm:text-base mb-4 sm:mb-6">Vieni a trovarci nella nostra sede</p>
                 <div className="text-black font-medium text-sm sm:text-base">
                   Via Roma 123, Milano
                 </div>

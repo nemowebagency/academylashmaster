@@ -171,7 +171,7 @@ const Corsi = () => {
                   Impara le tecniche fondamentali per l'applicazione delle extension ciglia. 
                   Perfetto per principianti.
                 </p>
-                <ul className="text-left text-gray-600 space-y-1 sm:space-y-2 mb-4 sm:mb-6 text-sm sm:text-base">
+                <ul className="text-left text-gray-700 space-y-1 sm:space-y-2 mb-4 sm:mb-6 text-sm sm:text-base">
                   <li className="flex items-center gap-2">
                     <span className="w-1.5 h-1.5 bg-black rounded-full flex-shrink-0"></span>
                     <span>Teoria delle extension</span>
@@ -212,7 +212,7 @@ const Corsi = () => {
                   Tecniche avanzate e specializzazioni per diventare un vero professionista 
                   del settore.
                 </p>
-                <ul className="text-left text-gray-600 space-y-1 sm:space-y-2 mb-4 sm:mb-6 text-sm sm:text-base">
+                <ul className="text-left text-gray-700 space-y-1 sm:space-y-2 mb-4 sm:mb-6 text-sm sm:text-base">
                   <li className="flex items-center gap-2">
                     <span className="w-1.5 h-1.5 bg-black rounded-full flex-shrink-0"></span>
                     <span>Volume e Mega Volume</span>
@@ -253,7 +253,7 @@ const Corsi = () => {
                   Il corso più completo per diventare un vero Master delle extension ciglia 
                   e aprire la propria attività.
                 </p>
-                <ul className="text-left text-gray-600 space-y-1 sm:space-y-2 mb-4 sm:mb-6 text-sm sm:text-base">
+                <ul className="text-left text-gray-700 space-y-1 sm:space-y-2 mb-4 sm:mb-6 text-sm sm:text-base">
                   <li className="flex items-center gap-2">
                     <span className="w-1.5 h-1.5 bg-black rounded-full flex-shrink-0"></span>
                     <span>Tutte le tecniche</span>
@@ -367,7 +367,7 @@ const Corsi = () => {
             </div>
 
                   <h4 className="text-3xl font-bold text-white mb-2 text-left">Scarica il Manuale</h4>
-                  <p className="text-gray-300 mb-6 text-left">Clicca il pulsante qui sotto per scaricare il PDF completo</p>
+                  <p className="text-gray-200 mb-6 text-left">Clicca il pulsante qui sotto per scaricare il PDF completo</p>
                   <button className="bg-white text-black px-8 py-4 rounded-full font-medium text-base flex items-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110 hover:text-black">
                     <span className="relative z-10">Scarica adesso</span>
                     <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-500 ease-out relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -575,7 +575,7 @@ const Corsi = () => {
             
             <form onSubmit={handleFormSubmit} className="space-y-4 sm:space-y-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
+                <label htmlFor="name" className="block text-sm font-medium text-gray-200 mb-2">
                   Nome Completo *
                 </label>
                 <input
@@ -591,7 +591,7 @@ const Corsi = () => {
               </div>
               
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+                <label htmlFor="email" className="block text-sm font-medium text-gray-200 mb-2">
                   Email *
                 </label>
                 <input
@@ -607,7 +607,7 @@ const Corsi = () => {
               </div>
               
               <div>
-                <label htmlFor="phone" className="block text-sm font-medium text-gray-300 mb-2">
+                <label htmlFor="phone" className="block text-sm font-medium text-gray-200 mb-2">
                   Telefono
                 </label>
                 <input
@@ -622,7 +622,7 @@ const Corsi = () => {
               </div>
               
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
+                <label htmlFor="message" className="block text-sm font-medium text-gray-200 mb-2">
                   Messaggio *
                 </label>
                 <textarea
