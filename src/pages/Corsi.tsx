@@ -457,7 +457,7 @@ const Corsi = () => {
                 <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden">
                   <img
                     src="/soggetto/Procreate_icon.png"
-                    alt="Procreate Icon"
+                    alt="Procreate App Icon - Strumento digitale per design extension ciglia Academy Lash Master"
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -505,14 +505,14 @@ const Corsi = () => {
                     <div className="w-full flex-shrink-0 h-full">
                       <img
                         src="/soggetto/procreate.avif"
-                        alt="Procreate App Interface"
+                        alt="Procreate App Interface - Design extension ciglia con strumenti digitali Academy Lash Master"
                         className="w-full h-full object-cover"
                       />
                     </div>
                     <div className="w-full flex-shrink-0 h-full">
                       <img
                         src="/soggetto/procreate2.avif"
-                        alt="Procreate App Interface 2"
+                        alt="Procreate App Interface 2 - Strumenti digitali avanzati per design extension ciglia Academy Lash Master"
                         className="w-full h-full object-cover"
                       />
                 </div>

@@ -43,7 +43,7 @@ const Navbar = ({ setShowContactForm }: NavbarProps) => {
             <div className="flex items-center">
               <img 
                 src="/logo/LogoBianco.png" 
-                alt="Academy Lash Master" 
+                alt="Academy Lash Master - Logo scuola formazione extension ciglia professionali" 
                 className="h-8 sm:h-10 lg:h-12 w-auto"
               />
             </div>

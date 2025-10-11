@@ -493,7 +493,7 @@ const Home = () => {
             <div className="relative overflow-hidden">
               <img 
                 src="/soggetto/person1.png"
-                alt="Ana Maria - Founder Academy Lash Master"
+                alt="Ana Maria fondatrice Academy Lash Master - Esperta extension ciglia con formazione internazionale"
                 className="w-full h-[300px] sm:h-[400px] object-contain"
               />
             </div>
@@ -508,7 +508,7 @@ const Home = () => {
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-white rounded-full opacity-20"></div>
             <img 
               src="/soggetto/person1.png"
-              alt="Ana Maria - Founder Academy Lash Master"
+              alt="Ana Maria fondatrice Academy Lash Master - Esperta extension ciglia con formazione internazionale"
               className="w-full h-[500px] sm:h-[600px] lg:h-[700px] xl:h-[800px] object-contain relative z-10"
             />
           </div>
@@ -640,7 +640,7 @@ const Home = () => {
                 <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl shadow-2xl">
                   <img 
                     src="/soggetto/corsi.jpg"
-                    alt="Corsi Academy Lash Master"
+                    alt="Corsi Academy Lash Master - Formazione professionale extension ciglia con Ana Maria"
                     className="w-full h-[300px] sm:h-[400px] lg:h-[500px] object-cover transform transition-all duration-1000 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -663,7 +663,7 @@ const Home = () => {
                 <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl shadow-2xl">
                   <img 
                     src="/soggetto/corso2.jpg"
-                    alt="Corso2 Academy Lash Master"
+                    alt="Corso avanzato extension ciglia Academy Lash Master - Tecniche professionali e formazione completa"
                     className="w-full h-[300px] sm:h-[400px] lg:h-[500px] object-cover transform transition-all duration-1000 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
