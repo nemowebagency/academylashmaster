@@ -11,7 +11,7 @@ import ContactForm from '../components/ContactForm'
 const Home = () => {
   const [showContactForm, setShowContactForm] = useState(false);
   const [scrollY, setScrollY] = useState(0);
-  const [isMobile, setIsMobile] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(false);
   const [coursesVisible, setCoursesVisible] = useState(false);
   const [aboutVisible, setAboutVisible] = useState(false);
   const [timelineVisible, setTimelineVisible] = useState(false);
@@ -51,7 +51,7 @@ const Home = () => {
   // Gestisce il rilevamento della dimensione dello schermo per il parallax
   useEffect(() => {
     const checkScreenSize = () => {
-      setIsMobile(window.innerWidth < 640);
+      setIsDesktop(window.innerWidth >= 1024); // Desktop only (lg breakpoint)
     };
 
     checkScreenSize();
@@ -382,8 +382,8 @@ const Home = () => {
                       <p 
                         className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal text-black leading-tight transform transition-transform duration-75 ease-out"
                         style={{
-                          transform: !isMobile ? `translateY(${scrollY * -0.1 + 120}px)` : 'translateY(0px)',
-                          opacity: !isMobile ? Math.max(0, 1 - (scrollY - 1400) / 600) : 1,
+                          transform: isDesktop ? `translateY(${scrollY * -0.1 + 120}px)` : 'translateY(0px)',
+                          opacity: isDesktop ? Math.max(0, 1 - (scrollY - 1400) / 600) : 1,
                         }}
                       >
                         "Da una passione può nascere una <span className="font-bold">professione</span>, da un sogno può nascere la <span className="font-bold">libertà"</span>.
