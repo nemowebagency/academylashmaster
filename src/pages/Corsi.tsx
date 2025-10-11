@@ -23,6 +23,7 @@ const Corsi = () => {
   const [manualVisible, setManualVisible] = useState(false);
   const [procreateVisible, setProcreateVisible] = useState(false);
   const [whyChooseVisible, setWhyChooseVisible] = useState(false);
+  const [ctaVisible, setCtaVisible] = useState(false);
 
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -46,7 +47,8 @@ const Corsi = () => {
       { id: 'corsi', setter: setCoursesVisible },
       { id: 'manual', setter: setManualVisible },
       { id: 'procreate', setter: setProcreateVisible },
-      { id: 'why-choose', setter: setWhyChooseVisible }
+      { id: 'why-choose', setter: setWhyChooseVisible },
+      { id: 'cta-section', setter: setCtaVisible }
     ];
 
     const observerInstances = observers.map(({ id, setter }) => {
@@ -321,7 +323,7 @@ const Corsi = () => {
       
 
       {/* CTA Section */}
-      <section className="py-12 sm:py-16 lg:py-20 relative overflow-hidden">
+      <section id="cta-section" className="py-12 sm:py-16 lg:py-20 relative overflow-hidden">
         {/* Background Image */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -334,11 +336,11 @@ const Corsi = () => {
         <div className="absolute inset-0 bg-black bg-opacity-80" />
         
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4 sm:mb-6">Pronto a iniziare il tuo percorso?</h2>
-          <p className="text-lg sm:text-xl text-gray-200 mb-6 sm:mb-8">
+          <h2 className={`text-3xl sm:text-4xl font-bold text-white mb-4 sm:mb-6 transition-all duration-1000 ease-out ${ctaVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>Pronto a iniziare il tuo percorso?</h2>
+          <p className={`text-lg sm:text-xl text-gray-200 mb-6 sm:mb-8 transition-all duration-1000 ease-out ${ctaVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{transitionDelay: ctaVisible ? '0.2s' : '0s'}}>
             Scegli il corso più adatto a te e trasforma la tua passione in professione.
           </p>
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+          <div className={`flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center transition-all duration-1000 ease-out ${ctaVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{transitionDelay: ctaVisible ? '0.4s' : '0s'}}>
             <Link
               to="/contatti#form"
               className="bg-white text-black px-8 py-4 rounded-full font-medium text-base flex items-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110 hover:text-black"
