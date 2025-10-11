@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { ArrowRight, Facebook, Instagram, MessageCircle, BookOpen, Users, Star, Video, Play, Music } from 'lucide-react';
+import { ArrowRight, Facebook, Instagram, BookOpen, Users, Star } from 'lucide-react';
 import NeonCursor from '../components/NeonCursor';
 import Footer from '../components/Footer';
 import PromoScroll from '../components/PromoScroll';
