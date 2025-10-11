@@ -11,6 +11,7 @@ import ContactForm from '../components/ContactForm'
 const Home = () => {
   const [showContactForm, setShowContactForm] = useState(false);
   const [scrollY, setScrollY] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
   const [coursesVisible, setCoursesVisible] = useState(false);
   const [aboutVisible, setAboutVisible] = useState(false);
   const [timelineVisible, setTimelineVisible] = useState(false);
@@ -45,6 +46,17 @@ const Home = () => {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Gestisce il rilevamento della dimensione dello schermo per il parallax
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsMobile(window.innerWidth < 640);
+    };
+
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+    return () => window.removeEventListener('resize', checkScreenSize);
   }, []);
 
   // Intersection Observer per l'animazione della sezione corsi
@@ -228,7 +240,7 @@ const Home = () => {
           CORSI SECTION - Sezione con i corsi professionali
           =========================================== */}
       <section id="corsi" className="py-12 sm:py-16 lg:py-20" style={{ backgroundColor: '#F3F3F3' }}>
-        <div className="w-[90%] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="w-full sm:w-[90%] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-left mb-12 sm:mb-16">
             <h3 className={`text-4xl sm:text-5xl md:text-6xl font-light text-black mb-4 transition-all duration-1000 ease-out ${coursesVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`}>I nostri corsi <span className="font-bold text-black">professionali</span></h3>
             <p className={`text-lg sm:text-xl text-black font-light transition-all duration-1000 ease-out ${coursesVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`} style={{transitionDelay: coursesVisible ? '0.3s' : '0s'}}>Formazione professionale per ogni livello</p>
@@ -365,13 +377,13 @@ const Home = () => {
           QUOTE SECTION - Sezione con frase motivazionale e effetto parallax
           =========================================== */}
                 <section className="py-16 sm:py-20 lg:py-24 bg-white relative overflow-hidden">
-                  <div className="w-[90%] mx-auto px-4 sm:px-6 lg:px-8">
+                  <div className="w-full sm:w-[90%] mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center">
                       <p 
                         className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal text-black leading-tight transform transition-transform duration-75 ease-out"
                         style={{
-                          transform: `translateY(${scrollY * -0.1 + 120}px)`,
-                          opacity: Math.max(0, 1 - (scrollY - 1400) / 600),
+                          transform: !isMobile ? `translateY(${scrollY * -0.1 + 120}px)` : 'translateY(0px)',
+                          opacity: !isMobile ? Math.max(0, 1 - (scrollY - 1400) / 600) : 1,
                         }}
                       >
                         "Da una passione può nascere una <span className="font-bold">professione</span>, da un sogno può nascere la <span className="font-bold">libertà"</span>.
@@ -384,29 +396,59 @@ const Home = () => {
           CHI SONO SECTION - Sezione con immagine e testo di Ana Maria
           =========================================== */}
       <section id="about" className="bg-black relative min-h-[80vh]">
-        {/* Immagine attaccata al bottom */}
-        <div className="absolute bottom-0 left-0 w-1/2 -mt-24 sm:-mt-32 lg:-mt-56 xl:-mt-64">
-          {/* Palla bianca dietro l'immagine */}
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-white rounded-full opacity-20"></div>
-          <img 
-            src="/soggetto/person1.png"
-            alt="Ana Maria - Founder Academy Lash Master"
-            className="w-full h-[500px] sm:h-[600px] lg:h-[700px] xl:h-[800px] object-contain relative z-10"
-          />
-        </div>
-        
-        {/* Testo centrato verticalmente */}
-        <div className="absolute inset-0 flex items-center justify-end">
-          <div className="w-1/2 pr-16 lg:pr-24 xl:pr-32 flex flex-col justify-center">
+        {/* Mobile Layout - Stacked */}
+        <div className="lg:hidden flex flex-col">
+          {/* Top Row - Text Content */}
+          <div className="w-full px-4 py-8 sm:py-12 flex flex-col justify-center order-1">
             <p className={`text-sm uppercase text-white font-medium mb-4 tracking-wider transition-all duration-1000 ease-out ${aboutVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'}`}>
               CHI SONO
             </p>
-            <h2 className={`text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 transition-all duration-1000 ease-out ${aboutVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'}`} style={{transitionDelay: aboutVisible ? '0.2s' : '0s'}}>
+            <h2 className={`text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 transition-all duration-1000 ease-out ${aboutVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'}`} style={{transitionDelay: aboutVisible ? '0.2s' : '0s'}}>
               Imparare, crescere, trasformarsi
             </h2>
-            <p className={`text-lg sm:text-xl text-white font-light leading-relaxed text-justify transition-all duration-1000 ease-out ${aboutVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'}`} style={{textAlignLast: 'left', transitionDelay: aboutVisible ? '0.4s' : '0s'}}>
+            <p className={`text-base sm:text-lg text-white font-light leading-relaxed text-justify transition-all duration-1000 ease-out ${aboutVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'}`} style={{textAlignLast: 'left', transitionDelay: aboutVisible ? '0.4s' : '0s'}}>
               La mia storia nasce da un desiderio profondo: trasformare una passione in una vera professione e offrire ad altre donne gli strumenti per fare lo stesso. Ho viaggiato, studiato e investito tempo ed energie per raccogliere le migliori conoscenze, arricchendo il mio percorso con esperienze internazionali che mi hanno permesso di crescere e portare innovazione nel mondo delle extension ciglia.
             </p>
+          </div>
+          
+          {/* Bottom Row - Image */}
+          <div className={`relative group order-2 transition-all duration-1000 ease-out ${aboutVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{transitionDelay: aboutVisible ? '0.6s' : '0s'}}>
+            <div className="relative overflow-hidden">
+              <img 
+                src="/soggetto/person1.png"
+                alt="Ana Maria - Founder Academy Lash Master"
+                className="w-full h-[300px] sm:h-[400px] object-contain"
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* Desktop Layout - Side by Side */}
+        <div className="hidden lg:block">
+          {/* Immagine attaccata al bottom */}
+          <div className="absolute bottom-0 left-0 w-1/2 -mt-24 sm:-mt-32 lg:-mt-56 xl:-mt-64">
+            {/* Palla bianca dietro l'immagine */}
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-white rounded-full opacity-20"></div>
+            <img 
+              src="/soggetto/person1.png"
+              alt="Ana Maria - Founder Academy Lash Master"
+              className="w-full h-[500px] sm:h-[600px] lg:h-[700px] xl:h-[800px] object-contain relative z-10"
+            />
+          </div>
+          
+          {/* Testo centrato verticalmente */}
+          <div className="absolute inset-0 flex items-center justify-end">
+            <div className="w-1/2 pr-16 lg:pr-24 xl:pr-32 flex flex-col justify-center">
+              <p className={`text-sm uppercase text-white font-medium mb-4 tracking-wider transition-all duration-1000 ease-out ${aboutVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'}`}>
+                CHI SONO
+              </p>
+              <h2 className={`text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 transition-all duration-1000 ease-out ${aboutVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'}`} style={{transitionDelay: aboutVisible ? '0.2s' : '0s'}}>
+                Imparare, crescere, trasformarsi
+              </h2>
+              <p className={`text-lg sm:text-xl text-white font-light leading-relaxed text-justify transition-all duration-1000 ease-out ${aboutVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'}`} style={{textAlignLast: 'left', transitionDelay: aboutVisible ? '0.4s' : '0s'}}>
+                La mia storia nasce da un desiderio profondo: trasformare una passione in una vera professione e offrire ad altre donne gli strumenti per fare lo stesso. Ho viaggiato, studiato e investito tempo ed energie per raccogliere le migliori conoscenze, arricchendo il mio percorso con esperienze internazionali che mi hanno permesso di crescere e portare innovazione nel mondo delle extension ciglia.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -415,7 +457,7 @@ const Home = () => {
           IL MIO PERCORSO SECTION - Timeline del percorso di Ana Maria
           =========================================== */}
       <section id="timeline" className="py-16 sm:py-20 lg:py-24 bg-white relative overflow-hidden">
-        <div className="w-[90%] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="w-full sm:w-[90%] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16">
             <p className={`text-sm uppercase text-black font-medium mb-4 tracking-wider transition-all duration-1000 ease-out ${timelineVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
               IL MIO PERCORSO
@@ -499,7 +541,7 @@ const Home = () => {
           INFO SECTION - Sezione con storia e filosofia di Ana Maria
           =========================================== */}
       <section id="info" className="py-16 sm:py-20 lg:py-24 bg-black relative overflow-hidden">
-        <div className="w-[90%] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="w-full sm:w-[90%] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Main Content - Ana Maria's Story */}
           <div className="space-y-16 sm:space-y-20 lg:space-y-24">
             {/* Row 1: Testo Oltre le parole a sinistra - Immagine Corsi a destra */}
@@ -581,7 +623,7 @@ const Home = () => {
           CONTATTI SECTION - Sezione contatti con form e informazioni
           =========================================== */}
       <section id="contatti" className="py-16 sm:py-20 lg:py-24 bg-white relative overflow-hidden">
-        <div className="w-[90%] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="w-full sm:w-[90%] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Main Content - Grid Layout */}
           <div className="grid lg:grid-cols-2 gap-12 sm:gap-16 lg:gap-24 items-start">
             {/* Left - Contact Info */}
