@@ -87,7 +87,7 @@ const ChiSono = () => {
             LA MIA STORIA SECTION - Storia personale di Ana Maria
             =========================================== */}
         <section id="story" className="py-16 sm:py-20 lg:py-24 bg-white relative overflow-hidden">
-          <div className="w-[90%] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="w-full sm:w-[90%] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="grid lg:grid-cols-2 gap-12 sm:gap-16 lg:gap-24 items-center">
               {/* Left - Immagine Ana Maria */}
               <div className={`relative group order-2 lg:order-1 transition-all duration-1000 ease-out ${storyVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
@@ -130,7 +130,7 @@ const ChiSono = () => {
             LA MIA MISSIONE SECTION - Missione e filosofia di Ana Maria
             =========================================== */}
         <section id="mission" className="py-16 sm:py-20 lg:py-24 bg-black relative overflow-hidden">
-          <div className="w-[90%] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="w-full sm:w-[90%] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="text-center mb-12 sm:mb-16">
               <p className={`text-sm uppercase text-white font-medium mb-4 tracking-wider transition-all duration-1000 ease-out ${missionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
                 LA MIA MISSIONE
@@ -181,7 +181,7 @@ const ChiSono = () => {
             SOCIAL SECTION - Call to action per i social
             =========================================== */}
         <section id="social" className="py-16 sm:py-20 lg:py-24 bg-white relative overflow-hidden">
-          <div className="w-[90%] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="w-full sm:w-[90%] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="text-center mb-12 sm:mb-16">
               <p className={`text-sm uppercase text-black font-medium mb-4 tracking-wider transition-all duration-1000 ease-out ${socialVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
                 SEGUIMI
