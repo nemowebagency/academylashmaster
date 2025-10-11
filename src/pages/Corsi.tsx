@@ -84,19 +84,19 @@ const Corsi = () => {
   }, []);
 
   return (
-    <>
+    <div className="overflow-x-hidden">
       <NeonCursor />
       <PromoScroll />
       <Navbar setShowContactForm={setShowContactForm} />
       <HeroCorsi />
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-black overflow-x-hidden">
         
       
       {/* ===========================================
           CORSI SECTION - Sezione con i corsi professionali
           =========================================== */}
       <section id="corsi" className="py-12 sm:py-16 lg:py-20" style={{ backgroundColor: '#F3F3F3' }}>
-        <div className="w-[90%] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="w-full sm:w-[90%] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-left mb-12 sm:mb-16">
             <h3 className={`text-4xl sm:text-5xl md:text-6xl font-bold text-black mb-4 transition-all duration-1000 ease-out ${coursesVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`}>Le nostre proposte</h3>
             <p className={`text-lg sm:text-xl text-black font-light transition-all duration-1000 ease-out ${coursesVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`} style={{transitionDelay: coursesVisible ? '0.2s' : '0s'}}>Scegli tra i corsi proposti e utilizza il pulsante corrispondente per iscriverti.</p>
@@ -362,8 +362,8 @@ const Corsi = () => {
       </section>
 
       {/* Procreate Section */}
-      <section id="procreate" className="py-16 sm:py-20 lg:py-24 bg-white">
-        <div className="w-[90%] mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="procreate" className="py-16 sm:py-20 lg:py-24 bg-white overflow-x-hidden">
+        <div className="w-full sm:w-[90%] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-left mb-12 sm:mb-16">
             <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 lg:gap-8">
               <div className="flex-1">
@@ -438,7 +438,7 @@ const Corsi = () => {
 
             {/* Plugin Section */}
             <div className={`space-y-6 sm:space-y-8 transition-all duration-1000 ease-out ${procreateVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'}`} style={{transitionDelay: procreateVisible ? '0.8s' : '0s'}}>
-              <div className="relative">
+              <div className="relative overflow-x-hidden">
                 <div className="relative overflow-hidden rounded-2xl shadow-lg h-[430px]">
                   <div className="flex transition-transform duration-500 ease-in-out h-full" style={{ transform: `translateX(-${currentImage * 100}%)` }}>
                     <div className="w-full flex-shrink-0 h-full">
@@ -598,7 +598,7 @@ const Corsi = () => {
 
       {/* Why Choose Us */}
       <section id="why-choose" className="py-16 sm:py-20 lg:py-24 bg-black">
-        <div className="w-[90%] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="w-full sm:w-[90%] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16">
             <h2 className={`text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4 transition-all duration-1000 ease-out ${whyChooseVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>Perché scegliere Academy Lash Master?</h2>
             <p className={`text-lg sm:text-xl text-white font-light transition-all duration-1000 ease-out ${whyChooseVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{transitionDelay: whyChooseVisible ? '0.2s' : '0s'}}>Eccellenza nella formazione e supporto continuo</p>
@@ -650,7 +650,7 @@ const Corsi = () => {
       {/* Footer */}
       <Footer />
     </div>
-    </>
+    </div>
   );
 };
 
