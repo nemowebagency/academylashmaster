@@ -495,6 +495,8 @@ const Home = () => {
                 src="/soggetto/person1.png"
                 alt="Ana Maria fondatrice Academy Lash Master - Esperta extension ciglia con formazione internazionale"
                 className="w-full h-[300px] sm:h-[400px] object-contain"
+                loading="lazy"
+                decoding="async"
               />
             </div>
           </div>
@@ -510,6 +512,8 @@ const Home = () => {
               src="/soggetto/person1.png"
               alt="Ana Maria fondatrice Academy Lash Master - Esperta extension ciglia con formazione internazionale"
               className="w-full h-[500px] sm:h-[600px] lg:h-[700px] xl:h-[800px] object-contain relative z-10"
+              loading="lazy"
+              decoding="async"
             />
           </div>
           
@@ -642,6 +646,8 @@ const Home = () => {
                     src="/soggetto/corsi.jpg"
                     alt="Corsi Academy Lash Master - Formazione professionale extension ciglia con Ana Maria"
                     className="w-full h-[300px] sm:h-[400px] lg:h-[500px] object-cover transform transition-all duration-1000 group-hover:scale-105"
+                    loading="lazy"
+                    decoding="async"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   {/* Sfocatura bordi */}
@@ -665,6 +671,8 @@ const Home = () => {
                     src="/soggetto/corso2.jpg"
                     alt="Corso avanzato extension ciglia Academy Lash Master - Tecniche professionali e formazione completa"
                     className="w-full h-[300px] sm:h-[400px] lg:h-[500px] object-cover transform transition-all duration-1000 group-hover:scale-105"
+                    loading="lazy"
+                    decoding="async"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   {/* Sfocatura bordi */}

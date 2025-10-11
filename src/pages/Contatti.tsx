@@ -223,6 +223,8 @@ const Contatti = () => {
                     src="/soggetto/contciglia.jpg"
                     alt="Contatto Academy Lash Master - Richiedi informazioni sui corsi extension ciglia professionali"
                     className="w-full h-[250px] sm:h-[300px] lg:h-[350px] object-cover transform transition-all duration-1000 group-hover:scale-105"
+                    loading="lazy"
+                    decoding="async"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 </div>
