@@ -91,12 +91,12 @@ const Footer = () => {
                 P.IVA: 03338640802
               </p>
               <div className="flex space-x-4">
-                <a href="#" className="text-gray-500 hover:text-white transition duration-300 text-xs sm:text-sm">
+                <Link to="/privacy-policy" className="text-gray-500 hover:text-white transition duration-300 text-xs sm:text-sm">
                   Privacy Policy
-                </a>
-                <a href="#" className="text-gray-500 hover:text-white transition duration-300 text-xs sm:text-sm">
+                </Link>
+                <Link to="/cookie-policy" className="text-gray-500 hover:text-white transition duration-300 text-xs sm:text-sm">
                   Cookie Policy
-                </a>
+                </Link>
               </div>
             </div>
           </div>
