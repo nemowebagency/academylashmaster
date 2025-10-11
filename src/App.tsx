@@ -1,4 +1,5 @@
 import { Routes, Route } from 'react-router-dom'
+import { HelmetProvider } from 'react-helmet-async'
 import Home from './pages/Home'
 import Corsi from './pages/Corsi'
 import Contatti from './pages/Contatti'
@@ -12,7 +13,7 @@ import CookieBanner from './components/CookieBanner'
 
 function App() {
   return (
-    <>
+    <HelmetProvider>
       <ScrollToTopOnRouteChange />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -25,7 +26,7 @@ function App() {
       <WhatsAppButton />
       <ScrollToTop />
       <CookieBanner />
-    </>
+    </HelmetProvider>
   );
 }
 

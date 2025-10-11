@@ -97,6 +97,9 @@ const Footer = () => {
                 <Link to="/cookie-policy" className="text-gray-500 hover:text-white transition duration-300 text-xs sm:text-sm">
                   Cookie Policy
                 </Link>
+                <a href="/sitemap.xml" className="text-gray-500 hover:text-white transition duration-300 text-xs sm:text-sm" target="_blank" rel="noopener noreferrer">
+                  Sitemap
+                </a>
               </div>
             </div>
           </div>

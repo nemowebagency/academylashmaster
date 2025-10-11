@@ -5,6 +5,7 @@ import Footer from '../components/Footer';
 import PromoScroll from '../components/PromoScroll';
 import Navbar from '../components/Navbar';
 import HeroChiSono from '../components/HeroChiSono';
+import SEO from '../components/SEO';
 
 const ChiSono = () => {
   const [showContactForm, setShowContactForm] = useState(false);
@@ -75,6 +76,54 @@ const ChiSono = () => {
 
   return (
     <>
+      <SEO
+        title="Chi Sono - Ana Maria Academy Lash Master"
+        description="Conosci Ana Maria, fondatrice di Academy Lash Master. Esperta di extension ciglia con formazione internazionale. Da estetista a professionista del settore beauty. La sua storia e missione."
+        keywords={[
+          "Ana Maria extension ciglia",
+          "chi è Ana Maria",
+          "fondatrice Academy Lash Master",
+          "esperta extension ciglia",
+          "formazione internazionale extension ciglia",
+          "storia Academy Lash Master",
+          "missione extension ciglia",
+          "professionista beauty",
+          "estetista extension ciglia",
+          "Ana Maria Milano",
+          "insegnante extension ciglia",
+          "esperienza extension ciglia",
+          "Ana Maria corsi",
+          "beauty expert Milano"
+        ]}
+        canonicalUrl="/chi-sono"
+        ogImage="/soggetto/person1.png"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "Person",
+          "name": "Ana Maria",
+          "jobTitle": "Esperta Extension Ciglia e Fondatrice Academy Lash Master",
+          "description": "Ana Maria è un'esperta di extension ciglia con formazione internazionale. Fondatrice di Academy Lash Master, offre corsi professionali per trasformare passioni in professioni.",
+          "url": "https://academylashmaster.com/chi-sono",
+          "image": "https://academylashmaster.com/soggetto/person1.png",
+          "worksFor": {
+            "@type": "EducationalOrganization",
+            "name": "Academy Lash Master"
+          },
+          "knowsAbout": [
+            "Extension Ciglia",
+            "Volume Ciglia",
+            "Mega Volume Ciglia",
+            "Formazione Beauty",
+            "Tecniche Extension Ciglia",
+            "Corsi Professionali"
+          ],
+          "hasOccupation": {
+            "@type": "Occupation",
+            "name": "Esperta Extension Ciglia",
+            "description": "Specialista in tecniche di extension ciglia e formazione professionale nel settore beauty"
+          }
+        }}
+      />
       <NeonCursor />
       <PromoScroll />
       

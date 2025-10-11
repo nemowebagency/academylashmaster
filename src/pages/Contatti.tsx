@@ -5,6 +5,7 @@ import PromoScroll from '../components/PromoScroll';
 import Navbar from '../components/Navbar';
 import HeroContatti from '../components/HeroContatti';
 import ContactForm from '../components/ContactForm';
+import SEO from '../components/SEO';
 
 const Contatti = () => {
   const [showContactForm, setShowContactForm] = useState(false);
@@ -88,6 +89,52 @@ const Contatti = () => {
 
   return (
     <>
+      <SEO
+        title="Contatti - Academy Lash Master"
+        description="Contatta Academy Lash Master per informazioni sui corsi di extension ciglia. Telefono, email e modulo di contatto. Ana Maria ti aiuterà a scegliere il corso più adatto a te."
+        keywords={[
+          "contatti Academy Lash Master",
+          "contatto extension ciglia",
+          "informazioni corsi extension ciglia",
+          "telefono Academy Lash Master",
+          "email Academy Lash Master",
+          "dove sono Academy Lash Master",
+          "indirizzo Academy Lash Master",
+          "contattare Ana Maria",
+          "richiesta informazioni corsi",
+          "prenotazione corso extension ciglia",
+          "Academy Lash Master Milano",
+          "contatto beauty academy",
+          "form contatto extension ciglia"
+        ]}
+        canonicalUrl="/contatti"
+        ogImage="/soggetto/contciglia.jpg"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "ContactPage",
+          "name": "Contatti Academy Lash Master",
+          "description": "Pagina contatti per informazioni sui corsi di extension ciglia. Telefono, email e modulo di contatto disponibili.",
+          "url": "https://academylashmaster.com/contatti",
+          "mainEntity": {
+            "@type": "EducationalOrganization",
+            "name": "Academy Lash Master",
+            "telephone": "+393533165390",
+            "email": "info@academylashmaster.com",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Via Roma 123",
+              "addressLocality": "Milano",
+              "addressCountry": "IT"
+            },
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+393533165390",
+              "contactType": "customer service",
+              "availableLanguage": "Italian"
+            }
+          }
+        }}
+      />
       <NeonCursor />
       <PromoScroll />
       

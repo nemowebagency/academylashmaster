@@ -7,6 +7,7 @@ import HeroSection from '../components/HeroSection'
 import PromoScroll from '../components/PromoScroll'
 import Navbar from '../components/Navbar'
 import ContactForm from '../components/ContactForm'
+import SEO from '../components/SEO'
 
 const Home = () => {
   const [showContactForm, setShowContactForm] = useState(false);
@@ -202,6 +203,82 @@ const Home = () => {
 
   return (
     <>
+      <SEO
+        title="Academy Lash Master - Corsi Professionali Extension Ciglia"
+        description="Scopri i corsi professionali di extension ciglia di Academy Lash Master. Formazione completa con Ana Maria, esperta del settore. Corso base, avanzato e master class per diventare professionista."
+        keywords={[
+          "corsi extension ciglia",
+          "formazione extension ciglia",
+          "corso extension ciglia Milano",
+          "Academy Lash Master",
+          "Ana Maria extension ciglia",
+          "corso base extension ciglia",
+          "corso avanzato extension ciglia",
+          "master class extension ciglia",
+          "certificazione extension ciglia",
+          "tecnica extension ciglia",
+          "volume ciglia",
+          "mega volume ciglia",
+          "beauty academy",
+          "corso estetista",
+          "formazione beauty",
+          "extension ciglia professionali",
+          "corso extension ciglia certificato"
+        ]}
+        canonicalUrl="/"
+        ogImage="/soggetto/corsi.jpg"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "EducationalOrganization",
+          "name": "Academy Lash Master",
+          "description": "Academy Lash Master offre corsi professionali di extension ciglia certificati. Formazione completa per diventare professionista del settore beauty.",
+          "url": "https://academylashmaster.com",
+          "logo": "https://academylashmaster.com/logo/LogoBianco.png",
+          "image": "https://academylashmaster.com/soggetto/corsi.jpg",
+          "telephone": "+393533165390",
+          "email": "info@academylashmaster.com",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Via Roma 123",
+            "addressLocality": "Milano",
+            "addressCountry": "IT"
+          },
+          "founder": {
+            "@type": "Person",
+            "name": "Ana Maria",
+            "jobTitle": "Esperta Extension Ciglia"
+          },
+          "offers": [
+            {
+              "@type": "Course",
+              "name": "Corso Base Extension Ciglia",
+              "description": "Impara le tecniche fondamentali per l'applicazione delle extension ciglia. Perfetto per principianti.",
+              "provider": {
+                "@type": "EducationalOrganization",
+                "name": "Academy Lash Master"
+              }
+            },
+            {
+              "@type": "Course",
+              "name": "Corso Avanzato Extension Ciglia",
+              "description": "Tecniche avanzate e specializzazioni per diventare un vero professionista del settore.",
+              "provider": {
+                "@type": "EducationalOrganization",
+                "name": "Academy Lash Master"
+              }
+            },
+            {
+              "@type": "Course",
+              "name": "Master Class Extension Ciglia",
+              "description": "Il corso più completo per diventare un vero Master delle extension ciglia e aprire la propria attività.",
+              "provider": {
+                "@type": "EducationalOrganization",
+                "name": "Academy Lash Master"
+              }
+            }
+          ]
+        }}
+      />
       <NeonCursor />
       <PromoScroll />
 

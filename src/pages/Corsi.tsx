@@ -6,6 +6,7 @@ import Footer from '../components/Footer';
 import PromoScroll from '../components/PromoScroll';
 import Navbar from '../components/Navbar';
 import HeroCorsi from '../components/HeroCorsi';
+import SEO from '../components/SEO';
 
 
 
@@ -85,6 +86,66 @@ const Corsi = () => {
 
   return (
     <div className="overflow-x-hidden">
+      <SEO
+        title="Corsi Extension Ciglia - Academy Lash Master"
+        description="Scopri tutti i corsi di extension ciglia di Academy Lash Master: corso base, avanzato e master class. Formazione professionale con certificazione inclusa. Materiali e manuali professionali."
+        keywords={[
+          "corsi extension ciglia",
+          "corso base extension ciglia",
+          "corso avanzato extension ciglia",
+          "master class extension ciglia",
+          "formazione extension ciglia Milano",
+          "certificazione extension ciglia",
+          "tecnica volume ciglia",
+          "mega volume ciglia",
+          "manuale extension ciglia",
+          "procreate extension ciglia",
+          "corso estetista extension ciglia",
+          "beauty academy Milano",
+          "formazione beauty professionale",
+          "corso extension ciglia certificato",
+          "Ana Maria extension ciglia"
+        ]}
+        canonicalUrl="/corsi"
+        ogImage="/soggetto/corsi.jpg"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "Course",
+          "name": "Corsi Extension Ciglia - Academy Lash Master",
+          "description": "Corsi professionali di extension ciglia con certificazione inclusa. Formazione completa dal livello base al master class.",
+          "provider": {
+            "@type": "EducationalOrganization",
+            "name": "Academy Lash Master",
+            "url": "https://academylashmaster.com"
+          },
+          "courseMode": "Blended",
+          "educationalLevel": "Professional",
+          "inLanguage": "it",
+          "offers": [
+            {
+              "@type": "Course",
+              "name": "Corso Base Extension Ciglia",
+              "description": "Impara le tecniche fondamentali per l'applicazione delle extension ciglia. Perfetto per principianti.",
+              "coursePrerequisites": "Nessun prerequisito richiesto",
+              "educationalCredentialAwarded": "Certificato di Partecipazione"
+            },
+            {
+              "@type": "Course",
+              "name": "Corso Avanzato Extension Ciglia",
+              "description": "Tecniche avanzate e specializzazioni per diventare un vero professionista del settore.",
+              "coursePrerequisites": "Corso Base Extension Ciglia o esperienza equivalente",
+              "educationalCredentialAwarded": "Certificato Avanzato"
+            },
+            {
+              "@type": "Course",
+              "name": "Master Class Extension Ciglia",
+              "description": "Il corso più completo per diventare un vero Master delle extension ciglia e aprire la propria attività.",
+              "coursePrerequisites": "Corso Avanzato Extension Ciglia",
+              "educationalCredentialAwarded": "Certificato Master"
+            }
+          ]
+        }}
+      />
       <NeonCursor />
       <PromoScroll />
       <Navbar setShowContactForm={setShowContactForm} />
