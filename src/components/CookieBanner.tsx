@@ -126,7 +126,7 @@ const CookieBanner = () => {
                 </Link>
                 <button
                   onClick={() => setShowSettings(true)}
-                  className="text-gray-600 hover:text-black text-xs font-medium underline hover:no-underline transition-colors duration-200 ml-2"
+                  className="text-blue-600 hover:text-blue-800 underline ml-2"
                 >
                   Impostazioni
                 </button>
