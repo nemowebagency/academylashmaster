@@ -15,7 +15,7 @@ const OptimizedImage: React.FC<OptimizedImageProps> = ({
   src,
   alt,
   className = '',
-  loading = 'lazy',
+  loading = 'eager', // Disattivato lazy loading di default
   priority = false,
   width,
   height,
@@ -26,7 +26,7 @@ const OptimizedImage: React.FC<OptimizedImageProps> = ({
       src={src}
       alt={alt}
       className={className}
-      loading={priority ? 'eager' : loading}
+      loading="eager" // Forza eager loading per tutte le immagini
       decoding="async"
       width={width}
       height={height}

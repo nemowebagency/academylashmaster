@@ -144,7 +144,7 @@ const ChiSono = () => {
                     src="/soggetto/person1.png"
                     alt="Ana Maria fondatrice Academy Lash Master - Esperta extension ciglia con formazione internazionale"
                     className="w-full h-[400px] sm:h-[500px] lg:h-[600px] object-contain transform transition-all duration-1000 group-hover:scale-105"
-                    loading="lazy"
+                    loading="eager"
                     decoding="async"
                   />
                 </div>

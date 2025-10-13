@@ -6,35 +6,14 @@ interface UseLazyImageProps {
   priority?: boolean;
 }
 
-export const useLazyImage = ({ src, loading = 'lazy', priority = false }: UseLazyImageProps) => {
+export const useLazyImage = ({ src, loading = 'eager', priority = false }: UseLazyImageProps) => {
   const [isLoaded, setIsLoaded] = useState(false);
-  const [isInView, setIsInView] = useState(priority);
+  const [isInView, setIsInView] = useState(true); // Sempre true per disattivare lazy loading
   const imgRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
-    if (priority || loading === 'eager') {
-      setIsInView(true);
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsInView(true);
-          observer.disconnect();
-        }
-      },
-      {
-        threshold: 0.1,
-        rootMargin: '50px'
-      }
-    );
-
-    if (imgRef.current) {
-      observer.observe(imgRef.current);
-    }
-
-    return () => observer.disconnect();
+    // Lazy loading disattivato - tutte le immagini vengono caricate immediatamente
+    setIsInView(true);
   }, [loading, priority]);
 
   const handleLoad = () => {

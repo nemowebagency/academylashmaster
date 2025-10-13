@@ -23,23 +23,9 @@ img {
   height: auto;
 }
 
-/* Optimize image rendering */
-img[loading="lazy"] {
-  content-visibility: auto;
-  contain-intrinsic-size: 300px 200px;
-}
-
 /* Smooth transitions for images */
 img {
   transition: opacity 0.3s ease-in-out;
-}
-
-img[loading="lazy"] {
-  opacity: 0;
-}
-
-img[loading="lazy"].loaded {
-  opacity: 1;
 }
 
 /* Optimize for above-the-fold images */

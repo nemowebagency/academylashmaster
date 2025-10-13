@@ -14,7 +14,7 @@ const Footer = () => {
               src="/logo/LogoBianco.png" 
               alt="Academy Lash Master - Logo scuola formazione extension ciglia professionali" 
               className="h-12 sm:h-16 lg:h-20 w-auto mx-auto md:mx-0 mb-4 sm:mb-6"
-              loading="lazy"
+              loading="eager"
               decoding="async"
             />
             <p className="text-white font-light text-sm sm:text-base mb-6 sm:mb-8">
