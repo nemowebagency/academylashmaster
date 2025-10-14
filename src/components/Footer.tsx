@@ -65,9 +65,6 @@ const Footer = () => {
               <p className="text-gray-200 text-sm sm:text-base">
                 <span className="text-white font-semibold">Email:</span> academylashmaster@gmail.com
               </p>
-              <p className="text-gray-200 text-sm sm:text-base">
-                <span className="text-white font-semibold">Indirizzo:</span> Via Roma 123, Milano
-              </p>
             </div>
           </div>
         </div>

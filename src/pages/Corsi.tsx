@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import NeonCursor from '../components/NeonCursor';
 import Footer from '../components/Footer';
@@ -7,13 +6,10 @@ import PromoScroll from '../components/PromoScroll';
 import Navbar from '../components/Navbar';
 import HeroCorsi from '../components/HeroCorsi';
 import SEO from '../components/SEO';
-
-
-
+import ExpandableCourseCard from '../components/ExpandableCourseCard';
+import { coursesData } from '../data/coursesData';
 
 const Corsi = () => {
-  const [showContactForm, setShowContactForm] = useState(false);
-  const [currentImage, setCurrentImage] = useState(0);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -23,8 +19,10 @@ const Corsi = () => {
   const [coursesVisible, setCoursesVisible] = useState(false);
   const [manualVisible, setManualVisible] = useState(false);
   const [procreateVisible, setProcreateVisible] = useState(false);
+  const [expandedCourses, setExpandedCourses] = useState<{ [key: string]: boolean }>({});
   const [whyChooseVisible, setWhyChooseVisible] = useState(false);
-  const [ctaVisible, setCtaVisible] = useState(false);
+  const [showContactForm, setShowContactForm] = useState(false);
+  const [currentImage, setCurrentImage] = useState(0);
 
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -32,6 +30,13 @@ const Corsi = () => {
     alert('Grazie per il tuo interesse! Ti contatteremo presto.');
     setShowContactForm(false);
     setFormData({ name: '', email: '', phone: '', message: '' });
+  };
+
+  const toggleCourseExpansion = (courseId: string) => {
+    setExpandedCourses(prev => ({
+      ...prev,
+      [courseId]: !prev[courseId]
+    }));
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -42,500 +47,109 @@ const Corsi = () => {
     }));
   };
 
-  // Intersection Observer per le animazioni
   useEffect(() => {
-    const observers = [
-      { id: 'corsi', setter: setCoursesVisible },
-      { id: 'manual', setter: setManualVisible },
-      { id: 'procreate', setter: setProcreateVisible },
-      { id: 'why-choose', setter: setWhyChooseVisible },
-      { id: 'cta-section', setter: setCtaVisible }
-    ];
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
 
-    const observerInstances = observers.map(({ id, setter }) => {
-      const observer = new IntersectionObserver(
-        (entries) => {
+    const observer = new IntersectionObserver((entries) => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
-              setter(true);
-            }
-          });
-        },
-        {
-          threshold: 0.2,
-          rootMargin: '0px 0px -100px 0px'
-        }
-      );
-
-      const element = document.getElementById(id);
-      if (element) {
-        observer.observe(element);
-      }
-
-      return { observer, element };
-    });
-
-    return () => {
-      observerInstances.forEach(({ observer, element }) => {
-        if (element) {
-          observer.unobserve(element);
+          const targetId = entry.target.getAttribute('data-section');
+          switch (targetId) {
+            case 'corsi':
+              setCoursesVisible(true);
+              break;
+            case 'manual':
+              setManualVisible(true);
+              break;
+            case 'procreate':
+              setProcreateVisible(true);
+              break;
+            case 'why-choose':
+              setWhyChooseVisible(true);
+              break;
+          }
         }
       });
+    }, observerOptions);
+
+    const sections = document.querySelectorAll('[data-section]');
+    sections.forEach(section => observer.observe(section));
+
+    return () => {
+      sections.forEach(section => observer.unobserve(section));
     };
   }, []);
 
-  return (
-    <div className="overflow-x-hidden">
-      <SEO
-        title="Corsi Extension Ciglia - Academy Lash Master"
-        description="Scopri tutti i corsi di extension ciglia di Academy Lash Master: corso base, avanzato e master class. Formazione professionale con certificazione inclusa. Materiali e manuali professionali."
-        keywords={[
-          "corsi extension ciglia",
-          "corso base extension ciglia",
-          "corso avanzato extension ciglia",
-          "master class extension ciglia",
-          "formazione extension ciglia Milano",
-          "certificazione extension ciglia",
-          "tecnica volume ciglia",
-          "mega volume ciglia",
-          "manuale extension ciglia",
-          "procreate extension ciglia",
-          "corso estetista extension ciglia",
-          "beauty academy Milano",
-          "formazione beauty professionale",
-          "corso extension ciglia certificato",
-          "Ana Maria extension ciglia"
-        ]}
-        canonicalUrl="/corsi"
-        ogImage="/soggetto/corsi.jpg"
-        structuredData={{
+  const structuredData = {
           "@context": "https://schema.org",
-          "@type": "Course",
-          "name": "Corsi Extension Ciglia - Academy Lash Master",
-          "description": "Corsi professionali di extension ciglia con certificazione inclusa. Formazione completa dal livello base al master class.",
-          "provider": {
             "@type": "EducationalOrganization",
             "name": "Academy Lash Master",
-            "url": "https://academylashmaster.com"
-          },
-          "courseMode": "Blended",
-          "educationalLevel": "Professional",
-          "inLanguage": "it",
-          "offers": [
-            {
+    "description": "Corsi professionali per extension ciglia con Ana Maria - Master Trainer Internazionale",
+    "url": "https://academylashmaster.com",
+    "logo": "https://academylashmaster.com/logo/LogoBianco.png",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+39-353-316-5390",
+      "contactType": "customer service",
+      "email": "academylashmaster@gmail.com"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "IT"
+    },
+    "sameAs": [
+      "https://www.instagram.com/academy_lash_master_anamaria/",
+      "https://www.facebook.com/academylashmaster"
+    ],
+    "offers": {
+      "@type": "Offer",
+      "itemOffered": {
               "@type": "Course",
-              "name": "Corso Base Extension Ciglia",
-              "description": "Impara le tecniche fondamentali per l'applicazione delle extension ciglia. Perfetto per principianti.",
-              "coursePrerequisites": "Nessun prerequisito richiesto",
-              "educationalCredentialAwarded": "Certificato di Partecipazione"
-            },
-            {
-              "@type": "Course",
-              "name": "Corso Avanzato Extension Ciglia",
-              "description": "Tecniche avanzate e specializzazioni per diventare un vero professionista del settore.",
-              "coursePrerequisites": "Corso Base Extension Ciglia o esperienza equivalente",
-              "educationalCredentialAwarded": "Certificato Avanzato"
-            },
-            {
-              "@type": "Course",
-              "name": "Master Class Extension Ciglia",
-              "description": "Il corso più completo per diventare un vero Master delle extension ciglia e aprire la propria attività.",
-              "coursePrerequisites": "Corso Avanzato Extension Ciglia",
-              "educationalCredentialAwarded": "Certificato Master"
-            }
-          ]
-        }}
+        "name": "Corsi Extension Ciglia",
+        "description": "Formazione professionale per diventare Lash Artist certificata"
+      }
+    }
+  };
+
+  return (
+    <>
+      <SEO 
+        title="Corsi Extension Ciglia Professionali | Academy Lash Master"
+        description="Scopri i nostri corsi professionali per extension ciglia con Ana Maria, Master Trainer Internazionale. Formazione completa e certificata per ogni livello di esperienza."
+        keywords={["corsi extension ciglia", "formazione lash artist", "corsi professionali", "Ana Maria", "Academy Lash Master", "certificazione", "volume", "classico", "retention"]}
+        structuredData={structuredData}
       />
       <NeonCursor />
       <PromoScroll />
       <Navbar setShowContactForm={setShowContactForm} />
       <HeroCorsi />
-    <div className="min-h-screen bg-black overflow-x-hidden">
-        
-      
-      {/* ===========================================
-          CORSI SECTION - Sezione con i corsi professionali dettagliati
-          =========================================== */}
-      <section id="corsi" className="py-12 sm:py-16 lg:py-20" style={{ backgroundColor: '#F3F3F3' }}>
+
+      {/* CORSI SECTION - Sezione con i corsi professionali dettagliati */}
+      <section id="corsi" className="pt-8 pb-12 sm:pt-10 sm:pb-16 lg:pt-12 lg:pb-20" style={{ backgroundColor: '#F3F3F3' }}>
         <div className="w-full sm:w-[90%] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-left mb-12 sm:mb-16">
             <h3 className={`text-4xl sm:text-5xl md:text-6xl font-bold text-black mb-4 transition-all duration-1000 ease-out ${coursesVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`}>I nostri corsi professionali</h3>
             <p className={`text-lg sm:text-xl text-black font-light transition-all duration-1000 ease-out ${coursesVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`} style={{transitionDelay: coursesVisible ? '0.2s' : '0s'}}>Formazione completa e certificata per ogni livello di esperienza</p>
           </div>
 
-          <div className="space-y-12 sm:space-y-16">
-            {/* CORSO CLASSICO (BASE) */}
-            <div className="bg-white rounded-2xl shadow-lg border border-gray-200">
-              <div className="p-8 sm:p-12">
-                <div className="grid lg:grid-cols-2 gap-8 sm:gap-12">
-              <div>
-                    <h4 className="text-3xl sm:text-4xl font-bold text-black mb-4">CORSO CLASSICO (BASE)</h4>
-                    <p className="text-xl text-gray-700 font-medium mb-6">La tua base solida per diventare una Lash Artist professionista</p>
-                    <p className="text-gray-700 leading-relaxed mb-6">
-                      Il Corso Classico (Base) è il primo passo fondamentale nel percorso di formazione di una Lash Artist. Un corso completo e strutturato, pensato per chi desidera apprendere la tecnica One to One dalle basi fino all'esecuzione perfetta, unendo teoria approfondita, esercitazioni pratiche e supporto continuo post-corso.
-                    </p>
-                    <div className="bg-gray-50 p-6 rounded-xl mb-6">
-                      <h5 className="font-bold text-black mb-3">PROGRAMMA DEL CORSO</h5>
-                      <div className="space-y-4">
-                        <div>
-                          <h6 className="font-semibold text-black mb-2">Giorno 1 – Parte Teorica</h6>
-                          <p className="text-sm text-gray-700 mb-2">La prima giornata è dedicata alla teoria e ai fondamenti professionali del mestiere di Lash Artist.</p>
-                          <ul className="text-sm text-gray-700 space-y-1 ml-4">
-                            <li>• Le norme di igiene e sicurezza indispensabili nel lavoro estetico</li>
-                            <li>• La prevenzione di allergie, irritazioni e ustioni chimiche</li>
-                            <li>• L'importanza del patch test e delle procedure corrette per clienti sensibili</li>
-                            <li>• La conoscenza approfondita degli strumenti di lavoro</li>
-                            <li>• L'anatomia e fisiologia delle ciglia naturali</li>
-                          </ul>
-                        </div>
-                        <div>
-                          <h6 className="font-semibold text-black mb-2">Giorno 2 – Approfondimento e Mappature</h6>
-                          <p className="text-sm text-gray-700 mb-2">La seconda giornata consolida le competenze teoriche e introduce la progettazione estetica.</p>
-                          <ul className="text-sm text-gray-700 space-y-1 ml-4">
-                            <li>• Studio delle forme degli occhi e proporzioni del viso</li>
-                            <li>• Analisi delle curvature, lunghezze e spessori</li>
-                            <li>• Introduzione agli stili classici (Natural, Doll, Cat, Squirrel, Round)</li>
-                            <li>• Approccio consulenziale professionale</li>
-                          </ul>
-                        </div>
-                        <div>
-                          <h6 className="font-semibold text-black mb-2">Giorno 3 – Esame Finale</h6>
-                          <p className="text-sm text-gray-700">Valutazione delle competenze teoriche e pratiche acquisite con prova su modella reale.</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="bg-yellow-50 p-6 rounded-xl mb-6">
-                      <h5 className="font-bold text-black mb-3">AL TERMINE DEL CORSO</h5>
-                      <ul className="text-sm text-gray-700 space-y-1">
-                        <li>• Certificato ufficiale di partecipazione</li>
-                        <li>• Manuale professionale completo</li>
-                        <li>• Accesso al gruppo di supporto post-corso</li>
-                        <li>• Possibilità di rifrequentare gratuitamente</li>
-                        <li>• Kit professionale in omaggio</li>
-                </ul>
-                    </div>
-                    <div className="flex flex-col sm:flex-row gap-4">
-                      <div className="bg-black text-white px-6 py-3 rounded-lg">
-                        <p className="text-sm font-medium">Durata: 3 giornate</p>
-                        <p className="text-lg font-bold">Prezzo: 799 €</p>
-                      </div>
-                      <div className="bg-gray-100 text-black px-6 py-3 rounded-lg">
-                        <p className="text-sm font-medium">Modalità: in presenza</p>
-                        <p className="text-sm">Max 6 partecipanti</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex items-center justify-center">
-                    <Link 
-                      to="/contatti#form"
-                      className="w-full bg-black text-white px-8 py-4 rounded-full font-medium text-lg flex items-center justify-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110 hover:text-black"
-                    >
-                      <span className="relative z-10">Iscriviti al Corso Base</span>
-                      <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-500 ease-out relative z-10" />
-                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* CORSO VOLUME */}
-            <div className="bg-white rounded-2xl shadow-lg border border-gray-200">
-              <div className="p-8 sm:p-12">
-                <div className="grid lg:grid-cols-2 gap-8 sm:gap-12">
-                  <div>
-                    <h4 className="text-3xl sm:text-4xl font-bold text-black mb-4">CORSO VOLUME</h4>
-                    <p className="text-xl text-gray-700 font-medium mb-6">Tecniche avanzate di infoltimento e perfezionamento della manualità</p>
-                    <p className="text-gray-700 leading-relaxed mb-6">
-                      Il Corso Volume è dedicato alle lash artist che desiderano portare le proprie competenze a un livello superiore, imparando la tecnica dell'infoltimento tramite ventagli multipli handmade o premade, con focus su precisione, equilibrio e armonia visiva.
-                    </p>
-                    <div className="bg-gray-50 p-6 rounded-xl mb-6">
-                      <h5 className="font-bold text-black mb-3">PROGRAMMA DEL CORSO</h5>
-                      <div className="space-y-4">
-                        <div>
-                          <h6 className="font-semibold text-black mb-2">Giorno 1 – Fondamenti del Volume</h6>
-                          <p className="text-sm text-gray-700 mb-2">Parte teorica (mattina):</p>
-                          <ul className="text-sm text-gray-700 space-y-1 ml-4">
-                            <li>• Struttura e geometria dei ciuffetti handmade</li>
-                            <li>• Differenze tra 2D, 3D, 4D, 5D, 6D e Mega Volume</li>
-                            <li>• Selezione delle ciglia in base a curvatura, lunghezza, spessore</li>
-                            <li>• Bilanciamento del peso per garantire la salute delle ciglia naturali</li>
-                            <li>• Chimica dell'adesivo e gestione della polimerizzazione</li>
-                          </ul>
-                          <p className="text-sm text-gray-700 mb-2 mt-3">Parte pratica (pomeriggio):</p>
-                          <ul className="text-sm text-gray-700 space-y-1 ml-4">
-                            <li>• Creazione dei ventagli perfetti con pinzette professionali</li>
-                            <li>• Applicazioni su strisce di ciglia per esercitare apertura e stabilità</li>
-                            <li>• Gestione della quantità di colla e controllo del punto di contatto</li>
-                            <li>• Isolamento e posizionamento del ventaglio per effetti Natural, Cat, Doll o Squirrel</li>
-                          </ul>
-                        </div>
-                        <div>
-                          <h6 className="font-semibold text-black mb-2">Giorno 2 – Personalizzazione estetica e styling</h6>
-                          <p className="text-sm text-gray-700 mb-2">Approfondimento dedicato alla costruzione dell'identità stilistica della lash artist.</p>
-                          <ul className="text-sm text-gray-700 space-y-1 ml-4">
-                            <li>• Analisi dei diversi tipi di occhi e forme del viso</li>
-                            <li>• Combinazione tra curvature, lunghezze e direzioni</li>
-                            <li>• Studio dei volumi ibridi (Hybrid Lashes)</li>
-                            <li>• Gestione della consulenza cliente</li>
-                          </ul>
-                        </div>
-                        <div>
-                          <h6 className="font-semibold text-black mb-2">Giorno 3 – Volume Exam</h6>
-                          <p className="text-sm text-gray-700">Valutazione teorica e pratica delle competenze acquisite con prova su modella reale.</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="bg-yellow-50 p-6 rounded-xl mb-6">
-                      <h5 className="font-bold text-black mb-3">AL TERMINE DEL CORSO</h5>
-                      <ul className="text-sm text-gray-700 space-y-1">
-                        <li>• Diploma ufficiale Volume Lash Artist</li>
-                        <li>• Manuale esclusivo Volume con schemi di mappature</li>
-                        <li>• Accesso al gruppo di supporto e mentoring post-corso</li>
-                        <li>• Kit professionale in omaggio</li>
-                      </ul>
-                    </div>
-                    <div className="flex flex-col sm:flex-row gap-4">
-                      <div className="bg-black text-white px-6 py-3 rounded-lg">
-                        <p className="text-sm font-medium">Durata: 3 giornate</p>
-                        <p className="text-lg font-bold">Prezzo: 799 €</p>
-                      </div>
-                      <div className="bg-gray-100 text-black px-6 py-3 rounded-lg">
-                        <p className="text-sm font-medium">Modalità: in presenza</p>
-                        <p className="text-sm">Max 6 partecipanti</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex items-center justify-center">
-                  <Link 
-                    to="/contatti#form"
-                      className="w-full bg-black text-white px-8 py-4 rounded-full font-medium text-lg flex items-center justify-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110 hover:text-black"
-                  >
-                      <span className="relative z-10">Iscriviti al Corso Volume</span>
-                      <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-500 ease-out relative z-10" />
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
-                  </Link>
-                  </div>
-                </div>
-                  </div>
-                </div>
-
-            {/* CORSO COMPLETO (CLASSICO + VOLUME) */}
-            <div className="bg-white rounded-2xl shadow-lg border border-gray-200">
-              <div className="p-8 sm:p-12">
-                <div className="grid lg:grid-cols-2 gap-8 sm:gap-12">
-              <div>
-                    <h4 className="text-3xl sm:text-4xl font-bold text-black mb-4">CORSO COMPLETO (CLASSICO + VOLUME)</h4>
-                    <p className="text-xl text-gray-700 font-medium mb-6">Tutte le tecniche professionali per diventare una Lash Artist completa</p>
-                    <p className="text-gray-700 leading-relaxed mb-6">
-                      Il Corso Completo Lash Artist unisce in un unico percorso le tecniche Classiche One to One e Volume (2D, 3D, 4D, 5D, 6D, Mega Volume), offrendo una formazione intensiva, strutturata e professionale. È il corso ideale per chi desidera partire da zero e raggiungere in poco tempo un livello avanzato.
-                    </p>
-                    <div className="bg-gray-50 p-6 rounded-xl mb-6">
-                      <h5 className="font-bold text-black mb-3">PROGRAMMA DEL CORSO</h5>
-                      <div className="space-y-4">
-                        <div>
-                          <h6 className="font-semibold text-black mb-2">MODULO 1 – TECNICA CLASSICA (One to One)</h6>
-                          <p className="text-sm text-gray-700">Norme di igiene, anatomia delle ciglia, strumenti e materiali, esercizi di coordinazione e applicazioni pratiche.</p>
-                        </div>
-                        <div>
-                          <h6 className="font-semibold text-black mb-2">MODULO 2 – TECNICA VOLUME</h6>
-                          <p className="text-sm text-gray-700">Differenze tra metodo Classico e Volume, struttura dei ciuffetti handmade, creazione e applicazione dei ventagli.</p>
-                        </div>
-                        <div>
-                          <h6 className="font-semibold text-black mb-2">MODULO 3 – STYLING AVANZATO E DESIGN</h6>
-                          <p className="text-sm text-gray-700">Analisi delle forme degli occhi, combinazione di curvature e lunghezze, look ibridi e approccio consulenziale.</p>
-                        </div>
-                        <div>
-                          <h6 className="font-semibold text-black mb-2">MODULO 4 – ESAME FINALE</h6>
-                          <p className="text-sm text-gray-700">Esame teorico e prova pratica su modella reale con valutazione individuale.</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="bg-yellow-50 p-6 rounded-xl mb-6">
-                      <h5 className="font-bold text-black mb-3">AL TERMINE DEL CORSO</h5>
-                      <ul className="text-sm text-gray-700 space-y-1">
-                        <li>• Due manuali illustrati professionali (Classico + Volume + Ritenzione)</li>
-                        <li>• Certificato ufficiale "Complete Lash Artist"</li>
-                        <li>• Accesso al gruppo di supporto post-corso</li>
-                        <li>• Kit professionale completo in omaggio</li>
-                        <li>• Possibilità di rifrequentare gratuitamente le lezioni</li>
-                  </ul>
-                    </div>
-                    <div className="flex flex-col sm:flex-row gap-4">
-                      <div className="bg-black text-white px-6 py-3 rounded-lg">
-                        <p className="text-sm font-medium">Durata: 5 giornate</p>
-                        <p className="text-lg font-bold">Prezzo: 1.499 €</p>
-                      </div>
-                      <div className="bg-gray-100 text-black px-6 py-3 rounded-lg">
-                        <p className="text-sm font-medium">Modalità: in presenza</p>
-                        <p className="text-sm">Max 6 partecipanti</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex items-center justify-center">
-                    <Link 
-                      to="/contatti#form"
-                      className="w-full bg-black text-white px-8 py-4 rounded-full font-medium text-lg flex items-center justify-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110 hover:text-black"
-                    >
-                      <span className="relative z-10">Iscriviti al Corso Completo</span>
-                      <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-500 ease-out relative z-10" />
-                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* CORSO VIP INDIVIDUALE */}
-            <div className="bg-white rounded-2xl shadow-lg border border-gray-200">
-              <div className="p-8 sm:p-12">
-                <div className="grid lg:grid-cols-2 gap-8 sm:gap-12">
-                  <div>
-                    <h4 className="text-3xl sm:text-4xl font-bold text-black mb-4">CORSO VIP INDIVIDUALE</h4>
-                    <p className="text-xl text-gray-700 font-medium mb-6">Formazione esclusiva one-to-one con la Master Trainer Ana Maria</p>
-                    <p className="text-gray-700 leading-relaxed mb-6">
-                      Il Corso VIP Individuale è un'esperienza formativa esclusiva, pensata per chi desidera un percorso personalizzato al 100%, costruito in base alle proprie esigenze tecniche, ai propri obiettivi professionali e al livello di partenza.
-                    </p>
-                    <div className="bg-gray-50 p-6 rounded-xl mb-6">
-                      <h5 className="font-bold text-black mb-3">PROGRAMMA DEL CORSO</h5>
-                      <div className="space-y-4">
-                        <div>
-                          <h6 className="font-semibold text-black mb-2">Giorno 1 – Analisi tecnica e revisione delle basi</h6>
-                          <p className="text-sm text-gray-700">Valutazione del livello tecnico attuale, correzione delle abitudini scorrette, approfondimento personalizzato su teoria e igiene.</p>
-                        </div>
-                        <div>
-                          <h6 className="font-semibold text-black mb-2">Giorno 2 – Perfezionamento tecnico e styling avanzato</h6>
-                          <p className="text-sm text-gray-700">Creazione e applicazione di ventagli handmade, approfondimento su curvature e effetti personalizzati, bilanciamento del peso.</p>
-                        </div>
-                        <div>
-                          <h6 className="font-semibold text-black mb-2">Giorno 3 – Business & Branding</h6>
-                          <p className="text-sm text-gray-700">Costruzione dell'identità professionale, analisi del posizionamento sul mercato, tecniche di comunicazione e vendita.</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="bg-yellow-50 p-6 rounded-xl mb-6">
-                      <h5 className="font-bold text-black mb-3">AL TERMINE DEL CORSO</h5>
-                      <ul className="text-sm text-gray-700 space-y-1">
-                        <li>• Manuale VIP personalizzato</li>
-                        <li>• Kit professionale completo in omaggio</li>
-                        <li>• Certificato ufficiale VIP Lash Artist</li>
-                        <li>• Sessione di coaching privata su tecnica, branding e business</li>
-                        <li>• Accesso esclusivo al gruppo mentoring</li>
-                      </ul>
-                    </div>
-                    <div className="flex flex-col sm:flex-row gap-4">
-                      <div className="bg-black text-white px-6 py-3 rounded-lg">
-                        <p className="text-sm font-medium">Durata: 3 giornate</p>
-                        <p className="text-lg font-bold">Prezzo: 1.999 €</p>
-                      </div>
-                      <div className="bg-gray-100 text-black px-6 py-3 rounded-lg">
-                        <p className="text-sm font-medium">Modalità: one-to-one</p>
-                        <p className="text-sm">1 partecipante</p>
-                      </div>
-                    </div>
-                    <div className="mt-4 p-4 bg-blue-50 rounded-lg">
-                      <p className="text-sm text-blue-800 font-medium">CORSO VIP ITINERANTE</p>
-                      <p className="text-sm text-blue-700">Per le partecipanti che desiderano organizzare la formazione presso il proprio centro: 2.899 € (tutte le spese di trasferimento incluse)</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center justify-center">
-                  <Link
-                    to="/contatti#form"
-                      className="w-full bg-black text-white px-8 py-4 rounded-full font-medium text-lg flex items-center justify-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110 hover:text-black"
-                  >
-                      <span className="relative z-10">Iscriviti al Corso VIP</span>
-                      <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-500 ease-out relative z-10" />
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
-                  </Link>
-                  </div>
-                </div>
-              </div>
-                  </div>
-
-            {/* CORSO RETENTION & SEGRETI DELLA TENUTA */}
-            <div className="bg-white rounded-2xl shadow-lg border border-gray-200">
-              <div className="p-8 sm:p-12">
-                <div className="grid lg:grid-cols-2 gap-8 sm:gap-12">
-                    <div>
-                    <h4 className="text-3xl sm:text-4xl font-bold text-black mb-4">CORSO RETENTION & SEGRETI DELLA TENUTA</h4>
-                    <p className="text-xl text-gray-700 font-medium mb-6">Migliora la durata delle applicazioni e offri risultati impeccabili</p>
-                    <p className="text-gray-700 leading-relaxed mb-6">
-                      Il Corso Retention & Segreti della Tenuta è dedicato a lash artist che vogliono comprendere in modo scientifico e pratico come migliorare la durata delle extension ciglia, analizzando in profondità i fattori che influenzano l'adesione, la stabilità e la resistenza del trattamento.
-                    </p>
-                    <div className="bg-gray-50 p-6 rounded-xl mb-6">
-                      <h5 className="font-bold text-black mb-3">PROGRAMMA DEL CORSO</h5>
-                      <div className="space-y-4">
-                        <div>
-                          <h6 className="font-semibold text-black mb-2">Parte Teorica</h6>
-                          <ul className="text-sm text-gray-700 space-y-1 ml-4">
-                            <li>• Comprendere la chimica dell'adesivo: composizione e struttura molecolare</li>
-                            <li>• Analisi approfondita dei tipi di cianoacrilato</li>
-                            <li>• Relazione tra ambiente e performance</li>
-                            <li>• Importanza del pH delle ciglia naturali</li>
-                            <li>• Differenze tra adesivi rapidi e lenti</li>
-                          </ul>
-                        </div>
-                        <div>
-                          <h6 className="font-semibold text-black mb-2">Parte Pratica</h6>
-                          <ul className="text-sm text-gray-700 space-y-1 ml-4">
-                            <li>• Test comparativi di adesivi</li>
-                            <li>• Simulazioni di condizioni ambientali reali</li>
-                            <li>• Dimostrazione sulla gestione del punto di colla</li>
-                            <li>• Esercizi per migliorare precisione e velocità</li>
-                            <li>• Tecniche per riconoscere la "colla secca" e la "colla satura"</li>
-                          </ul>
-                        </div>
-                        <div>
-                          <h6 className="font-semibold text-black mb-2">Argomenti Speciali</h6>
-                          <ul className="text-sm text-gray-700 space-y-1 ml-4">
-                            <li>• Come scegliere l'adesivo giusto in base alla velocità di lavoro</li>
-                            <li>• La corretta manutenzione del flacone</li>
-                            <li>• Prevenzione di irritazioni o sensibilizzazioni</li>
-                            <li>• Strategie per aumentare la ritenzione media fino al 40%</li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="bg-yellow-50 p-6 rounded-xl mb-6">
-                      <h5 className="font-bold text-black mb-3">AL TERMINE DEL CORSO</h5>
-                      <ul className="text-sm text-gray-700 space-y-1">
-                        <li>• Manuale tecnico digitale con tabelle di confronto</li>
-                        <li>• Certificato ufficiale "Retention & Glue Master"</li>
-                        <li>• Linee guida aggiornate per ottimizzare la ritenzione</li>
-                        <li>• Accesso a materiale di aggiornamento</li>
-                      </ul>
-                    </div>
-                    <div className="flex flex-col sm:flex-row gap-4">
-                      <div className="bg-black text-white px-6 py-3 rounded-lg">
-                        <p className="text-sm font-medium">Durata: 1 giornata</p>
-                        <p className="text-lg font-bold">Prezzo: 199 €</p>
-                      </div>
-                      <div className="bg-gray-100 text-black px-6 py-3 rounded-lg">
-                        <p className="text-sm font-medium">Modalità: in presenza o online</p>
-                        <p className="text-sm">Max 8 partecipanti</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex items-center justify-center">
-                  <Link
-                    to="/contatti#form"
-                      className="w-full bg-black text-white px-8 py-4 rounded-full font-medium text-lg flex items-center justify-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110 hover:text-black"
-                  >
-                      <span className="relative z-10">Iscriviti al Corso Retention</span>
-                      <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-500 ease-out relative z-10" />
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
-                  </Link>
-                  </div>
-                </div>
-                  </div>
-            </div>
+          <div className="space-y-8 sm:space-y-10">
+            {coursesData.map((course) => (
+              <ExpandableCourseCard
+                key={course.id}
+                course={course}
+                isExpanded={expandedCourses[course.id] || false}
+                onToggle={() => toggleCourseExpansion(course.id)}
+              />
+            ))}
           </div>
         </div>
       </section>
 
-
       {/* Manuale Section */}
-      <section id="manual" className="py-16 sm:py-20 lg:py-24 bg-black">
+      <section id="manual" className="py-16 sm:py-20 lg:py-24 bg-black" data-section="manual">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16">
             <h2 className={`text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4 transition-all duration-1000 ease-out ${manualVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
@@ -590,89 +204,83 @@ const Corsi = () => {
 
             {/* Visual Element - Simple Document Style */}
             <div className={`relative transition-all duration-1000 ease-out ${manualVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'}`} style={{transitionDelay: manualVisible ? '0.6s' : '0s'}}>
-              <div 
-                className="bg-cover bg-center bg-no-repeat rounded-lg p-8 text-center relative"
-                style={{
-                  backgroundImage: "url('/soggetto/manual.jpg')"
-                }}
-              >
-                {/* Overlay for better text readability */}
-                <div className="absolute inset-0 bg-black bg-opacity-50 rounded-lg"></div>
+              <div className="space-y-6">
+                <h3 className="text-2xl sm:text-3xl font-bold text-white text-center mb-8">
+                  I nostri manuali
+                </h3>
                 
-                {/* Content with relative positioning */}
-                <div className="relative z-10">
-                  {/* Quote moved here */}
-                  <div className="mb-8 bg-white bg-opacity-10 backdrop-blur-sm rounded-2xl p-6 border border-white border-opacity-20">
-                    <p className="text-gray-200 text-base italic">
-                      "Il manuale è il tuo compagno di viaggio perfetto. Potrai consultarlo sempre, anche dopo aver completato il corso, per rivedere le tecniche e migliorare costantemente."
-                    </p>
-                    <p className="text-white font-semibold mt-4 text-sm">- Ana Maria, Academy Lash Master</p>
+                {/* Grid dei manuali */}
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
+                  {/* Manuale Classic */}
+                  <div className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                    <img 
+                      src="/soggetto/classic.jpg" 
+                      alt="Manuale Classic - Extension Ciglia Base"
+                      className="w-full h-48 sm:h-56 object-cover"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
+                      <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center">
+                        <h4 className="text-white font-bold text-lg mb-2">Classic</h4>
+                        <p className="text-gray-200 text-sm">Tecniche base</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Manuale Retention */}
+                  <div className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                    <img 
+                      src="/soggetto/retention.jpg" 
+                      alt="Manuale Retention - Segreti della Tenuta"
+                      className="w-full h-48 sm:h-56 object-cover"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
+                      <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center">
+                        <h4 className="text-white font-bold text-lg mb-2">Retention</h4>
+                        <p className="text-gray-200 text-sm">Segreti della tenuta</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Manuale Volume */}
+                  <div className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                    <img 
+                      src="/soggetto/volume.jpg" 
+                      alt="Manuale Volume - Tecniche Avanzate"
+                      className="w-full h-48 sm:h-56 object-cover"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
+                      <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center">
+                        <h4 className="text-white font-bold text-lg mb-2">Volume</h4>
+                        <p className="text-gray-200 text-sm">Tecniche avanzate</p>
+                      </div>
+                    </div>
+                  </div>
             </div>
 
-                  <h4 className="text-3xl font-bold text-white mb-2 text-left">Scarica il Manuale</h4>
-                  <p className="text-gray-200 mb-6 text-left">Clicca il pulsante qui sotto per scaricare il PDF completo</p>
-                  <button className="bg-white text-black px-8 py-4 rounded-full font-medium text-base flex items-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110 hover:text-black">
-                    <span className="relative z-10">Scarica adesso</span>
-                    <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-500 ease-out relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                    </svg>
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
-                  </button>
+                {/* Quote */}
+                <div className="mt-8 bg-white bg-opacity-10 backdrop-blur-sm rounded-2xl p-6 border border-white border-opacity-20">
+                  <p className="text-gray-200 text-base italic text-center">
+                    "I manuali sono i tuoi compagni di viaggio perfetti. Potrai consultarli sempre, anche dopo aver completato il corso, per rivedere le tecniche e migliorare costantemente."
+                  </p>
+                  <p className="text-white font-semibold mt-4 text-sm text-center">- Ana Maria, Academy Lash Master</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </section>
-      
-
-      {/* CTA Section */}
-      <section id="cta-section" className="py-12 sm:py-16 lg:py-20 relative overflow-hidden">
-        {/* Background Image */}
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: "url('/soggetto/cta.jpg')"
-          }}
-        />
-        
-        {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-black bg-opacity-80" />
-        
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <h2 className={`text-3xl sm:text-4xl font-bold text-white mb-4 sm:mb-6 transition-all duration-1000 ease-out ${ctaVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>Pronto a iniziare il tuo percorso?</h2>
-          <p className={`text-lg sm:text-xl text-gray-200 mb-6 sm:mb-8 transition-all duration-1000 ease-out ${ctaVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{transitionDelay: ctaVisible ? '0.2s' : '0s'}}>
-            Scegli il corso più adatto a te e trasforma la tua passione in professione.
-          </p>
-          <div className={`flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center transition-all duration-1000 ease-out ${ctaVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{transitionDelay: ctaVisible ? '0.4s' : '0s'}}>
-            <Link
-              to="/contatti#form"
-              className="bg-white text-black px-8 py-4 rounded-full font-medium text-base flex items-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110 hover:text-black"
-            >
-              <span className="relative z-10">Richiedi Informazioni</span>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-500 ease-out relative z-10" />
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
-            </Link>
-            <a
-              href="tel:+393533165390"
-              className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-medium text-base flex items-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110 hover:text-black hover:border-transparent"
-            >
-              <span className="relative z-10">Chiama Ora</span>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-500 ease-out relative z-10" />
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
-            </a>
-          </div>
-        </div>
-      </section>
 
       {/* Procreate Section */}
-      <section id="procreate" className="py-16 sm:py-20 lg:py-24 bg-white overflow-x-hidden">
+      <section id="procreate" className="py-16 sm:py-20 lg:py-24 bg-white overflow-x-hidden" data-section="procreate">
         <div className="w-full sm:w-[90%] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-left mb-12 sm:mb-16">
             <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 lg:gap-8">
               <div className="flex-1">
                 <h2 className={`text-4xl sm:text-5xl md:text-6xl font-bold text-black mb-4 transition-all duration-1000 ease-out ${procreateVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`}>
-              Strumenti Digitali
+                  Strumenti Digitali in Sconto!
             </h2>
                 <p className={`text-lg sm:text-xl text-black font-light transition-all duration-1000 ease-out ${procreateVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`} style={{transitionDelay: procreateVisible ? '0.2s' : '0s'}}>
               Scopri gli strumenti digitali che le nostre alunne utilizzano per creare progetti straordinari
@@ -711,7 +319,6 @@ const Corsi = () => {
                   <p className="text-black text-base sm:text-lg">App per iPad</p>
                 </div>
               </div>
-
               <div className="space-y-4 sm:space-y-6">
                 <p className="text-black text-base sm:text-lg">
                   <strong className="text-black">Procreate</strong> è l'app di disegno digitale più utilizzata dalle professioniste del settore beauty.
@@ -723,15 +330,15 @@ const Corsi = () => {
                   <ol className="space-y-2 sm:space-y-3">
                     <li className="flex items-start space-x-3">
                       <span className="bg-black text-white rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold flex-shrink-0">1</span>
-                      <span className="text-black text-sm sm:text-base">Iscriviti a uno dei nostri corsi</span>
+                      <span className="text-black text-sm sm:text-base">Scarica l'app col nostro Codice Sconto</span>
                     </li>
                     <li className="flex items-start space-x-3">
                       <span className="bg-black text-white rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold flex-shrink-0">2</span>
-                      <span className="text-black text-sm sm:text-base">Ricevi il codice sconto via email</span>
+                      <span className="text-black text-sm sm:text-base">Inserisci il codice sconto <strong className="text-black font-bold">"ANA-MARIA"</strong></span>
                     </li>
                     <li className="flex items-start space-x-3">
                       <span className="bg-black text-white rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold flex-shrink-0">3</span>
-                      <span className="text-black text-sm sm:text-base">Scarica il plugin dal nostro store</span>
+                      <span className="text-black text-sm sm:text-base">Scarica il plugin dall'Apple Store</span>
                     </li>
                     <li className="flex items-start space-x-3">
                       <span className="bg-black text-white rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold flex-shrink-0">4</span>
@@ -808,106 +415,8 @@ const Corsi = () => {
         </div>
       </section>
 
-      {/* Contact Form Modal */}
-      {showContactForm && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-          <div className="bg-gray-900 rounded-2xl sm:rounded-3xl p-6 sm:p-8 max-w-md w-full max-h-[90vh] overflow-y-auto">
-            <div className="flex justify-between items-center mb-6">
-              <h3 className="text-xl sm:text-2xl font-bold text-white elegant-quote">Richiedi Informazioni</h3>
-              <button 
-                onClick={() => setShowContactForm(false)}
-                className="text-gray-400 hover:text-white text-xl sm:text-2xl"
-              >
-                ×
-              </button>
-            </div>
-            
-            <form onSubmit={handleFormSubmit} className="space-y-4 sm:space-y-6">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-200 mb-2">
-                  Nome Completo *
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleInputChange}
-                  required
-                  className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-gray-800 border border-gray-600 rounded-lg sm:rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-sm sm:text-base"
-                  placeholder="Il tuo nome completo"
-                />
-              </div>
-              
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-200 mb-2">
-                  Email *
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  required
-                  className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-gray-800 border border-gray-600 rounded-lg sm:rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-sm sm:text-base"
-                  placeholder="la.tua@email.com"
-                />
-              </div>
-              
-              <div>
-                <label htmlFor="phone" className="block text-sm font-medium text-gray-200 mb-2">
-                  Telefono
-                </label>
-                <input
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleInputChange}
-                  className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-gray-800 border border-gray-600 rounded-lg sm:rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-sm sm:text-base"
-                  placeholder="+39 123 456 7890"
-                />
-              </div>
-              
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-200 mb-2">
-                  Messaggio *
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleInputChange}
-                  required
-                  rows={4}
-                  className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-gray-800 border border-gray-600 rounded-lg sm:rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-sm sm:text-base resize-none"
-                  placeholder="Dimmi di più sui corsi che ti interessano..."
-                />
-              </div>
-              
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2">
-                <button
-                  type="submit"
-                  className="flex-1 px-4 sm:px-6 py-2 sm:py-3 bg-white text-black rounded-lg sm:rounded-xl font-bold hover:bg-gray-200 transition-colors text-sm sm:text-base"
-                >
-                  Invia Richiesta
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setShowContactForm(false)}
-                  className="flex-1 px-4 sm:px-6 py-2 sm:py-3 bg-gray-700 text-white rounded-lg sm:rounded-xl font-medium hover:bg-gray-600 transition-colors text-sm sm:text-base"
-                >
-                  Annulla
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      )}
-
       {/* Why Choose Us */}
-      <section id="why-choose" className="py-16 sm:py-20 lg:py-24 bg-black">
+      <section id="why-choose" className="py-16 sm:py-20 lg:py-24 bg-black" data-section="why-choose">
         <div className="w-full sm:w-[90%] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16">
             <h2 className={`text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4 transition-all duration-1000 ease-out ${whyChooseVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>Perché scegliere Academy Lash Master?</h2>
@@ -957,10 +466,95 @@ const Corsi = () => {
         </div>
       </section>
 
-      {/* Footer */}
+
+      {/* Contact Form Modal */}
+      {showContactForm && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+          <div className="bg-gray-900 rounded-2xl sm:rounded-3xl p-6 sm:p-8 max-w-md w-full max-h-[90vh] overflow-y-auto">
+            <div className="flex justify-between items-center mb-6">
+              <h3 className="text-xl sm:text-2xl font-bold text-white elegant-quote">Richiedi Informazioni</h3>
+              <button 
+                onClick={() => setShowContactForm(false)}
+                className="text-gray-400 hover:text-white transition-colors duration-200"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+            <form onSubmit={handleFormSubmit} className="space-y-4 sm:space-y-6">
+              <div>
+                <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
+                  Nome Completo *
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
+                  required
+                  className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-gray-800 border border-gray-600 rounded-lg sm:rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-sm sm:text-base"
+                  placeholder="Il tuo nome completo"
+                />
+              </div>
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+                  Email *
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  required
+                  className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-gray-800 border border-gray-600 rounded-lg sm:rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-sm sm:text-base"
+                  placeholder="la.tua@email.com"
+                />
+              </div>
+              <div>
+                <label htmlFor="phone" className="block text-sm font-medium text-gray-300 mb-2">
+                  Telefono
+                </label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleInputChange}
+                  className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-gray-800 border border-gray-600 rounded-lg sm:rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-sm sm:text-base"
+                  placeholder="+39 123 456 7890"
+                />
+              </div>
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
+                  Messaggio *
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleInputChange}
+                  required
+                  rows={4}
+                  className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-gray-800 border border-gray-600 rounded-lg sm:rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-sm sm:text-base resize-none"
+                  placeholder="Dimmi di più sui corsi che ti interessano..."
+                />
+              </div>
+                <button
+                  type="submit"
+                className="w-full bg-gradient-to-r from-purple-600 to-blue-600 text-white px-6 py-3 rounded-lg sm:rounded-xl font-medium text-sm sm:text-base hover:from-purple-700 hover:to-blue-700 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-gray-900"
+                >
+                  Invia Richiesta
+                </button>
+            </form>
+          </div>
+        </div>
+      )}
+
       <Footer />
-    </div>
-    </div>
+    </>
   );
 };
 

@@ -124,8 +124,6 @@ const Contatti = () => {
           "informazioni corsi extension ciglia",
           "telefono Academy Lash Master",
           "email Academy Lash Master",
-          "dove sono Academy Lash Master",
-          "indirizzo Academy Lash Master",
           "contattare Ana Maria",
           "richiesta informazioni corsi",
           "prenotazione corso extension ciglia",
@@ -146,12 +144,6 @@ const Contatti = () => {
             "name": "Academy Lash Master",
             "telephone": "+393533165390",
             "email": "academylashmaster@gmail.com",
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Via Roma 123",
-              "addressLocality": "Milano",
-              "addressCountry": "IT"
-            },
             "contactPoint": {
               "@type": "ContactPoint",
               "telephone": "+393533165390",
@@ -178,7 +170,7 @@ const Contatti = () => {
               <p className={`text-lg sm:text-xl text-gray-700 font-light transition-all duration-1000 ease-out ${contactCardsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{transitionDelay: contactCardsVisible ? '0.2s' : '0s'}}>Scegli il modo che preferisci per metterti in contatto con me</p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-4xl mx-auto">
               {/* Card Telefono */}
               <div className={`bg-white p-6 sm:p-8 rounded-2xl shadow-lg hover:shadow-xl border border-gray-200 hover:border-gray-300 transition-all duration-1000 ease-out hover:scale-105 text-center ${contactCardsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{transitionDelay: contactCardsVisible ? '0.4s' : '0s'}}>
                 <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-black to-black rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
@@ -213,19 +205,6 @@ const Contatti = () => {
                 </a>
               </div>
 
-              {/* Card Indirizzo */}
-              <div className={`bg-white p-6 sm:p-8 rounded-2xl shadow-lg hover:shadow-xl border border-gray-200 hover:border-gray-300 transition-all duration-1000 ease-out hover:scale-105 text-center ${contactCardsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{transitionDelay: contactCardsVisible ? '0.8s' : '0s'}}>
-                <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-black to-black rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
-                  <svg className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                  </svg>
-                </div>
-                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-black mb-3 sm:mb-4">Indirizzo</h3>
-                <p className="text-gray-700 text-sm sm:text-base mb-4 sm:mb-6">Vieni a trovarci nella nostra sede</p>
-                <div className="text-black font-medium text-sm sm:text-base">
-                  Via Roma 123, Milano
-                </div>
-              </div>
             </div>
           </div>
         </section>
