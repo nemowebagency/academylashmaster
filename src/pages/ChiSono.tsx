@@ -180,10 +180,12 @@ const ChiSono = () => {
               {/* Left - Immagine Ana Maria */}
               <div className={`relative group order-2 lg:order-1 transition-all duration-1000 ease-out ${storyVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
                 <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl">
+                  {/* Cerchio grigio dietro l'immagine */}
+                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] sm:w-[400px] sm:h-[400px] lg:w-[450px] lg:h-[450px] bg-gray-300 rounded-full opacity-60"></div>
                   <img 
                     src="/soggetto/person1.png"
                     alt="Ana Maria fondatrice Academy Lash Master - Esperta extension ciglia con formazione internazionale"
-                    className="w-full h-[400px] sm:h-[500px] lg:h-[600px] object-contain transform transition-all duration-1000 group-hover:scale-105"
+                    className="w-full h-[400px] sm:h-[500px] lg:h-[600px] object-contain transform transition-all duration-1000 group-hover:scale-105 relative z-10"
                     loading="eager"
                     decoding="async"
                   />
@@ -211,6 +213,17 @@ const ChiSono = () => {
                 <p className={`text-lg sm:text-xl text-gray-700 font-light leading-relaxed text-justify mt-6 transition-all duration-1000 ease-out ${storyVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`} style={{textAlignLast: 'left', transitionDelay: storyVisible ? '0.6s' : '0s'}}>
                   Ogni giorno che passa, la mia dedizione per questo mestiere cresce sempre di più. Non si tratta solo di applicare delle ciglia, ma di regalare alle mie clienti un'esperienza unica, di farle sentire belle e sicure di sé. È questa la magia che mi spinge a continuare a migliorarmi e a condividere la mia conoscenza con altre donne che vogliono intraprendere questo meraviglioso percorso professionale.
                 </p>
+                
+                {/* Pulsante Scopri i miei corsi */}
+                <div className={`mt-8 text-center transition-all duration-1000 ease-out ${storyVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`} style={{transitionDelay: storyVisible ? '0.8s' : '0s'}}>
+                  <a 
+                    href="/corsi" 
+                    className="inline-flex items-center gap-2 bg-black text-white px-8 py-4 rounded-full font-semibold text-lg group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110 hover:text-black"
+                  >
+                    Scopri i miei corsi
+                    <ArrowRight className="w-5 h-5" />
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -268,18 +281,179 @@ const ChiSono = () => {
         </section>
 
         {/* ===========================================
-            SOCIAL SECTION - Call to action per i social
+            GALLERIA LAVORI SECTION - Galleria dei lavori di Ana Maria
             =========================================== */}
-        <section id="social" className="py-16 sm:py-20 lg:py-24 bg-white relative overflow-hidden">
+        <section id="gallery" className="py-16 sm:py-20 lg:py-24 bg-gray-50 relative overflow-hidden">
           <div className="w-full sm:w-[90%] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="text-center mb-12 sm:mb-16">
-              <p className={`text-sm uppercase text-black font-medium mb-4 tracking-wider transition-all duration-1000 ease-out ${socialVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+              <p className={`text-sm uppercase text-black font-medium mb-4 tracking-wider transition-all duration-1000 ease-out ${missionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+                I MIEI LAVORI
+              </p>
+              <h2 className={`text-4xl sm:text-5xl md:text-6xl font-bold text-black transition-all duration-1000 ease-out ${missionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{transitionDelay: missionVisible ? '0.2s' : '0s'}}>
+                Galleria <span className="text-black">professionale</span>
+              </h2>
+              <p className={`text-lg sm:text-xl text-gray-600 font-light mt-4 max-w-3xl mx-auto transition-all duration-1000 ease-out ${missionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{transitionDelay: missionVisible ? '0.4s' : '0s'}}>
+                Scopri alcuni dei miei lavori più rappresentativi e la qualità che caratterizza ogni trattamento
+              </p>
+            </div>
+
+            {/* Grid Galleria */}
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+              {/* Immagine 1 - c1.jpg */}
+              <div className={`group relative overflow-hidden rounded-xl transition-all duration-1000 ease-out ${missionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{transitionDelay: missionVisible ? '0.6s' : '0s'}}>
+                <img 
+                  src="/soggetto/c1.jpg"
+                  alt="Lavoro extension ciglia - Academy Lash Master"
+                  className="w-full h-48 sm:h-56 lg:h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
+                  <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center">
+                    <h4 className="text-white font-bold text-lg mb-2">Extension Ciglia</h4>
+                    <p className="text-white text-sm">Tecnica Classica</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Immagine 2 - c2.jpg */}
+              <div className={`group relative overflow-hidden rounded-xl transition-all duration-1000 ease-out ${missionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{transitionDelay: missionVisible ? '0.7s' : '0s'}}>
+                <img 
+                  src="/soggetto/c2.jpg"
+                  alt="Lavoro extension ciglia - Academy Lash Master"
+                  className="w-full h-48 sm:h-56 lg:h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
+                  <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center">
+                    <h4 className="text-white font-bold text-lg mb-2">Volume Lashes</h4>
+                    <p className="text-white text-sm">Tecnica Avanzata</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Immagine 3 - c3.jpg */}
+              <div className={`group relative overflow-hidden rounded-xl transition-all duration-1000 ease-out ${missionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{transitionDelay: missionVisible ? '0.8s' : '0s'}}>
+                <img 
+                  src="/soggetto/c3.jpg"
+                  alt="Lavoro extension ciglia - Academy Lash Master"
+                  className="w-full h-48 sm:h-56 lg:h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
+                  <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center">
+                    <h4 className="text-white font-bold text-lg mb-2">Mega Volume</h4>
+                    <p className="text-white text-sm">Massima Densità</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Immagine 4 - contciglia.jpg */}
+              <div className={`group relative overflow-hidden rounded-xl transition-all duration-1000 ease-out ${missionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{transitionDelay: missionVisible ? '0.9s' : '0s'}}>
+                <img 
+                  src="/soggetto/contciglia.jpg"
+                  alt="Lavoro extension ciglia - Academy Lash Master"
+                  className="w-full h-48 sm:h-56 lg:h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
+                  <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center">
+                    <h4 className="text-white font-bold text-lg mb-2">Styling Personalizzato</h4>
+                    <p className="text-white text-sm">Look Unico</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Immagine 5 - corso2.jpg */}
+              <div className={`group relative overflow-hidden rounded-xl transition-all duration-1000 ease-out ${missionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{transitionDelay: missionVisible ? '1.0s' : '0s'}}>
+                <img 
+                  src="/soggetto/corso2.jpg"
+                  alt="Lavoro extension ciglia - Academy Lash Master"
+                  className="w-full h-48 sm:h-56 lg:h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
+                  <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center">
+                    <h4 className="text-white font-bold text-lg mb-2">Formazione Pratica</h4>
+                    <p className="text-white text-sm">Corso in Azione</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Immagine 6 - cta.jpg */}
+              <div className={`group relative overflow-hidden rounded-xl transition-all duration-1000 ease-out ${missionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{transitionDelay: missionVisible ? '1.1s' : '0s'}}>
+                <img 
+                  src="/soggetto/cta.jpg"
+                  alt="Lavoro extension ciglia - Academy Lash Master"
+                  className="w-full h-48 sm:h-56 lg:h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
+                  <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center">
+                    <h4 className="text-white font-bold text-lg mb-2">Risultato Finale</h4>
+                    <p className="text-white text-sm">Perfezione Assoluta</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Immagine 7 - neon.jpeg */}
+              <div className={`group relative overflow-hidden rounded-xl transition-all duration-1000 ease-out ${missionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{transitionDelay: missionVisible ? '1.2s' : '0s'}}>
+                <img 
+                  src="/soggetto/neon.jpeg"
+                  alt="Lavoro extension ciglia - Academy Lash Master"
+                  className="w-full h-48 sm:h-56 lg:h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
+                  <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center">
+                    <h4 className="text-white font-bold text-lg mb-2">Effetto Neon</h4>
+                    <p className="text-white text-sm">Stile Moderno</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Immagine 8 - manual.jpg */}
+              <div className={`group relative overflow-hidden rounded-xl transition-all duration-1000 ease-out ${missionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{transitionDelay: missionVisible ? '1.3s' : '0s'}}>
+                <img 
+                  src="/soggetto/manual.jpg"
+                  alt="Manuale Academy Lash Master"
+                  className="w-full h-48 sm:h-56 lg:h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
+                  <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center">
+                    <h4 className="text-white font-bold text-lg mb-2">Manuale Completo</h4>
+                    <p className="text-white text-sm">Formazione Teorica</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Pulsante Call to Action */}
+            <div className={`text-center mt-12 transition-all duration-1000 ease-out ${missionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{transitionDelay: missionVisible ? '1.4s' : '0s'}}>
+              <a 
+                href="/contatti#form"
+                className="inline-flex items-center gap-2 bg-black text-white px-8 py-4 rounded-full font-semibold text-lg group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110 hover:text-black"
+              >
+                <span className="relative z-10">Prenota la tua consulenza</span>
+                <ArrowRight className="w-5 h-5" />
+              </a>
+            </div>
+          </div>
+        </section>
+
+        {/* ===========================================
+            SOCIAL SECTION - Call to action per i social
+            =========================================== */}
+        <section id="social" className="py-16 sm:py-20 lg:py-24 bg-black relative overflow-hidden">
+          <div className="w-full sm:w-[90%] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div className="text-center mb-12 sm:mb-16">
+              <p className={`text-sm uppercase text-white font-medium mb-4 tracking-wider transition-all duration-1000 ease-out ${socialVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
                 SEGUIMI
               </p>
-              <h2 className={`text-4xl sm:text-5xl md:text-6xl font-bold text-black transition-all duration-1000 ease-out ${socialVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{transitionDelay: socialVisible ? '0.2s' : '0s'}}>
-                Resta aggiornato sui <span className="text-black">miei lavori</span>
+              <h2 className={`text-4xl sm:text-5xl md:text-6xl font-bold text-white transition-all duration-1000 ease-out ${socialVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{transitionDelay: socialVisible ? '0.2s' : '0s'}}>
+                Resta aggiornato sui <span className="text-white">miei lavori</span>
               </h2>
-              <p className={`text-lg sm:text-xl text-gray-700 font-light leading-relaxed max-w-3xl mx-auto mt-6 transition-all duration-1000 ease-out ${socialVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{transitionDelay: socialVisible ? '0.4s' : '0s'}}>
+              <p className={`text-lg sm:text-xl text-gray-200 font-light leading-relaxed max-w-3xl mx-auto mt-6 transition-all duration-1000 ease-out ${socialVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{transitionDelay: socialVisible ? '0.4s' : '0s'}}>
                 Seguimi sui social per vedere i miei lavori, i tutorial, i consigli e rimanere sempre aggiornato sulle ultime novità del mondo delle extension ciglia.
               </p>
             </div>
@@ -287,17 +461,17 @@ const ChiSono = () => {
             <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-4xl mx-auto">
               {/* Facebook */}
               <div className={`text-center group transition-all duration-1000 ease-out ${socialVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{transitionDelay: socialVisible ? '0.6s' : '0s'}}>
-                <div className="bg-black p-8 sm:p-10 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 ease-out hover:scale-105">
-                  <Facebook className="w-12 h-12 sm:w-16 sm:h-16 text-white mx-auto mb-4" fill="currentColor" stroke="none" />
-                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-3">Facebook</h3>
-                  <p className="text-gray-200 mb-6 leading-relaxed">
+                <div className="bg-white p-8 sm:p-10 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 ease-out hover:scale-105">
+                  <Facebook className="w-12 h-12 sm:w-16 sm:h-16 text-blue-600 mx-auto mb-4" fill="currentColor" stroke="none" />
+                  <h3 className="text-xl sm:text-2xl font-bold text-black mb-3">Facebook</h3>
+                  <p className="text-gray-700 mb-6 leading-relaxed">
                     Condivido tutorial, consigli e aggiornamenti sulla mia attività professionale.
                   </p>
                   <a 
                     href="https://facebook.com/academylashmaster" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 bg-white text-blue-600 px-6 py-3 rounded-full font-medium hover:bg-blue-50 transition-colors duration-300"
+                    className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-full font-medium hover:bg-blue-700 transition-colors duration-300"
                   >
                     <span>Segui su Facebook</span>
                     <ArrowRight className="w-4 h-4" />
@@ -307,17 +481,17 @@ const ChiSono = () => {
 
               {/* Instagram */}
               <div className={`text-center group transition-all duration-1000 ease-out ${socialVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{transitionDelay: socialVisible ? '0.8s' : '0s'}}>
-                <div className="bg-black p-8 sm:p-10 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 ease-out hover:scale-105">
-                  <Instagram className="w-12 h-12 sm:w-16 sm:h-16 text-white mx-auto mb-4" />
-                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-3">Instagram</h3>
-                  <p className="text-gray-200 mb-6 leading-relaxed">
+                <div className="bg-white p-8 sm:p-10 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 ease-out hover:scale-105">
+                  <Instagram className="w-12 h-12 sm:w-16 sm:h-16 text-fuchsia-600 mx-auto mb-4" />
+                  <h3 className="text-xl sm:text-2xl font-bold text-black mb-3">Instagram</h3>
+                  <p className="text-gray-700 mb-6 leading-relaxed">
                     Scopri i miei lavori più belli e i risultati delle mie allieve in tempo reale.
                   </p>
                   <a 
                     href="https://www.instagram.com/academy_lash_master_anamaria/?igsh=eDUzbDVlNGdnbHUx&utm_source=qr#" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 bg-white text-fuchsia-600 px-6 py-3 rounded-full font-medium hover:bg-fuchsia-50 transition-colors duration-300"
+                    className="inline-flex items-center gap-2 bg-fuchsia-600 text-white px-6 py-3 rounded-full font-medium hover:bg-fuchsia-700 transition-colors duration-300"
                   >
                     <span>Segui su Instagram</span>
                     <ArrowRight className="w-4 h-4" />

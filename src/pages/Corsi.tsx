@@ -128,14 +128,14 @@ const Corsi = () => {
       <HeroCorsi />
 
       {/* CORSI SECTION - Sezione con i corsi professionali dettagliati */}
-      <section id="corsi" className="pt-8 pb-12 sm:pt-10 sm:pb-16 lg:pt-12 lg:pb-20" style={{ backgroundColor: '#F3F3F3' }}>
+      <section id="corsi" className="pb-12 sm:pb-16 lg:pb-20" style={{ backgroundColor: '#F3F3F3' }}>
         <div className="w-full sm:w-[90%] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-left mb-12 sm:mb-16">
-            <h3 className={`text-4xl sm:text-5xl md:text-6xl font-bold text-black mb-4 transition-all duration-1000 ease-out ${coursesVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`}>I nostri corsi professionali</h3>
+          <div className="text-left mb-2 sm:mb-3">
+            <h3 className={`text-4xl sm:text-5xl md:text-6xl font-bold text-black mb-2 transition-all duration-1000 ease-out ${coursesVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`}>I nostri corsi professionali</h3>
             <p className={`text-lg sm:text-xl text-black font-light transition-all duration-1000 ease-out ${coursesVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`} style={{transitionDelay: coursesVisible ? '0.2s' : '0s'}}>Formazione completa e certificata per ogni livello di esperienza</p>
           </div>
 
-          <div className="space-y-8 sm:space-y-10">
+          <div className="space-y-4 sm:space-y-6">
             {coursesData.map((course) => (
               <ExpandableCourseCard
                 key={course.id}
@@ -549,8 +549,8 @@ const Corsi = () => {
                   Invia Richiesta
                 </button>
             </form>
-          </div>
-        </div>
+    </div>
+    </div>
       )}
 
       <Footer />
