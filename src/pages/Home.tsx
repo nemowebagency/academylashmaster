@@ -236,7 +236,7 @@ const Home = () => {
           "logo": "https://academylashmaster.com/logo/LogoBianco.png",
           "image": "https://academylashmaster.com/soggetto/corsi.jpg",
           "telephone": "+393533165390",
-          "email": "info@academylashmaster.com",
+          "email": "academylashmaster@gmail.com",
           "address": {
             "@type": "PostalAddress",
             "streetAddress": "Via Roma 123",
@@ -323,126 +323,213 @@ const Home = () => {
             <p className={`text-lg sm:text-xl text-black font-light transition-all duration-1000 ease-out ${coursesVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`} style={{transitionDelay: coursesVisible ? '0.3s' : '0s'}}>Formazione professionale per ogni livello</p>
           </div>
           
-          <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-lg hover:shadow-xl border border-gray-200 hover:border-gray-300 transition-all duration-300 ease-out hover:scale-105">
-              <div>
-                <h4 className="text-3xl sm:text-4xl font-bold text-black mb-3 sm:mb-4 text-left">Corso Base</h4>
-                <p className="text-black font-light mb-4 sm:mb-6 text-sm sm:text-base">
-                  Impara le tecniche fondamentali per l'applicazione delle extension ciglia. 
-                  Perfetto per principianti.
-                </p>
-                <ul className="text-left text-gray-700 space-y-1 sm:space-y-2 mb-4 sm:mb-6 text-sm sm:text-base">
+          <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 sm:gap-8">
+            {/* Corso Classico (Base) */}
+            <div className="relative">
+              <div className="absolute inset-0 bg-black rounded-xl shadow-2xl"></div>
+              <div className="relative bg-black p-4 sm:p-5 rounded-xl shadow-lg hover:shadow-xl border border-gray-700 hover:border-gray-600 transition-all duration-300 ease-out hover:scale-105 flex flex-col h-full">
+                <div className="flex flex-col h-full">
+                  <h4 className="text-lg sm:text-xl font-bold text-white mb-2 text-left leading-tight">Corso Classico (Base)</h4>
+                  <p className="text-gray-300 font-light mb-3 text-xs leading-relaxed flex-grow">
+                    La tua base solida per diventare una Lash Artist professionista. 
+                    Tecnica One to One dalle basi fino all'esecuzione perfetta.
+                  </p>
+                  <ul className="text-left text-gray-300 space-y-1.5 mb-4 text-xs">
                   <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-black rounded-full flex-shrink-0"></span>
-                    <span>Teoria delle extension</span>
+                      <span className="w-1 h-1 bg-white rounded-full flex-shrink-0"></span>
+                      <span>Norme di igiene e sicurezza</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-black rounded-full flex-shrink-0"></span>
-                    <span>Tecniche di applicazione</span>
+                      <span className="w-1 h-1 bg-white rounded-full flex-shrink-0"></span>
+                      <span>Anatomia delle ciglia naturali</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-black rounded-full flex-shrink-0"></span>
-                    <span>Materiali e strumenti</span>
+                      <span className="w-1 h-1 bg-white rounded-full flex-shrink-0"></span>
+                      <span>Mappature personalizzate</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-black rounded-full flex-shrink-0"></span>
-                    <span>Certificazione inclusa</span>
+                      <span className="w-1 h-1 bg-white rounded-full flex-shrink-0"></span>
+                      <span>Certificato ufficiale</span>
                   </li>
                 </ul>
-                <div 
-                  className="mt-4 w-full h-80 rounded-lg relative bg-cover bg-center bg-no-repeat flex items-end justify-start p-4"
-                  style={{ backgroundImage: 'url(/soggetto/c1.jpg)' }}
-                >
-                  <Link 
-                    to="/contatti#form"
-                    className="bg-black text-white px-8 py-4 rounded-full font-medium text-base flex items-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110 hover:text-black"
-                  >
-                    <span className="relative z-10">Scopri di più</span>
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-500 ease-out relative z-10" />
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
-                  </Link>
+                  <div className="mt-auto">
+                    <Link 
+                      to="/contatti#form"
+                      className="w-full bg-white text-black px-3 py-2 rounded-full font-medium text-xs flex items-center justify-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110 hover:text-black"
+                    >
+                      <span className="relative z-10">Scopri di più</span>
+                      <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform duration-500 ease-out relative z-10" />
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-black/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
 
-            <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-lg hover:shadow-xl border border-gray-200 hover:border-gray-300 transition-all duration-300 ease-out hover:scale-105">
-              <div>
-                <h4 className="text-3xl sm:text-4xl font-bold text-black mb-3 sm:mb-4 text-left">Corso Avanzato</h4>
-                <p className="text-black font-light mb-4 sm:mb-6 text-sm sm:text-base">
-                  Tecniche avanzate e specializzazioni per diventare un vero professionista 
-                  del settore.
-                </p>
-                <ul className="text-left text-gray-700 space-y-1 sm:space-y-2 mb-4 sm:mb-6 text-sm sm:text-base">
-                  <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-black rounded-full flex-shrink-0"></span>
-                    <span>Volume e Mega Volume</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-black rounded-full flex-shrink-0"></span>
-                    <span>Tecniche creative</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-black rounded-full flex-shrink-0"></span>
-                    <span>Gestione clientela</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-black rounded-full flex-shrink-0"></span>
-                    <span>Business nel beauty</span>
-                  </li>
-                </ul>
-                <div 
-                  className="mt-4 w-full h-80 rounded-lg relative bg-cover bg-center bg-no-repeat flex items-end justify-start p-4"
-                  style={{ backgroundImage: 'url(/soggetto/c2.jpg)' }}
-                >
+            {/* Corso Volume */}
+            <div className="relative">
+              <div className="absolute inset-0 bg-black rounded-xl shadow-2xl"></div>
+              <div className="relative bg-black p-4 sm:p-5 rounded-xl shadow-lg hover:shadow-xl border border-gray-700 hover:border-gray-600 transition-all duration-300 ease-out hover:scale-105 flex flex-col h-full">
+                <div className="flex flex-col h-full">
+                  <h4 className="text-lg sm:text-xl font-bold text-white mb-2 text-left leading-tight">Corso Volume</h4>
+                  <p className="text-gray-300 font-light mb-3 text-xs leading-relaxed flex-grow">
+                    Tecniche avanzate di infoltimento e perfezionamento della manualità. 
+                    Ventagli multipli handmade per effetti straordinari.
+                  </p>
+                  <ul className="text-left text-gray-300 space-y-1.5 mb-4 text-xs">
+                    <li className="flex items-center gap-2">
+                      <span className="w-1 h-1 bg-white rounded-full flex-shrink-0"></span>
+                      <span>2D, 3D, 4D, 5D, 6D e Mega Volume</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="w-1 h-1 bg-white rounded-full flex-shrink-0"></span>
+                      <span>Creazione ventagli perfetti</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="w-1 h-1 bg-white rounded-full flex-shrink-0"></span>
+                      <span>Personalizzazione estetica</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="w-1 h-1 bg-white rounded-full flex-shrink-0"></span>
+                      <span>Diploma Volume Lash Artist</span>
+                    </li>
+                  </ul>
+                  <div className="mt-auto">
                   <Link 
                     to="/contatti#form"
-                    className="bg-black text-white px-8 py-4 rounded-full font-medium text-base flex items-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110 hover:text-black"
+                      className="w-full bg-white text-black px-3 py-2 rounded-full font-medium text-xs flex items-center justify-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110 hover:text-black"
                   >
                     <span className="relative z-10">Scopri di più</span>
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-500 ease-out relative z-10" />
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
+                      <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform duration-500 ease-out relative z-10" />
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-black/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
                   </Link>
+                  </div>
                 </div>
               </div>
             </div>
 
-            <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-lg hover:shadow-xl border border-gray-200 hover:border-gray-300 transition-all duration-300 ease-out hover:scale-105">
-              <div>
-                <h4 className="text-3xl sm:text-4xl font-bold text-black mb-3 sm:mb-4 text-left">Master Class</h4>
-                <p className="text-black font-light mb-4 sm:mb-6 text-sm sm:text-base">
-                  Il corso più completo per diventare un vero Master delle extension ciglia 
-                  e aprire la propria attività.
-                </p>
-                <ul className="text-left text-gray-700 space-y-1 sm:space-y-2 mb-4 sm:mb-6 text-sm sm:text-base">
+            {/* Corso Completo (Classico + Volume) */}
+            <div className="relative">
+              <div className="absolute inset-0 bg-black rounded-xl shadow-2xl"></div>
+              <div className="relative bg-black p-4 sm:p-5 rounded-xl shadow-lg hover:shadow-xl border border-gray-700 hover:border-gray-600 transition-all duration-300 ease-out hover:scale-105 flex flex-col h-full">
+                <div className="flex flex-col h-full">
+                  <h4 className="text-lg sm:text-xl font-bold text-white mb-2 text-left leading-tight">Corso Completo (Classico + Volume)</h4>
+                  <p className="text-gray-300 font-light mb-3 text-xs leading-relaxed flex-grow">
+                    Tutte le tecniche professionali per diventare una Lash Artist completa. 
+                    Formazione intensiva e strutturata.
+                  </p>
+                  <ul className="text-left text-gray-300 space-y-1.5 mb-4 text-xs">
                   <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-black rounded-full flex-shrink-0"></span>
-                    <span>Tutte le tecniche</span>
+                      <span className="w-1 h-1 bg-white rounded-full flex-shrink-0"></span>
+                      <span>Tecnica Classica One to One</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-black rounded-full flex-shrink-0"></span>
-                    <span>Gestione business</span>
+                      <span className="w-1 h-1 bg-white rounded-full flex-shrink-0"></span>
+                      <span>Volume 2D, 3D, 4D, 5D, 6D, Mega</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-black rounded-full flex-shrink-0"></span>
-                    <span>Marketing beauty</span>
+                      <span className="w-1 h-1 bg-white rounded-full flex-shrink-0"></span>
+                      <span>Styling avanzato e design</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-black rounded-full flex-shrink-0"></span>
-                    <span>Supporto continuo</span>
+                      <span className="w-1 h-1 bg-white rounded-full flex-shrink-0"></span>
+                      <span>Certificato Complete Lash Artist</span>
                   </li>
                 </ul>
-                <div 
-                  className="mt-4 w-full h-80 rounded-lg relative bg-cover bg-center bg-no-repeat flex items-end justify-start p-4"
-                  style={{ backgroundImage: 'url(/soggetto/c3.jpg)' }}
-                >
+                  <div className="mt-auto">
+                    <Link 
+                      to="/contatti#form"
+                      className="w-full bg-white text-black px-3 py-2 rounded-full font-medium text-xs flex items-center justify-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110 hover:text-black"
+                    >
+                      <span className="relative z-10">Scopri di più</span>
+                      <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform duration-500 ease-out relative z-10" />
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-black/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Corso VIP Individuale */}
+            <div className="relative">
+              <div className="absolute inset-0 bg-black rounded-xl shadow-2xl"></div>
+              <div className="relative bg-black p-4 sm:p-5 rounded-xl shadow-lg hover:shadow-xl border border-gray-700 hover:border-gray-600 transition-all duration-300 ease-out hover:scale-105 flex flex-col h-full">
+                <div className="flex flex-col h-full">
+                  <h4 className="text-lg sm:text-xl font-bold text-white mb-2 text-left leading-tight">Corso VIP Individuale</h4>
+                  <p className="text-gray-300 font-light mb-3 text-xs leading-relaxed flex-grow">
+                    Formazione esclusiva one-to-one con la Master Trainer Ana Maria. 
+                    Percorso personalizzato al 100%.
+                  </p>
+                  <ul className="text-left text-gray-300 space-y-1.5 mb-4 text-xs">
+                    <li className="flex items-center gap-2">
+                      <span className="w-1 h-1 bg-white rounded-full flex-shrink-0"></span>
+                      <span>Analisi tecnica personalizzata</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="w-1 h-1 bg-white rounded-full flex-shrink-0"></span>
+                      <span>Perfezionamento tecnico avanzato</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="w-1 h-1 bg-white rounded-full flex-shrink-0"></span>
+                      <span>Business & Branding</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="w-1 h-1 bg-white rounded-full flex-shrink-0"></span>
+                      <span>Certificato VIP Lash Artist</span>
+                    </li>
+                  </ul>
+                  <div className="mt-auto">
                   <Link 
                     to="/contatti#form"
-                    className="bg-black text-white px-8 py-4 rounded-full font-medium text-base flex items-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110 hover:text-black"
+                      className="w-full bg-white text-black px-3 py-2 rounded-full font-medium text-xs flex items-center justify-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110 hover:text-black"
                   >
                     <span className="relative z-10">Scopri di più</span>
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-500 ease-out relative z-10" />
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
+                      <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform duration-500 ease-out relative z-10" />
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-black/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
                   </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Corso Retention & Segreti della Tenuta */}
+            <div className="relative">
+              <div className="absolute inset-0 bg-black rounded-xl shadow-2xl"></div>
+              <div className="relative bg-black p-4 sm:p-5 rounded-xl shadow-lg hover:shadow-xl border border-gray-700 hover:border-gray-600 transition-all duration-300 ease-out hover:scale-105 flex flex-col h-full">
+                <div className="flex flex-col h-full">
+                  <h4 className="text-lg sm:text-xl font-bold text-white mb-2 text-left leading-tight">Corso Retention & Segreti della Tenuta</h4>
+                  <p className="text-gray-300 font-light mb-3 text-xs leading-relaxed flex-grow">
+                    Migliora la durata delle applicazioni e offri risultati impeccabili. 
+                    Focus tecnico sulla ritenzione e gestione dell'adesivo.
+                  </p>
+                  <ul className="text-left text-gray-300 space-y-1.5 mb-4 text-xs">
+                  <li className="flex items-center gap-2">
+                      <span className="w-1 h-1 bg-white rounded-full flex-shrink-0"></span>
+                      <span>Chimica del cianoacrilato</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                      <span className="w-1 h-1 bg-white rounded-full flex-shrink-0"></span>
+                      <span>Gestione ambientale ottimale</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                      <span className="w-1 h-1 bg-white rounded-full flex-shrink-0"></span>
+                      <span>Strategie per +40% ritenzione</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                      <span className="w-1 h-1 bg-white rounded-full flex-shrink-0"></span>
+                      <span>Certificato Retention Master</span>
+                  </li>
+                </ul>
+                  <div className="mt-auto">
+                  <Link 
+                    to="/contatti#form"
+                      className="w-full bg-white text-black px-3 py-2 rounded-full font-medium text-xs flex items-center justify-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110 hover:text-black"
+                  >
+                    <span className="relative z-10">Scopri di più</span>
+                      <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform duration-500 ease-out relative z-10" />
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-black/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
+                  </Link>
+                  </div>
                 </div>
               </div>
             </div>
@@ -494,7 +581,7 @@ const Home = () => {
               <img 
                 src="/soggetto/person1.png"
                 alt="Ana Maria fondatrice Academy Lash Master - Esperta extension ciglia con formazione internazionale"
-                className="w-full h-[300px] sm:h-[400px] object-contain"
+                className="w-full h-[250px] sm:h-[320px] object-contain"
                 loading="eager"
                 decoding="async"
               />
@@ -511,7 +598,7 @@ const Home = () => {
             <img 
               src="/soggetto/person1.png"
               alt="Ana Maria fondatrice Academy Lash Master - Esperta extension ciglia con formazione internazionale"
-              className="w-full h-[500px] sm:h-[600px] lg:h-[700px] xl:h-[800px] object-contain relative z-10"
+              className="w-full h-[400px] sm:h-[500px] lg:h-[550px] xl:h-[600px] object-contain relative z-10"
               loading="eager"
               decoding="async"
             />
@@ -741,7 +828,7 @@ const Home = () => {
                 </div>
                 <div>
                   <h4 className="text-lg sm:text-xl font-semibold text-black mb-1">Email</h4>
-                  <p className="text-gray-700 text-sm sm:text-base">info@academylashmaster.com</p>
+                  <p className="text-gray-700 text-sm sm:text-base">academylashmaster@gmail.com</p>
                 </div>
               </div>
 

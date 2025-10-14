@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowRight, Facebook, Instagram, BookOpen, Users, Star } from 'lucide-react';
+import emailjs from '@emailjs/browser';
+import { EMAILJS_CONFIG } from '../config/emailjs';
+import { sendTestEmail, sendRealEmail } from '../utils/emailTest';
 import NeonCursor from '../components/NeonCursor';
 import Footer from '../components/Footer';
 import PromoScroll from '../components/PromoScroll';
@@ -15,16 +18,52 @@ const ChiSono = () => {
     phone: '',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [storyVisible, setStoryVisible] = useState(false);
   const [missionVisible, setMissionVisible] = useState(false);
   const [socialVisible, setSocialVisible] = useState(false);
 
-  const handleFormSubmit = (e: React.FormEvent) => {
+  const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    alert('Grazie per il tuo interesse! Ti contatteremo presto.');
-    setShowContactForm(false);
-    setFormData({ name: '', email: '', phone: '', message: '' });
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    try {
+      // Verifica se EmailJS è configurato
+      const isEmailJSConfigured = EMAILJS_CONFIG.publicKey !== 'YOUR_PUBLIC_KEY_HERE';
+      
+      let result;
+      
+      if (isEmailJSConfigured) {
+        // Usa EmailJS reale
+        console.log('📧 Invio email reale con EmailJS...');
+        result = await sendRealEmail(formData, EMAILJS_CONFIG);
+      } else {
+        // Usa versione di test
+        console.log('🧪 Modalità test - simulazione invio email...');
+        result = await sendTestEmail(formData);
+      }
+      
+      if (result.success) {
+        setSubmitStatus('success');
+        setFormData({ name: '', email: '', phone: '', message: '' });
+        
+        // Chiudi il form dopo 3 secondi
+        setTimeout(() => {
+          setShowContactForm(false);
+          setSubmitStatus('idle');
+        }, 3000);
+      } else {
+        setSubmitStatus('error');
+      }
+
+    } catch (error) {
+      console.error('Errore nell\'invio email:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -33,6 +72,7 @@ const ChiSono = () => {
       [e.target.name]: e.target.value
     });
   };
+
 
   // Intersection Observer per le animazioni
   useEffect(() => {
@@ -244,7 +284,7 @@ const ChiSono = () => {
               </p>
             </div>
 
-            <div className="grid sm:grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+            <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-4xl mx-auto">
               {/* Facebook */}
               <div className={`text-center group transition-all duration-1000 ease-out ${socialVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{transitionDelay: socialVisible ? '0.6s' : '0s'}}>
                 <div className="bg-black p-8 sm:p-10 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 ease-out hover:scale-105">
@@ -274,34 +314,12 @@ const ChiSono = () => {
                     Scopri i miei lavori più belli e i risultati delle mie allieve in tempo reale.
                   </p>
                   <a 
-                    href="https://instagram.com/academylashmaster" 
+                    href="https://www.instagram.com/academy_lash_master_anamaria/?igsh=eDUzbDVlNGdnbHUx&utm_source=qr#" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 bg-white text-fuchsia-600 px-6 py-3 rounded-full font-medium hover:bg-fuchsia-50 transition-colors duration-300"
                   >
                     <span>Segui su Instagram</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </a>
-                </div>
-              </div>
-
-              {/* TikTok */}
-              <div className={`text-center group transition-all duration-1000 ease-out ${socialVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{transitionDelay: socialVisible ? '1.0s' : '0s'}}>
-                <div className="bg-black p-8 sm:p-10 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 ease-out hover:scale-105">
-                  <svg className="w-12 h-12 sm:w-16 sm:h-16 text-white mx-auto mb-4" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
-                  </svg>
-                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-3">TikTok</h3>
-                  <p className="text-gray-200 mb-6 leading-relaxed">
-                    Video tutorial rapidi e consigli pratici per imparare le tecniche più efficaci.
-                  </p>
-                  <a 
-                    href="https://tiktok.com/@academylashmaster" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 bg-white text-black px-6 py-3 rounded-full font-medium hover:bg-gray-100 transition-colors duration-300"
-                  >
-                    <span>Segui su TikTok</span>
                     <ArrowRight className="w-4 h-4" />
                   </a>
                 </div>
@@ -392,12 +410,40 @@ const ChiSono = () => {
                   />
                 </div>
                 
+                {/* Messaggi di stato */}
+                {submitStatus === 'success' && (
+                  <div className="mb-4 p-3 bg-green-900/20 border border-green-500 rounded-lg text-green-400 text-sm">
+                    ✅ Messaggio inviato con successo! Ti contatteremo presto.
+                    {EMAILJS_CONFIG.publicKey === 'YOUR_PUBLIC_KEY_HERE' && (
+                      <div className="mt-2 text-xs text-yellow-400">
+                        🧪 Modalità test attiva - configura EmailJS per invio reale
+                      </div>
+                    )}
+                  </div>
+                )}
+                
+                {submitStatus === 'error' && (
+                  <div className="mb-4 p-3 bg-red-900/20 border border-red-500 rounded-lg text-red-400 text-sm">
+                    ❌ Errore nell'invio del messaggio. Controlla la console per dettagli.
+                    {EMAILJS_CONFIG.publicKey === 'YOUR_PUBLIC_KEY_HERE' && (
+                      <div className="mt-2 text-xs text-yellow-400">
+                        💡 Configura EmailJS per invio email reale
+                      </div>
+                    )}
+                  </div>
+                )}
+
                 <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2">
                   <button
                     type="submit"
-                    className="flex-1 px-4 sm:px-6 py-2 sm:py-3 bg-white text-black rounded-lg sm:rounded-xl font-bold hover:bg-gray-200 transition-colors text-sm sm:text-base"
+                    disabled={isSubmitting}
+                    className={`flex-1 px-4 sm:px-6 py-2 sm:py-3 rounded-lg sm:rounded-xl font-bold transition-colors text-sm sm:text-base ${
+                      isSubmitting 
+                        ? 'bg-gray-500 text-gray-300 cursor-not-allowed' 
+                        : 'bg-white text-black hover:bg-gray-200'
+                    }`}
                   >
-                    Invia Richiesta
+                    {isSubmitting ? 'Invio in corso...' : 'Invia Richiesta'}
                   </button>
                   <button
                     type="button"

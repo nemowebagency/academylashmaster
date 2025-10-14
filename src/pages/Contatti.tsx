@@ -1,4 +1,7 @@
 import { useState, useEffect } from 'react';
+import emailjs from '@emailjs/browser';
+import { EMAILJS_CONFIG } from '../config/emailjs';
+import { sendTestEmail, sendRealEmail } from '../utils/emailTest';
 import NeonCursor from '../components/NeonCursor';
 import Footer from '../components/Footer';
 import PromoScroll from '../components/PromoScroll';
@@ -12,9 +15,32 @@ const Contatti = () => {
   const [contactCardsVisible, setContactCardsVisible] = useState(false);
   const [formSectionVisible, setFormSectionVisible] = useState(false);
 
-  const handleFormSubmit = (formData: any) => {
-    console.log('Form submitted:', formData);
-    alert('Messaggio inviato! Ti contatteremo presto.');
+  const handleFormSubmit = async (formData: any) => {
+    try {
+      // Verifica se EmailJS è configurato
+      const isEmailJSConfigured = EMAILJS_CONFIG.publicKey !== 'YOUR_PUBLIC_KEY_HERE';
+      
+      let result;
+      
+      if (isEmailJSConfigured) {
+        // Usa EmailJS reale
+        console.log('📧 Invio email reale con EmailJS...');
+        result = await sendRealEmail(formData, EMAILJS_CONFIG);
+      } else {
+        // Usa versione di test
+        console.log('🧪 Modalità test - simulazione invio email...');
+        result = await sendTestEmail(formData);
+      }
+      
+      if (result.success) {
+        alert('Messaggio inviato con successo! Ti contatteremo presto.');
+      } else {
+        alert('Errore nell\'invio del messaggio. Riprova o contattaci direttamente.');
+      }
+    } catch (error) {
+      console.error('Errore nell\'invio email:', error);
+      alert('Errore nell\'invio del messaggio. Riprova o contattaci direttamente.');
+    }
   };
 
   // Gestisce lo scroll automatico quando si arriva con l'hash #form
@@ -119,7 +145,7 @@ const Contatti = () => {
             "@type": "EducationalOrganization",
             "name": "Academy Lash Master",
             "telephone": "+393533165390",
-            "email": "info@academylashmaster.com",
+            "email": "academylashmaster@gmail.com",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "Via Roma 123",
@@ -180,10 +206,10 @@ const Contatti = () => {
                 <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-black mb-3 sm:mb-4">Email</h3>
                 <p className="text-gray-700 text-sm sm:text-base mb-4 sm:mb-6">Scrivici per ricevere informazioni dettagliate</p>
                 <a 
-                  href="mailto:info@academylashmaster.com" 
+                  href="mailto:academylashmaster@gmail.com" 
                   className="text-black font-medium text-sm sm:text-base hover:text-gray-700 transition-colors duration-300"
                 >
-                  info@academylashmaster.com
+                  academylashmaster@gmail.com
                 </a>
               </div>
 

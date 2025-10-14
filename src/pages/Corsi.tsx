@@ -154,135 +154,378 @@ const Corsi = () => {
         
       
       {/* ===========================================
-          CORSI SECTION - Sezione con i corsi professionali
+          CORSI SECTION - Sezione con i corsi professionali dettagliati
           =========================================== */}
       <section id="corsi" className="py-12 sm:py-16 lg:py-20" style={{ backgroundColor: '#F3F3F3' }}>
         <div className="w-full sm:w-[90%] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-left mb-12 sm:mb-16">
-            <h3 className={`text-4xl sm:text-5xl md:text-6xl font-bold text-black mb-4 transition-all duration-1000 ease-out ${coursesVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`}>Le nostre proposte</h3>
-            <p className={`text-lg sm:text-xl text-black font-light transition-all duration-1000 ease-out ${coursesVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`} style={{transitionDelay: coursesVisible ? '0.2s' : '0s'}}>Scegli tra i corsi proposti e utilizza il pulsante corrispondente per iscriverti.</p>
+            <h3 className={`text-4xl sm:text-5xl md:text-6xl font-bold text-black mb-4 transition-all duration-1000 ease-out ${coursesVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`}>I nostri corsi professionali</h3>
+            <p className={`text-lg sm:text-xl text-black font-light transition-all duration-1000 ease-out ${coursesVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`} style={{transitionDelay: coursesVisible ? '0.2s' : '0s'}}>Formazione completa e certificata per ogni livello di esperienza</p>
           </div>
 
-          <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-lg hover:shadow-xl border border-gray-200 hover:border-gray-300 transition-all duration-300 ease-out hover:scale-105">
+          <div className="space-y-12 sm:space-y-16">
+            {/* CORSO CLASSICO (BASE) */}
+            <div className="bg-white rounded-2xl shadow-lg border border-gray-200">
+              <div className="p-8 sm:p-12">
+                <div className="grid lg:grid-cols-2 gap-8 sm:gap-12">
               <div>
-                <h4 className="text-3xl sm:text-4xl font-bold text-black mb-3 sm:mb-4 text-left">Corso Base</h4>
-                <p className="text-black font-light mb-4 sm:mb-6 text-sm sm:text-base">
-                  Impara le tecniche fondamentali per l'applicazione delle extension ciglia. 
-                  Perfetto per principianti.
-                </p>
-                <ul className="text-left text-gray-700 space-y-1 sm:space-y-2 mb-4 sm:mb-6 text-sm sm:text-base">
-                  <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-black rounded-full flex-shrink-0"></span>
-                    <span>Teoria delle extension</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-black rounded-full flex-shrink-0"></span>
-                    <span>Tecniche di applicazione</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-black rounded-full flex-shrink-0"></span>
-                    <span>Materiali e strumenti</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-black rounded-full flex-shrink-0"></span>
-                    <span>Certificazione inclusa</span>
-                  </li>
+                    <h4 className="text-3xl sm:text-4xl font-bold text-black mb-4">CORSO CLASSICO (BASE)</h4>
+                    <p className="text-xl text-gray-700 font-medium mb-6">La tua base solida per diventare una Lash Artist professionista</p>
+                    <p className="text-gray-700 leading-relaxed mb-6">
+                      Il Corso Classico (Base) è il primo passo fondamentale nel percorso di formazione di una Lash Artist. Un corso completo e strutturato, pensato per chi desidera apprendere la tecnica One to One dalle basi fino all'esecuzione perfetta, unendo teoria approfondita, esercitazioni pratiche e supporto continuo post-corso.
+                    </p>
+                    <div className="bg-gray-50 p-6 rounded-xl mb-6">
+                      <h5 className="font-bold text-black mb-3">PROGRAMMA DEL CORSO</h5>
+                      <div className="space-y-4">
+                        <div>
+                          <h6 className="font-semibold text-black mb-2">Giorno 1 – Parte Teorica</h6>
+                          <p className="text-sm text-gray-700 mb-2">La prima giornata è dedicata alla teoria e ai fondamenti professionali del mestiere di Lash Artist.</p>
+                          <ul className="text-sm text-gray-700 space-y-1 ml-4">
+                            <li>• Le norme di igiene e sicurezza indispensabili nel lavoro estetico</li>
+                            <li>• La prevenzione di allergie, irritazioni e ustioni chimiche</li>
+                            <li>• L'importanza del patch test e delle procedure corrette per clienti sensibili</li>
+                            <li>• La conoscenza approfondita degli strumenti di lavoro</li>
+                            <li>• L'anatomia e fisiologia delle ciglia naturali</li>
+                          </ul>
+                        </div>
+                        <div>
+                          <h6 className="font-semibold text-black mb-2">Giorno 2 – Approfondimento e Mappature</h6>
+                          <p className="text-sm text-gray-700 mb-2">La seconda giornata consolida le competenze teoriche e introduce la progettazione estetica.</p>
+                          <ul className="text-sm text-gray-700 space-y-1 ml-4">
+                            <li>• Studio delle forme degli occhi e proporzioni del viso</li>
+                            <li>• Analisi delle curvature, lunghezze e spessori</li>
+                            <li>• Introduzione agli stili classici (Natural, Doll, Cat, Squirrel, Round)</li>
+                            <li>• Approccio consulenziale professionale</li>
+                          </ul>
+                        </div>
+                        <div>
+                          <h6 className="font-semibold text-black mb-2">Giorno 3 – Esame Finale</h6>
+                          <p className="text-sm text-gray-700">Valutazione delle competenze teoriche e pratiche acquisite con prova su modella reale.</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="bg-yellow-50 p-6 rounded-xl mb-6">
+                      <h5 className="font-bold text-black mb-3">AL TERMINE DEL CORSO</h5>
+                      <ul className="text-sm text-gray-700 space-y-1">
+                        <li>• Certificato ufficiale di partecipazione</li>
+                        <li>• Manuale professionale completo</li>
+                        <li>• Accesso al gruppo di supporto post-corso</li>
+                        <li>• Possibilità di rifrequentare gratuitamente</li>
+                        <li>• Kit professionale in omaggio</li>
                 </ul>
-                <div 
-                  className="mt-4 w-full h-80 rounded-lg relative bg-cover bg-center bg-no-repeat flex items-end justify-start p-4"
-                  style={{ backgroundImage: 'url(/soggetto/c1.jpg)' }}
-                >
+                    </div>
+                    <div className="flex flex-col sm:flex-row gap-4">
+                      <div className="bg-black text-white px-6 py-3 rounded-lg">
+                        <p className="text-sm font-medium">Durata: 3 giornate</p>
+                        <p className="text-lg font-bold">Prezzo: 799 €</p>
+                      </div>
+                      <div className="bg-gray-100 text-black px-6 py-3 rounded-lg">
+                        <p className="text-sm font-medium">Modalità: in presenza</p>
+                        <p className="text-sm">Max 6 partecipanti</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-center">
+                    <Link 
+                      to="/contatti#form"
+                      className="w-full bg-black text-white px-8 py-4 rounded-full font-medium text-lg flex items-center justify-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110 hover:text-black"
+                    >
+                      <span className="relative z-10">Iscriviti al Corso Base</span>
+                      <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-500 ease-out relative z-10" />
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* CORSO VOLUME */}
+            <div className="bg-white rounded-2xl shadow-lg border border-gray-200">
+              <div className="p-8 sm:p-12">
+                <div className="grid lg:grid-cols-2 gap-8 sm:gap-12">
+                  <div>
+                    <h4 className="text-3xl sm:text-4xl font-bold text-black mb-4">CORSO VOLUME</h4>
+                    <p className="text-xl text-gray-700 font-medium mb-6">Tecniche avanzate di infoltimento e perfezionamento della manualità</p>
+                    <p className="text-gray-700 leading-relaxed mb-6">
+                      Il Corso Volume è dedicato alle lash artist che desiderano portare le proprie competenze a un livello superiore, imparando la tecnica dell'infoltimento tramite ventagli multipli handmade o premade, con focus su precisione, equilibrio e armonia visiva.
+                    </p>
+                    <div className="bg-gray-50 p-6 rounded-xl mb-6">
+                      <h5 className="font-bold text-black mb-3">PROGRAMMA DEL CORSO</h5>
+                      <div className="space-y-4">
+                        <div>
+                          <h6 className="font-semibold text-black mb-2">Giorno 1 – Fondamenti del Volume</h6>
+                          <p className="text-sm text-gray-700 mb-2">Parte teorica (mattina):</p>
+                          <ul className="text-sm text-gray-700 space-y-1 ml-4">
+                            <li>• Struttura e geometria dei ciuffetti handmade</li>
+                            <li>• Differenze tra 2D, 3D, 4D, 5D, 6D e Mega Volume</li>
+                            <li>• Selezione delle ciglia in base a curvatura, lunghezza, spessore</li>
+                            <li>• Bilanciamento del peso per garantire la salute delle ciglia naturali</li>
+                            <li>• Chimica dell'adesivo e gestione della polimerizzazione</li>
+                          </ul>
+                          <p className="text-sm text-gray-700 mb-2 mt-3">Parte pratica (pomeriggio):</p>
+                          <ul className="text-sm text-gray-700 space-y-1 ml-4">
+                            <li>• Creazione dei ventagli perfetti con pinzette professionali</li>
+                            <li>• Applicazioni su strisce di ciglia per esercitare apertura e stabilità</li>
+                            <li>• Gestione della quantità di colla e controllo del punto di contatto</li>
+                            <li>• Isolamento e posizionamento del ventaglio per effetti Natural, Cat, Doll o Squirrel</li>
+                          </ul>
+                        </div>
+                        <div>
+                          <h6 className="font-semibold text-black mb-2">Giorno 2 – Personalizzazione estetica e styling</h6>
+                          <p className="text-sm text-gray-700 mb-2">Approfondimento dedicato alla costruzione dell'identità stilistica della lash artist.</p>
+                          <ul className="text-sm text-gray-700 space-y-1 ml-4">
+                            <li>• Analisi dei diversi tipi di occhi e forme del viso</li>
+                            <li>• Combinazione tra curvature, lunghezze e direzioni</li>
+                            <li>• Studio dei volumi ibridi (Hybrid Lashes)</li>
+                            <li>• Gestione della consulenza cliente</li>
+                          </ul>
+                        </div>
+                        <div>
+                          <h6 className="font-semibold text-black mb-2">Giorno 3 – Volume Exam</h6>
+                          <p className="text-sm text-gray-700">Valutazione teorica e pratica delle competenze acquisite con prova su modella reale.</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="bg-yellow-50 p-6 rounded-xl mb-6">
+                      <h5 className="font-bold text-black mb-3">AL TERMINE DEL CORSO</h5>
+                      <ul className="text-sm text-gray-700 space-y-1">
+                        <li>• Diploma ufficiale Volume Lash Artist</li>
+                        <li>• Manuale esclusivo Volume con schemi di mappature</li>
+                        <li>• Accesso al gruppo di supporto e mentoring post-corso</li>
+                        <li>• Kit professionale in omaggio</li>
+                      </ul>
+                    </div>
+                    <div className="flex flex-col sm:flex-row gap-4">
+                      <div className="bg-black text-white px-6 py-3 rounded-lg">
+                        <p className="text-sm font-medium">Durata: 3 giornate</p>
+                        <p className="text-lg font-bold">Prezzo: 799 €</p>
+                      </div>
+                      <div className="bg-gray-100 text-black px-6 py-3 rounded-lg">
+                        <p className="text-sm font-medium">Modalità: in presenza</p>
+                        <p className="text-sm">Max 6 partecipanti</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-center">
                   <Link 
                     to="/contatti#form"
-                    className="bg-black text-white px-8 py-4 rounded-full font-medium text-base flex items-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110 hover:text-black"
+                      className="w-full bg-black text-white px-8 py-4 rounded-full font-medium text-lg flex items-center justify-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110 hover:text-black"
                   >
-                    <span className="relative z-10">Iscriviti</span>
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-500 ease-out relative z-10" />
+                      <span className="relative z-10">Iscriviti al Corso Volume</span>
+                      <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-500 ease-out relative z-10" />
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
                   </Link>
+                  </div>
                 </div>
                   </div>
                 </div>
 
-            <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-lg hover:shadow-xl border border-gray-200 hover:border-gray-300 transition-all duration-300 ease-out hover:scale-105">
+            {/* CORSO COMPLETO (CLASSICO + VOLUME) */}
+            <div className="bg-white rounded-2xl shadow-lg border border-gray-200">
+              <div className="p-8 sm:p-12">
+                <div className="grid lg:grid-cols-2 gap-8 sm:gap-12">
               <div>
-                <h4 className="text-3xl sm:text-4xl font-bold text-black mb-3 sm:mb-4 text-left">Corso Avanzato</h4>
-                <p className="text-black font-light mb-4 sm:mb-6 text-sm sm:text-base">
-                  Tecniche avanzate e specializzazioni per diventare un vero professionista 
-                  del settore.
-                </p>
-                <ul className="text-left text-gray-700 space-y-1 sm:space-y-2 mb-4 sm:mb-6 text-sm sm:text-base">
-                  <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-black rounded-full flex-shrink-0"></span>
-                    <span>Volume e Mega Volume</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-black rounded-full flex-shrink-0"></span>
-                    <span>Tecniche creative</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-black rounded-full flex-shrink-0"></span>
-                    <span>Gestione clientela</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-black rounded-full flex-shrink-0"></span>
-                    <span>Business nel beauty</span>
-                      </li>
+                    <h4 className="text-3xl sm:text-4xl font-bold text-black mb-4">CORSO COMPLETO (CLASSICO + VOLUME)</h4>
+                    <p className="text-xl text-gray-700 font-medium mb-6">Tutte le tecniche professionali per diventare una Lash Artist completa</p>
+                    <p className="text-gray-700 leading-relaxed mb-6">
+                      Il Corso Completo Lash Artist unisce in un unico percorso le tecniche Classiche One to One e Volume (2D, 3D, 4D, 5D, 6D, Mega Volume), offrendo una formazione intensiva, strutturata e professionale. È il corso ideale per chi desidera partire da zero e raggiungere in poco tempo un livello avanzato.
+                    </p>
+                    <div className="bg-gray-50 p-6 rounded-xl mb-6">
+                      <h5 className="font-bold text-black mb-3">PROGRAMMA DEL CORSO</h5>
+                      <div className="space-y-4">
+                        <div>
+                          <h6 className="font-semibold text-black mb-2">MODULO 1 – TECNICA CLASSICA (One to One)</h6>
+                          <p className="text-sm text-gray-700">Norme di igiene, anatomia delle ciglia, strumenti e materiali, esercizi di coordinazione e applicazioni pratiche.</p>
+                        </div>
+                        <div>
+                          <h6 className="font-semibold text-black mb-2">MODULO 2 – TECNICA VOLUME</h6>
+                          <p className="text-sm text-gray-700">Differenze tra metodo Classico e Volume, struttura dei ciuffetti handmade, creazione e applicazione dei ventagli.</p>
+                        </div>
+                        <div>
+                          <h6 className="font-semibold text-black mb-2">MODULO 3 – STYLING AVANZATO E DESIGN</h6>
+                          <p className="text-sm text-gray-700">Analisi delle forme degli occhi, combinazione di curvature e lunghezze, look ibridi e approccio consulenziale.</p>
+                        </div>
+                        <div>
+                          <h6 className="font-semibold text-black mb-2">MODULO 4 – ESAME FINALE</h6>
+                          <p className="text-sm text-gray-700">Esame teorico e prova pratica su modella reale con valutazione individuale.</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="bg-yellow-50 p-6 rounded-xl mb-6">
+                      <h5 className="font-bold text-black mb-3">AL TERMINE DEL CORSO</h5>
+                      <ul className="text-sm text-gray-700 space-y-1">
+                        <li>• Due manuali illustrati professionali (Classico + Volume + Ritenzione)</li>
+                        <li>• Certificato ufficiale "Complete Lash Artist"</li>
+                        <li>• Accesso al gruppo di supporto post-corso</li>
+                        <li>• Kit professionale completo in omaggio</li>
+                        <li>• Possibilità di rifrequentare gratuitamente le lezioni</li>
                   </ul>
-                <div 
-                  className="mt-4 w-full h-80 rounded-lg relative bg-cover bg-center bg-no-repeat flex items-end justify-start p-4"
-                  style={{ backgroundImage: 'url(/soggetto/c2.jpg)' }}
-                >
+                    </div>
+                    <div className="flex flex-col sm:flex-row gap-4">
+                      <div className="bg-black text-white px-6 py-3 rounded-lg">
+                        <p className="text-sm font-medium">Durata: 5 giornate</p>
+                        <p className="text-lg font-bold">Prezzo: 1.499 €</p>
+                      </div>
+                      <div className="bg-gray-100 text-black px-6 py-3 rounded-lg">
+                        <p className="text-sm font-medium">Modalità: in presenza</p>
+                        <p className="text-sm">Max 6 partecipanti</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-center">
+                    <Link 
+                      to="/contatti#form"
+                      className="w-full bg-black text-white px-8 py-4 rounded-full font-medium text-lg flex items-center justify-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110 hover:text-black"
+                    >
+                      <span className="relative z-10">Iscriviti al Corso Completo</span>
+                      <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-500 ease-out relative z-10" />
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* CORSO VIP INDIVIDUALE */}
+            <div className="bg-white rounded-2xl shadow-lg border border-gray-200">
+              <div className="p-8 sm:p-12">
+                <div className="grid lg:grid-cols-2 gap-8 sm:gap-12">
+                  <div>
+                    <h4 className="text-3xl sm:text-4xl font-bold text-black mb-4">CORSO VIP INDIVIDUALE</h4>
+                    <p className="text-xl text-gray-700 font-medium mb-6">Formazione esclusiva one-to-one con la Master Trainer Ana Maria</p>
+                    <p className="text-gray-700 leading-relaxed mb-6">
+                      Il Corso VIP Individuale è un'esperienza formativa esclusiva, pensata per chi desidera un percorso personalizzato al 100%, costruito in base alle proprie esigenze tecniche, ai propri obiettivi professionali e al livello di partenza.
+                    </p>
+                    <div className="bg-gray-50 p-6 rounded-xl mb-6">
+                      <h5 className="font-bold text-black mb-3">PROGRAMMA DEL CORSO</h5>
+                      <div className="space-y-4">
+                        <div>
+                          <h6 className="font-semibold text-black mb-2">Giorno 1 – Analisi tecnica e revisione delle basi</h6>
+                          <p className="text-sm text-gray-700">Valutazione del livello tecnico attuale, correzione delle abitudini scorrette, approfondimento personalizzato su teoria e igiene.</p>
+                        </div>
+                        <div>
+                          <h6 className="font-semibold text-black mb-2">Giorno 2 – Perfezionamento tecnico e styling avanzato</h6>
+                          <p className="text-sm text-gray-700">Creazione e applicazione di ventagli handmade, approfondimento su curvature e effetti personalizzati, bilanciamento del peso.</p>
+                        </div>
+                        <div>
+                          <h6 className="font-semibold text-black mb-2">Giorno 3 – Business & Branding</h6>
+                          <p className="text-sm text-gray-700">Costruzione dell'identità professionale, analisi del posizionamento sul mercato, tecniche di comunicazione e vendita.</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="bg-yellow-50 p-6 rounded-xl mb-6">
+                      <h5 className="font-bold text-black mb-3">AL TERMINE DEL CORSO</h5>
+                      <ul className="text-sm text-gray-700 space-y-1">
+                        <li>• Manuale VIP personalizzato</li>
+                        <li>• Kit professionale completo in omaggio</li>
+                        <li>• Certificato ufficiale VIP Lash Artist</li>
+                        <li>• Sessione di coaching privata su tecnica, branding e business</li>
+                        <li>• Accesso esclusivo al gruppo mentoring</li>
+                      </ul>
+                    </div>
+                    <div className="flex flex-col sm:flex-row gap-4">
+                      <div className="bg-black text-white px-6 py-3 rounded-lg">
+                        <p className="text-sm font-medium">Durata: 3 giornate</p>
+                        <p className="text-lg font-bold">Prezzo: 1.999 €</p>
+                      </div>
+                      <div className="bg-gray-100 text-black px-6 py-3 rounded-lg">
+                        <p className="text-sm font-medium">Modalità: one-to-one</p>
+                        <p className="text-sm">1 partecipante</p>
+                      </div>
+                    </div>
+                    <div className="mt-4 p-4 bg-blue-50 rounded-lg">
+                      <p className="text-sm text-blue-800 font-medium">CORSO VIP ITINERANTE</p>
+                      <p className="text-sm text-blue-700">Per le partecipanti che desiderano organizzare la formazione presso il proprio centro: 2.899 € (tutte le spese di trasferimento incluse)</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-center">
                   <Link
                     to="/contatti#form"
-                    className="bg-black text-white px-8 py-4 rounded-full font-medium text-base flex items-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110 hover:text-black"
+                      className="w-full bg-black text-white px-8 py-4 rounded-full font-medium text-lg flex items-center justify-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110 hover:text-black"
                   >
-                    <span className="relative z-10">Iscriviti</span>
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-500 ease-out relative z-10" />
+                      <span className="relative z-10">Iscriviti al Corso VIP</span>
+                      <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-500 ease-out relative z-10" />
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
                   </Link>
+                  </div>
                 </div>
               </div>
                   </div>
 
-            <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-lg hover:shadow-xl border border-gray-200 hover:border-gray-300 transition-all duration-300 ease-out hover:scale-105">
+            {/* CORSO RETENTION & SEGRETI DELLA TENUTA */}
+            <div className="bg-white rounded-2xl shadow-lg border border-gray-200">
+              <div className="p-8 sm:p-12">
+                <div className="grid lg:grid-cols-2 gap-8 sm:gap-12">
                     <div>
-                <h4 className="text-3xl sm:text-4xl font-bold text-black mb-3 sm:mb-4 text-left">Master Class</h4>
-                <p className="text-black font-light mb-4 sm:mb-6 text-sm sm:text-base">
-                  Il corso più completo per diventare un vero Master delle extension ciglia 
-                  e aprire la propria attività.
-                </p>
-                <ul className="text-left text-gray-700 space-y-1 sm:space-y-2 mb-4 sm:mb-6 text-sm sm:text-base">
-                  <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-black rounded-full flex-shrink-0"></span>
-                    <span>Tutte le tecniche</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-black rounded-full flex-shrink-0"></span>
-                    <span>Gestione business</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-black rounded-full flex-shrink-0"></span>
-                    <span>Marketing beauty</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-black rounded-full flex-shrink-0"></span>
-                    <span>Supporto continuo</span>
-                          </li>
+                    <h4 className="text-3xl sm:text-4xl font-bold text-black mb-4">CORSO RETENTION & SEGRETI DELLA TENUTA</h4>
+                    <p className="text-xl text-gray-700 font-medium mb-6">Migliora la durata delle applicazioni e offri risultati impeccabili</p>
+                    <p className="text-gray-700 leading-relaxed mb-6">
+                      Il Corso Retention & Segreti della Tenuta è dedicato a lash artist che vogliono comprendere in modo scientifico e pratico come migliorare la durata delle extension ciglia, analizzando in profondità i fattori che influenzano l'adesione, la stabilità e la resistenza del trattamento.
+                    </p>
+                    <div className="bg-gray-50 p-6 rounded-xl mb-6">
+                      <h5 className="font-bold text-black mb-3">PROGRAMMA DEL CORSO</h5>
+                      <div className="space-y-4">
+                        <div>
+                          <h6 className="font-semibold text-black mb-2">Parte Teorica</h6>
+                          <ul className="text-sm text-gray-700 space-y-1 ml-4">
+                            <li>• Comprendere la chimica dell'adesivo: composizione e struttura molecolare</li>
+                            <li>• Analisi approfondita dei tipi di cianoacrilato</li>
+                            <li>• Relazione tra ambiente e performance</li>
+                            <li>• Importanza del pH delle ciglia naturali</li>
+                            <li>• Differenze tra adesivi rapidi e lenti</li>
+                          </ul>
+                        </div>
+                        <div>
+                          <h6 className="font-semibold text-black mb-2">Parte Pratica</h6>
+                          <ul className="text-sm text-gray-700 space-y-1 ml-4">
+                            <li>• Test comparativi di adesivi</li>
+                            <li>• Simulazioni di condizioni ambientali reali</li>
+                            <li>• Dimostrazione sulla gestione del punto di colla</li>
+                            <li>• Esercizi per migliorare precisione e velocità</li>
+                            <li>• Tecniche per riconoscere la "colla secca" e la "colla satura"</li>
+                          </ul>
+                        </div>
+                        <div>
+                          <h6 className="font-semibold text-black mb-2">Argomenti Speciali</h6>
+                          <ul className="text-sm text-gray-700 space-y-1 ml-4">
+                            <li>• Come scegliere l'adesivo giusto in base alla velocità di lavoro</li>
+                            <li>• La corretta manutenzione del flacone</li>
+                            <li>• Prevenzione di irritazioni o sensibilizzazioni</li>
+                            <li>• Strategie per aumentare la ritenzione media fino al 40%</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="bg-yellow-50 p-6 rounded-xl mb-6">
+                      <h5 className="font-bold text-black mb-3">AL TERMINE DEL CORSO</h5>
+                      <ul className="text-sm text-gray-700 space-y-1">
+                        <li>• Manuale tecnico digitale con tabelle di confronto</li>
+                        <li>• Certificato ufficiale "Retention & Glue Master"</li>
+                        <li>• Linee guida aggiornate per ottimizzare la ritenzione</li>
+                        <li>• Accesso a materiale di aggiornamento</li>
                       </ul>
-                <div 
-                  className="mt-4 w-full h-80 rounded-lg relative bg-cover bg-center bg-no-repeat flex items-end justify-start p-4"
-                  style={{ backgroundImage: 'url(/soggetto/c3.jpg)' }}
-                >
+                    </div>
+                    <div className="flex flex-col sm:flex-row gap-4">
+                      <div className="bg-black text-white px-6 py-3 rounded-lg">
+                        <p className="text-sm font-medium">Durata: 1 giornata</p>
+                        <p className="text-lg font-bold">Prezzo: 199 €</p>
+                      </div>
+                      <div className="bg-gray-100 text-black px-6 py-3 rounded-lg">
+                        <p className="text-sm font-medium">Modalità: in presenza o online</p>
+                        <p className="text-sm">Max 8 partecipanti</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-center">
                   <Link
                     to="/contatti#form"
-                    className="bg-black text-white px-8 py-4 rounded-full font-medium text-base flex items-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110 hover:text-black"
+                      className="w-full bg-black text-white px-8 py-4 rounded-full font-medium text-lg flex items-center justify-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110 hover:text-black"
                   >
-                    <span className="relative z-10">Iscriviti</span>
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-500 ease-out relative z-10" />
+                      <span className="relative z-10">Iscriviti al Corso Retention</span>
+                      <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-500 ease-out relative z-10" />
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
                   </Link>
+                  </div>
                 </div>
                   </div>
             </div>

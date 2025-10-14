@@ -175,7 +175,7 @@ const CookiePolicy = () => {
                   Per domande sui cookie o per esercitare i tuoi diritti, contattaci:
                 </p>
                 <ul className="list-none text-gray-700 leading-relaxed mb-6">
-                  <li>Email: info@academylashmaster.com</li>
+                  <li>Email: academylashmaster@gmail.com</li>
                   <li>Telefono: +39 3533165390</li>
                   <li>Indirizzo: Via Roma 123, Milano</li>
                 </ul>

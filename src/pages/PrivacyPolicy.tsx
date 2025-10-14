@@ -37,7 +37,7 @@ const PrivacyPolicy = () => {
                 
                 <h2 className="text-2xl sm:text-3xl font-bold text-black mb-6">1. Titolare del Trattamento</h2>
                 <p className="text-gray-700 leading-relaxed mb-6">
-                  Il Titolare del trattamento dei dati personali è Academy Lash Master di Ana Maria, con sede in Via Roma 123, Milano, P.IVA: 03338640802, email: info@academylashmaster.com.
+                  Il Titolare del trattamento dei dati personali è Academy Lash Master di Ana Maria, con sede in Via Roma 123, Milano, P.IVA: 03338640802, email: academylashmaster@gmail.com.
                 </p>
 
                 <h2 className="text-2xl sm:text-3xl font-bold text-black mb-6">2. Tipi di Dati Raccolti</h2>
@@ -106,7 +106,7 @@ const PrivacyPolicy = () => {
                   Per qualsiasi domanda relativa a questa Privacy Policy o per esercitare i propri diritti, è possibile contattarci:
                 </p>
                 <ul className="list-none text-gray-700 leading-relaxed mb-6">
-                  <li>Email: info@academylashmaster.com</li>
+                  <li>Email: academylashmaster@gmail.com</li>
                   <li>Telefono: +39 3533165390</li>
                   <li>Indirizzo: Via Roma 123, Milano</li>
                 </ul>
