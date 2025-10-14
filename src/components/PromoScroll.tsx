@@ -10,7 +10,7 @@ const PromoScroll = () => {
             {[...Array(10)].map((_, i) => (
               <React.Fragment key={i}>
                 <span className="text-sm font-medium">
-                  PROMO: Per i primi clienti è disponibile un 10% di sconto!
+                  Vieni a scoprire i miei corsi!
                 </span>
                 <span className="text-sm font-medium">•</span>
               </React.Fragment>
