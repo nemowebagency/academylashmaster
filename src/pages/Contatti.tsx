@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import emailjs from '@emailjs/browser';
+// import emailjs from '@emailjs/browser';
 import { EMAILJS_CONFIG } from '../config/emailjs';
 import { sendTestEmail, sendRealEmail } from '../utils/emailTest';
 import NeonCursor from '../components/NeonCursor';

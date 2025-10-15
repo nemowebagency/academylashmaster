@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 
@@ -6,7 +6,7 @@ interface NavbarProps {
   setShowContactForm: (show: boolean) => void;
 }
 
-const Navbar = ({ setShowContactForm }: NavbarProps) => {
+const Navbar = ({ setShowContactForm: _setShowContactForm }: NavbarProps) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();

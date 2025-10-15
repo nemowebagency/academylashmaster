@@ -6,7 +6,7 @@ interface UseLazyImageProps {
   priority?: boolean;
 }
 
-export const useLazyImage = ({ src, loading = 'eager', priority = false }: UseLazyImageProps) => {
+export const useLazyImage = ({ src: _src, loading = 'eager', priority = false }: UseLazyImageProps) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isInView, setIsInView] = useState(true); // Sempre true per disattivare lazy loading
   const imgRef = useRef<HTMLImageElement>(null);

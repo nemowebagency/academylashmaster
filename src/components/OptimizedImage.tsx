@@ -1,4 +1,3 @@
-import React from 'react';
 
 interface OptimizedImageProps {
   src: string;
@@ -15,8 +14,8 @@ const OptimizedImage: React.FC<OptimizedImageProps> = ({
   src,
   alt,
   className = '',
-  loading = 'eager', // Disattivato lazy loading di default
-  priority = false,
+  loading: _loading = 'eager', // Disattivato lazy loading di default
+  priority: _priority = false,
   width,
   height,
   sizes

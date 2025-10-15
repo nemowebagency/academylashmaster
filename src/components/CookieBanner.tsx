@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Check, XCircle } from 'lucide-react';
 
@@ -78,9 +78,9 @@ const CookieBanner = () => {
     }
   };
 
-  const handleClose = () => {
-    setIsVisible(false);
-  };
+  // const handleClose = () => {
+  //   setIsVisible(false);
+  // };
 
   const enableAnalytics = () => {
     // Enable Google Analytics or other analytics cookies

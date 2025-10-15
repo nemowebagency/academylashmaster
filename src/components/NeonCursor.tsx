@@ -1,36 +1,36 @@
 'use client';
-import { useState, useEffect, useCallback } from 'react';
-import { motion, useAnimation } from 'motion/react';
+import { useEffect, useCallback } from 'react';
+import { useAnimation } from 'motion/react';
 import './NeonCursor.css';
 
 const NeonCursor = () => {
-  const [position, setPosition] = useState({
-    x: 0,
-    y: 0,
-    scale: 1,
-    opacity: 1,
-  });
-  const [isClicking, setIsClicking] = useState(false);
-  const [isHovering, setIsHovering] = useState(false);
+  // const [position, setPosition] = useState({
+  //   x: 0,
+  //   y: 0,
+  //   scale: 1,
+  //   opacity: 1,
+  // });
+  // const [isClicking, setIsClicking] = useState(false);
+  // const [isHovering, setIsHovering] = useState(false);
   const trailControls = useAnimation();
   const glowControls = useAnimation();
 
-  const handleMouseMove = useCallback((e) => {
-    setPosition((prev) => ({
-      ...prev,
-      x: e.clientX,
-      y: e.clientY,
-    }));
+  const handleMouseMove = useCallback((_e: MouseEvent) => {
+    // setPosition((prev) => ({
+    //   ...prev,
+    //   x: e.clientX,
+    //   y: e.clientY,
+    // }));
   }, []);
 
-  const handleMouseDown = () => setIsClicking(true);
-  const handleMouseUp = () => setIsClicking(false);
+  // const handleMouseDown = () => setIsClicking(true);
+  // const handleMouseUp = () => setIsClicking(false);
 
   const handleMouseOver = useCallback(
-    (e) => {
-      const target = e.target;
-      if (target.matches('a, button, input, [data-hover="true"]')) {
-        setIsHovering(true);
+    (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      if (target && target.matches('a, button, input, [data-hover="true"]')) {
+        // setIsHovering(true);
         void trailControls.start({
           scale: 1.5,
           borderColor: 'rgb(255, 255, 255)',
@@ -46,7 +46,7 @@ const NeonCursor = () => {
   );
 
   const handleMouseOut = useCallback(() => {
-    setIsHovering(false);
+    // setIsHovering(false);
     void trailControls.start({
       scale: 1,
       borderColor: 'rgb(255, 255, 255)',
@@ -60,15 +60,15 @@ const NeonCursor = () => {
 
   useEffect(() => {
     window.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('mousedown', handleMouseDown);
-    window.addEventListener('mouseup', handleMouseUp);
+    // window.addEventListener('mousedown', handleMouseDown);
+    // window.addEventListener('mouseup', handleMouseUp);
     window.addEventListener('mouseover', handleMouseOver);
     window.addEventListener('mouseout', handleMouseOut);
 
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('mousedown', handleMouseDown);
-      window.removeEventListener('mouseup', handleMouseUp);
+      // window.removeEventListener('mousedown', handleMouseDown);
+      // window.removeEventListener('mouseup', handleMouseUp);
       window.removeEventListener('mouseover', handleMouseOver);
       window.removeEventListener('mouseout', handleMouseOut);
     };

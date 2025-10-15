@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { ArrowRight, Facebook, Instagram, BookOpen, Users, Star } from 'lucide-react';
-import emailjs from '@emailjs/browser';
+// import emailjs from '@emailjs/browser';
 import { EMAILJS_CONFIG } from '../config/emailjs';
 import { sendTestEmail, sendRealEmail } from '../utils/emailTest';
 import NeonCursor from '../components/NeonCursor';

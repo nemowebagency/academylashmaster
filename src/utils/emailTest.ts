@@ -1,5 +1,5 @@
 // Funzione di test per simulare l'invio email senza EmailJS
-export const sendTestEmail = async (formData: any) => {
+export const sendTestEmail = async (_formData: any) => {
   try {
     // Simula un delay di invio
     await new Promise(resolve => setTimeout(resolve, 1000));
