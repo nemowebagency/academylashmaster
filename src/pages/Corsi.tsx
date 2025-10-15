@@ -333,7 +333,7 @@ const Corsi = () => {
                     </li>
                     <li className="flex items-start space-x-3">
                       <span className="bg-black text-white rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold flex-shrink-0">2</span>
-                      <span className="text-black text-sm sm:text-base">Inserisci il codice sconto <strong className="text-black font-bold">"ANA-MARIA"</strong></span>
+                      <span className="text-black text-sm sm:text-base">Inserisci il codice sconto <strong className="text-black font-bold">"PETREAANAMARIA"</strong></span>
                     </li>
                     <li className="flex items-start space-x-3">
                       <span className="bg-black text-white rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold flex-shrink-0">3</span>
