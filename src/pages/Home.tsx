@@ -397,7 +397,7 @@ const Home = () => {
                   </ul>
                   <div className="mt-auto">
                   <Link 
-                    to="/contatti#form"
+                    to="/corsi"
                       className="w-full bg-white text-black px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium text-sm sm:text-base flex items-center justify-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110 hover:text-black"
                   >
                     <span className="relative z-10">Scopri di più</span>
@@ -484,7 +484,7 @@ const Home = () => {
                   </ul>
                   <div className="mt-auto">
                   <Link 
-                    to="/contatti#form"
+                    to="/corsi"
                       className="w-full bg-white text-black px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium text-sm sm:text-base flex items-center justify-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110 hover:text-black"
                   >
                     <span className="relative z-10">Scopri di più</span>
@@ -526,7 +526,7 @@ const Home = () => {
                 </ul>
                   <div className="mt-auto">
                   <Link 
-                    to="/contatti#form"
+                    to="/corsi"
                       className="w-full bg-white text-black px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium text-sm sm:text-base flex items-center justify-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110 hover:text-black"
                   >
                     <span className="relative z-10">Scopri di più</span>
