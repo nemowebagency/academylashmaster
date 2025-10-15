@@ -215,7 +215,7 @@ const ChiSono = () => {
                 </p>
                 
                 {/* Pulsante Scopri i miei corsi */}
-                <div className={`mt-8 text-center transition-all duration-1000 ease-out ${storyVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`} style={{transitionDelay: storyVisible ? '0.8s' : '0s'}}>
+                <div className={`mt-8 text-left transition-all duration-1000 ease-out ${storyVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`} style={{transitionDelay: storyVisible ? '0.8s' : '0s'}}>
                   <a 
                     href="/corsi" 
                     className="inline-flex items-center gap-2 bg-black text-white px-8 py-4 rounded-full font-semibold text-lg group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110 hover:text-black"

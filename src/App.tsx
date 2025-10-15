@@ -14,7 +14,6 @@ import ScrollToTopOnRouteChange from './components/ScrollToTopOnRouteChange';
 import WhatsAppButton from './components/WhatsAppButton';
 import ScrollToTop from './components/ScrollToTop';
 import CookieBanner from './components/CookieBanner';
-import DebugInfo from './components/DebugInfo';
 
 // Loading component for lazy loaded routes
 const LoadingFallback = () => (
@@ -44,7 +43,6 @@ function App() {
       <WhatsAppButton />
       <ScrollToTop />
       <CookieBanner />
-      <DebugInfo />
     </Suspense>
   );
 }

@@ -3,7 +3,7 @@ import { CourseData } from '../components/ExpandableCourseCard';
 export const coursesData: CourseData[] = [
   {
     id: 'classico',
-    title: 'CORSO CLASSICO (BASE)',
+    title: 'Corso classico (Base)',
     subtitle: 'La tua base solida per diventare una Lash Artist professionista',
     description: 'Corso completo e strutturato per apprendere la tecnica One to One dalle basi fino all\'esecuzione perfetta, con teoria approfondita e supporto continuo.',
     image: '/soggetto/one.jpg',
@@ -55,12 +55,12 @@ export const coursesData: CourseData[] = [
       modality: 'in presenza',
       participants: 'Max 6 partecipanti'
     },
-    buttonText: 'Iscriviti al Corso Base',
+    buttonText: 'Iscriviti al Corso Classico',
     buttonLink: '/contatti#form'
   },
   {
     id: 'volume',
-    title: 'CORSO VOLUME',
+    title: 'Corso volume',
     subtitle: 'Tecniche avanzate di infoltimento e perfezionamento della manualità',
     description: 'Il Corso Volume è dedicato alle lash artist che desiderano portare le proprie competenze a un livello superiore, imparando la tecnica dell\'infoltimento tramite ventagli multipli.',
     image: '/soggetto/vol.jpg',
@@ -116,7 +116,7 @@ export const coursesData: CourseData[] = [
   },
   {
     id: 'completo',
-    title: 'CORSO COMPLETO (CLASSICO + VOLUME)',
+    title: 'Corso completo (Classico + Volume)',
     subtitle: 'Tutte le tecniche professionali per diventare una Lash Artist completa',
     description: 'Il Corso Completo Lash Artist unisce in un unico percorso le tecniche Classiche One to One e Volume, offrendo una formazione intensiva, strutturata e professionale.',
     image: '/soggetto/completo.jpg',
@@ -167,7 +167,7 @@ export const coursesData: CourseData[] = [
   },
   {
     id: 'vip',
-    title: 'CORSO VIP INDIVIDUALE',
+    title: 'Corso VIP individuale',
     subtitle: 'Formazione esclusiva one-to-one con la Master Trainer Ana Maria',
     description: 'Il Corso VIP Individuale è un\'esperienza formativa esclusiva, pensata per chi desidera un percorso personalizzato al 100%, costruito in base alle proprie esigenze tecniche.',
     image: '/soggetto/vip.jpg',
@@ -213,7 +213,7 @@ export const coursesData: CourseData[] = [
   },
   {
     id: 'retention',
-    title: 'CORSO RETENTION & SEGRETI DELLA TENUTA',
+    title: 'Corso retention & segreti della tenuta',
     subtitle: 'Migliora la durata delle applicazioni e offri risultati impeccabili',
     description: 'Il Corso Retention & Segreti della Tenuta è dedicato a lash artist che vogliono comprendere in modo scientifico e pratico come migliorare la durata delle extension ciglia.',
     image: '/soggetto/tenuta.jpeg',

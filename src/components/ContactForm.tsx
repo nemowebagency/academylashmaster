@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { ArrowRight } from 'lucide-react'
 
 interface ContactFormProps {
@@ -27,6 +27,19 @@ const ContactForm: React.FC<ContactFormProps> = ({
     phone: '',
     message: ''
   });
+  
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+
+  // Gestisce la scomparsa automatica del messaggio di successo
+  useEffect(() => {
+    if (showSuccessMessage) {
+      const timer = setTimeout(() => {
+        setShowSuccessMessage(false);
+      }, 5000);
+      
+      return () => clearTimeout(timer);
+    }
+  }, [showSuccessMessage]);
 
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -36,8 +49,10 @@ const ContactForm: React.FC<ContactFormProps> = ({
     } else {
       // Default behavior
       console.log('Form submitted:', formData);
-      alert('Grazie per il tuo interesse! Ti contatteremo presto.');
     }
+    
+    // Mostra il messaggio di successo
+    setShowSuccessMessage(true);
     
     // Reset form
     setFormData({ name: '', email: '', phone: '', message: '' });
@@ -61,6 +76,11 @@ const ContactForm: React.FC<ContactFormProps> = ({
     return (
       <div className={`${isDark ? 'bg-gray-900' : 'bg-white'} rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-lg border ${isDark ? 'border-gray-700' : 'border-gray-200'}`}>
         <div className="mb-6 sm:mb-8">
+          {showSuccessMessage && (
+            <div className="mb-4 p-4 bg-yellow-100 border border-yellow-300 rounded-lg text-center animate-fade-in">
+              <p className="text-yellow-800 font-medium">Grazie. Il tuo messaggio è stato inviato.</p>
+            </div>
+          )}
           <h3 className={`text-2xl sm:text-3xl font-bold ${isDark ? 'text-white' : 'text-black'} mb-3 sm:mb-4`}>Richiedi Informazioni</h3>
           <p className={`text-base sm:text-lg ${isDark ? 'text-gray-300' : 'text-black'} font-light`}>Compila il form per ricevere tutte le informazioni sui miei corsi</p>
         </div>
@@ -146,6 +166,12 @@ const ContactForm: React.FC<ContactFormProps> = ({
           ×
         </button>
       </div>
+      
+      {showSuccessMessage && (
+        <div className="mb-4 p-4 bg-yellow-100 border border-yellow-300 rounded-lg text-center animate-fade-in">
+          <p className="text-yellow-800 font-medium">Grazie. Il tuo messaggio è stato inviato.</p>
+        </div>
+      )}
       
       <form onSubmit={handleFormSubmit} className="space-y-4 sm:space-y-6">
         <div className="relative z-10">

@@ -32,14 +32,10 @@ const Contatti = () => {
         result = await sendTestEmail(formData);
       }
       
-      if (result.success) {
-        alert('Messaggio inviato con successo! Ti contatteremo presto.');
-      } else {
-        alert('Errore nell\'invio del messaggio. Riprova o contattaci direttamente.');
-      }
+      // Il ContactForm gestisce i messaggi di successo/errore internamente
+      console.log('Risultato invio:', result);
     } catch (error) {
       console.error('Errore nell\'invio email:', error);
-      alert('Errore nell\'invio del messaggio. Riprova o contattaci direttamente.');
     }
   };
 
@@ -189,7 +185,7 @@ const Contatti = () => {
                   </svg>
                 </div>
                 <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-3 sm:mb-4">Telefono</h3>
-                <p className="text-gray-300 text-sm sm:text-base mb-4 sm:mb-6">Chiamaci per informazioni immediate sui nostri corsi</p>
+                <p className="text-gray-300 text-sm sm:text-base mb-4 sm:mb-6">Chiamaci per informazioni sui nostri corsi</p>
                 <a 
                   href="tel:+393533165390" 
                   className="text-white font-medium text-sm sm:text-base hover:text-gray-300 transition-colors duration-300"

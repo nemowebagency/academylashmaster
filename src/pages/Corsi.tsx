@@ -27,7 +27,6 @@ const Corsi = () => {
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('Form submitted:', formData);
-    alert('Grazie per il tuo interesse! Ti contatteremo presto.');
     setShowContactForm(false);
     setFormData({ name: '', email: '', phone: '', message: '' });
   };
@@ -128,10 +127,10 @@ const Corsi = () => {
       <HeroCorsi />
 
       {/* CORSI SECTION - Sezione con i corsi professionali dettagliati */}
-      <section id="corsi" className="pb-12 sm:pb-16 lg:pb-20" style={{ backgroundColor: '#F3F3F3' }}>
+      <section id="corsi" data-section="corsi" className="pt-12 sm:pt-16 lg:pt-20 pb-20 sm:pb-24 lg:pb-28" style={{ backgroundColor: '#F3F3F3' }}>
         <div className="w-full sm:w-[90%] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-left mb-2 sm:mb-3">
-            <h3 className={`text-4xl sm:text-5xl md:text-6xl font-bold text-black mb-2 transition-all duration-1000 ease-out ${coursesVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`}>I nostri corsi professionali</h3>
+            <h3 className={`text-4xl sm:text-5xl md:text-6xl font-bold text-black mb-2 transition-all duration-1000 ease-out ${coursesVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`}>Le nostre proposte</h3>
             <p className={`text-lg sm:text-xl text-black font-light transition-all duration-1000 ease-out ${coursesVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`} style={{transitionDelay: coursesVisible ? '0.2s' : '0s'}}>Formazione completa e certificata per ogni livello di esperienza</p>
           </div>
 

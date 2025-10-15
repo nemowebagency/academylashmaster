@@ -22,7 +22,6 @@ const Home = () => {
   const handleFormSubmit = (formData: any) => {
     // Qui puoi aggiungere la logica per inviare l'email
     console.log('Form submitted:', formData);
-    alert('Grazie per il tuo interesse! Ti contatteremo presto.');
   };
 
   // Gestisce lo scroll automatico quando si arriva con l'hash
@@ -331,7 +330,7 @@ const Home = () => {
               <div className="absolute inset-0 bg-black rounded-2xl shadow-2xl"></div>
               <div className="relative bg-black p-4 sm:p-5 rounded-2xl shadow-lg hover:shadow-xl border border-gray-700 hover:border-gray-600 transition-all duration-300 ease-out hover:scale-105 flex flex-col h-full">
                 <div className="flex flex-col h-full">
-                  <h4 className="text-2xl sm:text-3xl font-bold text-white mb-2 text-left leading-tight">Corso Classico (Base)</h4>
+                  <h4 className="text-2xl sm:text-3xl font-bold text-white mb-2 text-left leading-tight">Corso classico (Base)</h4>
                   <p className="text-gray-300 font-light mb-3 text-sm leading-relaxed">
                     La tua base solida per diventare una Lash Artist professionista. 
                     Tecnica One to One dalle basi fino all'esecuzione perfetta.
@@ -373,7 +372,7 @@ const Home = () => {
               <div className="absolute inset-0 bg-black rounded-2xl shadow-2xl"></div>
               <div className="relative bg-black p-4 sm:p-5 rounded-2xl shadow-lg hover:shadow-xl border border-gray-700 hover:border-gray-600 transition-all duration-300 ease-out hover:scale-105 flex flex-col h-full">
                 <div className="flex flex-col h-full">
-                  <h4 className="text-2xl sm:text-3xl font-bold text-white mb-2 text-left leading-tight">Corso Volume</h4>
+                  <h4 className="text-2xl sm:text-3xl font-bold text-white mb-2 text-left leading-tight">Corso volume</h4>
                   <p className="text-gray-300 font-light mb-3 text-sm leading-relaxed">
                     Tecniche avanzate di infoltimento e perfezionamento della manualità. 
                     Ventagli multipli handmade per effetti straordinari.
@@ -415,7 +414,7 @@ const Home = () => {
               <div className="absolute inset-0 bg-black rounded-2xl shadow-2xl"></div>
               <div className="relative bg-black p-4 sm:p-5 rounded-2xl shadow-lg hover:shadow-xl border border-gray-700 hover:border-gray-600 transition-all duration-300 ease-out hover:scale-105 flex flex-col h-full">
                 <div className="flex flex-col h-full">
-                  <h4 className="text-2xl sm:text-3xl font-bold text-white mb-2 text-left leading-tight">Corso Completo (Classico + Volume)</h4>
+                  <h4 className="text-2xl sm:text-3xl font-bold text-white mb-2 text-left leading-tight">Corso completo (Classico + Volume)</h4>
                   <p className="text-gray-300 font-light mb-3 text-sm leading-relaxed">
                     Tutte le tecniche professionali per diventare una Lash Artist completa. 
                     Formazione intensiva e strutturata.
@@ -460,7 +459,7 @@ const Home = () => {
               <div className="absolute inset-0 bg-black rounded-2xl shadow-2xl"></div>
               <div className="relative bg-black p-4 sm:p-5 rounded-2xl shadow-lg hover:shadow-xl border border-gray-700 hover:border-gray-600 transition-all duration-300 ease-out hover:scale-105 flex flex-col h-full">
                 <div className="flex flex-col h-full">
-                  <h4 className="text-2xl sm:text-3xl font-bold text-white mb-2 text-left leading-tight">Corso VIP Individuale</h4>
+                  <h4 className="text-2xl sm:text-3xl font-bold text-white mb-2 text-left leading-tight">Corso VIP individuale</h4>
                   <p className="text-gray-300 font-light mb-3 text-sm leading-relaxed">
                     Formazione esclusiva one-to-one con la Master Trainer Ana Maria. 
                     Percorso personalizzato al 100%.
@@ -502,7 +501,7 @@ const Home = () => {
               <div className="absolute inset-0 bg-black rounded-2xl shadow-2xl"></div>
               <div className="relative bg-black p-4 sm:p-5 rounded-2xl shadow-lg hover:shadow-xl border border-gray-700 hover:border-gray-600 transition-all duration-300 ease-out hover:scale-105 flex flex-col h-full">
                 <div className="flex flex-col h-full">
-                  <h4 className="text-2xl sm:text-3xl font-bold text-white mb-2 text-left leading-tight">Corso Retention & Segreti della Tenuta</h4>
+                  <h4 className="text-2xl sm:text-3xl font-bold text-white mb-2 text-left leading-tight">Corso retention & segreti della tenuta</h4>
                   <p className="text-gray-300 font-light mb-3 text-sm leading-relaxed">
                     Migliora la durata delle applicazioni e offri risultati impeccabili. 
                     Focus tecnico sulla ritenzione e gestione dell'adesivo.
@@ -579,10 +578,20 @@ const Home = () => {
             <p className={`text-base sm:text-lg text-white font-light leading-relaxed text-justify transition-all duration-1000 ease-out ${aboutVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'}`} style={{textAlignLast: 'left', transitionDelay: aboutVisible ? '0.4s' : '0s'}}>
               La mia storia nasce da un desiderio profondo: trasformare una passione in una vera professione e offrire ad altre donne gli strumenti per fare lo stesso. Ho viaggiato, studiato e investito tempo ed energie per raccogliere le migliori conoscenze, arricchendo il mio percorso con esperienze internazionali che mi hanno permesso di crescere e portare innovazione nel mondo delle extension ciglia.
             </p>
+            <div className={`mt-6 transition-all duration-1000 ease-out ${aboutVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'}`} style={{transitionDelay: aboutVisible ? '0.6s' : '0s'}}>
+              <Link 
+                to="/chi-sono"
+                className="inline-flex bg-white text-black px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium text-sm sm:text-base flex items-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110 hover:text-black"
+              >
+                <span className="relative z-10">Visita la pagina</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-500 ease-out relative z-10" />
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-black/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
+              </Link>
+            </div>
           </div>
           
           {/* Bottom Row - Image */}
-          <div className={`relative group order-2 transition-all duration-1000 ease-out ${aboutVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{transitionDelay: aboutVisible ? '0.6s' : '0s'}}>
+          <div className={`relative group order-2 transition-all duration-1000 ease-out ${aboutVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{transitionDelay: aboutVisible ? '0.8s' : '0s'}}>
             <div className="relative overflow-hidden">
               <img 
                 src="/soggetto/person1.png"
@@ -622,6 +631,16 @@ const Home = () => {
               <p className={`text-lg sm:text-xl text-white font-light leading-relaxed text-justify transition-all duration-1000 ease-out ${aboutVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'}`} style={{textAlignLast: 'left', transitionDelay: aboutVisible ? '0.4s' : '0s'}}>
                 La mia storia nasce da un desiderio profondo: trasformare una passione in una vera professione e offrire ad altre donne gli strumenti per fare lo stesso. Ho viaggiato, studiato e investito tempo ed energie per raccogliere le migliori conoscenze, arricchendo il mio percorso con esperienze internazionali che mi hanno permesso di crescere e portare innovazione nel mondo delle extension ciglia.
               </p>
+              <div className={`mt-6 transition-all duration-1000 ease-out ${aboutVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'}`} style={{transitionDelay: aboutVisible ? '0.6s' : '0s'}}>
+                <Link 
+                  to="/chi-sono"
+                  className="inline-flex bg-white text-black px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium text-sm sm:text-base flex items-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110 hover:text-black"
+                >
+                  <span className="relative z-10">Visita la pagina</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-500 ease-out relative z-10" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-black/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
@@ -838,17 +857,6 @@ const Home = () => {
                 </div>
               </div>
 
-              <div className={`flex items-center transition-all duration-1000 ease-out ${contactsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{transitionDelay: contactsVisible ? '0.8s' : '0s'}}>
-                <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-black to-black rounded-full flex items-center justify-center mr-4 sm:mr-6">
-                  <svg className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                  </svg>
-                </div>
-                <div>
-                  <h4 className="text-lg sm:text-xl font-semibold text-black mb-1">Indirizzo</h4>
-                  <p className="text-gray-700 text-sm sm:text-base">Via Roma 123, Milano</p>
-                </div>
-              </div>
               </div>
             </div>
 
