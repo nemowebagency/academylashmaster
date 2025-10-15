@@ -19,8 +19,14 @@ const CookieBanner = () => {
 
   useEffect(() => {
     // Check if user has already made a choice
-    const cookieConsent = localStorage.getItem('cookieConsent');
-    if (!cookieConsent) {
+    try {
+      const cookieConsent = localStorage.getItem('cookieConsent');
+      if (!cookieConsent) {
+        setIsVisible(true);
+      }
+    } catch (error) {
+      // If localStorage is not available, show the banner
+      console.warn('localStorage not available:', error);
       setIsVisible(true);
     }
   }, []);
@@ -32,7 +38,11 @@ const CookieBanner = () => {
       marketing: true,
       timestamp: Date.now()
     };
-    localStorage.setItem('cookieConsent', JSON.stringify(consent));
+    try {
+      localStorage.setItem('cookieConsent', JSON.stringify(consent));
+    } catch (error) {
+      console.warn('Could not save to localStorage:', error);
+    }
     setIsVisible(false);
     
     // Enable all cookies
@@ -47,7 +57,11 @@ const CookieBanner = () => {
       marketing: false,
       timestamp: Date.now()
     };
-    localStorage.setItem('cookieConsent', JSON.stringify(consent));
+    try {
+      localStorage.setItem('cookieConsent', JSON.stringify(consent));
+    } catch (error) {
+      console.warn('Could not save to localStorage:', error);
+    }
     setIsVisible(false);
     
     // Disable non-necessary cookies
@@ -60,7 +74,11 @@ const CookieBanner = () => {
       ...preferences,
       timestamp: Date.now()
     };
-    localStorage.setItem('cookieConsent', JSON.stringify(consent));
+    try {
+      localStorage.setItem('cookieConsent', JSON.stringify(consent));
+    } catch (error) {
+      console.warn('Could not save to localStorage:', error);
+    }
     setIsVisible(false);
     setShowSettings(false);
     
