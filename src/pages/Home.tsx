@@ -323,18 +323,20 @@ const Home = () => {
             <p className={`text-lg sm:text-xl text-black font-light transition-all duration-1000 ease-out ${coursesVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`} style={{transitionDelay: coursesVisible ? '0.3s' : '0s'}}>Formazione professionale per ogni livello</p>
           </div>
           
-          <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 sm:gap-8">
-            {/* Corso Classico (Base) */}
-            <div className="relative">
-              <div className="absolute inset-0 bg-black rounded-xl shadow-2xl"></div>
-              <div className="relative bg-black p-4 sm:p-5 rounded-xl shadow-lg hover:shadow-xl border border-gray-700 hover:border-gray-600 transition-all duration-300 ease-out hover:scale-105 flex flex-col h-full">
+          <div className="space-y-8">
+            {/* Prima riga - 3 corsi */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+              {/* Corso Classico (Base) */}
+              <div className="relative">
+              <div className="absolute inset-0 bg-black rounded-2xl shadow-2xl"></div>
+              <div className="relative bg-black p-4 sm:p-5 rounded-2xl shadow-lg hover:shadow-xl border border-gray-700 hover:border-gray-600 transition-all duration-300 ease-out hover:scale-105 flex flex-col h-full">
                 <div className="flex flex-col h-full">
-                  <h4 className="text-lg sm:text-xl font-bold text-white mb-2 text-left leading-tight">Corso Classico (Base)</h4>
-                  <p className="text-gray-300 font-light mb-3 text-xs leading-relaxed flex-grow">
+                  <h4 className="text-2xl sm:text-3xl font-bold text-white mb-2 text-left leading-tight">Corso Classico (Base)</h4>
+                  <p className="text-gray-300 font-light mb-3 text-sm leading-relaxed">
                     La tua base solida per diventare una Lash Artist professionista. 
                     Tecnica One to One dalle basi fino all'esecuzione perfetta.
                   </p>
-                  <ul className="text-left text-gray-300 space-y-1.5 mb-4 text-xs">
+                  <ul className="text-left text-gray-300 space-y-1.5 mb-6 text-sm">
                   <li className="flex items-center gap-2">
                       <span className="w-1 h-1 bg-white rounded-full flex-shrink-0"></span>
                       <span>Norme di igiene e sicurezza</span>
@@ -354,11 +356,11 @@ const Home = () => {
                 </ul>
                   <div className="mt-auto">
                     <Link 
-                      to="/contatti#form"
-                      className="w-full bg-white text-black px-3 py-2 rounded-full font-medium text-xs flex items-center justify-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110 hover:text-black"
+                      to="/corsi"
+                      className="w-full bg-white text-black px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium text-sm sm:text-base flex items-center justify-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110 hover:text-black"
                     >
                       <span className="relative z-10">Scopri di più</span>
-                      <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform duration-500 ease-out relative z-10" />
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-500 ease-out relative z-10" />
                       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-black/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
                     </Link>
                   </div>
@@ -368,15 +370,15 @@ const Home = () => {
 
             {/* Corso Volume */}
             <div className="relative">
-              <div className="absolute inset-0 bg-black rounded-xl shadow-2xl"></div>
-              <div className="relative bg-black p-4 sm:p-5 rounded-xl shadow-lg hover:shadow-xl border border-gray-700 hover:border-gray-600 transition-all duration-300 ease-out hover:scale-105 flex flex-col h-full">
+              <div className="absolute inset-0 bg-black rounded-2xl shadow-2xl"></div>
+              <div className="relative bg-black p-4 sm:p-5 rounded-2xl shadow-lg hover:shadow-xl border border-gray-700 hover:border-gray-600 transition-all duration-300 ease-out hover:scale-105 flex flex-col h-full">
                 <div className="flex flex-col h-full">
-                  <h4 className="text-lg sm:text-xl font-bold text-white mb-2 text-left leading-tight">Corso Volume</h4>
-                  <p className="text-gray-300 font-light mb-3 text-xs leading-relaxed flex-grow">
+                  <h4 className="text-2xl sm:text-3xl font-bold text-white mb-2 text-left leading-tight">Corso Volume</h4>
+                  <p className="text-gray-300 font-light mb-3 text-sm leading-relaxed">
                     Tecniche avanzate di infoltimento e perfezionamento della manualità. 
                     Ventagli multipli handmade per effetti straordinari.
                   </p>
-                  <ul className="text-left text-gray-300 space-y-1.5 mb-4 text-xs">
+                  <ul className="text-left text-gray-300 space-y-1.5 mb-6 text-sm">
                     <li className="flex items-center gap-2">
                       <span className="w-1 h-1 bg-white rounded-full flex-shrink-0"></span>
                       <span>2D, 3D, 4D, 5D, 6D e Mega Volume</span>
@@ -397,10 +399,10 @@ const Home = () => {
                   <div className="mt-auto">
                   <Link 
                     to="/contatti#form"
-                      className="w-full bg-white text-black px-3 py-2 rounded-full font-medium text-xs flex items-center justify-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110 hover:text-black"
+                      className="w-full bg-white text-black px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium text-sm sm:text-base flex items-center justify-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110 hover:text-black"
                   >
                     <span className="relative z-10">Scopri di più</span>
-                      <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform duration-500 ease-out relative z-10" />
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-500 ease-out relative z-10" />
                       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-black/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
                   </Link>
                   </div>
@@ -410,15 +412,15 @@ const Home = () => {
 
             {/* Corso Completo (Classico + Volume) */}
             <div className="relative">
-              <div className="absolute inset-0 bg-black rounded-xl shadow-2xl"></div>
-              <div className="relative bg-black p-4 sm:p-5 rounded-xl shadow-lg hover:shadow-xl border border-gray-700 hover:border-gray-600 transition-all duration-300 ease-out hover:scale-105 flex flex-col h-full">
+              <div className="absolute inset-0 bg-black rounded-2xl shadow-2xl"></div>
+              <div className="relative bg-black p-4 sm:p-5 rounded-2xl shadow-lg hover:shadow-xl border border-gray-700 hover:border-gray-600 transition-all duration-300 ease-out hover:scale-105 flex flex-col h-full">
                 <div className="flex flex-col h-full">
-                  <h4 className="text-lg sm:text-xl font-bold text-white mb-2 text-left leading-tight">Corso Completo (Classico + Volume)</h4>
-                  <p className="text-gray-300 font-light mb-3 text-xs leading-relaxed flex-grow">
+                  <h4 className="text-2xl sm:text-3xl font-bold text-white mb-2 text-left leading-tight">Corso Completo (Classico + Volume)</h4>
+                  <p className="text-gray-300 font-light mb-3 text-sm leading-relaxed">
                     Tutte le tecniche professionali per diventare una Lash Artist completa. 
                     Formazione intensiva e strutturata.
                   </p>
-                  <ul className="text-left text-gray-300 space-y-1.5 mb-4 text-xs">
+                  <ul className="text-left text-gray-300 space-y-1.5 mb-6 text-sm">
                   <li className="flex items-center gap-2">
                       <span className="w-1 h-1 bg-white rounded-full flex-shrink-0"></span>
                       <span>Tecnica Classica One to One</span>
@@ -438,29 +440,32 @@ const Home = () => {
                 </ul>
                   <div className="mt-auto">
                     <Link 
-                      to="/contatti#form"
-                      className="w-full bg-white text-black px-3 py-2 rounded-full font-medium text-xs flex items-center justify-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110 hover:text-black"
+                      to="/corsi"
+                      className="w-full bg-white text-black px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium text-sm sm:text-base flex items-center justify-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110 hover:text-black"
                     >
                       <span className="relative z-10">Scopri di più</span>
-                      <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform duration-500 ease-out relative z-10" />
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-500 ease-out relative z-10" />
                       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-black/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
                     </Link>
                   </div>
                 </div>
               </div>
             </div>
+            </div>
 
-            {/* Corso VIP Individuale */}
+            {/* Seconda riga - 2 corsi */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 max-w-4xl mx-auto">
+              {/* Corso VIP Individuale */}
             <div className="relative">
-              <div className="absolute inset-0 bg-black rounded-xl shadow-2xl"></div>
-              <div className="relative bg-black p-4 sm:p-5 rounded-xl shadow-lg hover:shadow-xl border border-gray-700 hover:border-gray-600 transition-all duration-300 ease-out hover:scale-105 flex flex-col h-full">
+              <div className="absolute inset-0 bg-black rounded-2xl shadow-2xl"></div>
+              <div className="relative bg-black p-4 sm:p-5 rounded-2xl shadow-lg hover:shadow-xl border border-gray-700 hover:border-gray-600 transition-all duration-300 ease-out hover:scale-105 flex flex-col h-full">
                 <div className="flex flex-col h-full">
-                  <h4 className="text-lg sm:text-xl font-bold text-white mb-2 text-left leading-tight">Corso VIP Individuale</h4>
-                  <p className="text-gray-300 font-light mb-3 text-xs leading-relaxed flex-grow">
+                  <h4 className="text-2xl sm:text-3xl font-bold text-white mb-2 text-left leading-tight">Corso VIP Individuale</h4>
+                  <p className="text-gray-300 font-light mb-3 text-sm leading-relaxed">
                     Formazione esclusiva one-to-one con la Master Trainer Ana Maria. 
                     Percorso personalizzato al 100%.
                   </p>
-                  <ul className="text-left text-gray-300 space-y-1.5 mb-4 text-xs">
+                  <ul className="text-left text-gray-300 space-y-1.5 mb-6 text-sm">
                     <li className="flex items-center gap-2">
                       <span className="w-1 h-1 bg-white rounded-full flex-shrink-0"></span>
                       <span>Analisi tecnica personalizzata</span>
@@ -481,10 +486,10 @@ const Home = () => {
                   <div className="mt-auto">
                   <Link 
                     to="/contatti#form"
-                      className="w-full bg-white text-black px-3 py-2 rounded-full font-medium text-xs flex items-center justify-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110 hover:text-black"
+                      className="w-full bg-white text-black px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium text-sm sm:text-base flex items-center justify-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110 hover:text-black"
                   >
                     <span className="relative z-10">Scopri di più</span>
-                      <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform duration-500 ease-out relative z-10" />
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-500 ease-out relative z-10" />
                       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-black/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
                   </Link>
                   </div>
@@ -494,15 +499,15 @@ const Home = () => {
 
             {/* Corso Retention & Segreti della Tenuta */}
             <div className="relative">
-              <div className="absolute inset-0 bg-black rounded-xl shadow-2xl"></div>
-              <div className="relative bg-black p-4 sm:p-5 rounded-xl shadow-lg hover:shadow-xl border border-gray-700 hover:border-gray-600 transition-all duration-300 ease-out hover:scale-105 flex flex-col h-full">
+              <div className="absolute inset-0 bg-black rounded-2xl shadow-2xl"></div>
+              <div className="relative bg-black p-4 sm:p-5 rounded-2xl shadow-lg hover:shadow-xl border border-gray-700 hover:border-gray-600 transition-all duration-300 ease-out hover:scale-105 flex flex-col h-full">
                 <div className="flex flex-col h-full">
-                  <h4 className="text-lg sm:text-xl font-bold text-white mb-2 text-left leading-tight">Corso Retention & Segreti della Tenuta</h4>
-                  <p className="text-gray-300 font-light mb-3 text-xs leading-relaxed flex-grow">
+                  <h4 className="text-2xl sm:text-3xl font-bold text-white mb-2 text-left leading-tight">Corso Retention & Segreti della Tenuta</h4>
+                  <p className="text-gray-300 font-light mb-3 text-sm leading-relaxed">
                     Migliora la durata delle applicazioni e offri risultati impeccabili. 
                     Focus tecnico sulla ritenzione e gestione dell'adesivo.
                   </p>
-                  <ul className="text-left text-gray-300 space-y-1.5 mb-4 text-xs">
+                  <ul className="text-left text-gray-300 space-y-1.5 mb-6 text-sm">
                   <li className="flex items-center gap-2">
                       <span className="w-1 h-1 bg-white rounded-full flex-shrink-0"></span>
                       <span>Chimica del cianoacrilato</span>
@@ -523,15 +528,16 @@ const Home = () => {
                   <div className="mt-auto">
                   <Link 
                     to="/contatti#form"
-                      className="w-full bg-white text-black px-3 py-2 rounded-full font-medium text-xs flex items-center justify-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110 hover:text-black"
+                      className="w-full bg-white text-black px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium text-sm sm:text-base flex items-center justify-center gap-2 group relative overflow-hidden transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-yellow-400 hover:via-yellow-500 hover:to-yellow-600 hover:shadow-xl hover:shadow-yellow-500/30 hover:brightness-110 hover:text-black"
                   >
                     <span className="relative z-10">Scopri di più</span>
-                      <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform duration-500 ease-out relative z-10" />
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-500 ease-out relative z-10" />
                       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-black/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
                   </Link>
                   </div>
                 </div>
               </div>
+            </div>
             </div>
           </div>
         </div>

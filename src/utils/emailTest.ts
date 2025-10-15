@@ -14,12 +14,12 @@ export const sendTestEmail = async (formData: any) => {
   }
 };
 
+import emailjs from '@emailjs/browser';
+
 // Funzione per inviare email reale con EmailJS
 export const sendRealEmail = async (formData: any, config: any) => {
   try {
     const { serviceId, templateId, publicKey, templateParams } = config;
-    
-    const emailjs = (await import('@emailjs/browser')).default;
     
     const params = {
       ...templateParams,
