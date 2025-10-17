@@ -208,7 +208,7 @@ const ChiSono = () => {
                   </h2>
                 </div>
                 <p className={`text-lg sm:text-xl text-gray-700 font-light leading-relaxed text-justify transition-all duration-1000 ease-out ${storyVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`} style={{textAlignLast: 'left', transitionDelay: storyVisible ? '0.4s' : '0s'}}>
-                  La mia passione per il mondo della bellezza è nata molti anni fa, quando ho iniziato come estetista tradizionale. Ma è stato quando ho scoperto l'arte delle extension ciglia che ho capito di aver trovato la mia vera vocazione. Ho dedicato anni alla formazione, studiando nelle migliori accademie internazionali, perfezionando tecniche innovative e acquisendo competenze che oggi mi permettono di offrire un servizio di altissima qualità.
+                  La mia passione per il mondo della bellezza è nata 10 anni fa, quando ho iniziato come estetista tradizionale. Ma è stato quando ho scoperto l'arte delle extension ciglia che ho capito di aver trovato la mia vera vocazione. Ho dedicato anni alla formazione, studiando nelle migliori accademie internazionali, perfezionando tecniche innovative e acquisendo competenze che oggi mi permettono di offrire un servizio di altissima qualità.
                 </p>
                 <p className={`text-lg sm:text-xl text-gray-700 font-light leading-relaxed text-justify mt-6 transition-all duration-1000 ease-out ${storyVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`} style={{textAlignLast: 'left', transitionDelay: storyVisible ? '0.6s' : '0s'}}>
                   Ogni giorno che passa, la mia dedizione per questo mestiere cresce sempre di più. Non si tratta solo di applicare delle ciglia, ma di regalare alle mie clienti un'esperienza unica, di farle sentire belle e sicure di sé. È questa la magia che mi spinge a continuare a migliorarmi e a condividere la mia conoscenza con altre donne che vogliono intraprendere questo meraviglioso percorso professionale.
@@ -227,6 +227,56 @@ const ChiSono = () => {
               </div>
             </div>
           </div>
+        </section>
+
+        {/* ===========================================
+            ESPERIENZA SECTION - Sezione 10 anni di esperienza
+            =========================================== */}
+        <section className="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-black via-gray-800 to-white relative overflow-hidden">
+          {/* Sfondo animato con particelle */}
+          <div className="absolute inset-0">
+            {/* Particelle fluttuanti */}
+            <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-white/20 rounded-full animate-pulse"></div>
+            <div className="absolute top-1/3 right-1/3 w-3 h-3 bg-white/30 rounded-full animate-bounce" style={{animationDelay: '1s'}}></div>
+            <div className="absolute bottom-1/4 left-1/3 w-1 h-1 bg-white/40 rounded-full animate-ping" style={{animationDelay: '2s'}}></div>
+            <div className="absolute top-1/2 right-1/4 w-2 h-2 bg-white/25 rounded-full animate-pulse" style={{animationDelay: '0.5s'}}></div>
+            <div className="absolute bottom-1/3 right-1/2 w-1.5 h-1.5 bg-white/35 rounded-full animate-bounce" style={{animationDelay: '1.5s'}}></div>
+            
+            {/* Linee animate */}
+            <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/20 to-transparent animate-pulse"></div>
+            <div className="absolute bottom-0 right-0 w-full h-px bg-gradient-to-l from-transparent via-white/20 to-transparent animate-pulse" style={{animationDelay: '1s'}}></div>
+          </div>
+
+          <div className="w-full sm:w-[90%] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div className="text-center">
+              <div className="inline-block relative">
+                {/* Effetto glow dietro il numero */}
+                <div className="absolute inset-0 bg-black/20 rounded-full blur-3xl scale-150 animate-pulse"></div>
+                
+                <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-4 relative z-10 transform hover:scale-110 transition-transform duration-500 drop-shadow-lg">
+                  <span className="inline-block animate-bounce" style={{animationDuration: '2s'}}>1</span>
+                  <span className="inline-block animate-bounce" style={{animationDuration: '2s', animationDelay: '0.2s'}}>0</span>
+                </h2>
+                
+                <p className="text-2xl sm:text-3xl md:text-4xl font-semibold text-white mb-2 relative z-10 animate-pulse drop-shadow-md uppercase">
+                  anni di esperienza
+                </p>
+                <p className="text-lg sm:text-xl md:text-2xl text-gray-200 font-light relative z-10 animate-fade-in drop-shadow-sm">
+                  nel mondo delle extension ciglia
+                </p>
+              </div>
+            </div>
+          </div>
+          
+          {/* Elementi decorativi animati */}
+          <div className="absolute top-10 left-10 w-20 h-20 bg-white/10 rounded-full animate-spin" style={{animationDuration: '20s'}}></div>
+          <div className="absolute bottom-10 right-10 w-16 h-16 bg-white/15 rounded-full animate-spin" style={{animationDuration: '15s', animationDirection: 'reverse'}}></div>
+          <div className="absolute top-1/2 left-1/4 w-12 h-12 bg-white/5 rounded-full animate-ping" style={{animationDuration: '3s'}}></div>
+          <div className="absolute top-1/3 right-1/4 w-8 h-8 bg-white/20 rounded-full animate-bounce" style={{animationDuration: '2s'}}></div>
+          
+          {/* Onde animate */}
+          <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-white/5 to-transparent animate-pulse"></div>
+          <div className="absolute top-0 right-0 w-full h-32 bg-gradient-to-b from-white/5 to-transparent animate-pulse" style={{animationDelay: '1s'}}></div>
         </section>
 
         {/* ===========================================
@@ -299,10 +349,10 @@ const ChiSono = () => {
 
             {/* Grid Galleria */}
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
-              {/* Immagine 1 - c1.jpg */}
+              {/* Immagine 1 - 1.jpg */}
               <div className={`group relative overflow-hidden rounded-xl transition-all duration-1000 ease-out ${missionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{transitionDelay: missionVisible ? '0.6s' : '0s'}}>
                 <img 
-                  src="/soggetto/c1.jpg"
+                  src="/soggetto/1.jpg"
                   alt="Lavoro extension ciglia - Academy Lash Master"
                   className="w-full h-48 sm:h-56 lg:h-64 object-cover group-hover:scale-110 transition-transform duration-500"
                   loading="lazy"
@@ -315,10 +365,10 @@ const ChiSono = () => {
                 </div>
               </div>
 
-              {/* Immagine 2 - c2.jpg */}
+              {/* Immagine 2 - 2.jpg */}
               <div className={`group relative overflow-hidden rounded-xl transition-all duration-1000 ease-out ${missionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{transitionDelay: missionVisible ? '0.7s' : '0s'}}>
                 <img 
-                  src="/soggetto/c2.jpg"
+                  src="/soggetto/2.jpg"
                   alt="Lavoro extension ciglia - Academy Lash Master"
                   className="w-full h-48 sm:h-56 lg:h-64 object-cover group-hover:scale-110 transition-transform duration-500"
                   loading="lazy"
@@ -331,10 +381,10 @@ const ChiSono = () => {
                 </div>
               </div>
 
-              {/* Immagine 3 - c3.jpg */}
+              {/* Immagine 3 - 3.jpg */}
               <div className={`group relative overflow-hidden rounded-xl transition-all duration-1000 ease-out ${missionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{transitionDelay: missionVisible ? '0.8s' : '0s'}}>
                 <img 
-                  src="/soggetto/c3.jpg"
+                  src="/soggetto/3.jpg"
                   alt="Lavoro extension ciglia - Academy Lash Master"
                   className="w-full h-48 sm:h-56 lg:h-64 object-cover group-hover:scale-110 transition-transform duration-500"
                   loading="lazy"
@@ -347,10 +397,10 @@ const ChiSono = () => {
                 </div>
               </div>
 
-              {/* Immagine 4 - contciglia.jpg */}
+              {/* Immagine 4 - 4.jpg */}
               <div className={`group relative overflow-hidden rounded-xl transition-all duration-1000 ease-out ${missionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{transitionDelay: missionVisible ? '0.9s' : '0s'}}>
                 <img 
-                  src="/soggetto/contciglia.jpg"
+                  src="/soggetto/4.jpg"
                   alt="Lavoro extension ciglia - Academy Lash Master"
                   className="w-full h-48 sm:h-56 lg:h-64 object-cover group-hover:scale-110 transition-transform duration-500"
                   loading="lazy"
@@ -363,10 +413,10 @@ const ChiSono = () => {
                 </div>
               </div>
 
-              {/* Immagine 5 - corso2.jpg */}
+              {/* Immagine 5 - 5.jpg */}
               <div className={`group relative overflow-hidden rounded-xl transition-all duration-1000 ease-out ${missionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{transitionDelay: missionVisible ? '1.0s' : '0s'}}>
                 <img 
-                  src="/soggetto/corso2.jpg"
+                  src="/soggetto/5.jpg"
                   alt="Lavoro extension ciglia - Academy Lash Master"
                   className="w-full h-48 sm:h-56 lg:h-64 object-cover group-hover:scale-110 transition-transform duration-500"
                   loading="lazy"
@@ -379,10 +429,10 @@ const ChiSono = () => {
                 </div>
               </div>
 
-              {/* Immagine 6 - cta.jpg */}
+              {/* Immagine 6 - 6.jpg */}
               <div className={`group relative overflow-hidden rounded-xl transition-all duration-1000 ease-out ${missionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{transitionDelay: missionVisible ? '1.1s' : '0s'}}>
                 <img 
-                  src="/soggetto/cta.jpg"
+                  src="/soggetto/6.jpg"
                   alt="Lavoro extension ciglia - Academy Lash Master"
                   className="w-full h-48 sm:h-56 lg:h-64 object-cover group-hover:scale-110 transition-transform duration-500"
                   loading="lazy"
@@ -395,10 +445,10 @@ const ChiSono = () => {
                 </div>
               </div>
 
-              {/* Immagine 7 - neon.jpeg */}
+              {/* Immagine 7 - 7.jpg */}
               <div className={`group relative overflow-hidden rounded-xl transition-all duration-1000 ease-out ${missionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{transitionDelay: missionVisible ? '1.2s' : '0s'}}>
                 <img 
-                  src="/soggetto/neon.jpeg"
+                  src="/soggetto/7.jpg"
                   alt="Lavoro extension ciglia - Academy Lash Master"
                   className="w-full h-48 sm:h-56 lg:h-64 object-cover group-hover:scale-110 transition-transform duration-500"
                   loading="lazy"
@@ -411,11 +461,11 @@ const ChiSono = () => {
                 </div>
               </div>
 
-              {/* Immagine 8 - manual.jpg */}
+              {/* Immagine 8 - 8.jpg */}
               <div className={`group relative overflow-hidden rounded-xl transition-all duration-1000 ease-out ${missionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{transitionDelay: missionVisible ? '1.3s' : '0s'}}>
                 <img 
-                  src="/soggetto/manual.jpg"
-                  alt="Manuale Academy Lash Master"
+                  src="/soggetto/8.jpg"
+                  alt="Lavoro extension ciglia - Academy Lash Master"
                   className="w-full h-48 sm:h-56 lg:h-64 object-cover group-hover:scale-110 transition-transform duration-500"
                   loading="lazy"
                 />

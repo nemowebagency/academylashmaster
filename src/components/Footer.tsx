@@ -74,7 +74,7 @@ const Footer = () => {
             {/* Left - Copyright */}
             <div className="text-center sm:text-left">
               <p className="text-gray-300 text-xs sm:text-sm">
-                © 2025 Academy Lash Master di Ana Maria. Tutti i diritti riservati.
+                © 2025 Academy Lash Master di Ana Maria Petrea. Tutti i diritti riservati.
               </p>
             </div>
             

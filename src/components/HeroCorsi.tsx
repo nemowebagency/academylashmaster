@@ -26,7 +26,7 @@ const HeroCorsi = () => {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: "url('/background/herocorsi.jpg')"
+            backgroundImage: "url('/soggetto/corso2.jpg')"
           }}
         ></div>
         
