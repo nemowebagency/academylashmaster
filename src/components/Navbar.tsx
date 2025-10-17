@@ -41,11 +41,13 @@ const Navbar = ({ setShowContactForm: _setShowContactForm }: NavbarProps) => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-1 sm:py-1.5">
             <div className="flex items-center">
-              <img 
-                src="/logo/LogoBianco.png" 
-                alt="Academy Lash Master - Logo scuola formazione extension ciglia professionali" 
-                className="h-8 sm:h-10 lg:h-12 w-auto"
-              />
+              <Link to="/" className="hover:opacity-80 transition-opacity duration-300">
+                <img 
+                  src="/logo/LogoBianco.png" 
+                  alt="Academy Lash Master - Logo scuola formazione extension ciglia professionali" 
+                  className="h-8 sm:h-10 lg:h-12 w-auto"
+                />
+              </Link>
             </div>
             
             {/* Desktop Navigation */}
