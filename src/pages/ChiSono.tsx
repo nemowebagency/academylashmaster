@@ -357,12 +357,6 @@ const ChiSono = () => {
                   className="w-full h-48 sm:h-56 lg:h-64 object-cover group-hover:scale-110 transition-transform duration-500"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
-                  <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center">
-                    <h4 className="text-white font-bold text-lg mb-2">Extension Ciglia</h4>
-                    <p className="text-white text-sm">Tecnica Classica</p>
-                  </div>
-                </div>
               </div>
 
               {/* Immagine 2 - 2.jpg */}
@@ -373,12 +367,6 @@ const ChiSono = () => {
                   className="w-full h-48 sm:h-56 lg:h-64 object-cover group-hover:scale-110 transition-transform duration-500"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
-                  <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center">
-                    <h4 className="text-white font-bold text-lg mb-2">Volume Lashes</h4>
-                    <p className="text-white text-sm">Tecnica Avanzata</p>
-                  </div>
-                </div>
               </div>
 
               {/* Immagine 3 - 3.jpg */}
@@ -389,12 +377,6 @@ const ChiSono = () => {
                   className="w-full h-48 sm:h-56 lg:h-64 object-cover group-hover:scale-110 transition-transform duration-500"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
-                  <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center">
-                    <h4 className="text-white font-bold text-lg mb-2">Mega Volume</h4>
-                    <p className="text-white text-sm">Massima Densità</p>
-                  </div>
-                </div>
               </div>
 
               {/* Immagine 4 - 4.jpg */}
@@ -405,12 +387,6 @@ const ChiSono = () => {
                   className="w-full h-48 sm:h-56 lg:h-64 object-cover group-hover:scale-110 transition-transform duration-500"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
-                  <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center">
-                    <h4 className="text-white font-bold text-lg mb-2">Styling Personalizzato</h4>
-                    <p className="text-white text-sm">Look Unico</p>
-                  </div>
-                </div>
               </div>
 
               {/* Immagine 5 - 5.jpg */}
@@ -421,12 +397,6 @@ const ChiSono = () => {
                   className="w-full h-48 sm:h-56 lg:h-64 object-cover group-hover:scale-110 transition-transform duration-500"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
-                  <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center">
-                    <h4 className="text-white font-bold text-lg mb-2">Formazione Pratica</h4>
-                    <p className="text-white text-sm">Corso in Azione</p>
-                  </div>
-                </div>
               </div>
 
               {/* Immagine 6 - 6.jpg */}
@@ -437,12 +407,6 @@ const ChiSono = () => {
                   className="w-full h-48 sm:h-56 lg:h-64 object-cover group-hover:scale-110 transition-transform duration-500"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
-                  <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center">
-                    <h4 className="text-white font-bold text-lg mb-2">Risultato Finale</h4>
-                    <p className="text-white text-sm">Perfezione Assoluta</p>
-                  </div>
-                </div>
               </div>
 
               {/* Immagine 7 - 7.jpg */}
@@ -453,12 +417,6 @@ const ChiSono = () => {
                   className="w-full h-48 sm:h-56 lg:h-64 object-cover group-hover:scale-110 transition-transform duration-500"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
-                  <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center">
-                    <h4 className="text-white font-bold text-lg mb-2">Effetto Neon</h4>
-                    <p className="text-white text-sm">Stile Moderno</p>
-                  </div>
-                </div>
               </div>
 
               {/* Immagine 8 - 8.jpg */}
@@ -469,12 +427,6 @@ const ChiSono = () => {
                   className="w-full h-48 sm:h-56 lg:h-64 object-cover group-hover:scale-110 transition-transform duration-500"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
-                  <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center">
-                    <h4 className="text-white font-bold text-lg mb-2">Manuale Completo</h4>
-                    <p className="text-white text-sm">Formazione Teorica</p>
-                  </div>
-                </div>
               </div>
             </div>
 
