@@ -176,7 +176,6 @@ const CookiePolicy = () => {
                 <ul className="list-none text-gray-700 leading-relaxed mb-6">
                   <li>Email: academylashmaster@gmail.com</li>
                   <li>Telefono: +39 3533165390</li>
-                  <li>Indirizzo: Via Roma 123, Milano</li>
                 </ul>
 
                 <p className="text-gray-500 text-sm mt-8">
