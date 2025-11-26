@@ -28,17 +28,17 @@ const HeroSection = () => {
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="flex flex-col items-center justify-center text-center h-full">
-            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light text-white mb-4 sm:mb-6 leading-tight animate-fade-in">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-normal text-white mb-4 sm:mb-6 leading-tight animate-fade-in">
               Diventa un <span className="text-white bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">master</span> delle <span className="font-bold">extension ciglia</span>
             </h2>
             <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-4 mb-4 sm:mb-6 animate-fade-in" style={{animationDelay: '0.6s'}}>
-              <span className="text-white font-light text-base sm:text-lg md:text-xl">corsi</span>
+              <span className="text-white font-normal text-base sm:text-lg md:text-xl">corsi</span>
               <span className="text-white/60">•</span>
-              <span className="text-white font-light text-base sm:text-lg md:text-xl">professionali</span>
+              <span className="text-white font-normal text-base sm:text-lg md:text-xl">professionali</span>
               <span className="text-white/60">•</span>
-              <span className="text-white font-light text-base sm:text-lg md:text-xl">certificati</span>
+              <span className="text-white font-normal text-base sm:text-lg md:text-xl">certificati</span>
             </div>
-            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-200 mb-6 sm:mb-8 leading-relaxed max-w-4xl font-light animate-fade-in px-4" style={{animationDelay: '0.9s'}}>
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-200 mb-6 sm:mb-8 leading-relaxed max-w-4xl font-normal animate-fade-in px-4" style={{animationDelay: '0.9s'}}>
               Impara le tecniche <span className="font-bold">professionali</span> per l'applicazione delle <span className="font-bold">extension ciglia</span>. 
               Corsi <span className="font-bold">certificati</span> per diventare un <span className="font-bold">tecnico esperto</span> nel settore beauty.
             </p>

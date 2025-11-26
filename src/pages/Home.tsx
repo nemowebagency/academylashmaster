@@ -318,8 +318,8 @@ const Home = () => {
       <section id="corsi" className="py-12 sm:py-16 lg:py-20" style={{ backgroundColor: '#F3F3F3' }}>
         <div className="w-full sm:w-[90%] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-left mb-12 sm:mb-16">
-            <h3 className={`text-4xl sm:text-5xl md:text-6xl font-light text-black mb-4 transition-all duration-1000 ease-out ${coursesVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`}>I nostri corsi <span className="font-bold text-black">professionali</span></h3>
-            <p className={`text-lg sm:text-xl text-black font-light transition-all duration-1000 ease-out ${coursesVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`} style={{transitionDelay: coursesVisible ? '0.3s' : '0s'}}>Formazione professionale per ogni livello</p>
+            <h3 className={`text-4xl sm:text-5xl md:text-6xl font-normal text-black mb-4 transition-all duration-1000 ease-out ${coursesVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`}>I nostri corsi <span className="font-bold text-black">professionali</span></h3>
+            <p className={`text-lg sm:text-xl text-black font-normal transition-all duration-1000 ease-out ${coursesVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`} style={{transitionDelay: coursesVisible ? '0.3s' : '0s'}}>Formazione professionale per ogni livello</p>
           </div>
           
           <div className="space-y-8">
@@ -331,7 +331,7 @@ const Home = () => {
               <div className="relative bg-black p-4 sm:p-5 rounded-2xl shadow-lg hover:shadow-xl border border-gray-700 hover:border-gray-600 transition-all duration-300 ease-out hover:scale-105 flex flex-col h-full">
                 <div className="flex flex-col h-full">
                   <h4 className="text-2xl sm:text-3xl font-bold text-white mb-2 text-left leading-tight">Corso classico (Base)</h4>
-                  <p className="text-gray-300 font-light mb-3 text-sm leading-relaxed">
+                  <p className="text-gray-300 font-normal mb-3 text-sm leading-relaxed">
                     La tua base solida per diventare una Lash Artist professionista. 
                     Tecnica One to One dalle basi fino all'esecuzione perfetta.
                   </p>
@@ -373,7 +373,7 @@ const Home = () => {
               <div className="relative bg-black p-4 sm:p-5 rounded-2xl shadow-lg hover:shadow-xl border border-gray-700 hover:border-gray-600 transition-all duration-300 ease-out hover:scale-105 flex flex-col h-full">
                 <div className="flex flex-col h-full">
                   <h4 className="text-2xl sm:text-3xl font-bold text-white mb-2 text-left leading-tight">Corso volume</h4>
-                  <p className="text-gray-300 font-light mb-3 text-sm leading-relaxed">
+                  <p className="text-gray-300 font-normal mb-3 text-sm leading-relaxed">
                     Tecniche avanzate di infoltimento e perfezionamento della manualità. 
                     Ventagli multipli handmade per effetti straordinari.
                   </p>
@@ -415,7 +415,7 @@ const Home = () => {
               <div className="relative bg-black p-4 sm:p-5 rounded-2xl shadow-lg hover:shadow-xl border border-gray-700 hover:border-gray-600 transition-all duration-300 ease-out hover:scale-105 flex flex-col h-full">
                 <div className="flex flex-col h-full">
                   <h4 className="text-2xl sm:text-3xl font-bold text-white mb-2 text-left leading-tight">Corso completo (Classico + Volume)</h4>
-                  <p className="text-gray-300 font-light mb-3 text-sm leading-relaxed">
+                  <p className="text-gray-300 font-normal mb-3 text-sm leading-relaxed">
                     Tutte le tecniche professionali per diventare una Lash Artist completa. 
                     Formazione intensiva e strutturata.
                   </p>
@@ -460,7 +460,7 @@ const Home = () => {
               <div className="relative bg-black p-4 sm:p-5 rounded-2xl shadow-lg hover:shadow-xl border border-gray-700 hover:border-gray-600 transition-all duration-300 ease-out hover:scale-105 flex flex-col h-full">
                 <div className="flex flex-col h-full">
                   <h4 className="text-2xl sm:text-3xl font-bold text-white mb-2 text-left leading-tight">Corso VIP individuale</h4>
-                  <p className="text-gray-300 font-light mb-3 text-sm leading-relaxed">
+                  <p className="text-gray-300 font-normal mb-3 text-sm leading-relaxed">
                     Formazione esclusiva one-to-one con la Master Trainer Ana Maria. 
                     Percorso personalizzato al 100%.
                   </p>
@@ -502,7 +502,7 @@ const Home = () => {
               <div className="relative bg-black p-4 sm:p-5 rounded-2xl shadow-lg hover:shadow-xl border border-gray-700 hover:border-gray-600 transition-all duration-300 ease-out hover:scale-105 flex flex-col h-full">
                 <div className="flex flex-col h-full">
                   <h4 className="text-2xl sm:text-3xl font-bold text-white mb-2 text-left leading-tight">Corso retention & segreti della tenuta</h4>
-                  <p className="text-gray-300 font-light mb-3 text-sm leading-relaxed">
+                  <p className="text-gray-300 font-normal mb-3 text-sm leading-relaxed">
                     Migliora la durata delle applicazioni e offri risultati impeccabili. 
                     Focus tecnico sulla ritenzione e gestione dell'adesivo.
                   </p>
@@ -575,7 +575,7 @@ const Home = () => {
             <h2 className={`text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 transition-all duration-1000 ease-out ${aboutVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'}`} style={{transitionDelay: aboutVisible ? '0.2s' : '0s'}}>
               Imparare, crescere, trasformarsi
             </h2>
-            <p className={`text-base sm:text-lg text-white font-light leading-relaxed text-justify transition-all duration-1000 ease-out ${aboutVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'}`} style={{textAlignLast: 'left', transitionDelay: aboutVisible ? '0.4s' : '0s'}}>
+            <p className={`text-base sm:text-lg text-white font-normal leading-relaxed text-justify transition-all duration-1000 ease-out ${aboutVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'}`} style={{textAlignLast: 'left', transitionDelay: aboutVisible ? '0.4s' : '0s'}}>
               La mia storia nasce da un desiderio profondo: trasformare una passione in una vera professione e offrire ad altre donne gli strumenti per fare lo stesso. Ho viaggiato, studiato e investito tempo ed energie per raccogliere le migliori conoscenze, arricchendo il mio percorso con esperienze internazionali che mi hanno permesso di crescere e portare innovazione nel mondo delle extension ciglia.
             </p>
             <div className={`mt-6 transition-all duration-1000 ease-out ${aboutVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'}`} style={{transitionDelay: aboutVisible ? '0.6s' : '0s'}}>
@@ -628,7 +628,7 @@ const Home = () => {
               <h2 className={`text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 transition-all duration-1000 ease-out ${aboutVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'}`} style={{transitionDelay: aboutVisible ? '0.2s' : '0s'}}>
                 Imparare, crescere, trasformarsi
               </h2>
-              <p className={`text-lg sm:text-xl text-white font-light leading-relaxed text-justify transition-all duration-1000 ease-out ${aboutVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'}`} style={{textAlignLast: 'left', transitionDelay: aboutVisible ? '0.4s' : '0s'}}>
+              <p className={`text-lg sm:text-xl text-white font-normal leading-relaxed text-justify transition-all duration-1000 ease-out ${aboutVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'}`} style={{textAlignLast: 'left', transitionDelay: aboutVisible ? '0.4s' : '0s'}}>
                 La mia storia nasce da un desiderio profondo: trasformare una passione in una vera professione e offrire ad altre donne gli strumenti per fare lo stesso. Ho viaggiato, studiato e investito tempo ed energie per raccogliere le migliori conoscenze, arricchendo il mio percorso con esperienze internazionali che mi hanno permesso di crescere e portare innovazione nel mondo delle extension ciglia.
               </p>
               <div className={`mt-6 transition-all duration-1000 ease-out ${aboutVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'}`} style={{transitionDelay: aboutVisible ? '0.6s' : '0s'}}>
@@ -746,7 +746,7 @@ const Home = () => {
                     Oltre le parole: nascono i corsi
                   </h2>
                 </div>
-                <p className={`text-lg sm:text-xl text-white font-light leading-relaxed text-justify transition-all duration-1000 ease-out ${infoVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`} style={{textAlignLast: 'left', transitionDelay: infoVisible ? '0.2s' : '0s'}}>
+                <p className={`text-lg sm:text-xl text-white font-normal leading-relaxed text-justify transition-all duration-1000 ease-out ${infoVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`} style={{textAlignLast: 'left', transitionDelay: infoVisible ? '0.2s' : '0s'}}>
                   I miei corsi non sono semplici lezioni tecniche, ma percorsi di crescita personale e professionale. Ogni allieva viene accompagnata passo dopo passo: dalle basi fondamentali alle competenze avanzate, dalla precisione della tecnica alla gestione del business, fino alla pratica su modella reale. A supporto del percorso formativo, metto a disposizione manuali esclusivi, materiali professionali di alta qualità e correzioni personalizzate, perché imparare non significa solo acquisire una tecnica, ma costruire fiducia, sicurezza e indipendenza.
                 </p>
               </div>
@@ -805,7 +805,7 @@ const Home = () => {
                     Conoscenza è potere
                   </h2>
                 </div>
-                <p className={`text-lg sm:text-xl text-white font-light leading-relaxed text-justify transition-all duration-1000 ease-out ${infoVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'}`} style={{textAlignLast: 'left', transitionDelay: infoVisible ? '1.0s' : '0s'}}>
+                <p className={`text-lg sm:text-xl text-white font-normal leading-relaxed text-justify transition-all duration-1000 ease-out ${infoVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'}`} style={{textAlignLast: 'left', transitionDelay: infoVisible ? '1.0s' : '0s'}}>
                   Molte persone negli anni mi hanno chiesto: "Dove hai fatto i tuoi corsi?" La risposta è spesso stata all'estero, dove i programmi erano più lunghi, completi e sempre aggiornati. Non si trattava di talento, ma di opportunità. Quelle esperienze mi hanno dato accesso a tecniche innovative, strumenti concreti e materiali d'avanguardia, che oggi condivido con le mie allieve per garantire una formazione moderna e di livello internazionale.
                 </p>
               </div>
@@ -828,7 +828,7 @@ const Home = () => {
               {/* Section Header */}
               <div className="mb-8 sm:mb-12">
                 <h3 className={`text-4xl sm:text-5xl md:text-6xl font-bold text-black mb-4 sm:mb-6 transition-all duration-1000 ease-out ${contactsVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`}>Rimani in contatto con me</h3>
-                <p className={`text-lg sm:text-xl text-gray-700 font-light leading-relaxed text-justify transition-all duration-1000 ease-out ${contactsVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`} style={{textAlignLast: 'left', transitionDelay: contactsVisible ? '0.2s' : '0s'}}>Sono qui per rispondere alle tue domande e aiutarti a iniziare il tuo percorso nel mondo delle extension ciglia.</p>
+                <p className={`text-lg sm:text-xl text-gray-700 font-normal leading-relaxed text-justify transition-all duration-1000 ease-out ${contactsVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`} style={{textAlignLast: 'left', transitionDelay: contactsVisible ? '0.2s' : '0s'}}>Sono qui per rispondere alle tue domande e aiutarti a iniziare il tuo percorso nel mondo delle extension ciglia.</p>
               </div>
               
               {/* Contact Info */}

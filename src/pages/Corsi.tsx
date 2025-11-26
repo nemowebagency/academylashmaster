@@ -131,7 +131,7 @@ const Corsi = () => {
         <div className="w-full sm:w-[90%] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-left mb-2 sm:mb-3">
             <h3 className={`text-4xl sm:text-5xl md:text-6xl font-bold text-black mb-2 transition-all duration-1000 ease-out ${coursesVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`}>Le nostre proposte</h3>
-            <p className={`text-lg sm:text-xl text-black font-light transition-all duration-1000 ease-out ${coursesVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`} style={{transitionDelay: coursesVisible ? '0.2s' : '0s'}}>Formazione completa e certificata per ogni livello di esperienza</p>
+            <p className={`text-lg sm:text-xl text-black font-normal transition-all duration-1000 ease-out ${coursesVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`} style={{transitionDelay: coursesVisible ? '0.2s' : '0s'}}>Formazione completa e certificata per ogni livello di esperienza</p>
           </div>
 
           <div className="space-y-4 sm:space-y-6">
@@ -154,7 +154,7 @@ const Corsi = () => {
             <h2 className={`text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4 transition-all duration-1000 ease-out ${manualVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
               Manuale Completo
             </h2>
-            <p className={`text-lg sm:text-xl text-gray-200 font-light max-w-lg mx-auto transition-all duration-1000 ease-out ${manualVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{transitionDelay: manualVisible ? '0.2s' : '0s'}}>
+            <p className={`text-lg sm:text-xl text-gray-200 font-normal max-w-lg mx-auto transition-all duration-1000 ease-out ${manualVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{transitionDelay: manualVisible ? '0.2s' : '0s'}}>
               Ogni corso include un manuale dettagliato e professionale per accompagnarti nel tuo percorso di apprendimento
             </p>
           </div>
@@ -281,7 +281,7 @@ const Corsi = () => {
                 <h2 className={`text-4xl sm:text-5xl md:text-6xl font-bold text-black mb-4 transition-all duration-1000 ease-out ${procreateVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`}>
                   Strumenti Digitali in Sconto!
             </h2>
-                <p className={`text-lg sm:text-xl text-black font-light transition-all duration-1000 ease-out ${procreateVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`} style={{transitionDelay: procreateVisible ? '0.2s' : '0s'}}>
+                <p className={`text-lg sm:text-xl text-black font-normal transition-all duration-1000 ease-out ${procreateVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`} style={{transitionDelay: procreateVisible ? '0.2s' : '0s'}}>
               Scopri gli strumenti digitali che le nostre alunne utilizzano per creare progetti straordinari
             </p>
               </div>
@@ -419,7 +419,7 @@ const Corsi = () => {
         <div className="w-full sm:w-[90%] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16">
             <h2 className={`text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4 transition-all duration-1000 ease-out ${whyChooseVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>Perché scegliere Academy Lash Master?</h2>
-            <p className={`text-lg sm:text-xl text-white font-light transition-all duration-1000 ease-out ${whyChooseVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{transitionDelay: whyChooseVisible ? '0.2s' : '0s'}}>Eccellenza nella formazione e supporto continuo</p>
+            <p className={`text-lg sm:text-xl text-white font-normal transition-all duration-1000 ease-out ${whyChooseVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{transitionDelay: whyChooseVisible ? '0.2s' : '0s'}}>Eccellenza nella formazione e supporto continuo</p>
           </div>
 
           <div className="grid sm:grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
@@ -430,7 +430,7 @@ const Corsi = () => {
                 </svg>
               </div>
               <h3 className="text-lg sm:text-xl font-bold text-white mb-3 sm:mb-4">Insegnanti Esperti</h3>
-              <p className="text-white font-light text-sm sm:text-base">
+              <p className="text-white font-normal text-sm sm:text-base">
                 I nostri istruttori sono professionisti certificati con anni di esperienza 
                 nel settore e formazione internazionale.
               </p>
@@ -443,7 +443,7 @@ const Corsi = () => {
                 </svg>
               </div>
               <h3 className="text-lg sm:text-xl font-bold text-white mb-3 sm:mb-4">Materiali Professionali</h3>
-              <p className="text-white font-light text-sm sm:text-base">
+              <p className="text-white font-normal text-sm sm:text-base">
                 Utilizziamo solo materiali di alta qualità e strumenti professionali 
                 per garantire la migliore esperienza formativa.
             </p>
@@ -456,7 +456,7 @@ const Corsi = () => {
                 </svg>
               </div>
               <h3 className="text-lg sm:text-xl font-bold text-white mb-3 sm:mb-4">Certificazione Riconosciuta</h3>
-              <p className="text-white font-light text-sm sm:text-base">
+              <p className="text-white font-normal text-sm sm:text-base">
                 Al termine del corso riceverai una certificazione riconosciuta 
                 nel settore beauty che valorizzerà il tuo curriculum.
               </p>

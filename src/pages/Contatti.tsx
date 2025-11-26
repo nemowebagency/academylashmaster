@@ -173,7 +173,7 @@ const Contatti = () => {
           <div className="w-[90%] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="text-center mb-12 sm:mb-16">
               <h2 className={`text-4xl sm:text-5xl md:text-6xl font-bold text-black mb-4 sm:mb-6 transition-all duration-1000 ease-out ${contactCardsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>Rimani in contatto</h2>
-              <p className={`text-lg sm:text-xl text-gray-700 font-light transition-all duration-1000 ease-out ${contactCardsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{transitionDelay: contactCardsVisible ? '0.2s' : '0s'}}>Scegli il modo che preferisci per metterti in contatto con me</p>
+              <p className={`text-lg sm:text-xl text-gray-700 font-normal transition-all duration-1000 ease-out ${contactCardsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{transitionDelay: contactCardsVisible ? '0.2s' : '0s'}}>Scegli il modo che preferisci per metterti in contatto con me</p>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-4xl mx-auto">
@@ -224,7 +224,7 @@ const Contatti = () => {
               {/* Section Header */}
               <div className="mb-8 sm:mb-12">
                 <h3 className={`text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4 sm:mb-6 transition-all duration-1000 ease-out ${formSectionVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`}>Vuoi iscriverti a un corso?</h3>
-                <p className={`text-lg sm:text-xl text-gray-300 font-light leading-relaxed text-justify transition-all duration-1000 ease-out ${formSectionVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`} style={{textAlignLast: 'left', transitionDelay: formSectionVisible ? '0.2s' : '0s'}}>Compila il modulo per richiedere informazioni sui corsi o per qualsiasi altro tipo di domanda</p>
+                <p className={`text-lg sm:text-xl text-gray-300 font-normal leading-relaxed text-justify transition-all duration-1000 ease-out ${formSectionVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`} style={{textAlignLast: 'left', transitionDelay: formSectionVisible ? '0.2s' : '0s'}}>Compila il modulo per richiedere informazioni sui corsi o per qualsiasi altro tipo di domanda</p>
               </div>
               
               {/* Image */}

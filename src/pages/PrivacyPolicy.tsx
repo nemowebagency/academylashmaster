@@ -21,7 +21,7 @@ const PrivacyPolicy = () => {
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-black mb-4 sm:mb-6 leading-tight">
                 Privacy Policy
               </h1>
-              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 mb-6 sm:mb-8 leading-relaxed max-w-4xl font-light px-4">
+              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 mb-6 sm:mb-8 leading-relaxed max-w-4xl font-normal px-4">
                 Informativa sulla privacy di Academy Lash Master
               </p>
             </div>

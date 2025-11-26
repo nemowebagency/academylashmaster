@@ -16,7 +16,7 @@ const Footer = () => {
               loading="eager"
               decoding="async"
             />
-            <p className="text-white font-light text-sm sm:text-base mb-6 sm:mb-8">
+            <p className="text-white font-normal text-sm sm:text-base mb-6 sm:mb-8">
               La tua scuola di formazione per extension ciglia
             </p>
             

@@ -82,7 +82,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
             </div>
           )}
           <h3 className={`text-2xl sm:text-3xl font-bold ${isDark ? 'text-white' : 'text-black'} mb-3 sm:mb-4`}>Richiedi Informazioni</h3>
-          <p className={`text-base sm:text-lg ${isDark ? 'text-gray-300' : 'text-black'} font-light`}>Compila il form per ricevere tutte le informazioni sui miei corsi</p>
+          <p className={`text-base sm:text-lg ${isDark ? 'text-gray-300' : 'text-black'} font-normal`}>Compila il form per ricevere tutte le informazioni sui miei corsi</p>
         </div>
         
         <form onSubmit={handleFormSubmit} className="space-y-4 sm:space-y-6">

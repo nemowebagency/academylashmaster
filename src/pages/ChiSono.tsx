@@ -207,10 +207,10 @@ const ChiSono = () => {
                     Da estetista a <span className="text-black">esperta</span> in extension ciglia
                   </h2>
                 </div>
-                <p className={`text-lg sm:text-xl text-gray-700 font-light leading-relaxed text-justify transition-all duration-1000 ease-out ${storyVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`} style={{textAlignLast: 'left', transitionDelay: storyVisible ? '0.4s' : '0s'}}>
+                <p className={`text-lg sm:text-xl text-gray-700 font-normal leading-relaxed text-justify transition-all duration-1000 ease-out ${storyVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`} style={{textAlignLast: 'left', transitionDelay: storyVisible ? '0.4s' : '0s'}}>
                   La mia passione per il mondo della bellezza è nata 10 anni fa, quando ho iniziato come estetista tradizionale. Ma è stato quando ho scoperto l'arte delle extension ciglia che ho capito di aver trovato la mia vera vocazione. Ho dedicato anni alla formazione, studiando nelle migliori accademie internazionali, perfezionando tecniche innovative e acquisendo competenze che oggi mi permettono di offrire un servizio di altissima qualità.
                 </p>
-                <p className={`text-lg sm:text-xl text-gray-700 font-light leading-relaxed text-justify mt-6 transition-all duration-1000 ease-out ${storyVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`} style={{textAlignLast: 'left', transitionDelay: storyVisible ? '0.6s' : '0s'}}>
+                <p className={`text-lg sm:text-xl text-gray-700 font-normal leading-relaxed text-justify mt-6 transition-all duration-1000 ease-out ${storyVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`} style={{textAlignLast: 'left', transitionDelay: storyVisible ? '0.6s' : '0s'}}>
                   Ogni giorno che passa, la mia dedizione per questo mestiere cresce sempre di più. Non si tratta solo di applicare delle ciglia, ma di regalare alle mie clienti un'esperienza unica, di farle sentire belle e sicure di sé. È questa la magia che mi spinge a continuare a migliorarmi e a condividere la mia conoscenza con altre donne che vogliono intraprendere questo meraviglioso percorso professionale.
                 </p>
                 
@@ -261,7 +261,7 @@ const ChiSono = () => {
                 <p className="text-2xl sm:text-3xl md:text-4xl font-semibold text-white mb-2 relative z-10 animate-pulse drop-shadow-md uppercase">
                   anni di esperienza
                 </p>
-                <p className="text-lg sm:text-xl md:text-2xl text-gray-200 font-light relative z-10 animate-fade-in drop-shadow-sm">
+                <p className="text-lg sm:text-xl md:text-2xl text-gray-200 font-normal relative z-10 animate-fade-in drop-shadow-sm">
                   nel mondo delle extension ciglia
                 </p>
               </div>
@@ -342,7 +342,7 @@ const ChiSono = () => {
               <h2 className={`text-4xl sm:text-5xl md:text-6xl font-bold text-black transition-all duration-1000 ease-out ${missionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{transitionDelay: missionVisible ? '0.2s' : '0s'}}>
                 Galleria <span className="text-black">professionale</span>
               </h2>
-              <p className={`text-lg sm:text-xl text-gray-600 font-light mt-4 max-w-3xl mx-auto transition-all duration-1000 ease-out ${missionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{transitionDelay: missionVisible ? '0.4s' : '0s'}}>
+              <p className={`text-lg sm:text-xl text-gray-600 font-normal mt-4 max-w-3xl mx-auto transition-all duration-1000 ease-out ${missionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{transitionDelay: missionVisible ? '0.4s' : '0s'}}>
                 Scopri alcuni dei miei lavori più rappresentativi e la qualità che caratterizza ogni trattamento
               </p>
             </div>
@@ -455,7 +455,7 @@ const ChiSono = () => {
               <h2 className={`text-4xl sm:text-5xl md:text-6xl font-bold text-white transition-all duration-1000 ease-out ${socialVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{transitionDelay: socialVisible ? '0.2s' : '0s'}}>
                 Resta aggiornato sui <span className="text-white">miei lavori</span>
               </h2>
-              <p className={`text-lg sm:text-xl text-gray-200 font-light leading-relaxed max-w-3xl mx-auto mt-6 transition-all duration-1000 ease-out ${socialVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{transitionDelay: socialVisible ? '0.4s' : '0s'}}>
+              <p className={`text-lg sm:text-xl text-gray-200 font-normal leading-relaxed max-w-3xl mx-auto mt-6 transition-all duration-1000 ease-out ${socialVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{transitionDelay: socialVisible ? '0.4s' : '0s'}}>
                 Seguimi sui social per vedere i miei lavori, i tutorial, i consigli e rimanere sempre aggiornato sulle ultime novità del mondo delle extension ciglia.
               </p>
             </div>
