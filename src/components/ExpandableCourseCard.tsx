@@ -166,7 +166,7 @@ const ExpandableCourseCard: React.FC<ExpandableCourseCardProps> = ({
                     </div>
                     <div>
                       <h6 className="font-semibold text-white text-sm">Prezzo</h6>
-                      <p className="text-lg font-bold text-white">{course.info.price}</p>
+                      <p className="text-sm text-white">Disponibile su chiamata</p>
                     </div>
                   </div>
                 </div>
